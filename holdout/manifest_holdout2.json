@@ -1,0 +1,2350 @@
+{
+ "seed": 20261017,
+ "n_tasks": 117,
+ "counts": {
+  "constant": 6,
+  "decoy:const": 1,
+  "decoy:copy": 1,
+  "decoy:noise_f4": 6,
+  "decoy:noise_f8": 2,
+  "decoy:oov": 8,
+  "decoy:randint_u2": 3,
+  "duplicate": 6,
+  "main": 84
+ },
+ "n_main_names": 21,
+ "tasks_jsonl_sha256": "96b86a4f432b37e6341b494e372770b4416faea6d4d30b1226a01dc233fdf59d",
+ "files_manifest_sha256": "f6ac572dbfa4de40dee6d29c2a4abde97dcd1f304b4518204717ca5799a724d4",
+ "label_check": {
+  "tasks_with_export": 0,
+  "name_found_in_export": 0,
+  "not_found": {}
+ },
+ "tasks": [
+  {
+   "task_id": "K001",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p3Ni1FeS_ACP_Npurged_C05.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2ec88fafffc65b25657ad38f9908c134d877ff4d4351aa36dc782f715ee24daa"
+  },
+  {
+   "task_id": "K002",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3c696a4e20718b9ea1cdb46d5cf31b11aaa22d7e9fbe9add8b1e27cc59ea76f3"
+  },
+  {
+   "task_id": "K003",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni3FeS_ACP_Npurged_C03.mpr",
+   "technique": "PEIS",
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9d262285dfa5a6d0931d2a2ba32a8498104e3f9e6ceef47b89ca03cbd1f661b0"
+  },
+  {
+   "task_id": "K004",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_CP_p1Ni3FeS_ACP_replica_Npurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": 8,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ecb35ea4de061ed84ef5f909a0d2d3e4b91269f9508bf9c6ac7073080864ee0c"
+  },
+  {
+   "task_id": "K005",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/19MG07_C01.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 290057399,
+    "kind": "noise_f8",
+    "scale": 0.00034991612198233133,
+    "loc": 0.0010806844964282073
+   },
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f5c85b3d611b21c474a61ed9cc347ef351150b2c91babeb6f10a573237615566"
+  },
+  {
+   "task_id": "K006",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_CP_p3Ni1FeS_ACP_Npurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": 3,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "560972098e06d5da48060df9d4adafe6f1844ccf50bcfa5c7773f2a047e8b2ab"
+  },
+  {
+   "task_id": "K007",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2859fdb52df17cdc1df5e107fa2ed77f7b8d646da8d668388ee30989d16a087a"
+  },
+  {
+   "task_id": "K008",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_CP_p3Ni1FeS_ACP_Npurged_02_CP_C05.mpr",
+   "technique": "CP",
+   "position": 4,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "78ee5a290c858522dcf5ea1516a32ebbc47ae16e21fb7723b10f917beb429a66"
+  },
+  {
+   "task_id": "K009",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/71MG14_C01.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ae1bec89311a3574ebdc5d5ff3b63f3762e63de21713a189079e9bbac6aca386"
+  },
+  {
+   "task_id": "K010",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni3FeS_ACP_Npurged_C03.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0556e47359e007ee705fd68900393a0f8d54adc818375d70c76c6a79b87ce16b"
+  },
+  {
+   "task_id": "K011",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS2nd_p1Ni3FeS_ACP_3rdNpurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 12,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4c42fa5da3619ba9d7c8eb34b7bbff24de2ee5651d8c4faf344217520d8a0544"
+  },
+  {
+   "task_id": "K012",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_CV_p1Ni3FeS_ACP_3rdNpurged_02_CV_C03.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a148b54c19370ff3144b74975b0e784a858bda302ed030420a29bce4f9f8395e"
+  },
+  {
+   "task_id": "K013",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/11MGO1_C01.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 160841624,
+    "kind": "noise_f4",
+    "scale": 39.23795211434205,
+    "loc": -81.28273055136394
+   },
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5f05cfed378246f90f8c6ff551988ca449c3f6e8dfedf55401f646dafd31f117"
+  },
+  {
+   "task_id": "K014",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/12MG02_C02.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "56cef46eaacaff1cf4ce240858ebc15651ed8a6459509c27540dc369990ef70b"
+  },
+  {
+   "task_id": "K015",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/19MG07_C01.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 8,
+    "source_name": "half cycle"
+   },
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "34f6d8f8f34b228bbec716f5edc897401025b6978e57abc1d851482f9c4457b7"
+  },
+  {
+   "task_id": "K016",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "885d79c0b0580150ad7f3dabf7e89d861612a9b100d109d598be5de59d8b97e3"
+  },
+  {
+   "task_id": "K017",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni1FeS_ACP_Npurged_C04.mpr",
+   "technique": "PEIS",
+   "position": 5,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5ec2a3371c5d0b36b3572a93a9187b61a0c2ac1651e0728bdc9866485a158c6a"
+  },
+  {
+   "task_id": "K018",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1bd32f91aa66d97ed078ba98714a7fc3e75d5d964fbb0e58c1444c7729bdec64"
+  },
+  {
+   "task_id": "K019",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 11,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a98d35ea14718107c8361fa62773460cab1788c6c629c2cd90917cf07534821a"
+  },
+  {
+   "task_id": "K020",
+   "bucket": "constant",
+   "file": "holdout2/zenodo_19222974/HERacid_CP_p1Ni1FeS_ACP_Npurged_02_CP_C04.mpr",
+   "technique": "CP",
+   "position": 2,
+   "truth": {
+    "name": "control_I",
+    "canonical": "control",
+    "unit": "mA",
+    "raw_id": 20,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0792c3543f65893803fd23e4d5da390d7c3eb62a8708fe32d7ca661ee0d9420b"
+  },
+  {
+   "task_id": "K021",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 11,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 11,
+    "source_name": "I Range"
+   },
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1d35362495eb9c1eb9e04d5233090adc56f9f0eedcc72779284dfe14d2bddd6d"
+  },
+  {
+   "task_id": "K022",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9861fc4c938674dfce616282efeca97fce3dadfa81e02ff648e2e5ebd71b9dd4"
+  },
+  {
+   "task_id": "K023",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni3FeS_ACP_Npurged_C03.mpr",
+   "technique": "PEIS",
+   "position": 5,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "449801e0f1d1c3c001eddb60736ed2f235b861c2c5d314d2f66ffb8fa232eefc"
+  },
+  {
+   "task_id": "K024",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni1FeS_ACP_Npurged_C04.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3ec44b47a0df7ce34e834b43cc62f61e5a7e604870ec9c6f4485078aa571a53c"
+  },
+  {
+   "task_id": "K025",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_replica_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 9,
+    "source_name": "Cp"
+   },
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "df1fa0dd62468a438eaebad3bf99726c4e5ed39c99880963b622563b83b0ff0c"
+  },
+  {
+   "task_id": "K026",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_CV_p1Ni1FeS_ACP_Npurged_activated_02_CV_C04.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": {
+    "name": "Rcmp",
+    "canonical": "Rcmp",
+    "unit": "Ω",
+    "raw_id": 168,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "43000c54dc04900c28c9e9b81a281a57fc61242c9a34ffcab0879c74af7f9007"
+  },
+  {
+   "task_id": "K027",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_CP_p3Ni1FeS_ACP_Npurged_activated_02_CP_C04.mpr",
+   "technique": "CP",
+   "position": 4,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4ae629231b06b0dbdf2cd1e564e5491cf587a9769d5c4664ba34779a720ef489"
+  },
+  {
+   "task_id": "K028",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/11MGO1_C01.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d78c94439e960eb81a03573617647a7e5c3f0e9237c17631cb94d0e8e7916d16"
+  },
+  {
+   "task_id": "K029",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_CV_p1Ni3FeS_ACP_replica_Npurged_activated_02_CV_C07.mpr",
+   "technique": "CV",
+   "position": 5,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "024ce93f14fec6c31066ae325cef28559a6bfcda4cdcb83fb989ac48815b044c"
+  },
+  {
+   "task_id": "K030",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_CV_p3Ni1FeS_ACP_Npurged_activated_02_CV_C04.mpr",
+   "technique": "CV",
+   "position": 2,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "be0b10edc33c73e49c281132a164ffb13c60c7708cc0977a8c8262033387ce50"
+  },
+  {
+   "task_id": "K031",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/11MG09_C03.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 816506864,
+    "kind": "randint_u2",
+    "high": 4096
+   },
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2f40edab5533575e83cfc46e531d3cae7c1616f1f08e8fe171b80b7b3d42ca31"
+  },
+  {
+   "task_id": "K032",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "57b2a1cddcff2c34013e6abd83d635646f6457a7c757a247238999ba42af68a8"
+  },
+  {
+   "task_id": "K033",
+   "bucket": "constant",
+   "file": "holdout2/zenodo_15747202/19MG07_C01.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f774f7a4ab40451484b985de0ef708199d8e7eb9865d32ecc6d108d7c81051cc"
+  },
+  {
+   "task_id": "K034",
+   "bucket": "constant",
+   "file": "holdout2/zenodo_19222974/OERbase_CP_p1Ni3FeS_ACP_Npurged_activated_02_CP_C04.mpr",
+   "technique": "CP",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [
+    "c9"
+   ],
+   "dossier_sha256": "7a9494dcb31b33b662e8311770744058092d91f5bbabd7968e807a4be4002445"
+  },
+  {
+   "task_id": "K035",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_CV_p1Ni3FeS_ACP_3rdNpurged_activated_02_CV_C07.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ecc36e4b59d0f8367f217c30f0196b2b68d7392b67a814db1e5c182c378ddd3e"
+  },
+  {
+   "task_id": "K036",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c96ba1d810dfb9de84da9c785984632b0315f039ec70fbb90bbbf8f41002b513"
+  },
+  {
+   "task_id": "K037",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/12MG02_C02.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "dc5e2fd520102b037dbee7a17d8ae320b1ce8d5f9380162b1b028c09b6c8b8a0"
+  },
+  {
+   "task_id": "K038",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/71MG14_C01.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "af478e6d5a8fa0a7708944c239cb03337934315c67cd9e17fe978a25699ac3a7"
+  },
+  {
+   "task_id": "K039",
+   "bucket": "duplicate",
+   "file": "holdout2/zenodo_19222974/HERacid_CP_p3Ni1FeS_ACP_Npurged_02_CP_C05.mpr",
+   "technique": "CP",
+   "position": 6,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [
+    "c3"
+   ],
+   "dossier_sha256": "60f9033930b51330000343ff65adcdc38d47ab72650a7217b14bb88e8f8a25d9"
+  },
+  {
+   "task_id": "K040",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/45MG10_1_C01.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "259ed518a338c44e0ddf9d85546916538143d33d82403b55b79e227bd738a76b"
+  },
+  {
+   "task_id": "K041",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/45MG10_1_C01.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "81562c4b82839f83dc3cc8fb69a01e5322906bc9e4d78582034b5bf39def6863"
+  },
+  {
+   "task_id": "K042",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/71MG14_C01.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6e04b0eb57a120b66a620d68fe960327f928341490ef90575f744823b83b7422"
+  },
+  {
+   "task_id": "K043",
+   "bucket": "constant",
+   "file": "holdout2/zenodo_19222974/HERbase_CP_p3Ni1FeS_ACP_Npurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": 2,
+   "truth": {
+    "name": "control_I",
+    "canonical": "control",
+    "unit": "mA",
+    "raw_id": 20,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "freq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8c16dd12514bf2976f6066328d38620c9f008614860b95acd41688a012a50d7d"
+  },
+  {
+   "task_id": "K044",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/51MG12_C01.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 3,
+    "source_name": "(Q-Qo)"
+   },
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "22f24ef2a436ea2bfbdb6dc80d7f2e4eb22913e721d68629335c05af52b938df"
+  },
+  {
+   "task_id": "K045",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/19MG07_C01.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d6056a5158dc59ae7bc90bbd524fd5963e162236bd3a1419beae7c24a9898afc"
+  },
+  {
+   "task_id": "K046",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni3FeS_ACP_Npurged_C03.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "206171f15d8bd91f6e22579581f9bbdd3995a0fa6c23566b227fafec4126e6ea"
+  },
+  {
+   "task_id": "K047",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 7,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 76,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ac9b802b0af7b42c76408cc81d8726f390c7c03ccc5df1a7c4a82350734eac33"
+  },
+  {
+   "task_id": "K048",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni1FeS_ACP_Npurged_C04.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "165b978b0d668d0874cdc5bc0a40e193141631a15646b4889193fd335f613a5a"
+  },
+  {
+   "task_id": "K049",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_CV_p1Ni1FeS_ACP_3rdNpurged_02_CV_C04.mpr",
+   "technique": "CV",
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e207d0de5dedbd821c9cd4d852b3546bca95be19dac9d710ef27eee5ceb9c143"
+  },
+  {
+   "task_id": "K050",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 6,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 6,
+    "source_name": "<Ewe>"
+   },
+   "vocab_exclude": [
+    "Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0869be5dc46e8f91c1599f129a05c3c5622a606135f7221ceebf9e0fe906c9c6"
+  },
+  {
+   "task_id": "K051",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "97aa0db35f372dd1e63ca517b9a3972b2dc87b1d1e67b7e67f772da3dcf13a7e"
+  },
+  {
+   "task_id": "K052",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d42e1cc01709dc4a9f90585dd2868ea0efc0ce1d250a416145346a3879c6501e"
+  },
+  {
+   "task_id": "K053",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_replica_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 15,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2b94a098fb1c12af6fdc9295d22e10bd87dab4753ee432fb760d371999d79632"
+  },
+  {
+   "task_id": "K054",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni3FeS_ACP_Npurged_C03.mpr",
+   "technique": "PEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "40cc84a48da35473fb22cc88ce458ae6c83b0b8d5468595cadcdbfc23acf6af0"
+  },
+  {
+   "task_id": "K055",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_replica_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0c39c417013442c80daa75c5645078d3aa6bb0c921b5a96fe08a38cbd1dab0cd"
+  },
+  {
+   "task_id": "K056",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/11MGO1-restart_C01.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fdaf1ca06c0c995fb1b1fb0857c1a5b636c8ab1e2ea07aea4988208d3cf37319"
+  },
+  {
+   "task_id": "K057",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 2,
+    "source_name": "-Im(Z)"
+   },
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fd5c05a3dba1cb2a5c3197bb578d62346bab392203993c763fcc74832eb9843b"
+  },
+  {
+   "task_id": "K058",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_replica_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 7,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 7,
+    "source_name": "<I>"
+   },
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "60c30bb53e23372d528dfa96fc49b0153a31c363fc375e9c4d7e674c61d9b42f"
+  },
+  {
+   "task_id": "K059",
+   "bucket": "duplicate",
+   "file": "holdout2/zenodo_19222974/OERbase_CP_p1Ni1FeS_ACP_Npurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [
+    "c0"
+   ],
+   "dossier_sha256": "5fb0853e95c39b253c14ad47e93eaeeacfa5a12a809abc7d02e028c92e1a0814"
+  },
+  {
+   "task_id": "K060",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni1FeS_ACP_Npurged_C04.mpr",
+   "technique": "PEIS",
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1417b01c7ebb5c4a1e8fb89ea7309e22c69b338a98257183d559feca2a57afcb"
+  },
+  {
+   "task_id": "K061",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/HERacid_CV_p1Ni3FeS_ACP_3rdNpurged_02_CV_C03.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 926195706,
+    "kind": "noise_f8",
+    "scale": 0.000956696343446839,
+    "loc": 0.0025009704581121952
+   },
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a67f2218c26e1c2023c126ef6d373c458961407726d825152e5bb56dc3199c7b"
+  },
+  {
+   "task_id": "K062",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 11,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d19d183a045b73284644c02ad4bff0ea1deb1c617725b00db82ecf851bf5e791"
+  },
+  {
+   "task_id": "K063",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni1FeS_ACP_Npurged_C04.mpr",
+   "technique": "PEIS",
+   "position": 12,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f279047fb75055e0f65ae13062a84d0f6d14f76c40c10f5675200c0b27348283"
+  },
+  {
+   "task_id": "K064",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni3FeS_ACP_Npurged_C03.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a99728e5eb56f511b77d211a2119152bb679a064bc89bd952aac23b9a007f98c"
+  },
+  {
+   "task_id": "K065",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_CP_p3Ni1FeS_ACP_Npurged_activated_02_CP_C04.mpr",
+   "technique": "CP",
+   "position": 3,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a1d8c0ac27294fa24c2cfbc3f27013719c75f060ff12e95a39c882387921ce89"
+  },
+  {
+   "task_id": "K066",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni3FeS_ACP_Npurged_C03.mpr",
+   "technique": "PEIS",
+   "position": 11,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "016ffb46af1a34f755db7dbe0a444a1eac87e9d1cd623afb22def6b91c7ebfc8"
+  },
+  {
+   "task_id": "K067",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/51MG12_C01.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 795864130,
+    "kind": "noise_f4",
+    "scale": 0.48933187371203973,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "24d567ce1a884f782ec20d403837c8a63922057094dceab0799283daf715fe4d"
+  },
+  {
+   "task_id": "K068",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_CV_p3Ni1FeS_ACP_Npurged_activated_02_CV_C04.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ea82dd05d09b4e06e37c103eb6cd105f19a76b4a827a6e95e3656a085d13c8c1"
+  },
+  {
+   "task_id": "K069",
+   "bucket": "constant",
+   "file": "holdout2/zenodo_19222974/HERbase_CP_p3Ni1FeS_ACP_Npurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": 7,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [
+    "c4"
+   ],
+   "dossier_sha256": "d90a0cae800c57fb0d51ae225abd82556e0c5be25e0dd49c93d317d8718cd900"
+  },
+  {
+   "task_id": "K070",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "357bd74e2f2f90f8abd3fc543ebe33c19aeb9412ace5d18d643b992145007ae1"
+  },
+  {
+   "task_id": "K071",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/11MGO1-restart_C01.mpr",
+   "technique": "GCPL",
+   "position": 5,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "88ae678e73b891fb8560e0cd9e1d4667b978d7dc963a18a8e3df17bef91f1e5f"
+  },
+  {
+   "task_id": "K072",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a1df235c1a70b64f244dacec264d8f0aecdcee355d9d8a450f5e83567be01a60"
+  },
+  {
+   "task_id": "K073",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/52MG13_C01.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 744878380,
+    "kind": "const",
+    "value": 0.0
+   },
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2140f3b721d1d62d429590334d749bd1ec7e607f5b2a3fa96694b33600ceb72e"
+  },
+  {
+   "task_id": "K074",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_CV_p1Ni3FeS_ACP_3rdNpurged_activated_02_CV_C07.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": {
+    "name": "Rcmp",
+    "canonical": "Rcmp",
+    "unit": "Ω",
+    "raw_id": 168,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "26303247f50a0dc756aa558a7a419d88e189f592e828831210d85883e4ecb95d"
+  },
+  {
+   "task_id": "K075",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_replica_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "71bffd83e05bbdf19eb990ff81f679441d8e361b1139b4584b2f81261027aba0"
+  },
+  {
+   "task_id": "K076",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/HERacid_CV_p1Ni3FeS_ACP_3rdNpurged_02_CV_C03.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 895462551,
+    "kind": "noise_f4",
+    "scale": 0.0001437967373203017,
+    "loc": 0.000618765403565504
+   },
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "dc170253cc187aa44cf8723f68e3085b17139cdb3a6409a27134cd759e2486df"
+  },
+  {
+   "task_id": "K077",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/11MG09_C03.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "407486d563a263c63ce9104f5d4f775c979d309d948b1e90c02972eb4dceffb1"
+  },
+  {
+   "task_id": "K078",
+   "bucket": "duplicate",
+   "file": "holdout2/zenodo_19222974/HERacid_CP_p1Ni3FeS_ACP_Npurged_02_CP_C03.mpr",
+   "technique": "CP",
+   "position": 6,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [
+    "c7"
+   ],
+   "dossier_sha256": "22a3f6d42d47514fd322fceb7c9c19dbe71f8628193c3b9a47223835ce1a8404"
+  },
+  {
+   "task_id": "K079",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "acdb66b9d97ed28311f6281332da37ef25b5b62284cf53aafb698c65b470dae3"
+  },
+  {
+   "task_id": "K080",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/110MG08_C02.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c1b812f64695a136f772bbb4772f2cfb5380d89195fd9eea92d5e8d652501e75"
+  },
+  {
+   "task_id": "K081",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/110MG08_C02.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "58cb14299239b655793eccce5c6e924149b6b09c421708e35a500a62673122c9"
+  },
+  {
+   "task_id": "K082",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_CV_p3Ni1FeS_ACP_Npurged_activated_02_CV_C04.mpr",
+   "technique": "CV",
+   "position": 5,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "880135b42596ad81c40daf56cf0695c2a423339b978bea2f69adbc49416997bb"
+  },
+  {
+   "task_id": "K083",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/15MG05_C01.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4f7bfcb493b0ae7f255eaff5758e55e747ed129aee1dfbb0a479d7630adafc7e"
+  },
+  {
+   "task_id": "K084",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p1Ni1FeS_ACP_Npurged_C04.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "adbcc9bde02334667a8144985f34d51aa3317704eb39cb3740400c57ac79b07e"
+  },
+  {
+   "task_id": "K085",
+   "bucket": "duplicate",
+   "file": "holdout2/zenodo_19222974/HERbase_CP_p1Ni1FeS_ACP_Npurged_activated_02_CP_C04.mpr",
+   "technique": "CP",
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [
+    "c8"
+   ],
+   "dossier_sha256": "f4e4ef29850c2fdfa66ea39a4493a08f72dd565133b701bbe7a0b9278a08f979"
+  },
+  {
+   "task_id": "K086",
+   "bucket": "duplicate",
+   "file": "holdout2/zenodo_19222974/OERbase_CP_p1Ni3FeS_ACP_replica_Npurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": 6,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [
+    "c8"
+   ],
+   "dossier_sha256": "3a8cbd3ad18dc020627ff4cc2304c162fcc53914396d1c5f6bb0d5b1597f3cca"
+  },
+  {
+   "task_id": "K087",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/52MG13_C01.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "65ee4e62e3bbd64398b000f94896c42fc6963e9d455a491fdcae8d42111be8b7"
+  },
+  {
+   "task_id": "K088",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/HERacid_CP_p1Ni3FeS_ACP_Npurged_02_CP_C03.mpr",
+   "technique": "CP",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 718438805,
+    "kind": "noise_f4",
+    "scale": 0.021503367342737813,
+    "loc": 0.013130133690869182
+   },
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ce82fac9b73a3adfe50572b8e88104d4f46eba58ef8c87d748d76025d3280365"
+  },
+  {
+   "task_id": "K089",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_CV_p1Ni3FeS_ACP_replica_Npurged_activated_02_CV_C07.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": {
+    "name": "Rcmp",
+    "canonical": "Rcmp",
+    "unit": "Ω",
+    "raw_id": 168,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6e12ac11a45700e02a6a6c9cd1208257c12332dfcc5e9d28ed0597bd3658ada1"
+  },
+  {
+   "task_id": "K090",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/111MG07-restart_C01.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 1,
+    "source_name": "time"
+   },
+   "vocab_exclude": [
+    "time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ee52c83f71bb9f8b5773a9fc3050513f43bd9399210e2adacddc0a01a0470eee"
+  },
+  {
+   "task_id": "K091",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERacid_EIS_p3Ni1FeS_ACP_Npurged_C05.mpr",
+   "technique": "PEIS",
+   "position": 12,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b410d5c2b77c75592438f299aac128aeb8253902da6266945d6752a93200b8fd"
+  },
+  {
+   "task_id": "K092",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/HERacid_CV_p1Ni3FeS_ACP_3rdNpurged_02_CV_C03.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 441101125,
+    "kind": "noise_f4",
+    "scale": 0.0006547311499577907,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4bd1a1236047bd3532363fc2590a9f708e47e9714cd80066823ffda7f6f3daf2"
+  },
+  {
+   "task_id": "K093",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_replica_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6a45f311e657f1daaa045a2a5b5a62df7bcab18f8a34cafd64aae5137945a903"
+  },
+  {
+   "task_id": "K094",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 12,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "76c479cd03bc3dfeced1c9ad36564d3ed236d01f7a868cdfdf310dd806b5b580"
+  },
+  {
+   "task_id": "K095",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/72MG15_C01.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6b062fe69a5b1ac8d015c404e070d06a2df82a2395701cc113a6dae29e16a375"
+  },
+  {
+   "task_id": "K096",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/110MG08_C02.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d555ea0194c26d029f404971f3b573bb64b20634e281d05bb478629c1a25d17d"
+  },
+  {
+   "task_id": "K097",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_CV_p3Ni1FeS_ACP_Npurged_activated_02_CV_C07.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": {
+    "name": "Rcmp",
+    "canonical": "Rcmp",
+    "unit": "Ω",
+    "raw_id": 168,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "bae140fcb790d6bae19bc3201b2d16c6a8b88cdda2d451921e4282a346f43fb8"
+  },
+  {
+   "task_id": "K098",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/OERbase_CP_p1Ni3FeS_ACP_replica_Npurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 965037052,
+    "kind": "randint_u2",
+    "high": 4096
+   },
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "169d3f2eb452650e980f788d7a3afce5aff3a8bc6de3c8cd849aebeb2b5ee834"
+  },
+  {
+   "task_id": "K099",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a10e0ecd62faf53e7c2fc99c1c4c346cd7a6e6ec5d3f7783899ae3dac6c4b00b"
+  },
+  {
+   "task_id": "K100",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/52MG13_C01.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ece994de802db66456d6884a8725264c0588761a2d411d1b50a5f92ef432c8fe"
+  },
+  {
+   "task_id": "K101",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 1064533299,
+    "kind": "copy",
+    "source_position": 0,
+    "source_name": "freq"
+   },
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [
+    "c9"
+   ],
+   "dossier_sha256": "400bfedb33dfec35b3c0406eaf9f1b370d788c98440f2e8195515de73ada97dc"
+  },
+  {
+   "task_id": "K102",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "577df9606b26e18ce68f42dc39f902df6ebef89d09cd72eb374418a07e91d2e0"
+  },
+  {
+   "task_id": "K103",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_15747202/11MGO1_C01.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 207986902,
+    "kind": "randint_u2",
+    "high": 65535
+   },
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "147a3dc4c28ed3f4946b6b0b0f951e6846c14bfa159f7646c434a2e72bee3832"
+  },
+  {
+   "task_id": "K104",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "faa9e7af078e27844d44141e6c870bb08c1b03110f2db510563d5326ed62b838"
+  },
+  {
+   "task_id": "K105",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/71MG14_C01.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4db011fba735196b1848e62090f139c4cf521a2033c4d388c968829c924de393"
+  },
+  {
+   "task_id": "K106",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_CV_p3Ni1FeS_ACP_Npurged_activated_02_CV_C07.mpr",
+   "technique": "CV",
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8379701e8460fc4ad033d04f25f72fd2648509f9a30d25b2a7dd272e92e48920"
+  },
+  {
+   "task_id": "K107",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6f339c5684738b704080adea6cc20ecd003dae23a290ee9b57b35f6056911a3f"
+  },
+  {
+   "task_id": "K108",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p3Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 10,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "67b9aa5acf94e1506665a9130e6c4e62b6ca6b7e677db8234d0491dbbec2336b"
+  },
+  {
+   "task_id": "K109",
+   "bucket": "duplicate",
+   "file": "holdout2/zenodo_19222974/HERbase_CP_p1Ni3FeS_ACP_3rdNpurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [
+    "c3"
+   ],
+   "dossier_sha256": "45f61bb52a7f02fd978db975b8943bcb3f41dbf3a925548aefadf4828e3ffba9"
+  },
+  {
+   "task_id": "K110",
+   "bucket": "constant",
+   "file": "holdout2/zenodo_15747202/71MG14_C01.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e698a2071b7e145514f25c36b875a41348a7ce77d1ccc1b69bf5fd1e7261be24"
+  },
+  {
+   "task_id": "K111",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C04.mpr",
+   "technique": "PEIS",
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d80651cda628e96ff181ee1cd9ed7bffe7e51c27ac0057960cf75384e743416e"
+  },
+  {
+   "task_id": "K112",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni1FeS_ACP_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "396c287be7741366cc9edca9221f8550b9b9592dc870d24a4c0c48b5514f5a95"
+  },
+  {
+   "task_id": "K113",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/11MGO1_C01.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "53063011289a1dcfa4ecfcb4aa5b2301105189d6b16011c1ba56d220dc995c33"
+  },
+  {
+   "task_id": "K114",
+   "bucket": "decoy",
+   "file": "holdout2/zenodo_19222974/HERbase_CP_p3Ni1FeS_ACP_Npurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 635726921,
+    "kind": "noise_f4",
+    "scale": 0.00012990641588442545,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e892126463ec6e8472c8b535d4ab745a5ae9c7e7293341bf0959a77bfd589243"
+  },
+  {
+   "task_id": "K115",
+   "bucket": "main",
+   "file": "holdout2/zenodo_15747202/71MG14_C01.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5ca4e905dc7cb39c12f5931f17f167d42192e850b79eaaaad7c68de7b725f39e"
+  },
+  {
+   "task_id": "K116",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/OERbase_EIS_p1Ni3FeS_ACP_replica_Npurged_activated_C07.mpr",
+   "technique": "PEIS",
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6f1d0dca928cc645e46190106107060c4423b3fc39a0e6c6b3c6501de331cfb4"
+  },
+  {
+   "task_id": "K117",
+   "bucket": "main",
+   "file": "holdout2/zenodo_19222974/HERbase_CP_p1Ni3FeS_ACP_3rdNpurged_activated_02_CP_C07.mpr",
+   "technique": "CP",
+   "position": 4,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fe8634d75140d6cf000f85a3aae27c1c5563b37f3a8627cad6c55faf2f6df371"
+  }
+ ]
+}

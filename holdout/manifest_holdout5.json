@@ -1,0 +1,1913 @@
+{
+ "seed": 20261020,
+ "n_tasks": 96,
+ "counts": {
+  "constant": 5,
+  "decoy:const": 1,
+  "decoy:copy": 1,
+  "decoy:noise_f4": 6,
+  "decoy:noise_f8": 2,
+  "decoy:oov": 8,
+  "decoy:randint_u2": 3,
+  "main": 70
+ },
+ "n_main_names": 25,
+ "tasks_jsonl_sha256": "f08072b12cd1525bfdcb5637809de52ced55cd31d05da0992f52002b8c67be71",
+ "files_manifest_sha256": "94c1e81439c9914b383817d014fff633c0481a26b0f163888826326d63dd64cc",
+ "label_check": {
+  "tasks_with_export": 0,
+  "name_found_in_export": 0,
+  "not_found": {}
+ },
+ "tasks": [
+  {
+   "task_id": "P001",
+   "bucket": "main",
+   "file": "holdout5/zenodo_3676445/Electrical Data_09062017 SnGe NWs Sample 24 0.2 C 1.5-0_C01.mpr",
+   "technique": "CP",
+   "position": 9,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7fa8d71dba8c22588887021f501b98e8c8cae05300e67dad84460b7ca33ee71b"
+  },
+  {
+   "task_id": "P002",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/carbon_carbon_AgCl_LiSO4_ferro_HIPO05_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3b74aaa9f6c013c837bef98b3f78f5897a891235900681a72e7f5184417f955d"
+  },
+  {
+   "task_id": "P003",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-246-f3-or_C01.mpr",
+   "technique": "CV",
+   "position": 5,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 5,
+    "source_name": "(Q-Qo)"
+   },
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "acb8f5b693a02e72a8adde123a877c2da0bae7e318d9dbe274d20b7ebd0a63a5"
+  },
+  {
+   "task_id": "P004",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-NaAlg-Sib-pressed-RC-new_C02.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3e3f0e46410457e0b2ad0ef6baccd2c94ce642afb18df063c6ec1001a2d2087a"
+  },
+  {
+   "task_id": "P005",
+   "bucket": "constant",
+   "file": "holdout5/zenodo_15211416/ferri-246-f3-or_C01.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f3de92bd0cce6d7257d131498dbbd303ab4437d9a9f80a7dd8510d7e1ebf26a8"
+  },
+  {
+   "task_id": "P006",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4599aee75441e1d4cceb4770cd436813a1609e5da90b3e56e0d47565e75b1e6c"
+  },
+  {
+   "task_id": "P007",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-cf3-or_2_C01.mpr",
+   "technique": "CV",
+   "position": 0,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 0,
+    "source_name": "time"
+   },
+   "vocab_exclude": [
+    "time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cf937dfce310f6e17a8bc4e1fd64b3fcda072c947fd1bc20c2631ba6630c5344"
+  },
+  {
+   "task_id": "P008",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/ferri-c8f17-Au_C01.mpr",
+   "technique": "CV",
+   "position": 0,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b8cf9ee47195a882f573a5884605d878af161f9908c45fcb2137aecc0d874a7d"
+  },
+  {
+   "task_id": "P009",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5b8d6672f78c38f89646221a22833e9a67b1e1af090cb32cd9cf73a2809b879a"
+  },
+  {
+   "task_id": "P010",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-NaAlg-Sib-pressed-RC-new_C02.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b143313055fce423e4255aa7aa42dfead4eb7e5250a648238dd8e65323d42e57"
+  },
+  {
+   "task_id": "P011",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/ferri-cf3-or_2_C01.mpr",
+   "technique": "CV",
+   "position": 2,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ec738ae83de9f6477a732a801bcb6987ee6e268aaa14fd8d0acec185126cced2"
+  },
+  {
+   "task_id": "P012",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/ferri_blanc_Au_10mM-2_C01.mpr",
+   "technique": "CV",
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "54a6f50ac876974a7be677ab0706ea620f45aedb3139f68a01413534965b96b9"
+  },
+  {
+   "task_id": "P013",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4ed52322f7ea94e438e1c90ad783933c32d8a324bb2f842259ed8cd5da5fe696"
+  },
+  {
+   "task_id": "P014",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-246-f3-or_C01.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 403229249,
+    "kind": "noise_f4",
+    "scale": 0.0019105521356641189,
+    "loc": 0.0005381696228007624
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "404b0cdd6eeb7ff8981d476d85626a01b6857d82879535cf1f5ff096181aa241"
+  },
+  {
+   "task_id": "P015",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/carbon_carbon_AgCl_LiSO4_ferro_HIPO02_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": 5,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "929559f4612a19a2fea3199fd8102c97d76c694a805add27c7940c102e204159"
+  },
+  {
+   "task_id": "P016",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/qcm_or_CF3.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": {
+    "name": "Analog IN 2",
+    "canonical": "Analog IN 2",
+    "unit": "V",
+    "raw_id": 17,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1a78d66f113ddafa1ad9dbde7e7d2af9362698207d9e7ef959fc247be3eee0f4"
+  },
+  {
+   "task_id": "P017",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2ebfad9a78d7e7df6b66363c005cb55ed580a4a4d8586d25c04d76bda69fa2cc"
+  },
+  {
+   "task_id": "P018",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15263065/ocv 6h 0 15V i 0 -15V 1mVs 5 mVs YP80_01_OCV.mpr",
+   "technique": "OCV",
+   "position": 3,
+   "truth": {
+    "name": "Analog IN 2",
+    "canonical": "Analog IN 2",
+    "unit": "V",
+    "raw_id": 17,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5a5fa0bc7700b4d65b4d09ff5cae82102fd3dbfaf7588c2f614a40a9ea6cd67b"
+  },
+  {
+   "task_id": "P019",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/qcm_or_2CF3_2.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "Analog IN 1",
+    "canonical": "Analog IN 1",
+    "unit": "V",
+    "raw_id": 16,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b06532837a402c63a92420b0493060de2949b64476a6df30a5fc47eedf39b268"
+  },
+  {
+   "task_id": "P020",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/carbon_carbon_AgCl_LiSO4_ferro_BLANC_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 218643249,
+    "kind": "const",
+    "value": 0.0
+   },
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ec13d04d656302fe1e52c6f29f4dcec38b57eacdfd328b317daffbae93d6a62b"
+  },
+  {
+   "task_id": "P021",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "18994cc5f59aaf27cd2e171d596a3105f7e3c6fdc5be902ce33a54eacaec5caa"
+  },
+  {
+   "task_id": "P022",
+   "bucket": "main",
+   "file": "holdout5/zenodo_3676445/Electrical Data_09062017 SnGe NWs Sample 24 0.2 C 1.5-0_C01.mpr",
+   "technique": "CP",
+   "position": 4,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "freq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a52dc087d06703dde04931e8a7b54d7b14872a4b5e6d8bda9eb5d2fc42f567de"
+  },
+  {
+   "task_id": "P023",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15263065/ocv 24h cv 01mVs gcpl c20 @2.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": {
+    "name": "<Ece>",
+    "canonical": "Ece",
+    "unit": "V",
+    "raw_id": 441,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "954abeb8d660172a9d460685c35181f7800161901be562669e6af49fd3cb636f"
+  },
+  {
+   "task_id": "P024",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-cf3-or_2_C01.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 6,
+    "source_name": "I Range"
+   },
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8c33239f132d98f057c946ae2495027b2b65797365d5419a761fd8bb7e85b87a"
+  },
+  {
+   "task_id": "P025",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15747326/HTKS6L_EMSPF6_C01.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "755853effc06929d383fff255528bf0cd89ba395dc60683b58e93bb6355ad679"
+  },
+  {
+   "task_id": "P026",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3c97f0be01673e405e1f9bf72e043bd5992334f11791f944eca7e09016610405"
+  },
+  {
+   "task_id": "P027",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-f5-or_C01.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 918867794,
+    "kind": "noise_f4",
+    "scale": 0.016179566552258197,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "14a4270e692c26b8ecc02073fc3b87d512d1f41f541967db716e729ff2d3aef2"
+  },
+  {
+   "task_id": "P028",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/ferri-246-f3-or_C01.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": {
+    "name": "Analog IN 1",
+    "canonical": "Analog IN 1",
+    "unit": "V",
+    "raw_id": 16,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b793afed864454b40cd82b2a220a16e90d5e316c94357e3165f8440b084886c7"
+  },
+  {
+   "task_id": "P029",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalg-Na-CV normal scan rate_D11_C04.mpr",
+   "technique": "CVA",
+   "position": 8,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e678c625a98353ed0fe4b295826e4d90bb2c525b1e5e49c71d88261ee827d0b2"
+  },
+  {
+   "task_id": "P030",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15263065/ocv 6h 0 15V i 0 -15V 1mVs 5 mVs YP80_01_OCV.mpr",
+   "technique": "OCV",
+   "position": 1,
+   "truth": {
+    "name": "<Ewe>",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 174,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "38403f20bd3dd11e0e171c650f910ef0c1c2c29db2349b5880572551640b190f"
+  },
+  {
+   "task_id": "P031",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/f4_C01.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c96cdd46d90614bceef267c48decf317484a07c4782dfadf27085f2fc154c19f"
+  },
+  {
+   "task_id": "P032",
+   "bucket": "constant",
+   "file": "holdout5/zenodo_15211416/ferri-345-f3-or_C01.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a2c76a28d1d4650354ac23ee870641c0a652553e16ae05727b4d7ed6d6ee7013"
+  },
+  {
+   "task_id": "P033",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalg-Na-CV normal scan rate_D11_C04.mpr",
+   "technique": "CVA",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 70387713,
+    "kind": "noise_f4",
+    "scale": 0.00010360662602760013,
+    "loc": -0.00017833607180293097
+   },
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a24118f0004fca2bb6e893ecdb27519daa5c14d5253cd74c0c33a689ef01bc37"
+  },
+  {
+   "task_id": "P034",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/qcm_or_2CF3_2.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "802ba68a9e78e9d3007877738a8db80fb3269a98985eec1fd390129e608a4d86"
+  },
+  {
+   "task_id": "P035",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/carbon_carbon_AgCl_LiSO4_ferro_HIPO04_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": 5,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f75cea345dcd545d4ce5a39e34cd3f33fe91d87d554e3172ba3e4e82949ca750"
+  },
+  {
+   "task_id": "P036",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7fc5bd9f0cb36f0c71bbf67903c3cbccd72b7718f48e30deafaa3facc2a414ae"
+  },
+  {
+   "task_id": "P037",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/ferri-246-f3-or_C01.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8617e216779b92fb56b529d683c2580fe5f6becbaaa883081b95f6090b1fe9ed"
+  },
+  {
+   "task_id": "P038",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 219910350,
+    "kind": "randint_u2",
+    "high": 256
+   },
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1bcf08d09c1fe52d2b4122673dc08ee920eda25a5ec970bae00a90ef3b05883b"
+  },
+  {
+   "task_id": "P039",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/qcm_or_2CF3_2.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 897211199,
+    "kind": "copy",
+    "source_position": 0,
+    "source_name": "time"
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [
+    "c4"
+   ],
+   "dossier_sha256": "0b7af6877fad209391f3dc5fefc2a208b3a7fa733d58f984c4f1595b0978b0df"
+  },
+  {
+   "task_id": "P040",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "16da1b51410dce0e4762184defb130c32c601a9c6e482f5b16a67b88981c22f8"
+  },
+  {
+   "task_id": "P041",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15747326/HTKS6L_EMSPF6_C01.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e5626b8a87af1bc2efbadeb7ca45acbef13f6212e6c53dad4cc4047e9a232595"
+  },
+  {
+   "task_id": "P042",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/ferri-2cf3-or_C01.mpr",
+   "technique": "CV",
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f08a8d2fa2c48499be3f95cb04b9d671c3744337117e3a2c0cc254706e3bb805"
+  },
+  {
+   "task_id": "P043",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-NaAlg-Sib-pressed-RC-new_C02.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a3c4af5ce0eba610d43c6817ef0f40925ae785756a967d253eecf8106b0b24f2"
+  },
+  {
+   "task_id": "P044",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15263065/ocv 24h cv 01mVs gcpl c20 @2.mpr",
+   "technique": "CV",
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1983ff081e7b075c62eca8d1d05bc341ec8a80c7308eeebd86c0792d70b51e37"
+  },
+  {
+   "task_id": "P045",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/qcm_or_CF3.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 6,
+    "source_name": "Analog IN 1"
+   },
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5bb05fbadf1960a5c2efb87d1224f3b9d21229bed5c6a0c6bc67830bd5009436"
+  },
+  {
+   "task_id": "P046",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/ferri_blanc_Au_10mM-2_C01.mpr",
+   "technique": "CV",
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e6b4743abba2bcf1b50b83d0f7a7779a00089e60198a41c77febec5640f0a6d9"
+  },
+  {
+   "task_id": "P047",
+   "bucket": "main",
+   "file": "holdout5/zenodo_3676445/Electrical Data_09062017 SnGe NWs Sample 24 0.2 C 1.5-0_C01.mpr",
+   "technique": "CP",
+   "position": 8,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "07b5c1abada09050fc28c09ed5adec153866932560a50938f0b6bf4dc7e8de42"
+  },
+  {
+   "task_id": "P048",
+   "bucket": "main",
+   "file": "holdout5/zenodo_3676445/Electrical Data_09062017 SnGe NWs Sample 24 0.2 C 1.5-0_C01.mpr",
+   "technique": "CP",
+   "position": 6,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7aa1b85def434ad576dc439d45863f45a84daa258803d3378053215cffbdddc3"
+  },
+  {
+   "task_id": "P049",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 5,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "aae96ac8d49168db8a84b6ffe4ba5209140229ccbd47be859a5983be704336f4"
+  },
+  {
+   "task_id": "P050",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/qcm_or_C8F17.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 691797886,
+    "kind": "randint_u2",
+    "high": 16
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3015411792ead63cd929440395056aafbcee47630c01b1b9e0e5ab137a2fb477"
+  },
+  {
+   "task_id": "P051",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-NaAlg-Sib-pressed-RC-new_C02.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b5661ed24f32beafb18779e1da187463115ca7130a99bbb55d9832f77de1d59a"
+  },
+  {
+   "task_id": "P052",
+   "bucket": "constant",
+   "file": "holdout5/zenodo_15211416/ferri-f4-or_C01.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b4cb21783027956c541f720efe91d1a5b68e5cb1efbc15cc5be74f5d9eda26e6"
+  },
+  {
+   "task_id": "P053",
+   "bucket": "main",
+   "file": "holdout5/zenodo_3676445/Electrical Data_09062017 SnGe NWs Sample 24 0.2 C 1.5-0_C01.mpr",
+   "technique": "CP",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3e6fb1e179fbe1a9d9fca0eca2a1f37213a6cdff3230775b228efc6e85451c8f"
+  },
+  {
+   "task_id": "P054",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalg-Na-CV normal scan rate_D11_C04.mpr",
+   "technique": "CVA",
+   "position": 7,
+   "truth": {
+    "name": "<Ece>",
+    "canonical": "Ece",
+    "unit": "V",
+    "raw_id": 441,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "421aec2cb449183fb12c225d0ae6bd00eccd97b22884af303d4f29ccc9fd2efb"
+  },
+  {
+   "task_id": "P055",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15747326/12_KS6L_2_EMSPF6_C02.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f9f3983dfede2cbd6d6bf88edd79ca367bfb876fc7d5013ca9a6cfbb4ed29283"
+  },
+  {
+   "task_id": "P056",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/carbon_carbon_AgCl_LiSO4_ferro_HIPO07_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "247f3f93c23745b72b7bba671b80385436f4c75f0528c8d3b247dd091c1d2bab"
+  },
+  {
+   "task_id": "P057",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15263065/ocv 6h 0 15V i 0 -15V 1mVs 5 mVs YP80_01_OCV.mpr",
+   "technique": "OCV",
+   "position": 2,
+   "truth": {
+    "name": "Analog IN 1",
+    "canonical": "Analog IN 1",
+    "unit": "V",
+    "raw_id": 16,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7619d308edc85705b342395b6366d8d58951e069d4365a2e5c0074d7520c1efc"
+  },
+  {
+   "task_id": "P058",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/qcm-or-345F3.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 7,
+    "source_name": "Analog IN 2"
+   },
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9ac346eb3c62facba6a3b238f37425eb8e16560604de9293a9ad4ca16ff83f9f"
+  },
+  {
+   "task_id": "P059",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-NaAlg-Sib-pressed-RC-new_C02.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Ece",
+    "canonical": "Ece",
+    "unit": "V",
+    "raw_id": 9,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0520f89ea6cac14a2cace87cdf149e2d63f427b1944c3eb1c8e92c683aa13a3b"
+  },
+  {
+   "task_id": "P060",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalg-Na-CV normal scan rate_D11_C04.mpr",
+   "technique": "CVA",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 668802039,
+    "kind": "noise_f4",
+    "scale": 0.014408131439846893,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "35175feee01a3b68b3ee930603d7587ceee2b227c1640be6318b901d9c03943c"
+  },
+  {
+   "task_id": "P061",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-f5-or_C01.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 483911190,
+    "kind": "noise_f4",
+    "scale": 0.002126165146786027,
+    "loc": 0.00738676438268534
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ca29f59fa8d1bd58d3fe989e0c4961046a41fdaf39f755af20a0bd5df89e56df"
+  },
+  {
+   "task_id": "P062",
+   "bucket": "constant",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 14,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "414d1e0797d075aefbcd7b3093460a783fe513e60c2e96eba9235400aecb21fb"
+  },
+  {
+   "task_id": "P063",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15747326/12_KS6L_2_EMSPF6_C02.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4bd3207e01c73ae5cb9e0bdd79fb6a4f592736242d5adf35ce81445048068189"
+  },
+  {
+   "task_id": "P064",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-f4-or_C01.mpr",
+   "technique": "CV",
+   "position": 2,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 2,
+    "source_name": "Ewe"
+   },
+   "vocab_exclude": [
+    "Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d14311bd3b01bcd3087f5b20c7f497494c5fa1076dffc5bf44c8bfc0f920c839"
+  },
+  {
+   "task_id": "P065",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "35c3f80afe8abdeab88f0069ace9603bc7ef6c02d67cddd90ea78aa58b816cc1"
+  },
+  {
+   "task_id": "P066",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15263065/ocv 24h cv 01mVs gcpl c20 @2.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "freq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "82155b7f9b5c330fcfc2b3370352512778e7fde128162924e4ec93bbe4feeb14"
+  },
+  {
+   "task_id": "P067",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-NaAlg-Sib-pressed-RC-new_C02.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "08e954c5a097d3ddace6b8e04f55e313128a012eeafc409e71a4a65bc7ba86f8"
+  },
+  {
+   "task_id": "P068",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5f6b2debd03cceefcf80cd4668559d94d1ddbdc071c1aaa630d4bd63ae9f1bf1"
+  },
+  {
+   "task_id": "P069",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/carbon_carbon_AgCl_LiSO4_ferro_HIPO07_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 311587742,
+    "kind": "randint_u2",
+    "high": 16
+   },
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "55c725f9e51c52e6d8ef504ccb418c16e9368adabe3949727595f8ed46686d83"
+  },
+  {
+   "task_id": "P070",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 12,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6db4bbf2cbb1e91f20ccc4517eac4819e29327fd172bb84c7790c64e92548aea"
+  },
+  {
+   "task_id": "P071",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/f4_C01.mpr",
+   "technique": "CV",
+   "position": 2,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cdebcbef25d049d516f4456d28fd9e81a59deba5c6eef5107cc4ed2dd472efce"
+  },
+  {
+   "task_id": "P072",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9c88ee6960ff9f48eda5e5670e2afbda43d447ffde3c12ea0c138061ab4cbfac"
+  },
+  {
+   "task_id": "P073",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 427339816,
+    "kind": "noise_f8",
+    "scale": 0.21574632010814654,
+    "loc": 0.5099448905422642
+   },
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e13038c16cbe70236c47db59bb80bbb0eab1d74b54b1dcf11c13f000c13572c5"
+  },
+  {
+   "task_id": "P074",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/qcm_or_2CF3_2.mpr",
+   "technique": "CV",
+   "position": 7,
+   "truth": {
+    "name": "Analog IN 2",
+    "canonical": "Analog IN 2",
+    "unit": "V",
+    "raw_id": 17,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4a9f805bc517ff28bfe89cf918d91ddf4924ee9c7fe60675f762338b44392da3"
+  },
+  {
+   "task_id": "P075",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9d45014e20b2162f58d781aa7625c48671555d79398524d4419759f321d48706"
+  },
+  {
+   "task_id": "P076",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a7310334188bdc6ef8701956dec5634dea09ffe14f0043448e3ca435c6b5b321"
+  },
+  {
+   "task_id": "P077",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/f4_C01.mpr",
+   "technique": "CV",
+   "position": 0,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c5f122e39124e246eed9a3a5b9c2a91c902d00203554033b060fe5d79e25bd7f"
+  },
+  {
+   "task_id": "P078",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "58e3e49d3af6a440be0d1ef0e32d136290a7855d268d366c36ec7c6a74efe86b"
+  },
+  {
+   "task_id": "P079",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/ferri-2cf3-or_C01.mpr",
+   "technique": "CV",
+   "position": 8,
+   "truth": {
+    "name": "Analog IN 2",
+    "canonical": "Analog IN 2",
+    "unit": "V",
+    "raw_id": 17,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "855a5c4f914f04dceb8e9b4224ce9c101694dcd91daf396794fc95d5e1b7e534"
+  },
+  {
+   "task_id": "P080",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/carbon_carbon_AgCl_LiSO4_ferro_HIPO03_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "820de278a99de65667d9c00a8d61ab8e84a9d2b8cd76e50e4e1fcee70c3c56e8"
+  },
+  {
+   "task_id": "P081",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-345-f3-or_C01.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 227774983,
+    "kind": "noise_f4",
+    "scale": 0.0005216741867265314,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d5d3a869c4731b86659f84d9a1d18c9ba70934b8c69ea7b0141455229deaf8c0"
+  },
+  {
+   "task_id": "P082",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15747326/12_KS6L_2_EMSPF6_C02.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c049964e7ccbd91166103e611a04528944e9435bc0737c42ba9cd011cbfe106e"
+  },
+  {
+   "task_id": "P083",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/qcm-or-246f3.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "Analog IN 1",
+    "canonical": "Analog IN 1",
+    "unit": "V",
+    "raw_id": 16,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9ab0184d5930d09df5af1d4128d9ca3abe6fdf58c1151bb1965645961489708d"
+  },
+  {
+   "task_id": "P084",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/qcm-or-345F3.mpr",
+   "technique": "CV",
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "70c7670a3560154b43c891ed85be9b85e452d45206b81de3aad17b4e1adb967d"
+  },
+  {
+   "task_id": "P085",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15263065/ocv 24h cv 01mVs gcpl c20 @2.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "04fb1cb258eb434338f4688c0db9f4f5e3fdcf0a11c74b0c92eb047a064d90e4"
+  },
+  {
+   "task_id": "P086",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15747326/HTKS6L_EMSPF6_C01.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "79c14484052da680b7e7c1a3d757c4fd6ecdfe6c284d04927fb102695262b4d5"
+  },
+  {
+   "task_id": "P087",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15211416/carbon_carbon_AgCl_LiSO4_ferro_BLANC_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": 5,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b6b40ec936ca4e3c4141300e18e299fcab60b9b6138f524b460b0c8f462458e5"
+  },
+  {
+   "task_id": "P088",
+   "bucket": "main",
+   "file": "holdout5/zenodo_10889611/NiFe-NO3-Naalgl-Na-GCPL-pressed_D11_C08.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Ece",
+    "canonical": "Ece",
+    "unit": "V",
+    "raw_id": 9,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ccf094013061121f6163d97058d3398b75d882bd10ed3416ebde085faa7ace27"
+  },
+  {
+   "task_id": "P089",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/qcm_or_F5.mpr",
+   "technique": "CV",
+   "position": 1,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 1,
+    "source_name": "control_V"
+   },
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "386927df5b4fdb820fb1701be65937209ae28bacd0c2f9780cc748ec017ca46a"
+  },
+  {
+   "task_id": "P090",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15211416/ferri-246-f3-or_C01.mpr",
+   "technique": "CV",
+   "position": 3,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 3,
+    "source_name": "<I>"
+   },
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "519765e56ed368e7d0810004086db768b9c003c0860709b8fa772632a02b09da"
+  },
+  {
+   "task_id": "P091",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15263065/ocv 6h 0 15V i 0 -15V 1mVs 5 mVs YP80_01_OCV.mpr",
+   "technique": "OCV",
+   "position": 0,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a9050b5ed736a46a652e2c7748a5a0d40d1b011543b25baf737226d66c924cec"
+  },
+  {
+   "task_id": "P092",
+   "bucket": "constant",
+   "file": "holdout5/zenodo_15211416/ferri-c8f17-Au_C01.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c9f421d0d417e88c471da5216e712a5f897e978be5c4066171c57f445fda4bb6"
+  },
+  {
+   "task_id": "P093",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15747326/HTKS6L_EMSPF6_C01.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0f5a2d375ec30d9b30251efc5130a729f6fa4a2f38a07cb5c7b61288b1b2a41f"
+  },
+  {
+   "task_id": "P094",
+   "bucket": "main",
+   "file": "holdout5/zenodo_15747326/12_KS6L_2_EMSPF6_C02.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8b4d31b408ca7091e08da04df60e89f807a0708bf0b998f69c1e4d8e13c3a23f"
+  },
+  {
+   "task_id": "P095",
+   "bucket": "main",
+   "file": "holdout5/zenodo_14809707/299-301-LPNO_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fd64af693dad155fc86a77a256b29fea9507cc398cd8d9cec60f9864bfc914dd"
+  },
+  {
+   "task_id": "P096",
+   "bucket": "decoy",
+   "file": "holdout5/zenodo_15747326/HTKS6L_EMSPF6_C01.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 441628861,
+    "kind": "noise_f8",
+    "scale": 0.007947478026222964,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "90a27e8cd9bd53f2875b82d2d642142c2d445b97de93d77f70557bdcd9b0fd15"
+  }
+ ]
+}

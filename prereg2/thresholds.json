@@ -1,0 +1,23 @@
+{
+  "status": "Decided by the project owner 2026-10-15 morning: aim for +15 points over the best baseline, fall back to at least +5. Locked with prereg2/LOCK.json + commit before the first test-split call.",
+  "primary_metric": "top-1 accuracy on test bucket 'main' (126 tasks, 43 canonical names; columns not settled by name elimination), macro-averaged over canonical names, 95% bootstrap CI over names; margin vs best baseline with a paired bootstrap CI (reported)",
+  "macro_top1_min": 0.6,
+  "margin_over_best_baseline_min": 0.05,
+  "margin_target_strong": 0.15,
+  "margin_note": "With the best baseline H_knn at 0.628: GO needs about 0.68, STRONG GO about 0.78. H_knn can only name columns it has seen labelled in other files; a genuinely new vendor column has no labels, so beating it with zero labels is the claim.",
+  "hallucination_rate_max": 0.1,
+  "hallucination_set": "24 scored decoys: 8 noise_f4, 2 noise_f8, 4 randint_u2, 10 oov (a real column whose name is removed from that task's vocabulary). A failed or missing decoy answer counts as a hallucination.",
+  "min_answered_fraction": 0.95,
+  "answered_note": "only rows with status ok count; a failed or missing main task is wrong",
+  "best_baseline": "max macro top-1 of H_prior, H_knn, H_elim, H_combo on the same main tasks (committed answers: prereg2/baselines_test.jsonl)",
+  "arms_eligible": [
+    "L0",
+    "U"
+  ],
+  "multiplicity_note": "GO if at least one eligible arm (L0, U) passes all criteria; the video and README claim must name the passing arm and report both.",
+  "rerun_rule": "Tasks are run once. Only infrastructure errors (status 'error': exceptions, timeouts, budget stop) may be retried, at most 2 attempts per task; model failures (status 'failed': invalid replies, repeated length cut-offs) are final and count as wrong.",
+  "go": "GO: Rosetta v2, build the product on the passing arm",
+  "go_strong": "STRONG GO: as GO, and the 15-point target is met",
+  "no_go": "Rosetta stops; the project owner chooses what to do next",
+  "dev_changes": "After the dev run (2026-10-15, $0.45): LT and LTA dropped from the test because Lightning with thinking on ran past 8k-16k tokens on 15 of 23 dev tasks (6 failed after 45k tokens; low_effort/medium_effort/reasoning_effort did not reliably bound it). Code now enforces the prompt's rule that TARGET is not a quantity already present among the known columns (one correction, like any invalid reply), because Ultra broke it on dev task D016. Dev scores (not decisive): U 8/20, L0 2/20, H_knn 16/20 on frequent names."
+}

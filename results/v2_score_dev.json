@@ -1,0 +1,381 @@
+{
+ "split": "dev",
+ "n_main": 20,
+ "n_names": 11,
+ "n_scored_decoys": 3,
+ "arms": {
+  "H_combo": {
+   "answered_main": 20,
+   "answered_scored_decoys": 3,
+   "macro_top1": 0.7727,
+   "macro_top1_ci95": [
+    0.5455,
+    0.9545
+   ],
+   "micro_top1": 0.8,
+   "top3_micro": 1.0,
+   "abstain_rate_main": 0.0,
+   "hallucination_rate": 1.0,
+   "hallucinations": "3/3",
+   "decoys_by_kind": {
+    "noise_f4": "1/1 named",
+    "oov": "1/1 named",
+    "randint_u2": "1/1 named"
+   },
+   "elim_bucket_correct": null,
+   "duplicate_bucket_ok": null,
+   "constant_bucket_abstained": null,
+   "drift_columns": {},
+   "cost_usd_total": null,
+   "cost_usd_per_task": null,
+   "latency_s_median": null,
+   "per_name": {
+    "(Q-Qo)": 1.0,
+    "Analog IN 1": 0.0,
+    "Ewe": 1.0,
+    "I": 1.0,
+    "I Range": 1.0,
+    "Ns": 0.5,
+    "Q charge or discharge": 1.0,
+    "control": 0.5,
+    "dq": 0.5,
+    "half cycle": 1.0,
+    "time": 1.0
+   }
+  },
+  "H_elim": {
+   "answered_main": 20,
+   "answered_scored_decoys": 3,
+   "macro_top1": 0.0,
+   "macro_top1_ci95": [
+    0.0,
+    0.0
+   ],
+   "micro_top1": 0.0,
+   "top3_micro": 0.0,
+   "abstain_rate_main": 1.0,
+   "hallucination_rate": 0.0,
+   "hallucinations": "0/3",
+   "decoys_by_kind": {
+    "noise_f4": "0/1 named",
+    "oov": "0/1 named",
+    "randint_u2": "0/1 named"
+   },
+   "elim_bucket_correct": null,
+   "duplicate_bucket_ok": null,
+   "constant_bucket_abstained": null,
+   "drift_columns": {},
+   "cost_usd_total": null,
+   "cost_usd_per_task": null,
+   "latency_s_median": null,
+   "per_name": {
+    "(Q-Qo)": 0.0,
+    "Analog IN 1": 0.0,
+    "Ewe": 0.0,
+    "I": 0.0,
+    "I Range": 0.0,
+    "Ns": 0.0,
+    "Q charge or discharge": 0.0,
+    "control": 0.0,
+    "dq": 0.0,
+    "half cycle": 0.0,
+    "time": 0.0
+   }
+  },
+  "H_knn": {
+   "answered_main": 20,
+   "answered_scored_decoys": 3,
+   "macro_top1": 0.7727,
+   "macro_top1_ci95": [
+    0.5455,
+    0.9545
+   ],
+   "micro_top1": 0.8,
+   "top3_micro": 1.0,
+   "abstain_rate_main": 0.0,
+   "hallucination_rate": 1.0,
+   "hallucinations": "3/3",
+   "decoys_by_kind": {
+    "noise_f4": "1/1 named",
+    "oov": "1/1 named",
+    "randint_u2": "1/1 named"
+   },
+   "elim_bucket_correct": null,
+   "duplicate_bucket_ok": null,
+   "constant_bucket_abstained": null,
+   "drift_columns": {},
+   "cost_usd_total": null,
+   "cost_usd_per_task": null,
+   "latency_s_median": null,
+   "per_name": {
+    "(Q-Qo)": 1.0,
+    "Analog IN 1": 0.0,
+    "Ewe": 1.0,
+    "I": 1.0,
+    "I Range": 1.0,
+    "Ns": 0.5,
+    "Q charge or discharge": 1.0,
+    "control": 0.5,
+    "dq": 0.5,
+    "half cycle": 1.0,
+    "time": 1.0
+   }
+  },
+  "H_prior": {
+   "answered_main": 20,
+   "answered_scored_decoys": 3,
+   "macro_top1": 0.8182,
+   "macro_top1_ci95": [
+    0.5909,
+    1.0
+   ],
+   "micro_top1": 0.85,
+   "top3_micro": 0.9,
+   "abstain_rate_main": 0.0,
+   "hallucination_rate": 1.0,
+   "hallucinations": "3/3",
+   "decoys_by_kind": {
+    "noise_f4": "1/1 named",
+    "oov": "1/1 named",
+    "randint_u2": "1/1 named"
+   },
+   "elim_bucket_correct": null,
+   "duplicate_bucket_ok": null,
+   "constant_bucket_abstained": null,
+   "drift_columns": {},
+   "cost_usd_total": null,
+   "cost_usd_per_task": null,
+   "latency_s_median": null,
+   "per_name": {
+    "(Q-Qo)": 1.0,
+    "Analog IN 1": 0.0,
+    "Ewe": 1.0,
+    "I": 1.0,
+    "I Range": 1.0,
+    "Ns": 0.5,
+    "Q charge or discharge": 1.0,
+    "control": 1.0,
+    "dq": 0.5,
+    "half cycle": 1.0,
+    "time": 1.0
+   }
+  },
+  "L0": {
+   "answered_main": 20,
+   "answered_scored_decoys": 3,
+   "macro_top1": 0.1212,
+   "macro_top1_ci95": [
+    0.0,
+    0.303
+   ],
+   "micro_top1": 0.1,
+   "top3_micro": 0.1,
+   "abstain_rate_main": 0.0,
+   "hallucination_rate": 1.0,
+   "hallucinations": "3/3",
+   "decoys_by_kind": {
+    "noise_f4": "1/1 named",
+    "oov": "1/1 named",
+    "randint_u2": "1/1 named"
+   },
+   "elim_bucket_correct": null,
+   "duplicate_bucket_ok": null,
+   "constant_bucket_abstained": null,
+   "drift_columns": {},
+   "cost_usd_total": 0.007,
+   "cost_usd_per_task": 0.000305,
+   "latency_s_median": 1.83,
+   "per_name": {
+    "(Q-Qo)": 0.0,
+    "Analog IN 1": 0.0,
+    "Ewe": 1.0,
+    "I": 0.0,
+    "I Range": 0.0,
+    "Ns": 0.0,
+    "Q charge or discharge": 0.0,
+    "control": 0.0,
+    "dq": 0.0,
+    "half cycle": 0.0,
+    "time": 0.333
+   }
+  },
+  "LT": {
+   "answered_main": 4,
+   "answered_scored_decoys": 1,
+   "macro_top1": 0.0303,
+   "macro_top1_ci95": [
+    0.0,
+    0.0909
+   ],
+   "micro_top1": 0.05,
+   "top3_micro": 0.05,
+   "abstain_rate_main": 0.0,
+   "hallucination_rate": 1.0,
+   "hallucinations": "3/3",
+   "decoys_by_kind": {
+    "noise_f4": "1/1 named",
+    "oov": "1/1 named",
+    "randint_u2": "1/1 named"
+   },
+   "elim_bucket_correct": null,
+   "duplicate_bucket_ok": null,
+   "constant_bucket_abstained": null,
+   "drift_columns": {},
+   "cost_usd_total": 0.0849,
+   "cost_usd_per_task": 0.007721,
+   "latency_s_median": 397.19,
+   "per_name": {
+    "(Q-Qo)": 0.0,
+    "Analog IN 1": 0.0,
+    "Ewe": 0.0,
+    "I": 0.0,
+    "I Range": 0.0,
+    "Ns": 0.0,
+    "Q charge or discharge": 0.0,
+    "control": 0.0,
+    "dq": 0.0,
+    "half cycle": 0.0,
+    "time": 0.333
+   }
+  },
+  "LTA": {
+   "answered_main": 7,
+   "answered_scored_decoys": 1,
+   "macro_top1": 0.0303,
+   "macro_top1_ci95": [
+    0.0,
+    0.0909
+   ],
+   "micro_top1": 0.05,
+   "top3_micro": 0.1,
+   "abstain_rate_main": 0.0,
+   "hallucination_rate": 0.6667,
+   "hallucinations": "2/3",
+   "decoys_by_kind": {
+    "noise_f4": "0/1 named",
+    "oov": "1/1 named",
+    "randint_u2": "1/1 named"
+   },
+   "elim_bucket_correct": null,
+   "duplicate_bucket_ok": null,
+   "constant_bucket_abstained": null,
+   "drift_columns": {},
+   "cost_usd_total": 0.0236,
+   "cost_usd_per_task": 0.002952,
+   "latency_s_median": 82.45,
+   "per_name": {
+    "(Q-Qo)": 0.0,
+    "Analog IN 1": 0.0,
+    "Ewe": 0.0,
+    "I": 0.0,
+    "I Range": 0.0,
+    "Ns": 0.0,
+    "Q charge or discharge": 0.0,
+    "control": 0.0,
+    "dq": 0.0,
+    "half cycle": 0.0,
+    "time": 0.333
+   }
+  },
+  "U": {
+   "answered_main": 20,
+   "answered_scored_decoys": 3,
+   "macro_top1": 0.4091,
+   "macro_top1_ci95": [
+    0.1818,
+    0.6364
+   ],
+   "micro_top1": 0.4,
+   "top3_micro": 0.55,
+   "abstain_rate_main": 0.1,
+   "hallucination_rate": 0.3333,
+   "hallucinations": "1/3",
+   "decoys_by_kind": {
+    "noise_f4": "0/1 named",
+    "oov": "1/1 named",
+    "randint_u2": "0/1 named"
+   },
+   "elim_bucket_correct": null,
+   "duplicate_bucket_ok": null,
+   "constant_bucket_abstained": null,
+   "drift_columns": {},
+   "cost_usd_total": 0.2726,
+   "cost_usd_per_task": 0.011851,
+   "latency_s_median": 15.77,
+   "per_name": {
+    "(Q-Qo)": 0.0,
+    "Analog IN 1": 0.0,
+    "Ewe": 1.0,
+    "I": 0.5,
+    "I Range": 1.0,
+    "Ns": 0.0,
+    "Q charge or discharge": 0.0,
+    "control": 0.0,
+    "dq": 0.5,
+    "half cycle": 0.5,
+    "time": 1.0
+   }
+  }
+ },
+ "decision": {
+  "best_baseline": "H_prior",
+  "best_baseline_macro_top1": 0.8182,
+  "per_arm": {
+   "L0": {
+    "complete": true,
+    "accuracy_ok": false,
+    "margin": -0.697,
+    "margin_ci95_paired": [
+     -0.9091,
+     -0.4697
+    ],
+    "margin_ok": false,
+    "hallucination_ok": false,
+    "passes": false,
+    "strong": false
+   },
+   "LT": {
+    "complete": false,
+    "accuracy_ok": false,
+    "margin": -0.7879,
+    "margin_ci95_paired": [
+     -0.9545,
+     -0.5909
+    ],
+    "margin_ok": false,
+    "hallucination_ok": false,
+    "passes": false,
+    "strong": false
+   },
+   "U": {
+    "complete": true,
+    "accuracy_ok": false,
+    "margin": -0.4091,
+    "margin_ci95_paired": [
+     -0.6818,
+     -0.1818
+    ],
+    "margin_ok": false,
+    "hallucination_ok": false,
+    "passes": false,
+    "strong": false
+   },
+   "LTA": {
+    "complete": false,
+    "accuracy_ok": false,
+    "margin": -0.7879,
+    "margin_ci95_paired": [
+     -0.9545,
+     -0.5909
+    ],
+    "margin_ok": false,
+    "hallucination_ok": false,
+    "passes": false,
+    "strong": false
+   }
+  },
+  "passing_arms": [],
+  "strong_arms": [],
+  "decision": "Rosetta stops; the project owner chooses what to do next"
+ }
+}

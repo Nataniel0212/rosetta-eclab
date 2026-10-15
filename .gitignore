@@ -1,0 +1,21 @@
+# Environments and caches
+.venv/
+.venv-*/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+
+# Secrets never belong in the repository
+.env
+.env.*
+
+# Measurement data is downloaded at run time (see DATA_SOURCES.md)
+data/
+
+# Local run logs with raw model output
+runs/
+runs2/
+runs3/
+*.log

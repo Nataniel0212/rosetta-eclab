@@ -1,0 +1,5 @@
+# Fixed line endings (LF) so that pre-registration hashes match on every platform
+* text=auto eol=lf
+*.mpr binary
+*.mpt binary
+*.npy binary

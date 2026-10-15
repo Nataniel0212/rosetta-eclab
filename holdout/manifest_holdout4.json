@@ -1,0 +1,2345 @@
+{
+ "seed": 20261019,
+ "n_tasks": 117,
+ "counts": {
+  "constant": 6,
+  "decoy:const": 1,
+  "decoy:copy": 1,
+  "decoy:noise_f4": 6,
+  "decoy:noise_f8": 2,
+  "decoy:oov": 8,
+  "decoy:randint_u2": 3,
+  "duplicate": 4,
+  "main": 86
+ },
+ "n_main_names": 22,
+ "tasks_jsonl_sha256": "10a67895d3e6bd09b37afe803897e667993fbf263b759ca8453f70a9a002fadf",
+ "files_manifest_sha256": "c00a961a1ef14cf53fdaf93019df1874587fecd09b7523caa6b0de1ee588c0ba",
+ "label_check": {
+  "tasks_with_export": 0,
+  "name_found_in_export": 0,
+  "not_found": {}
+ },
+ "tasks": [
+  {
+   "task_id": "N001",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 11,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "873571db7d68d9a499f8ada43bc2a374644de910da22ea3afc2f470c041d9395"
+  },
+  {
+   "task_id": "N002",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Cyc_200uA_25T_30RH_Cycle11to100_01_GEIS_CA8.mpr",
+   "technique": null,
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "664d95aeb9a20b8b323f6a708a4b89de3faafef33104458297c7587ba64e8d36"
+  },
+  {
+   "task_id": "N003",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_03_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 5,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "85887570b7e5f6496f66805af617c44c2fdcd6daa4fab63c75dfa3146874e070"
+  },
+  {
+   "task_id": "N004",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA4.mpr",
+   "technique": "GCPL",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "990999820dd2c3dc3e1aa56e29e1b72df898d8ec70fa638ce67ce60b3ef12fa4"
+  },
+  {
+   "task_id": "N005",
+   "bucket": "duplicate",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [
+    "c11"
+   ],
+   "dossier_sha256": "454f3849ee0f6e533793fd22994a996eb8f2137468d0d02546a6fee92a153360"
+  },
+  {
+   "task_id": "N006",
+   "bucket": "duplicate",
+   "file": "holdout4/zenodo_18925051/Cell001_Form_20uA_25T_30RH_Cycle1to10_02_GCPL_CA1.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [
+    "c6"
+   ],
+   "dossier_sha256": "53a25bb25936f1bf81d8474e97282ffa66c866e8ebba6a95ebd35cf727c35861"
+  },
+  {
+   "task_id": "N007",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "94ef97da89ffeb68fa19549af7ec1012bdb252cf4dc6f49ce6af05b0f7755c9b"
+  },
+  {
+   "task_id": "N008",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "516363b05df4bc5d719609ae1422aab131ca336a85913f1e4452249f8a0c8293"
+  },
+  {
+   "task_id": "N009",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell003_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA3.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "49d1b0430faef2b2c07190db19d8857297ec6892f8341b2f2202c4602387aff7"
+  },
+  {
+   "task_id": "N010",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_01_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ed8902b597d343cfbb2225abb21bd6e4d5f721753af77326cc5ee26c137df0e5"
+  },
+  {
+   "task_id": "N011",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_03_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8b4ff78c75d7bf28c48fa226d0aac7f1bcaa19f774e3e568b2e2a235078ff457"
+  },
+  {
+   "task_id": "N012",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA4.mpr",
+   "technique": "GCPL",
+   "position": 11,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "freq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "40b057f661d5fb124f5656511e9de90898bd2d950bc63484c2092542824a4aaa"
+  },
+  {
+   "task_id": "N013",
+   "bucket": "constant",
+   "file": "holdout4/zenodo_18925051/Cell004_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 10,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9ceb66fcdc81e2352a4e82024fab5fc3f30243166fb28ab86ea44f1bd7ea6736"
+  },
+  {
+   "task_id": "N014",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_03_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 12,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "48a36efa96a585e468d7e0a332de431d26055cdd9b4eaf3193b00d86bda3c735"
+  },
+  {
+   "task_id": "N015",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_03_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 6,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f92677f11b2d1f9d0e65b10c49e6d84513d4897845b3e6caf40a401e515d37c3"
+  },
+  {
+   "task_id": "N016",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Cyc_200uA_25T_30RH_Cycle11to100_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "918f726ecbf64e1486dfc80610693f5193715c3b057f700f1f7b472625523ae1"
+  },
+  {
+   "task_id": "N017",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_04_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c6916e3086618cc76aae3d366e03698b81a981f4f73cfbb311e0faf9874198a1"
+  },
+  {
+   "task_id": "N018",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_03_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 11,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "498e3483d88687c382c983a9a348e97ea1469a81c05fd6224eb86306055c3cae"
+  },
+  {
+   "task_id": "N019",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Form_100uA_25T_30RH_Cycle1to10_01_GEIS_CA5.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3ac0c23853945e16156acf87e1b43aae13f5a17f24c178ce80737fe9ac79d631"
+  },
+  {
+   "task_id": "N020",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_01_GEIS_CA8.mpr",
+   "technique": null,
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "44897a81798e5354c851ef504e6b284f231a8ccc9f8c9ba5f735cb0912b9a354"
+  },
+  {
+   "task_id": "N021",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c4c02dd2f1fddf526ea7a71b44e66ba79be3920a490cb62879d681d697e30ccb"
+  },
+  {
+   "task_id": "N022",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_03_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "def22c8c8347af5c5bac02fef35ce8773072d2c1f3514a95d305327f56a087a3"
+  },
+  {
+   "task_id": "N023",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Form_100uA_25T_30RH_Cycle1to10_01_GEIS_CA5.mpr",
+   "technique": null,
+   "position": 6,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2da93a3f7e47fcb175d029864e260cd6b07b14020d5499221fe92d52709c38b4"
+  },
+  {
+   "task_id": "N024",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Cyc_200uA_25T_30RH_Cycle11to100_01_GEIS_CA8.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7100e4cee28b28549e528c87c26b985bf4e703e3ca35d78eeaf9f2091b0affb3"
+  },
+  {
+   "task_id": "N025",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell003_Form_50uA_25T_30RH_Cycle1to10_04_GCPL_CA3.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 503371844,
+    "kind": "const",
+    "value": 8.267
+   },
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8647d87ab79c8e3b4fcbdc4c7f4501bbc0c90ea250e9e7db4458bca556774fc4"
+  },
+  {
+   "task_id": "N026",
+   "bucket": "constant",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_04_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [
+    "c2",
+    "c6"
+   ],
+   "dossier_sha256": "68979dbe2d01000a6fa35a3b8a3967498ad04055284c338ed418161bf8c31aec"
+  },
+  {
+   "task_id": "N027",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell003_Form_50uA_25T_30RH_Cycle1to10_04_GCPL_CA3.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6dfb2bd4d7ae8ddafe16862f487d30a2123b2d9db04c3062d38a8142044f56a9"
+  },
+  {
+   "task_id": "N028",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_01_GEIS_CA6.mpr",
+   "technique": null,
+   "position": 11,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 11,
+    "source_name": "|Ewe|"
+   },
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b4ae74f4e30d09e22fe31a9b1ab98918cf39da9cc3622847558ba177d760bc71"
+  },
+  {
+   "task_id": "N029",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_03_GEIS_CA6.mpr",
+   "technique": null,
+   "position": 12,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4898cb6cc9ff18927badb883b5cf644ab713a32eb8ad0233db72f33299ebd5bc"
+  },
+  {
+   "task_id": "N030",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 198944271,
+    "kind": "noise_f4",
+    "scale": 45.554479144688464,
+    "loc": 30.28202716636722
+   },
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9c19266fde81dfe738662015dc0cb529f6f6edddd5e1d9e735664dfebd03a61c"
+  },
+  {
+   "task_id": "N031",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell003_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA3.mpr",
+   "technique": null,
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cb9c434ddcbc967a0e59d4d1be0bcf0446b63431cd4705301ab07f7beee0e7c6"
+  },
+  {
+   "task_id": "N032",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Cyc_100uA_25T_30RH_Cycle11to100_01_GEIS_CA6.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "61b1f5b7e353d362ee7d9bb3cb61220ea4c7d69aff429cd99a25111f88cac362"
+  },
+  {
+   "task_id": "N033",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell003_Form_50uA_25T_30RH_Cycle1to10_04_GCPL_CA3.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "26208dd07f86c9780b1525a4ddc77b63569f7bfe1c02bf0831e9aefe33e57822"
+  },
+  {
+   "task_id": "N034",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b727e21257b7e4177ccb3971d7eb8c67860359376051e076a6803b95a2c61c57"
+  },
+  {
+   "task_id": "N035",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "17c46354acdaccdcf3c19c8ab9dff6217c435aec66cb2d41a9e490bce25dd6ff"
+  },
+  {
+   "task_id": "N036",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_04_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0178f23c39277fef0ffe89e211984f0914a7dbc8581cbd001b2f9710ea3d39b3"
+  },
+  {
+   "task_id": "N037",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA7.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9a49b247ddfb9c7963c8641603d8e2e832fe0e42ae0dd4415b2e64e843dff4cf"
+  },
+  {
+   "task_id": "N038",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell003_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA3.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 888091321,
+    "kind": "noise_f4",
+    "scale": 0.007688263429263615,
+    "loc": 0.015058252566581649
+   },
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3e58595458061f5b86fbb6310417c7a7bf8e8b9f9358c029782e52b2eb86eac7"
+  },
+  {
+   "task_id": "N039",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA7.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "add0836a2d892b971f6a1424a5769be0b7d321481aa4cc0a2b3019a98334334f"
+  },
+  {
+   "task_id": "N040",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "942299267b4d8eedab6ed7a1db8dea562e3693460485601c6a01f45f6dc41c0f"
+  },
+  {
+   "task_id": "N041",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_03_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0a085a06148f335338a886a6e456123ee10dd79b1bf6d75d117679b37c1234de"
+  },
+  {
+   "task_id": "N042",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA4.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ac180ffc8c36c26edb2230754671075b8f06872376b178ef1b623a2a2ea76441"
+  },
+  {
+   "task_id": "N043",
+   "bucket": "duplicate",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "freq"
+   ],
+   "identical_to": [
+    "c6"
+   ],
+   "dossier_sha256": "b03481a7be31e71f7b8e15100f86c5755c367d279a8721a26875770329b2fcac"
+  },
+  {
+   "task_id": "N044",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell003_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA3.mpr",
+   "technique": null,
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "18fb609f5e2f0264a7938e63251b30b3a04c25f42cfdccccbca7a3e73b5020c7"
+  },
+  {
+   "task_id": "N045",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "041f64ae0da249b77fff9d92435265359945e240c3c6de0a797f939af8f86d59"
+  },
+  {
+   "task_id": "N046",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_03_GEIS_CA6.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 899872661,
+    "kind": "randint_u2",
+    "high": 16
+   },
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7c261ba2e6f9c52b8e234cfd703c2b7a79cc1679b848a0ba08d3bdf71d25c1e7"
+  },
+  {
+   "task_id": "N047",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA4.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6e208ea345b7fc3173e58080350274927708f9be73355810cf9458bb0bc2b653"
+  },
+  {
+   "task_id": "N048",
+   "bucket": "constant",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 13,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d892261d68bb1b633e33abd8290f5d389be813f288eaae70a30e73fe58f090ad"
+  },
+  {
+   "task_id": "N049",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_04_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5eb9b1fdacd7016088129738cdd82d87997a8c4f640bca1d7286e8f104a8b058"
+  },
+  {
+   "task_id": "N050",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_04_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9574ec67771ea3dac936618e8e3e7fade85f1a58cc8ad8866cf77bffb371c665"
+  },
+  {
+   "task_id": "N051",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Cyc_100uA_25T_30RH_Cycle11to100_01_GEIS_CA5.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fda80439c7417489fc9ef42bf60795c74494111edf7a25228bbbb400c7f999e4"
+  },
+  {
+   "task_id": "N052",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 11,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7ee6b78ebd5b724dc530c8580f38009cb86d77f2a88e7c454657b87f8bcfa055"
+  },
+  {
+   "task_id": "N053",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Cyc_20uA_25T_30RH_Cycle11to100_01_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fbe1059836c9a1f108377683592a4b265e23944a29614a93e3d44464f14c16f9"
+  },
+  {
+   "task_id": "N054",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 2,
+    "source_name": "dq"
+   },
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "21509092d7b34c6127425749b0456a5c412310d8f148e31117056b9219987221"
+  },
+  {
+   "task_id": "N055",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Form_20uA_25T_30RH_Cycle1to10_02_GCPL_CA1.mpr",
+   "technique": "GCPL",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "269fa5374eb4b6bca711db8c46005169a2a1a8c6a90f93b2dee2c513d168b7a0"
+  },
+  {
+   "task_id": "N056",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_04_GCPL_CA7.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 17239415,
+    "kind": "randint_u2",
+    "high": 65535
+   },
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "06d3e40e14a82d6b5622322cd0eef4d97d76ca2832b427cfe21f174a2238626e"
+  },
+  {
+   "task_id": "N057",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_04_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "22181de64e23c8ceb70f8c9400734a9882ef6b1385427975d30bf99c7c2ab3dc"
+  },
+  {
+   "task_id": "N058",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Form_20uA_25T_30RH_Cycle1to10_02_GCPL_CA1.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "faa2abfebd1c45c5870c3b618218b36eb054418c742bb07c5fc9949f2921b8bf"
+  },
+  {
+   "task_id": "N059",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Form_100uA_25T_30RH_Cycle1to10_01_GEIS_CA5.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c2fc4c252d50d9b7df58c5bfc0a6ac4ae38ae3eabddaa40ad48cda3522bdfab9"
+  },
+  {
+   "task_id": "N060",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Form_100uA_25T_30RH_Cycle1to10_03_GEIS_CA5.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8836c92d91327a40d0733752f71705e96ab5f9c02accc23c5ff97473d7da7a6f"
+  },
+  {
+   "task_id": "N061",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA5.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3d57a3591ff6f118ae87f4cfeec79b2a3f1f6c29f9e21f3ce49bdbb8cb6fff13"
+  },
+  {
+   "task_id": "N062",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA7.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "38f71a0c321137e9d4912c57c4c230d1e6e5cd0f2c852e393661d9cbcf2e4698"
+  },
+  {
+   "task_id": "N063",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Cyc_100uA_25T_30RH_Cycle11to100_01_GEIS_CA5.mpr",
+   "technique": null,
+   "position": 6,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fd061a2b24f696f146bd5466daa4550af292c92f323d1969a43d21cad51e2b54"
+  },
+  {
+   "task_id": "N064",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 5,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d75b447eec5f7aa33136a91fd1a0402ee6fc70d5e689f28731181bd1cee1a25a"
+  },
+  {
+   "task_id": "N065",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_01_GEIS_CA4.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 721382536,
+    "kind": "noise_f4",
+    "scale": 259.9108583574293,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f088f657097a6fadac266169186fd349387a8bb2e08c6e29e1b8b9b1696a808d"
+  },
+  {
+   "task_id": "N066",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_04_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "178e2f647a0fcda6a96d886948f3ec913fd4a9cc092c15f0c6573db85d70037c"
+  },
+  {
+   "task_id": "N067",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_01_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 8,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 8,
+    "source_name": "Cs"
+   },
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f511f4504a77f029b7fcf9017421d7a73df38090a273e11f4c6692214c0afb7a"
+  },
+  {
+   "task_id": "N068",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Cyc_20uA_25T_30RH_Cycle11to100_01_GEIS_CA1.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5d3caa96b31a8169d0a072317d668aa4d2e6c4ea4c4e069a2b888a96aa2070e5"
+  },
+  {
+   "task_id": "N069",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Form_20uA_25T_30RH_Cycle1to10_02_GCPL_CA1.mpr",
+   "technique": "GCPL",
+   "position": 11,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a1764220a637b59e29f42c97c8e377ff5e42cfe0b0764bbe28d6c87f8e6a9563"
+  },
+  {
+   "task_id": "N070",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 11,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2db86cdd2c7fce9d4ba3c1f9e387a494ba0170e38f39a191a0df35b5a8c242d2"
+  },
+  {
+   "task_id": "N071",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Cyc_20uA_25T_30RH_Cycle11to100_01_GEIS_CA1.mpr",
+   "technique": null,
+   "position": 11,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "821e222da86d7d2f236a6ea98608bfeca889ebcf2b456d13a8a9a1f9933e3630"
+  },
+  {
+   "task_id": "N072",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_01_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e9943dc2e3fcb6996e0c8d85c3eed7f2a654931b772d27b483ed40b9a084b1fd"
+  },
+  {
+   "task_id": "N073",
+   "bucket": "constant",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_03_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 13,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e27a4f304f8fb0d4220029732698f90788da767f1fca53cf4e352bc92c244d10"
+  },
+  {
+   "task_id": "N074",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell003_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA3.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 427615398,
+    "kind": "copy",
+    "source_position": 6,
+    "source_name": "Ewe"
+   },
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [
+    "c7"
+   ],
+   "dossier_sha256": "2f2b2a4b5d139f0c25ef7919f8bb1f7f776e6fedfa92b140c3a2a1cb1ec65c32"
+  },
+  {
+   "task_id": "N075",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_03_GEIS_CA6.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 45449929,
+    "kind": "noise_f4",
+    "scale": 0.008030619662930207,
+    "loc": -0.038806300501963355
+   },
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9361e9c5333bc7d4259a431272e21ae90d33c861b99f7dbe1d07094fa07dfd68"
+  },
+  {
+   "task_id": "N076",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell002_Cyc_20uA_25T_30RH_Cycle11to100_01_GEIS_CA2.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 515550565,
+    "kind": "noise_f4",
+    "scale": 0.1378210648674092,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e6fc57c9c4bfbca27367cc9c3180cce664927b7faa35f71be269d5a668d1f027"
+  },
+  {
+   "task_id": "N077",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 1,
+    "source_name": "time"
+   },
+   "vocab_exclude": [
+    "time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "231ecd3b0e078c209d50390f18b0e5b75f14566526f6cf98d0cb4990182be2e1"
+  },
+  {
+   "task_id": "N078",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Form_20uA_25T_30RH_Cycle1to10_01_GEIS_CA1.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f4514c34581053fa6bb02ffe76366e550f2724b0675426ebbfa74d9d112914e8"
+  },
+  {
+   "task_id": "N079",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell003_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA3.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 4,
+    "source_name": "Phase(Z)"
+   },
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "028c66d1f72144e506e6f4f986f906ffee7963e81a9842762334cab17366b261"
+  },
+  {
+   "task_id": "N080",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Form_100uA_25T_30RH_Cycle1to10_03_GEIS_CA5.mpr",
+   "technique": null,
+   "position": 12,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "746f9581f80ff64601d70758038f60528aae4c4bac8a0dfdbfa891282ba4f7ca"
+  },
+  {
+   "task_id": "N081",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_04_GCPL_CA2.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6dd6d654704d956efba2696999e06013e7fb4fc3600f68278902538d0ba3f97c"
+  },
+  {
+   "task_id": "N082",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_03_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8b2bd89281c0b2fcc252d65692d509dd0eb9f972fea3aa8162e2d2e5f52a1de8"
+  },
+  {
+   "task_id": "N083",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_03_GEIS_CA7.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 447172509,
+    "kind": "randint_u2",
+    "high": 4096
+   },
+   "vocab_exclude": [
+    "half cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "90c0291d619ec58d4cc74900246e685fd40e10763ab74069e370dc0a84cef01b"
+  },
+  {
+   "task_id": "N084",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_03_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7132c5d7c07f5d426714963b6f59b49c7e6b596b7cb88034ac591b04999aa759"
+  },
+  {
+   "task_id": "N085",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_03_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 5,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "92a12df3bd3f862703cac6b09fa969f996cb33a0b8e4d5c055339116c8c31b23"
+  },
+  {
+   "task_id": "N086",
+   "bucket": "constant",
+   "file": "holdout4/zenodo_18925051/Cell007_Cyc_200uA_25T_30RH_Cycle11to100_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 13,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a548ab4d311167ac18f8d54b77fbb762147b4419ce6e1bcf69403c414a9742c0"
+  },
+  {
+   "task_id": "N087",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Form_20uA_25T_30RH_Cycle1to10_02_GCPL_CA1.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a24e86be886988742682b446b349190e429a9e29e9f77f948df61e72dfe01fd3"
+  },
+  {
+   "task_id": "N088",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell008_Form_200uA_25T_30RH_Cycle1to10_04_GCPL_CA8.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c82cbd271a7b480b07831fe9410d15c02270edf01288b553491452664bd2ebef"
+  },
+  {
+   "task_id": "N089",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell001_Cyc_20uA_25T_30RH_Cycle11to100_01_GEIS_CA1.mpr",
+   "technique": null,
+   "position": 9,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 9,
+    "source_name": "Cp"
+   },
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "45c7f718c93eba241ed72dbf469be4863f37e497239edbcd92b83d38082059e4"
+  },
+  {
+   "task_id": "N090",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "62c7f2ed8eb98dac3b8216cccc0e5edf8ca14f241d631a5f3d1f9da219e2b148"
+  },
+  {
+   "task_id": "N091",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_03_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1250da9db68e088cd63fdae016f01704f8b674f8c040c315cfb83c39fbe4fea7"
+  },
+  {
+   "task_id": "N092",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 50462710,
+    "kind": "noise_f8",
+    "scale": 0.0009654314067001761,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7f283dec8b1a3b9cec635bba67581a787e2295d4ca4a8f1475463dc342207174"
+  },
+  {
+   "task_id": "N093",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_04_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "024689e1f83146bfb8a250c8e00c44ffcc38feb281979b25a2426be4994cd33a"
+  },
+  {
+   "task_id": "N094",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Form_100uA_25T_30RH_Cycle1to10_01_GEIS_CA5.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "932e2df0f7874ec74c137fc37d8ffb8d68e20f9aaa48daa30ac464119a144cde"
+  },
+  {
+   "task_id": "N095",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell002_Cyc_20uA_25T_30RH_Cycle11to100_01_GEIS_CA2.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "89e43c372490edb33456b92d104d2114bd46081325d7c5f21d27d74bbba17229"
+  },
+  {
+   "task_id": "N096",
+   "bucket": "duplicate",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA4.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I|"
+   ],
+   "identical_to": [
+    "c7"
+   ],
+   "dossier_sha256": "336e292dffeade11cf44625a6712d6471faffdeb45ce78ae3962ebfa55b8083e"
+  },
+  {
+   "task_id": "N097",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_03_GEIS_CA6.mpr",
+   "technique": null,
+   "position": 5,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "99a7998f7cc31bc062019ba8672c6f672578534f5d0699626a211072211e1ffd"
+  },
+  {
+   "task_id": "N098",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_02_GCPL_CA7.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 943900470,
+    "kind": "noise_f4",
+    "scale": 515.5707422026073,
+    "loc": 189.36102395175902
+   },
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "20eac94d112495eda7225c336c3a79ef2f6c442ef9ed86b658eca49378c6db34"
+  },
+  {
+   "task_id": "N099",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell003_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA3.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a1ab7b2090bc79942008d111caa60c0d339cadddd4cad401d47906ceafc2b9b0"
+  },
+  {
+   "task_id": "N100",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell005_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA5.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1b839e56ce8e4e707f471bf4e887dec3119294a64b9dfcdd223533fea326f5ae"
+  },
+  {
+   "task_id": "N101",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell002_Form_20uA_25T_30RH_Cycle1to10_03_GEIS_CA2.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 427190230,
+    "kind": "noise_f8",
+    "scale": 3.073977015721052,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e3d4fe00dcd6000849c0ecd062501f26db8f336d9055f24fe9738e17b896f2ae"
+  },
+  {
+   "task_id": "N102",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_03_GEIS_CA6.mpr",
+   "technique": null,
+   "position": 6,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2fe69bd4976727ae4eb1b46af56bf5165dc019ace2f4393455723bcf1fe3672a"
+  },
+  {
+   "task_id": "N103",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Form_20uA_25T_30RH_Cycle1to10_02_GCPL_CA1.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e66849a46f0abd51d6aa7a9e6546401b18a77235269f417e154726761f6e92f7"
+  },
+  {
+   "task_id": "N104",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_03_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0ef4f01d5ca7f1fb042f8d051caf7b57295e8dabb84299228abde574c7889554"
+  },
+  {
+   "task_id": "N105",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell001_Cyc_20uA_25T_30RH_Cycle11to100_01_GEIS_CA1.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c551e255d90929854eeb1278b34f15dc60f23474608d647d74e4137c10a6be33"
+  },
+  {
+   "task_id": "N106",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell004_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 3,
+    "source_name": "|Z|"
+   },
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0afd81255a5271cf291f65b41ba36ceb0b8052eb7e9ca55b81c10bb66aaf4b1c"
+  },
+  {
+   "task_id": "N107",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA4.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "650dc46b5e93bc81261a00e9704d7aa18b986f07a55dfd7ecff6619d482b4d5a"
+  },
+  {
+   "task_id": "N108",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell003_Form_50uA_25T_30RH_Cycle1to10_01_GEIS_CA3.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8176a1585c6073136c5d9f54104d8e581d4cb82451ff2d7620e1a6be9f14091b"
+  },
+  {
+   "task_id": "N109",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_01_GEIS_CA6.mpr",
+   "technique": null,
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3383228196ac6fbeb02521dc8ab5f662c871223d36e051e0f08bf16d2dc05b91"
+  },
+  {
+   "task_id": "N110",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell004_Form_50uA_25T_30RH_Cycle1to10_02_GCPL_CA4.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1557c650be25866c021190cb40a3b55b4ca0849f90c2f1a208cfaf8859cf3e00"
+  },
+  {
+   "task_id": "N111",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_03_GEIS_CA6.mpr",
+   "technique": null,
+   "position": 11,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "163ef8b601dc0ae6610843b70f5aaa346f881b890c9e805f2845e6fec59249ad"
+  },
+  {
+   "task_id": "N112",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4969df45a91c90d67dc9164ee70fe7846772a24701142f6c95f1ad1d6b9d47ec"
+  },
+  {
+   "task_id": "N113",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Form_200uA_25T_30RH_Cycle1to10_04_GCPL_CA7.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d40a69717c4559e322e5b321218f638b10f28579e072262a03dcb8054dad5401"
+  },
+  {
+   "task_id": "N114",
+   "bucket": "constant",
+   "file": "holdout4/zenodo_18925051/Cell003_Cyc_50uA_25T_30RH_Cycle11to100_01_GEIS_CA3.mpr",
+   "technique": null,
+   "position": 10,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1a348b2688e18c7e5bb7133918b0b4df7de5edbe6fe0b1db9946c30de8d335b7"
+  },
+  {
+   "task_id": "N115",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell007_Cyc_200uA_25T_30RH_Cycle11to100_01_GEIS_CA7.mpr",
+   "technique": null,
+   "position": 12,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8d1dba91e7a2d76d5032f7f9c7ceeadbaebc76575c2ac135ba48782abe1dd8dd"
+  },
+  {
+   "task_id": "N116",
+   "bucket": "main",
+   "file": "holdout4/zenodo_18925051/Cell006_Form_100uA_25T_30RH_Cycle1to10_02_GCPL_CA6.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "665887e39b803c6b44b26316b5ef44cec725b17671628ae65a6395c10b46002d"
+  },
+  {
+   "task_id": "N117",
+   "bucket": "decoy",
+   "file": "holdout4/zenodo_18925051/Cell006_Cyc_100uA_25T_30RH_Cycle11to100_01_GEIS_CA6.mpr",
+   "technique": null,
+   "position": 6,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 6,
+    "source_name": "Ewe"
+   },
+   "vocab_exclude": [
+    "Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "34f73d4a5dc79a010f4dc05f43e1c2f869194f5ca5063ae8d20a2d66aed027e6"
+  }
+ ]
+}

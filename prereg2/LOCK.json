@@ -1,0 +1,36 @@
+{
+ "locked_at": "2026-10-14 23:24:10",
+ "locked_by": "project owner (decision) / Claude (operator)",
+ "response_mode": "json_schema",
+ "all_dossiers_sha256": "d451e187ea3218950d997b482c8de60d41319cfc4e1b563e48425e76f106f873",
+ "vocabulary_sha256": "9f165939c7918295eea24b6c5cc706ae7bac834e55b9bb6ec1fb14924d459527",
+ "tasks_jsonl_sha256": "8ea7032f75d0d5f79f2728babbcfecc4872f0afe52ad1d3c533859582f13e105",
+ "packages": {
+  "yadg": "7.0.1",
+  "galvani": "0.5.0",
+  "numpy": "2.5.4",
+  "openai": "3.29.0"
+ },
+ "files": {
+  "prereg2/README.md": "81091c69bb6abe10e55099c46a831e8ae52bca452e7e6352dd7a8530b242180c",
+  "prereg2/baselines_test.jsonl": "8fec84067a27db7bbb373093f0e615257c78ced2537b19c3aba9841efc427fd0",
+  "prereg2/prompt.md": "60c0097edf1f6cb757f54b75ecb9cac197f62e0fbf60310818954bfb225a3089",
+  "prereg2/tasks_manifest.json": "dbaaae39221472e4dcf1d6bc40c096003fd280e22116d9cc67fe6d6417189d24",
+  "prereg2/thresholds.json": "d8ed0419dec5ed0e27b038cf8696d6d5f160e42eadfd30423070a284711ceb16",
+  "spike2/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "spike2/agent.py": "16d8f225bcf29d289d8df3ac2a2b7d7c7fb35ac6c9f90d8bc025f54805463e41",
+  "spike2/api_check.py": "124c9517a509c0afbf1883d123a662d75dcc70c2a13066ed1c14e86c0c270ade",
+  "spike2/baselines.py": "3fa8295c615d6550103100c19608b4d65b935d477adff6ef9662357789f7460b",
+  "spike2/corpus.py": "887f962197fa9a78ced441ca0dcd9eb2eac94de200bbe27d2f5c15de6fe0509a",
+  "spike2/dsl.py": "8e5a200dc1cc144b80de8fb97b1f838455e2e7986e219d2138ebe2348799d8bc",
+  "spike2/elim.py": "8643e3cb4c4713010b8e9538529202ba110bd9f39ae5ce8144d9e5e6d3e58d72",
+  "spike2/features.py": "051ff9ccb1b1f39acc9164a8c918275e32b8a42ed590cd1fbe15a4c87cfc6ab6",
+  "spike2/lock.py": "b72837e785670a33f3c3acef96e5833aafbe3196b56144b65f8db3efa1d57bdb",
+  "spike2/run.py": "3ed26ccf1028d908997e276333a02d810839cc6e5b14f10f5220783efba9e1cb",
+  "spike2/score.py": "ca9a1e8945ce496fedf4565d410b4f6b5b78ce03160e78751445c425ed3655ad",
+  "spike2/tasks.py": "6d69ba41c12252ae4af05e250c6e22e0e2a1c341fb4722e1e818a463a36cfef4",
+  "spike2/vocab.py": "32d70da0ba3968b4beb945e2509a2287be03bf2e82a4e94a5f472a09c912b89f"
+ },
+ "combined_sha256": "cdcdd59cde8bd48b6bb06977071feffbe4a444334187ce2952844dc8936f3346",
+ "public_release_note": "Re-hashed for the public release on 2026-10-15 after redacting a person's name, a reference to an unrelated idea, and pointers to files not included in this repository (prereg2/README.md, prereg2/thresholds.json, comments in spike2/). Tasks, baselines, prompt, threshold values and code behaviour are unchanged. The original lock was made before the first test-split call."
+}

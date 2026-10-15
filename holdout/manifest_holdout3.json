@@ -1,0 +1,1746 @@
+{
+ "seed": 20261018,
+ "n_tasks": 87,
+ "counts": {
+  "constant": 6,
+  "decoy:const": 1,
+  "decoy:copy": 1,
+  "decoy:noise_f4": 6,
+  "decoy:noise_f8": 2,
+  "decoy:oov": 8,
+  "decoy:randint_u2": 3,
+  "duplicate": 6,
+  "main": 54
+ },
+ "n_main_names": 21,
+ "tasks_jsonl_sha256": "58402a7bd1334fa753eaedeb3b3522249a1fc62b36515b19c8ff3ffd291f2629",
+ "files_manifest_sha256": "3661e419d07635e62771bbb15dd645d572949dbe3e4743e6384e2bdab9f38265",
+ "label_check": {
+  "tasks_with_export": 0,
+  "name_found_in_export": 0,
+  "not_found": {}
+ },
+ "tasks": [
+  {
+   "task_id": "M001",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 3,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e93951ad6fe44f53e056e21807d7c11f3fdebc0c1c18037b431d5fb72ddb94c9"
+  },
+  {
+   "task_id": "M002",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 8,
+   "truth": {
+    "name": "|Energy|",
+    "canonical": "|Energy|",
+    "unit": "W·h",
+    "raw_id": 74,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "085a16df9737b5304ef016521413a22a61a78f1ea449000bb3a6e0852cc26e0e"
+  },
+  {
+   "task_id": "M003",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_2.mpr",
+   "technique": "MB",
+   "position": 8,
+   "truth": {
+    "name": "|Energy|",
+    "canonical": "|Energy|",
+    "unit": "W·h",
+    "raw_id": 74,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f6b41fee0ad837775b03f4531850dd87d325363a502918a81711b3ba4e95b71b"
+  },
+  {
+   "task_id": "M004",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig2a,b.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 299234372,
+    "kind": "noise_f4",
+    "scale": 332.4458249730309,
+    "loc": 880.9166996268838
+   },
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "44db5ec99b7fd544fff707c7c4ab4d0c335f71d61f05f4cd4eef40281eb2fdd5"
+  },
+  {
+   "task_id": "M005",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 4,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 4,
+    "source_name": "Ewe"
+   },
+   "vocab_exclude": [
+    "Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "84f4c1e2213dab0021edec59ddd083ff6312edf60777227ddf9cbac89ce50f13"
+  },
+  {
+   "task_id": "M006",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 2.1V.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "62cac348a845cf03448b8c0c32051c1c38126e013e1319c2e3b966590551b4ce"
+  },
+  {
+   "task_id": "M007",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_1.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5220d3307f43b9be692255de44d71d8ce92cc0c7c87f8525d583d02fd35d8bd7"
+  },
+  {
+   "task_id": "M008",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_1.mpr",
+   "technique": "MB",
+   "position": 9,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1bfd911793a2100d885f50bc65190d3cc6fbcad160491549a714f57c67d6c360"
+  },
+  {
+   "task_id": "M009",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1a_gcd cycle.mpr",
+   "technique": "GCPL",
+   "position": 5,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ae29f42872e2ecdc4700983b73f28bb9d6bed5103f415d1f7d843a043fc48621"
+  },
+  {
+   "task_id": "M010",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1c_gcd cycle_2.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7bfbdc65a6d7fa018fdc31fb7c5a0c8f91b99c31c1e8e2d4091e19506a31d24a"
+  },
+  {
+   "task_id": "M011",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_2.mpr",
+   "technique": "MB",
+   "position": 0,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 0,
+    "source_name": "Ns"
+   },
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c5e6bb6c8e5cda52054703689aef2e129fda99fab4903d2dcc73dbe8e026c3b8"
+  },
+  {
+   "task_id": "M012",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS1c_gcd cycle_1.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 7,
+    "source_name": "Q charge or discharge"
+   },
+   "vocab_exclude": [
+    "Q charge or discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "866d2566a4e72793aee096c844d1085319d3452fb5a6e1fdcd150bdbdd5fbb41"
+  },
+  {
+   "task_id": "M013",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_3.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f23a69f8707c4c1823f3a27a83614661e4d0d373d354acd27954662771cc948f"
+  },
+  {
+   "task_id": "M014",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2e,f.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "90f64757f2125c8e815968535350b0e3b1ed091b1eb1191b39673f527ad73997"
+  },
+  {
+   "task_id": "M015",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_1.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "de82f91efa13c2bcef3d37ff22507cfab9f7cb60394a3be876eff125321c2514"
+  },
+  {
+   "task_id": "M016",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "464f047db571d7a9ce95c90bf16450197c182067510b0144fe4e01696cba50de"
+  },
+  {
+   "task_id": "M017",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_3.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 767160344,
+    "kind": "noise_f4",
+    "scale": 0.0990593632278063,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "634b8160a31528bcdb2b292318e30c28a07b68738f74a499bdf1e9a28aa6a875"
+  },
+  {
+   "task_id": "M018",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS1c_gcd cycle_2.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 151864662,
+    "kind": "noise_f4",
+    "scale": 0.58379109126279,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f1f255437113eb235efae973f7c7cbf42ff44e50d4e5d8a67c1519150221c729"
+  },
+  {
+   "task_id": "M019",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_1.mpr",
+   "technique": "MB",
+   "position": 5,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8ffe0b217c9f265d30618c07b8d2afb012e2a6d3e54f8c3c9c87e652926f30d8"
+  },
+  {
+   "task_id": "M020",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 10,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "316bc143c9a5f44d4a0832321b913c855976273c9a26efa5b39e804aac78d400"
+  },
+  {
+   "task_id": "M021",
+   "bucket": "constant",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "892e309de151dd4b4c8025ddc8f42b504beb626dc2e70b842095b58f8e470922"
+  },
+  {
+   "task_id": "M022",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 9,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5833d7945abdacc44cd0c9c45dda7898612b5decf7602ad6c782424c61fb9347"
+  },
+  {
+   "task_id": "M023",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_1.mpr",
+   "technique": "MB",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 931702685,
+    "kind": "noise_f4",
+    "scale": 0.000181966473943196,
+    "loc": -0.00029757175197587344
+   },
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "05365ed3f27d391b4dc7220f4389cd82b58ff0af198080819da196924f4dbfd5"
+  },
+  {
+   "task_id": "M024",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_1.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 283464830,
+    "kind": "noise_f4",
+    "scale": 105.07580766200982,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2fe576623d29efb68f236962ae460dde09b88e17dccf6170b7f64b2994206f19"
+  },
+  {
+   "task_id": "M025",
+   "bucket": "duplicate",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 0.8V.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [
+    "c6"
+   ],
+   "dossier_sha256": "6d6732fbd2dcc8d55be71d7ccb037d016a9922feb77cb73f306bab816dbd2a76"
+  },
+  {
+   "task_id": "M026",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 0.1V.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 80886525,
+    "kind": "copy",
+    "source_position": 0,
+    "source_name": "Ns"
+   },
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [
+    "c4"
+   ],
+   "dossier_sha256": "af185af15776b18906ad1f9d7a794b4e8045b5eed44d60dafe16e7a8356444ba"
+  },
+  {
+   "task_id": "M027",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_1.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "97696b50fa49008adcde11d8aafb5cbbb39d9640cfca07590b74141c2740a4fb"
+  },
+  {
+   "task_id": "M028",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_1.mpr",
+   "technique": "MB",
+   "position": 7,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "z cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6bcf8e31aa27f93a3c1e1bc8215c7478289a8fcc0bf72922d0e755add6388652"
+  },
+  {
+   "task_id": "M029",
+   "bucket": "constant",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 2.1V.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "61f5d867982b757b07ff49cdf57c9cd9619b8df932ca34efa8e1cc57fe4d6918"
+  },
+  {
+   "task_id": "M030",
+   "bucket": "duplicate",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 2.1V.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [
+    "c1"
+   ],
+   "dossier_sha256": "b2631c8d35dcc805808e09755f3edfde2d411b3f41a239de7631858aa13c802e"
+  },
+  {
+   "task_id": "M031",
+   "bucket": "duplicate",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 1.5V.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [
+    "c1"
+   ],
+   "dossier_sha256": "bb557d79f3740f686d3b84b7d506450b0d5938097d211452c6e1b5f89c06a4ff"
+  },
+  {
+   "task_id": "M032",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1c_gcd cycle_1.mpr",
+   "technique": "GCPL",
+   "position": 5,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8d11169526f7880c194e0430aebb8420d781f7d015f77ae1720f08081faaade4"
+  },
+  {
+   "task_id": "M033",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 0.8V.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f034ea8cbe90ddcc0c8d72aa3cc6d76c4056c2279dd7023bac3e77a3fadc6326"
+  },
+  {
+   "task_id": "M034",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2e,f.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "78ab552590fcd01657c67a59f0aefcb2eaab0a1458b3599096f596d68308bf75"
+  },
+  {
+   "task_id": "M035",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_2.mpr",
+   "technique": "MB",
+   "position": 9,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e0c46c7b7dcc5f1f91859f1945bb6419afeb42079d79e7612c3895409be71d04"
+  },
+  {
+   "task_id": "M036",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 2.1V.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 151460206,
+    "kind": "randint_u2",
+    "high": 4096
+   },
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b70392983140ccf6fa5db05815d359dff814368fa3b13a88dbfd7e8dbada5226"
+  },
+  {
+   "task_id": "M037",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 2.1V.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "189c8c0f101b2a57d59ce0d211e859d0d12919e8e015370d4388ec49f9f085ab"
+  },
+  {
+   "task_id": "M038",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1d_gcd cycle_1.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8ae82d9141142a426661d2eca9916bb022f5ed4e1bcb7c6ce3d8cdcd07bad10e"
+  },
+  {
+   "task_id": "M039",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "10fbca4aa905f3f9825094b0428a56bb456b04bf6f744a8724938b261642d5a0"
+  },
+  {
+   "task_id": "M040",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig2c,d.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 976748047,
+    "kind": "randint_u2",
+    "high": 256
+   },
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e592aa3173fda0e799679cbb27a87896c1a8927b0d0fc6733e6336dc55c9c1db"
+  },
+  {
+   "task_id": "M041",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_1.mpr",
+   "technique": "MB",
+   "position": 8,
+   "truth": {
+    "name": "|Energy|",
+    "canonical": "|Energy|",
+    "unit": "W·h",
+    "raw_id": 74,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8c6666f4542ae65fdbe0ae2cf72e3eac67d46248ba60115f326735c2ee3d90d7"
+  },
+  {
+   "task_id": "M042",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 0.1V.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 2,
+    "source_name": "dq"
+   },
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ae5654481ae1af65e96fa7f687f6f3a78bda0642829f8f68ffbedd694f5e4fb3"
+  },
+  {
+   "task_id": "M043",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2a,b.mpr",
+   "technique": "GCPL",
+   "position": 5,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "51580c9b6a8d3f78925cc31f4f3766d6d874223b9d8e4f9408e062796b948212"
+  },
+  {
+   "task_id": "M044",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS1a_gcd cycle.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 4,
+    "source_name": "control"
+   },
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "826676dd42b43a954f7041c31f0b52d61989f50c519495dc525a0faf928c6d56"
+  },
+  {
+   "task_id": "M045",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig2c,d.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 1044302308,
+    "kind": "const",
+    "value": 0.0
+   },
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6127b798e2a3688f78652332428c06f91c7733fa9bbb352da445a2486db66358"
+  },
+  {
+   "task_id": "M046",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2c,d.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d436740db344a78a4936665147e8452dc722777692dbe43044ad77977ae1e3be"
+  },
+  {
+   "task_id": "M047",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_2.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "06ef7eda1912c6d24d21af7bf2bab3529632977f4a13bcd1629056cbd8d3b48d"
+  },
+  {
+   "task_id": "M048",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_1.mpr",
+   "technique": "MB",
+   "position": 1,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 1,
+    "source_name": "I Range"
+   },
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "032e50457c241dfdd270da4dfa64b4e6291ea77efac6766eec0aae988a430df9"
+  },
+  {
+   "task_id": "M049",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS1a_gcd cycle.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 1,
+    "source_name": "time"
+   },
+   "vocab_exclude": [
+    "time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "997963c9847e2dabf6ff2b4e05cfb423f58ca04dddfdfbdee257a4437e9e8a6a"
+  },
+  {
+   "task_id": "M050",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1a_gcd cycle.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "49d01b257dd39d755355546af360f1075f1ed45b43a47f2c388af2b85e9efbff"
+  },
+  {
+   "task_id": "M051",
+   "bucket": "constant",
+   "file": "holdout3/zenodo_17244893/Fig2c,d.mpr",
+   "technique": "GCPL",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "93c6699f3ed31b8380206ae1943fb76ce6d1bcb898c46fd4456bda8cc6ce5ff5"
+  },
+  {
+   "task_id": "M052",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_3.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c7b0420766902bfbaa9627811526f9d5a4e0722c3a10a7f4443f1f512b519013"
+  },
+  {
+   "task_id": "M053",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 1.5V.mpr",
+   "technique": "GCPL",
+   "position": 5,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "14e49701a2cc343c7b19c7af8039a58202a5b283747262cfbffbf26ca6752934"
+  },
+  {
+   "task_id": "M054",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1d_gcd cycle_1.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "75ef7b933d64573d203e8db35ee0ce000cd5e12abb674329c5f6519b70194999"
+  },
+  {
+   "task_id": "M055",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2e,f.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "80724f6db6d8d25aae047381dc5543bf5c3fc2b353f283aecd4ae42297e9bc29"
+  },
+  {
+   "task_id": "M056",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2e,f.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b19800a0cbae5be0eff30885346c81aea4fda3f84297fd3b768fd1fdc8433bb1"
+  },
+  {
+   "task_id": "M057",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d59800061668758cca571e7474e03baa204460d82678e45bc5852e3ad23e2a7c"
+  },
+  {
+   "task_id": "M058",
+   "bucket": "constant",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 0.8V.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "90d29bd1a4fa7aa86c22ada0ac8d7d246360aa54103a64eac0f28d7426bcea09"
+  },
+  {
+   "task_id": "M059",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 11,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6d4d74d9f175ac0e4cde979985931163b128ab22af35b6e0c820469b4ae64245"
+  },
+  {
+   "task_id": "M060",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2c,d.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "210375b7a569a043bec91c0301f43efd55be7fff409de8372b354d86c987e600"
+  },
+  {
+   "task_id": "M061",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig2a,b.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 1045011336,
+    "kind": "noise_f4",
+    "scale": 22.764388289972015,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0c62f67909cd960cf59f7aedeeab981aba2bbea5e879b47ee537b59c48f44a2d"
+  },
+  {
+   "task_id": "M062",
+   "bucket": "constant",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 0.1V.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "77d4388b4b7a54224011032307d50d414b4a0906d27239131796ba8b88a2f4e4"
+  },
+  {
+   "task_id": "M063",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 13,
+   "truth": {
+    "name": "step time",
+    "canonical": "step time",
+    "unit": "s",
+    "raw_id": 438,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1042834315f1e849414b04c2c0295715bc07b27b2a40624bca17d75f94ec39f7"
+  },
+  {
+   "task_id": "M064",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1c_gcd cycle_2.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0f6bcbe0d2540ff8fdf8ad882ba279f54fb99066b6a4e282798985e8e8f2bcc1"
+  },
+  {
+   "task_id": "M065",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 11,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3e6c337e4ceef85b2fbda58c57cf3ae96f59214facedbb9c1a7d7e71243cd097"
+  },
+  {
+   "task_id": "M066",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 5,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d3aba5326ed80096a42ed2b52cafc1a8bfd6ade423af06887680e2b4509b1c98"
+  },
+  {
+   "task_id": "M067",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a5596e21cd5a96cfb98fb602ec06f351c6df96bca9eb27fee1a6eadaa8eeac6e"
+  },
+  {
+   "task_id": "M068",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig2a,b.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 408121199,
+    "kind": "noise_f8",
+    "scale": 0.016681778581675973,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1203bf890f650a40e5fbccf4fa8cf00b869857bb7ecfb617b85ec3f1406b5352"
+  },
+  {
+   "task_id": "M069",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 1.5V.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4c66677f7622fe79f0bd904338826fc7a4e9bd55b80fb6515373e624295cc15a"
+  },
+  {
+   "task_id": "M070",
+   "bucket": "duplicate",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 0.8V.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [
+    "c3"
+   ],
+   "dossier_sha256": "0c124a93f54a4f4f9c4d56c00c274ad1b108ba325019abcca383fcb567c17975"
+  },
+  {
+   "task_id": "M071",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "df58d500688c59bff806ca4cba1a19c57c0e62e446bb873309e1978f0ebd1304"
+  },
+  {
+   "task_id": "M072",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 0.8V.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1c8d3e413974125397a3e63893f40d92b4833a95c29b97ad656ddcf75ce803f9"
+  },
+  {
+   "task_id": "M073",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fa0f3f521a53048e3e870dadf56a4f40d670ea86084f7419300205811bcd767f"
+  },
+  {
+   "task_id": "M074",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 14,
+   "truth": {
+    "name": "z cycle",
+    "canonical": "z cycle",
+    "unit": null,
+    "raw_id": 469,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "14fbbf854eefd3bb52f967026e0cb1a7a335b119ceb600f3ca0d67029f5b7fc7"
+  },
+  {
+   "task_id": "M075",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2a,b.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cb517487f0d4f4070e1e2b85a791b9e824406ac1c925439b84dbc0b2989fe2a4"
+  },
+  {
+   "task_id": "M076",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_3.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "01da2637c7322a0b589e1c2d399bdcac6d2ca5b55acc3a069e033b062a1b44dd"
+  },
+  {
+   "task_id": "M077",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/Fig2c,d.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5f775da0acddbc3b58812d6711b5e86cb3fe1a4ceac91a698f0e8b480daeb7eb"
+  },
+  {
+   "task_id": "M078",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/Fig2a,b.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 772559335,
+    "kind": "noise_f8",
+    "scale": 262.229917358369,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3df32744f5aa2f3ec4c86014e2de81e80ee7d3210a71506589b5d0447b4ddcea"
+  },
+  {
+   "task_id": "M079",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS5_gcd for operando xrd.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ff95ef73fd30b97dc1503d20f7f598e10b3bbf0322461df10cba3ccb2b1a06e8"
+  },
+  {
+   "task_id": "M080",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_3.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1fc36d2dceed4902067444bca873e2b8d2c7fc41e026b13779481b1bf2dc3771"
+  },
+  {
+   "task_id": "M081",
+   "bucket": "constant",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 1.5V.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2cb604619938a3d71ce6918720185aa59a403afc73d6ed85e131a15c9c21ff99"
+  },
+  {
+   "task_id": "M082",
+   "bucket": "duplicate",
+   "file": "holdout3/zenodo_17244893/Fig3,4,5_exsitu_step1_galvanostatic discharge to 2.1V.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [
+    "c0"
+   ],
+   "dossier_sha256": "919b8e4c994ab56f1571f3d0b929b2fa88f97a48dcbc0f222963badf8a34e959"
+  },
+  {
+   "task_id": "M083",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_2.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "46e30bbacd77eb2db879518ba6c3c194a1fb9252ca91c1b098fba582978fefd2"
+  },
+  {
+   "task_id": "M084",
+   "bucket": "main",
+   "file": "holdout3/zenodo_17244893/FigS7_GITT_2.mpr",
+   "technique": "MB",
+   "position": 5,
+   "truth": {
+    "name": "I",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 8,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7fba1300a1f15c3c76b77ffaafe24b7a7e49c7cec80cbface8716aa0dd9c737d"
+  },
+  {
+   "task_id": "M085",
+   "bucket": "duplicate",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": 12,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [
+    "c12"
+   ],
+   "dossier_sha256": "552291f47164a38a7fe6ace890ae7e6cc79a6e6140b2fd61f4b64379afff6522"
+  },
+  {
+   "task_id": "M086",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS8_EIS.mpr",
+   "technique": "MB",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 561720232,
+    "kind": "randint_u2",
+    "high": 16
+   },
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ed6cde3eeb3043196fd1b6cb45e8c458627fc9dc6efa6ff835804da6d5d237ec"
+  },
+  {
+   "task_id": "M087",
+   "bucket": "decoy",
+   "file": "holdout3/zenodo_17244893/FigS1b_gcd cycle_3.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 3,
+    "source_name": "(Q-Qo)"
+   },
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9db5d6e2ead1446208a7061968bc54f9469b0bed3b131fb875849c394bf16a5c"
+  }
+ ]
+}

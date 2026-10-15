@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rosetta-eclab"
+version = "0.1.0"
+description = "Name the columns of BioLogic EC-Lab .mpr files that your parser does not know - no language model, evidence for every answer"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0",
+    "yadg==7.0.1",
+    "galvani==0.5.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+rosetta = "namer.cli:main"
+
+[tool.setuptools]
+packages = ["namer", "spike2"]
+
+[tool.setuptools.package-data]
+namer = ["data/*.json", "data/*.npy"]
