@@ -155,7 +155,7 @@
 {"id": "pool:gcpl.issue_228.mpr:2", "verdict": "NAME", "name": "dq", "confidence": 1.0, "alternatives": ["I", "Energy we charge"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_228.mpr:3", "verdict": "NAME", "name": "(Q-Qo)", "confidence": 1.0, "alternatives": ["Energy we", "Energy we charge"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_228.mpr:4", "verdict": "NAME", "name": "control", "confidence": 1.0, "alternatives": ["I", "Ece"], "duplicate_of": null}
-{"id": "pool:gcpl.issue_228.mpr:5", "verdict": "NAME", "name": "Ewe", "confidence": 1.0, "alternatives": ["I", "Ece"], "duplicate_of": null}
+{"id": "pool:gcpl.issue_228.mpr:5", "verdict": "NAME", "name": "Ewe", "confidence": 1.0, "alternatives": ["Ece", "I"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_228.mpr:6", "verdict": "NAME", "name": "I Range", "confidence": 0.987, "alternatives": ["Ece", "Energy we charge"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_228.mpr:7", "verdict": "NAME", "name": "Q charge or discharge", "confidence": 0.532, "alternatives": ["dQ", "Capacitance charge"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_228.mpr:8", "verdict": "NAME", "name": "half cycle", "confidence": 1.0, "alternatives": ["cycle number", "freq"], "duplicate_of": null}
@@ -165,7 +165,7 @@
 {"id": "pool:gcpl.issue_230.mpr:2", "verdict": "NAME", "name": "dq", "confidence": 1.0, "alternatives": ["I", "Pwe"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_230.mpr:3", "verdict": "NAME", "name": "(Q-Qo)", "confidence": 1.0, "alternatives": ["Energy we", "freq"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_230.mpr:4", "verdict": "NAME", "name": "control", "confidence": 1.0, "alternatives": ["Pwe", "I"], "duplicate_of": null}
-{"id": "pool:gcpl.issue_230.mpr:5", "verdict": "NAME", "name": "Ewe", "confidence": 0.898, "alternatives": ["I", "dQ"], "duplicate_of": null}
+{"id": "pool:gcpl.issue_230.mpr:5", "verdict": "NAME", "name": "Ewe", "confidence": 0.911, "alternatives": ["I", "dQ"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_230.mpr:6", "verdict": "NAME", "name": "Analog IN 2", "confidence": 0.682, "alternatives": ["Ece", "Pwe"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_230.mpr:7", "verdict": "NAME", "name": "I Range", "confidence": 0.915, "alternatives": ["cycle number", "Pwe"], "duplicate_of": null}
 {"id": "pool:gcpl.issue_230.mpr:8", "verdict": "NAME", "name": "Q charge or discharge", "confidence": 0.532, "alternatives": ["dQ", "Energy we"], "duplicate_of": null}
@@ -183,7 +183,7 @@
 {"id": "pool:gcpl.pr_182.1.mpr:1", "verdict": "NAME", "name": "time", "confidence": 1.0, "alternatives": ["freq", "cycle number"], "duplicate_of": null}
 {"id": "pool:gcpl.pr_182.1.mpr:2", "verdict": "NAME", "name": "dq", "confidence": 1.0, "alternatives": ["I", "dQ"], "duplicate_of": null}
 {"id": "pool:gcpl.pr_182.1.mpr:3", "verdict": "NAME", "name": "control", "confidence": 1.0, "alternatives": ["I", "dQ"], "duplicate_of": null}
-{"id": "pool:gcpl.pr_182.1.mpr:4", "verdict": "NAME", "name": "Ewe", "confidence": 1.0, "alternatives": ["freq", "I"], "duplicate_of": null}
+{"id": "pool:gcpl.pr_182.1.mpr:4", "verdict": "NAME", "name": "Ewe", "confidence": 1.0, "alternatives": ["freq", "dQ"], "duplicate_of": null}
 {"id": "pool:gcpl.pr_182.1.mpr:5", "verdict": "NAME", "name": "I Range", "confidence": 0.914, "alternatives": ["cycle number", "I"], "duplicate_of": null}
 {"id": "pool:gcpl.pr_182.1.mpr:6", "verdict": "NAME", "name": "Ece", "confidence": 0.894, "alternatives": ["I", "dQ"], "duplicate_of": null}
 {"id": "pool:gcpl.pr_182.1.mpr:8", "verdict": "NAME", "name": "Q charge or discharge", "confidence": 0.532, "alternatives": ["dQ", "Energy we"], "duplicate_of": null}
@@ -634,7 +634,7 @@
 {"id": "holdout:H014", "verdict": "DUPLICATE", "name": "NONE", "confidence": 1.0, "alternatives": null, "duplicate_of": "(Q-Qo)"}
 {"id": "holdout:H015", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.1131860520415789, "alternatives": ["half cycle", "step time"], "duplicate_of": null}
 {"id": "holdout:H016", "verdict": "NAME", "name": "dq", "confidence": 1.0, "alternatives": ["I", "dQ"], "duplicate_of": null}
-{"id": "holdout:H017", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.04677490774907749, "alternatives": ["I", "step time"], "duplicate_of": null}
+{"id": "holdout:H017", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.006000000000853201, "alternatives": ["I", "step time"], "duplicate_of": null}
 {"id": "holdout:H018", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.2520282345272129, "alternatives": ["step time", "Energy we"], "duplicate_of": null}
 {"id": "holdout:H019", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.25599999999999945, "alternatives": ["I", "Pwe"], "duplicate_of": null}
 {"id": "holdout:H020", "verdict": "NAME", "name": "time", "confidence": 1.0, "alternatives": ["freq", "cycle number"], "duplicate_of": null}
@@ -653,7 +653,7 @@
 {"id": "holdout:H033", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.030595565709757577, "alternatives": ["Energy we charge", "Energy we discharge"], "duplicate_of": null}
 {"id": "holdout:H034", "verdict": "DUPLICATE", "name": "NONE", "confidence": 1.0, "alternatives": null, "duplicate_of": "(Q-Qo)"}
 {"id": "holdout:H035", "verdict": "NAME", "name": "Ns", "confidence": 0.645, "alternatives": ["cycle number", "Energy we charge"], "duplicate_of": null}
-{"id": "holdout:H036", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.006262022194821208, "alternatives": ["I", "step time"], "duplicate_of": null}
+{"id": "holdout:H036", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.006000000000000501, "alternatives": ["I", "step time"], "duplicate_of": null}
 {"id": "holdout:H037", "verdict": "NAME", "name": "Energy we charge", "confidence": 0.897, "alternatives": ["Energy we charge", "freq"], "duplicate_of": null}
 {"id": "holdout:H038", "verdict": "NAME", "name": "Q charge or discharge", "confidence": 0.533, "alternatives": ["dQ", "Energy we"], "duplicate_of": null}
 {"id": "holdout:H039", "verdict": "NAME", "name": "Energy we charge", "confidence": 0.897, "alternatives": ["Energy we charge", "|Energy|"], "duplicate_of": null}
@@ -694,7 +694,7 @@
 {"id": "holdout:H074", "verdict": "NAME", "name": "control", "confidence": 1.0, "alternatives": ["I", "step time"], "duplicate_of": null}
 {"id": "holdout:H075", "verdict": "NAME", "name": "dq", "confidence": 1.0, "alternatives": ["I", "step time"], "duplicate_of": null}
 {"id": "holdout:H076", "verdict": "NAME", "name": "Ns", "confidence": 0.626, "alternatives": ["cycle number", "step time"], "duplicate_of": null}
-{"id": "holdout:H077", "verdict": "NAME", "name": "Ewe", "confidence": 0.884, "alternatives": ["I", "freq"], "duplicate_of": null}
+{"id": "holdout:H077", "verdict": "NAME", "name": "Ewe", "confidence": 0.907, "alternatives": ["freq", "I"], "duplicate_of": null}
 {"id": "holdout:H078", "verdict": "NAME", "name": "|Ewe|", "confidence": 1.0, "alternatives": ["(Q-Qo)", "Pwe"], "duplicate_of": null}
 {"id": "holdout:H079", "verdict": "NAME", "name": "|Z|", "confidence": 1.0, "alternatives": ["(Q-Qo)", "|Energy|"], "duplicate_of": null}
 {"id": "holdout:H080", "verdict": "NAME", "name": "Ns", "confidence": 0.642, "alternatives": ["cycle number", "I"], "duplicate_of": null}
@@ -703,13 +703,13 @@
 {"id": "holdout:H083", "verdict": "NAME", "name": "Capacitance charge", "confidence": 0.452, "alternatives": ["step time"], "duplicate_of": null}
 {"id": "holdout:H084", "verdict": "NAME", "name": "control", "confidence": 0.856, "alternatives": ["step time", "cycle number"], "duplicate_of": null}
 {"id": "holdout:H085", "verdict": "NAME", "name": "I Range", "confidence": 0.916, "alternatives": ["cycle number", "I"], "duplicate_of": null}
-{"id": "holdout:H086", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.007031553398058252, "alternatives": ["I", "step time"], "duplicate_of": null}
+{"id": "holdout:H086", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.006000000000091195, "alternatives": ["I", "step time"], "duplicate_of": null}
 {"id": "holdout:H087", "verdict": "NAME", "name": "freq", "confidence": 1.0, "alternatives": ["(Q-Qo)", "Ece"], "duplicate_of": null}
 {"id": "holdout:H088", "verdict": "NAME", "name": "(Q-Qo)", "confidence": 1.0, "alternatives": ["Energy we", "step time"], "duplicate_of": null}
 {"id": "holdout:H089", "verdict": "DUPLICATE", "name": "NONE", "confidence": 1.0, "alternatives": null, "duplicate_of": "Q charge or discharge"}
 {"id": "holdout:H090", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.02153360665328879, "alternatives": ["step time", "I"], "duplicate_of": null}
 {"id": "holdout:H091", "verdict": "NAME", "name": "Ece", "confidence": 0.966, "alternatives": ["Energy we discharge", "Pwe"], "duplicate_of": null}
-{"id": "holdout:H092", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.010228855721393034, "alternatives": ["I", "step time"], "duplicate_of": null}
+{"id": "holdout:H092", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.006000000009989857, "alternatives": ["I", "step time"], "duplicate_of": null}
 {"id": "holdout:H093", "verdict": "NAME", "name": "-Im(Z)", "confidence": 1.0, "alternatives": ["Re(Zce)", "(Q-Qo)"], "duplicate_of": null}
 {"id": "holdout:H094", "verdict": "NAME", "name": "Pwe", "confidence": 1.0, "alternatives": ["Energy we charge", "Energy we discharge"], "duplicate_of": null}
 {"id": "holdout:H095", "verdict": "NAME", "name": "Pwe", "confidence": 1.0, "alternatives": ["dQ", "Energy we"], "duplicate_of": null}
@@ -914,7 +914,7 @@
 {"id": "holdout3:M065", "verdict": "NAME", "name": "Phase(Z)", "confidence": 0.868, "alternatives": ["Pwe", "Capacitance charge"], "duplicate_of": null}
 {"id": "holdout3:M066", "verdict": "NAME", "name": "I", "confidence": 1.0, "alternatives": ["Re(Z)", "-Im(Z)"], "duplicate_of": null}
 {"id": "holdout3:M067", "verdict": "NAME", "name": "Energy we discharge", "confidence": 0.567, "alternatives": ["|Energy|", "Energy we"], "duplicate_of": null}
-{"id": "holdout3:M068", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.035133614146122434, "alternatives": ["I", "Ece"], "duplicate_of": null}
+{"id": "holdout3:M068", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.020812499999999998, "alternatives": ["Ece", "Energy we discharge"], "duplicate_of": null}
 {"id": "holdout3:M069", "verdict": "NAME", "name": "time", "confidence": 1.0, "alternatives": ["Ece", "I"], "duplicate_of": null}
 {"id": "holdout3:M070", "verdict": "DUPLICATE", "name": "NONE", "confidence": 1.0, "alternatives": null, "duplicate_of": "(Q-Qo)"}
 {"id": "holdout3:M071", "verdict": "NAME", "name": "Energy we charge", "confidence": 0.897, "alternatives": ["Energy we charge", "freq"], "duplicate_of": null}
@@ -933,7 +933,7 @@
 {"id": "holdout3:M084", "verdict": "NAME", "name": "I", "confidence": 1.0, "alternatives": ["Pwe", "dQ"], "duplicate_of": null}
 {"id": "holdout3:M085", "verdict": "DUPLICATE", "name": "NONE", "confidence": 1.0, "alternatives": null, "duplicate_of": "(Q-Qo)"}
 {"id": "holdout3:M086", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.016973222264977002, "alternatives": ["cycle number", "Energy we discharge"], "duplicate_of": null}
-{"id": "holdout3:M087", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.030951030430104557, "alternatives": ["I", "Energy we charge"], "duplicate_of": null}
+{"id": "holdout3:M087", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.025896472048544145, "alternatives": ["Energy we charge", "Ece"], "duplicate_of": null}
 {"id": "holdout4:N001", "verdict": "NAME", "name": "Capacitance charge", "confidence": 0.526, "alternatives": ["Capacitance charge", "dQ"], "duplicate_of": null}
 {"id": "holdout4:N002", "verdict": "NAME", "name": "Cp", "confidence": 1.0, "alternatives": ["step time", "control"], "duplicate_of": null}
 {"id": "holdout4:N003", "verdict": "NAME", "name": "time", "confidence": 1.0, "alternatives": ["control", "Pwe"], "duplicate_of": null}
@@ -950,7 +950,7 @@
 {"id": "holdout4:N014", "verdict": "NAME", "name": "|I|", "confidence": 1.0, "alternatives": ["control", "Pwe"], "duplicate_of": null}
 {"id": "holdout4:N015", "verdict": "NAME", "name": "Ewe", "confidence": 0.888, "alternatives": ["control", "(Q-Qo)"], "duplicate_of": null}
 {"id": "holdout4:N016", "verdict": "NAME", "name": "Re(Z)", "confidence": 1.0, "alternatives": ["-Im(Zce)", "control"], "duplicate_of": null}
-{"id": "holdout4:N017", "verdict": "NAME", "name": "dq", "confidence": 0.578, "alternatives": ["I", "Pwe"], "duplicate_of": null}
+{"id": "holdout4:N017", "verdict": "NAME", "name": "dq", "confidence": 1.0, "alternatives": ["I", "Pwe"], "duplicate_of": null}
 {"id": "holdout4:N018", "verdict": "NAME", "name": "|Ewe|", "confidence": 1.0, "alternatives": ["control", "Pwe"], "duplicate_of": null}
 {"id": "holdout4:N019", "verdict": "NAME", "name": "freq", "confidence": 1.0, "alternatives": ["control", "step time"], "duplicate_of": null}
 {"id": "holdout4:N020", "verdict": "NAME", "name": "Cs", "confidence": 1.0, "alternatives": ["step time", "control"], "duplicate_of": null}
@@ -960,7 +960,7 @@
 {"id": "holdout4:N024", "verdict": "NAME", "name": "-Im(Z)", "confidence": 1.0, "alternatives": ["Re(Zce)", "control"], "duplicate_of": null}
 {"id": "holdout4:N025", "verdict": "ABSTAIN", "name": "NONE", "confidence": 1.0, "alternatives": null, "duplicate_of": null}
 {"id": "holdout4:N026", "verdict": "ABSTAIN", "name": "NONE", "confidence": 1.0, "alternatives": null, "duplicate_of": null}
-{"id": "holdout4:N027", "verdict": "NAME", "name": "dq", "confidence": 0.578, "alternatives": ["I", "Pwe"], "duplicate_of": null}
+{"id": "holdout4:N027", "verdict": "NAME", "name": "dq", "confidence": 1.0, "alternatives": ["I", "Pwe"], "duplicate_of": null}
 {"id": "holdout4:N028", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.047375, "alternatives": ["control", "Pwe"], "duplicate_of": null}
 {"id": "holdout4:N029", "verdict": "NAME", "name": "|I|", "confidence": 0.749, "alternatives": ["Ece", "control"], "duplicate_of": null}
 {"id": "holdout4:N030", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.020812499999999998, "alternatives": ["Ece", "Pwe"], "duplicate_of": null}

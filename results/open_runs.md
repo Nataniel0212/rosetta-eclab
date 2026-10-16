@@ -157,3 +157,18 @@ The namer was frozen at `7d8e38a`.
 - columns the instrument only processes (capacitance held per segment)
 - noise-like DC currents in impedance records
 - external analog inputs without a sibling
+
+## 2026-10-16: files attached to parser issues (a check, not a hold-out)
+
+Fourteen `.mpr` files attached to issues in galvani (#42, #64, #67, #73, #74, #87) and yadg (#229, #270) were downloaded at run time and not committed. None of them had been used before. Five (galvani #87) are unreadable by Rosetta, galvani and yadg alike. In each of the other ten, every known column was hidden in turn (`--self-check`).
+
+| namer | Hidden columns | Named correctly | Wrong names |
+|---|---|---|---|
+| as released (v0.1.0) | 130 | 103 | 2 |
+| with the two fixes below | 130 | 105 | 1 |
+
+The fixes were made after looking at these files, so the second row is not a blind result:
+- **Ewe named as I in CC-CV cycling** (yadg #270). There the control column holds mA in CC steps and V in CV steps. A potential that sits on the V set point through a long CV hold counted as a current held at its set point. With a mixed `V/mA` control column, that evidence now also needs the column to pass the current-unit check.
+- **Ewe-Ece had no relation** (galvani #74). Ewe − Ece now names it. This counts only where subtracting Ece explains the column clearly better than Ewe alone, because Ece is often nearly flat.
+
+Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m namer.golden check`). Only confidences and alternatives moved. The remaining wrong name is `|Energy|` → `Energy we` (galvani #42).

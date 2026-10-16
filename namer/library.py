@@ -276,11 +276,23 @@ def current_held(ctx) -> float:
     ctl = ctx.col("control")
     if ctl is None or "mA" not in u or "V" in u.replace("V/mA", ""):
         return 0.0
+    if "V" in u and not unit_explained(ctx):
+        return 0.0  # control/V/mA also holds potentials (CC-CV steps): a potential on its set point is no current
     a = np.asarray(ctx.target, dtype="f8")
     m = np.isfinite(a) & np.isfinite(ctl) & (ctl != 0)
     if m.sum() < 3:
         return 0.0
     return float(np.mean(np.abs(a[m] - ctl[m]) <= np.maximum(1e-3, 0.02 * np.abs(ctl[m]))))
+
+
+def ece_explains(c) -> float:
+    """Ewe - Ece is evidence only where subtracting Ece leaves at most a tenth of what Ewe alone leaves unexplained.
+    Ece is often nearly flat, and then any column that follows Ewe (a potential set point) also fits Ewe - Ece."""
+    e, ce = _e(c), c.col("Ece")
+    a, b = fit(c.target, e - ce), fit(c.target, e)
+    if not a or not b or 1.0 - b[0] < 1e-4:
+        return 0.0
+    return 1.0 if 1.0 - a[0] <= 0.1 * (1.0 - b[0]) else 0.0
 
 
 def potential_control(c):
@@ -683,6 +695,8 @@ def build() -> dict[str, Quantity]:
             rel.reliable = False  # ΔE near zero makes Q/ΔE unstable; never use it to rule the name out
         L[cname].gate = lambda c: 1.0 if np.nanmax(np.abs(np.asarray(c.target, dtype="f8"))) >= 1.0 else 0.1  # µF of a cell
     q("Ece", shapes=[Shape("a second smooth potential next to a known Ewe", second_potential, intrinsic=False)])
+    q("Ewe-Ece", relations=[Relation("Ewe - Ece", ("Ewe", "Ece"), lambda c: _e(c) - c.col("Ece"), [1.0],
+                                     gate=ece_explains)])
     L["Ewe"].shapes.append(Shape("the file's working-electrode potential is missing and this column is one",
                                  lambda c: 0.7 * potential_like(c) * (1.0 if piecewise_constant(c) < 0.9 else 0.2), intrinsic=False))
     q("Rcmp", shapes=[Shape("compensated resistance: positive, constant up to float rounding", rcmp_shape)])
