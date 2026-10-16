@@ -12,7 +12,7 @@ build/
 .env.*
 
 # Measurement data is downloaded at run time (see DATA_SOURCES.md)
-data/
+/data/
 
 # Local run logs with raw model output
 runs/
