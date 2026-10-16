@@ -24,7 +24,8 @@ drift.mpr
 Python 3.10 or later:
 
 ```sh
-git clone <this repository> rosetta && cd rosetta
+git clone https://github.com/Nataniel0212/rosetta-eclab.git
+cd rosetta-eclab
 pip install .
 ```
 
