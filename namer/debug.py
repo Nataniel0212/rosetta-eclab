@@ -73,7 +73,7 @@ def main() -> int:
                 print(f"   OWN: {ev.score if ev else None} {ev.detail if ev else 'no relation testable'}")
             if a.probe:
                 with np.errstate(all="ignore"):
-                    f = fit(y, eval(a.probe, {"np": np, "c": ctx, **vars(sys.modules['namer.library'])}))
+                    f = fit(y, eval(a.probe, {"np": np, "c": ctx, **vars(sys.modules[f'{__package__}.library'])}))
                 print(f"   PROBE {a.probe}: {f}")
             shown += 1
             if shown >= a.n:

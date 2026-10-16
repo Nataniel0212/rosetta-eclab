@@ -24,9 +24,15 @@ drift.mpr
 Python 3.10 or later:
 
 ```sh
+pip install rosetta-eclab
+```
+
+To run the tests or reproduce the benchmark, clone the repository instead:
+
+```sh
 git clone https://github.com/Nataniel0212/rosetta-eclab.git
 cd rosetta-eclab
-pip install .
+pip install ".[test]"
 ```
 
 ## Use
@@ -77,7 +83,7 @@ In every task one real column is hidden and must be named from the data. There a
 
 ¹ There are two code-only baselines. A technique prior names the column that is typical for this technique and missing here. A nearest-neighbour vote compares the column with labelled columns from other files. Both are strong when files have standard column sets, but they name every decoy and cannot name a genuinely new column.
 
-The namer improved between hold-outs, so the total includes earlier versions. The history, including the language-model experiments that came first, is in [`docs/history.md`](docs/history.md).
+The namer improved between hold-outs, so the total includes earlier versions. The history, including the language-model experiments that came first, is in [`docs/history.md`](https://github.com/Nataniel0212/rosetta-eclab/blob/main/docs/history.md).
 
 ### Limitations
 
@@ -102,4 +108,4 @@ pytest tests
 
 ## Data and licence
 
-Rosetta is free software under the **GNU General Public License v3.0 or later** (see `LICENSE`). It uses [yadg](https://github.com/dgbowl/yadg) and [galvani](https://github.com/echemdata/galvani), both GPL. Measurement files are downloaded at run time and never committed. Sources, licences and attributions are listed in [`DATA_SOURCES.md`](DATA_SOURCES.md). Rosetta is not affiliated with BioLogic.
+Rosetta is free software under the **GNU General Public License v3.0 or later** (see `LICENSE`). It uses [yadg](https://github.com/dgbowl/yadg) and [galvani](https://github.com/echemdata/galvani), both GPL. Measurement files are downloaded at run time and never committed. Sources, licences and attributions are listed in [`DATA_SOURCES.md`](https://github.com/Nataniel0212/rosetta-eclab/blob/main/DATA_SOURCES.md). Rosetta is not affiliated with BioLogic.

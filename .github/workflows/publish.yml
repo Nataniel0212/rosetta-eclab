@@ -1,0 +1,45 @@
+# Publishes to PyPI when a GitHub release is published. Uses PyPI trusted publishing (OIDC):
+# no API token is stored anywhere. PyPI must list this repository, this workflow file and the
+# environment "pypi" as a trusted publisher for the project rosetta-eclab.
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build sdist and wheel
+        run: |
+          python -m pip install --upgrade build twine
+          python -m build
+          python -m twine check --strict dist/*
+      - name: Smoke test the wheel
+        run: |
+          python -m venv /tmp/smoke
+          /tmp/smoke/bin/pip install dist/*.whl
+          cd /tmp && /tmp/smoke/bin/rosetta --help
+          /tmp/smoke/bin/python -c "import rosetta_eclab.fallback as f; assert (f.DATA / 'stats.json').exists()"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1

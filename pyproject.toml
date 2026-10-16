@@ -4,10 +4,21 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rosetta-eclab"
-version = "0.1.0"
+version = "0.1.1"
 description = "Name the columns of BioLogic EC-Lab .mpr files that your parser does not know - no language model, evidence for every answer"
+readme = "README.md"
 license = "GPL-3.0-or-later"
+authors = [{ name = "Nataniel Ataseven" }]
 requires-python = ">=3.10"
+keywords = ["electrochemistry", "biologic", "ec-lab", "mpr", "battery", "potentiostat", "file-format"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Chemistry",
+]
 dependencies = [
     "numpy>=2.0",
     "yadg==7.0.1",
@@ -16,15 +27,21 @@ dependencies = [
 
 [project.urls]
 Repository = "https://github.com/Nataniel0212/rosetta-eclab"
+Issues = "https://github.com/Nataniel0212/rosetta-eclab/issues"
 
 [project.optional-dependencies]
 test = ["pytest"]
 
 [project.scripts]
-rosetta = "namer.cli:main"
+rosetta = "rosetta_eclab.cli:main"
 
+# The source folder is namer/ (every reproduction command uses python -m namer.*), but it installs
+# as rosetta_eclab: a package called "namer" already exists on PyPI.
 [tool.setuptools]
-packages = ["namer", "spike2"]
+packages = ["rosetta_eclab", "spike2"]
+
+[tool.setuptools.package-dir]
+rosetta_eclab = "namer"
 
 [tool.setuptools.package-data]
-namer = ["data/*.json", "data/*.npy"]
+rosetta_eclab = ["data/*.json", "data/*.npy"]
