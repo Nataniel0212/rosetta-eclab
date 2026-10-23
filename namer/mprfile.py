@@ -79,6 +79,23 @@ def _plausibility(v: np.ndarray, dtype: str) -> float:
     return 0.9 if span < 2 ** (8 * width - 4) else 0.2
 
 
+def _galvani_low_byte_note(full_ids: list[int], gmap: dict) -> list[str]:
+    """galvani 0.5.0 reads only the low byte of each column ID in the 11.50+ layout.
+
+    IDs above 255 then become other IDs (471 -> 215), which galvani either does not
+    know (it stops) or knows as a different column. Its map repeats a few entries at
+    the low-byte ID (211 = 467), so only IDs whose low-byte entry differs are listed.
+    """
+    misread = [x for x in full_ids if x > 255 and gmap.get(x & 0xFF) != gmap.get(x)]
+    if not misread:
+        return []
+    from importlib.metadata import version
+
+    pairs = ", ".join(f"{x} as {x & 0xFF}" for x in misread)
+    return [f"galvani {version('galvani')} reads only the low byte of each column ID in this file layout, "
+            f"so it misreads {pairs}"]
+
+
 def read(path: str | Path, reference: str = "galvani") -> MprData:
     from galvani import BioLogic
     from yadg.extractors.eclab.mpr import parse_columns, process_settings
@@ -117,6 +134,7 @@ def read(path: str | Path, reference: str = "galvani") -> MprData:
 
     names, dtypes, units, _ = parse_columns(yids, technique)  # yadg's map: names for known columns
     gmap = {int(k): v for k, v in BioLogic.VMPdata_colID_dtype_map.items()}
+    notes = _galvani_low_byte_note(full, gmap) if version in (10, 11) and reference == "galvani" else []
     layout = []  # record layout in file order: (raw_id or None for the flags byte, ...)
     for yid, fid in zip(yids, full):
         if yid in FLAG_IDS:  # all flag IDs share one byte, at the position of the first one
@@ -146,7 +164,6 @@ def read(path: str | Path, reference: str = "galvani") -> MprData:
     known_width = sum(np.dtype(d).itemsize for _, _, _, d, kn in filled if kn)
     unknown_idx = [i for i, e in enumerate(filled) if not e[4]]
     rest = rec - known_width
-    notes = []
     best = None
     if unknown_idx:
         combos = [c for c in itertools.product((1, 2, 4, 8), repeat=len(unknown_idx)) if sum(c) == rest]

@@ -88,7 +88,7 @@ def main(argv: list[str] | None = None) -> int:
     for n in m.notes:
         print(f"  {n}")
     if not result["unknown_columns"]:
-        print(f"  every column is known to {a.reference}; nothing to name")
+        print(f"  every column ID is in {a.reference}'s column map; nothing to name")
     for u in result["unknown_columns"]:
         if u["verdict"] == "NAME":
             head = f"{u['name']} [{u['unit'] or 'no unit'}]  (confidence {u['confidence']})"
@@ -103,7 +103,8 @@ def main(argv: list[str] | None = None) -> int:
     if a.self_check:
         s = result["self_check"]
         print(f"\n  self-check: hid each of {s['hidden_one_at_a_time']} known columns in turn; named {s['named']}, "
-              f"{s['named_correctly']} correctly, {len(s['wrong'])} wrong, the rest abstained")
+              f"{s['named_correctly']} correctly, {len(s['wrong'])} wrong, "
+              f"{s['hidden_one_at_a_time'] - s['named']} abstained")
         for w in s["wrong"]:
             print(f"    wrong: {w['column']} -> {w['answer']}")
     return 0

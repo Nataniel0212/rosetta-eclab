@@ -51,6 +51,15 @@ def test_real_drift_duplicates_are_reported():
     assert [r["verdict"] for r in res] == ["DUPLICATE", "DUPLICATE"]
 
 
+def test_galvani_low_byte_misreads_are_reported():
+    """galvani 0.5.0 stops on this file only because it reads 471 (<Ece>/V) as 215; nothing is unknown."""
+    m = mprfile.read(EXT / "peis.issue_225.with_ece.mpr", reference="galvani")
+    assert m.unknown == []
+    assert any("471 as 215" in n for n in m.notes), m.notes
+    assert not any("low byte" in n for n in mprfile.read(EXT / "gcpl.mpr", reference="galvani").notes)
+    assert not any("low byte" in n for n in mprfile.read(EXT / "peis.issue_225.with_ece.mpr", reference="yadg").notes)
+
+
 @pytest.mark.parametrize("old_id,expected", [(467, "Q charge or discharge"), (7, "dq"), (4, "time")])
 def test_simulated_drift_is_named(tmp_path, old_id, expected):
     f = tmp_path / "drift.mpr"

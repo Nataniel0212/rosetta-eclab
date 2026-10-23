@@ -14,7 +14,7 @@ drift.mpr
     evidence: relation: I*dt summed within half cycle: r2 1.0000, scale 0.0002778
     also considered: dQ, step time
 
-  self-check: hid each of 11 known columns in turn; named 11, 11 correctly, 0 wrong, the rest abstained
+  self-check: hid each of 11 known columns in turn; named 11, 11 correctly, 0 wrong, 0 abstained
 ```
 
 *`drift.mpr` is `gcpl.mpr` from the yadg test suite, with one column ID changed to 950, an ID no parser knows (see `tests/test_cli.py`).*
@@ -50,6 +50,28 @@ Each unknown column gets one of three answers:
 - **ABSTAIN:** the data does not support a name. Rosetta prefers this to a guess.
 
 `--self-check` shows how well Rosetta knows *your* kind of file. It hides each known column in turn and tries to name it.
+
+## If galvani stops with "Column ID … is unknown"
+
+In files from EC-Lab 11.50 and later, galvani 0.5.0 reads only the low byte of each column ID. IDs of 256 and above therefore turn into other IDs:
+
+| Real ID | Column | galvani 0.5.0 sees |
+|---|---|---|
+| 471 | `<Ece>/V` | 215 |
+| 438 | `step time/s` | 182 |
+| 431–433 | `\|Zwe-ce\|`, `Re(Zwe-ce)`, `-Im(Zwe-ce)` | 175–177 |
+
+The column is often one that galvani already knows. Rosetta reads the full IDs and says so:
+
+```
+$ rosetta peis.issue_225.with_ece.mpr
+peis.issue_225.with_ece.mpr
+  technique PEIS, 32 rows, 112 bytes per record
+  galvani 0.5.0 reads only the low byte of each column ID in this file layout, so it misreads 471 as 215, 430 as 174, 431 as 175, 432 as 176, 433 as 177
+  every column ID is in galvani's column map; nothing to name
+```
+
+The fix was released in datalab-org-galvani 0.6.0 ([galvani-mirror#11](https://github.com/datalab-org/galvani-mirror/issues/11)). IDs that are missing from the map altogether, such as 880 or 883 and 884, are what Rosetta names.
 
 ## How it works
 
