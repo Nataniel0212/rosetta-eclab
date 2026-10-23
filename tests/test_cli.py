@@ -11,8 +11,9 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from namer import cli, mprfile
+from namer import cli, galvani_ref, mprfile
 from spike2 import corpus
+from spike2.galvani_snapshot import snapshot_map
 
 EXT = corpus.EXT
 pytestmark = pytest.mark.skipif(not (EXT / "gcpl.mpr").exists(), reason="run scripts/fetch_testdata.py first")
@@ -58,6 +59,41 @@ def test_galvani_low_byte_misreads_are_reported():
     assert any("471 as 215" in n for n in m.notes), m.notes
     assert not any("low byte" in n for n in mprfile.read(EXT / "gcpl.mpr", reference="galvani").notes)
     assert not any("low byte" in n for n in mprfile.read(EXT / "peis.issue_225.with_ece.mpr", reference="yadg").notes)
+
+
+def _galvani_version() -> str | None:
+    from importlib.metadata import PackageNotFoundError, version
+
+    try:
+        return version("galvani")
+    except PackageNotFoundError:
+        return None
+
+
+def test_frozen_map_is_galvani_050():
+    if _galvani_version() != "0.5.0":
+        pytest.skip("needs galvani 0.5.0 (pip install '.[test]')")
+    from galvani import BioLogic
+
+    assert snapshot_map() == {int(k): (v[0], v[1]) for k, v in BioLogic.VMPdata_colID_dtype_map.items()}
+    ref = galvani_ref.installed()
+    assert ref.label == "galvani 0.5.0" and ref.low_byte is True
+
+
+def test_full_id_galvani_gets_no_low_byte_note(monkeypatch):
+    """A galvani that reads column IDs in full (datalab-org-galvani 0.6.0) misreads nothing."""
+    ref = galvani_ref.Reference(snapshot_map(), "datalab-org-galvani 0.6.0", low_byte=False, installed=True)
+    monkeypatch.setattr(galvani_ref, "reference", lambda: ref)
+    m = mprfile.read(EXT / "peis.issue_225.with_ece.mpr", reference="galvani")
+    assert m.unknown == [] and not any("low byte" in n for n in m.notes), m.notes
+
+
+def test_without_galvani_the_frozen_map_stands_in(monkeypatch):
+    monkeypatch.setattr(galvani_ref, "installed", lambda: None)
+    m = mprfile.read(EXT / "gcpl.issue_230.mpr", reference="galvani")
+    assert [c.raw_id for c in m.unknown] == [883, 884]
+    assert any("not installed" in n for n in m.notes), m.notes
+    assert any("galvani 0.5.0 reads only the low byte" in n and "438 as 182" in n for n in m.notes), m.notes
 
 
 @pytest.mark.parametrize("old_id,expected", [(467, "Q charge or discharge"), (7, "dq"), (4, "time")])

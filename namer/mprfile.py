@@ -16,6 +16,8 @@ from pathlib import Path
 
 import numpy as np
 
+from . import galvani_ref
+
 FLAG_IDS = (1, 2, 3, 21, 31, 65)
 CANDIDATES = {1: ["|u1"], 2: ["<u2", "<i2"], 4: ["<f4", "<u4", "<i4"], 8: ["<f8", "<u8", "<i8"]}
 
@@ -79,25 +81,29 @@ def _plausibility(v: np.ndarray, dtype: str) -> float:
     return 0.9 if span < 2 ** (8 * width - 4) else 0.2
 
 
-def _galvani_low_byte_note(full_ids: list[int], gmap: dict) -> list[str]:
-    """galvani 0.5.0 reads only the low byte of each column ID in the 11.50+ layout.
+def _galvani_notes(full_ids: list[int], ref: galvani_ref.Reference, layout_11_50: bool) -> list[str]:
+    """What the reference galvani makes of this file, beyond plain unknown IDs.
 
+    galvani 0.5.0 reads only the low byte of each column ID in the 11.50+ layout.
     IDs above 255 then become other IDs (471 -> 215), which galvani either does not
     know (it stops) or knows as a different column. Its map repeats a few entries at
     the low-byte ID (211 = 467), so only IDs whose low-byte entry differs are listed.
     """
-    misread = [x for x in full_ids if x > 255 and gmap.get(x & 0xFF) != gmap.get(x)]
-    if not misread:
-        return []
-    from importlib.metadata import version
-
-    pairs = ", ".join(f"{x} as {x & 0xFF}" for x in misread)
-    return [f"galvani {version('galvani')} reads only the low byte of each column ID in this file layout, "
-            f"so it misreads {pairs}"]
+    notes = []
+    if not ref.installed:
+        notes.append("galvani is not installed, so 'known to galvani' means the column map of galvani 0.5.0 "
+                     "(bundled with Rosetta)")
+    if layout_11_50 and ref.low_byte:
+        gmap = ref.colmap
+        misread = [x for x in full_ids if x > 255 and gmap.get(x & 0xFF) != gmap.get(x)]
+        if misread:
+            pairs = ", ".join(f"{x} as {x & 0xFF}" for x in misread)
+            notes.append(f"{ref.label} reads only the low byte of each column ID in this file layout, "
+                         f"so it misreads {pairs}")
+    return notes
 
 
 def read(path: str | Path, reference: str = "galvani") -> MprData:
-    from galvani import BioLogic
     from yadg.extractors.eclab.mpr import parse_columns, process_settings
 
     logging.getLogger("yadg").setLevel(logging.CRITICAL)
@@ -133,8 +139,9 @@ def read(path: str | Path, reference: str = "galvani") -> MprData:
     rec = region // n_points
 
     names, dtypes, units, _ = parse_columns(yids, technique)  # yadg's map: names for known columns
-    gmap = {int(k): v for k, v in BioLogic.VMPdata_colID_dtype_map.items()}
-    notes = _galvani_low_byte_note(full, gmap) if version in (10, 11) and reference == "galvani" else []
+    gref = galvani_ref.reference() if reference == "galvani" else None
+    gmap = gref.colmap if gref else {}
+    notes = _galvani_notes(full, gref, version in (10, 11)) if gref else []
     layout = []  # record layout in file order: (raw_id or None for the flags byte, ...)
     for yid, fid in zip(yids, full):
         if yid in FLAG_IDS:  # all flag IDs share one byte, at the position of the first one

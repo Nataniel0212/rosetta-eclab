@@ -451,15 +451,15 @@ def is_code(ctx, lo=0, hi=200, max_distinct=8) -> float:
 # --- expected storage types (public parser maps: yadg 7.0.1 and galvani 0.5.0) ---------
 
 def expected_dtypes() -> dict[str, set[str]]:
-    from galvani import BioLogic
     from yadg.extractors.eclab.mpr_columns import data_columns
 
     from spike2 import vocab
+    from spike2.galvani_snapshot import snapshot_map  # frozen 0.5.0 map, whichever galvani is installed
 
     out: dict[str, set[str]] = {}
     for dt, name, _unit in data_columns.values():
         out.setdefault(vocab.canonical(name), set()).add(dt)
-    for full, dt in BioLogic.VMPdata_colID_dtype_map.values():
+    for full, dt in snapshot_map().values():
         name = full.split("/")[0] if not full.startswith("Q charge/discharge") else "Q charge/discharge"
         out.setdefault(vocab.canonical(name), set()).add(dt)
     return out

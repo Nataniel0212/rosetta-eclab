@@ -96,9 +96,9 @@ def decode(path: Path) -> FileData:
         raise NotImplementedError(f"data module version {data_version}")
     names, dtypes, units, _flags = parse_columns(ids, technique)
     arr = np.frombuffer(data, offset=offset, dtype=np.dtype(list(zip(names, dtypes))), count=n_points)
-    from galvani import BioLogic
+    from .galvani_snapshot import snapshot_map
 
-    km = {int(k): v for k, v in BioLogic.VMPdata_colID_dtype_map.items()}  # galvani 0.5.0: full IDs it knows
+    km = snapshot_map()  # galvani 0.5.0 (frozen copy): full IDs it knows
     cols, pos = [], 0
     # yadg's own flag test (on its reading of the IDs) decides which entries are flags
     data_ids = [(i, f) for i, f in zip(ids, full_ids) if i not in (1, 2, 3, 21, 31, 65)]

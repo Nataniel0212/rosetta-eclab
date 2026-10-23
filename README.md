@@ -27,6 +27,8 @@ Python 3.10 or later:
 pip install rosetta-eclab
 ```
 
+Rosetta does not install galvani. If galvani or datalab-org-galvani is installed, "unknown to galvani" means unknown to the galvani you actually have. Without either, Rosetta uses a frozen copy of galvani 0.5.0's column map and says so. The names Rosetta gives never depend on which galvani is installed.
+
 To run the tests or reproduce the benchmark, clone the repository instead:
 
 ```sh
@@ -71,7 +73,7 @@ peis.issue_225.with_ece.mpr
   every column ID is in galvani's column map; nothing to name
 ```
 
-The fix was released in datalab-org-galvani 0.6.0 ([galvani-mirror#11](https://github.com/datalab-org/galvani-mirror/issues/11)). IDs that are missing from the map altogether, such as 880 or 883 and 884, are what Rosetta names.
+The fix was released in datalab-org-galvani 0.6.0 ([galvani-mirror#11](https://github.com/datalab-org/galvani-mirror/issues/11)). Rosetta prints the note only when the installed galvani reads the low byte. IDs that are missing from the map altogether, such as 880 or 883 and 884, are what Rosetta names.
 
 ## How it works
 
@@ -130,4 +132,4 @@ pytest tests
 
 ## Data and licence
 
-Rosetta is free software under the **GNU General Public License v3.0 or later** (see `LICENSE`). It uses [yadg](https://github.com/dgbowl/yadg) and [galvani](https://github.com/echemdata/galvani), both GPL. Measurement files are downloaded at run time and never committed. Sources, licences and attributions are listed in [`DATA_SOURCES.md`](https://github.com/Nataniel0212/rosetta-eclab/blob/main/DATA_SOURCES.md). Rosetta is not affiliated with BioLogic.
+Rosetta is free software under the **GNU General Public License v3.0 or later** (see `LICENSE`). It uses [yadg](https://github.com/dgbowl/yadg) (GPL), and `spike2/galvani_0.5.0_colmap.json` is a copy of the column map of [galvani](https://github.com/echemdata/galvani) 0.5.0 (GPL-3.0-or-later). Measurement files are downloaded at run time and never committed. Sources, licences and attributions are listed in [`DATA_SOURCES.md`](https://github.com/Nataniel0212/rosetta-eclab/blob/main/DATA_SOURCES.md). Rosetta is not affiliated with BioLogic.
