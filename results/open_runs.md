@@ -172,3 +172,21 @@ The fixes were made after looking at these files, so the second row is not a bli
 - **Ewe-Ece had no relation** (galvani #74). Ewe − Ece now names it. This counts only where subtracting Ece explains the column clearly better than Ewe alone, because Ece is often nearly flat.
 
 Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m namer.golden check`). Only confidences and alternatives moved. The remaining wrong name is `|Energy|` → `Energy we` (galvani #42).
+
+## 2026-10-27: hold-out 6 (57 older EC-Lab files, data module version 0; frozen at `a2a6905`), namer run once
+
+- **The files:** Zenodo 3631173 and 3631156 (PEM fuel cells, CV and LSV), the same records as hold-out 3. They were fetched then but could not be decoded, so hold-out 3 used only Zenodo 17244893. rosetta-eclab 0.1.4 reads version 0, and the namer had never run on these files. The reader was developed on their byte layout: column IDs and offsets, checked against galvani 0.5.0.
+- **Answer key:** there are no vendor exports in these records. Names come from yadg's column map, and values from galvani's version-0 offsets (byte-identical to galvani 0.5.0 on all 57 files).
+- **A weak hold-out:** all 57 files share one column set (time, control_V, Ewe, `<I>`, cycle number), likely from one lab, and the technique is not read from version-0 files. The set has 44 tasks: 20 main (4 per name), 6 constant and 18 decoys, of which 16 are scored. Only 5 decoys are out-of-vocabulary, because the set has only five names.
+- **Namer** frozen at `a2a6905` (0.1.4 behaviour) and run once after the task hash was checked. The Claude arm has not been run.
+
+| Arm | Main top-1 (20 tasks, 5 names) | Wrong names on real columns | Abstained | Decoys named (16) |
+|---|---|---|---|---|
+| **namer (no LLM)** | **0.800** (16/20) | 1 (`I` → `(Q-Qo)`) | 3 (`I`) | **2** (out-of-vocabulary, both → `(Q-Qo)`) |
+| H_knn | 0.950 | – | – | 16 |
+| H_prior | 0.600 | – | – | 16 |
+
+- time, control, Ewe and cycle number: 16/16 correct. All 6 constant cycle-number columns got ABSTAIN.
+- **Every miss is the current `<I>`.** These CV and LSV files hold no charge or power column, and the control column is a potential, so no formula can confirm a current. Three times the statistics suggested `I` but the column lacked its form (shape or storage type), and the namer abstained. Once, in an LSV file, the statistics vote named `(Q-Qo)` (vote share 0.63).
+- **Both named decoys came from the same statistics vote:** `<I>` → `(Q-Qo)` with `I` removed from the vocabulary, and `time` → `(Q-Qo)` with `time` removed.
+- H_knn scores higher on main because one standard column set suits a nearest-neighbour vote, but it names every decoy. The set is now spent and may be used for development.

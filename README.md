@@ -103,7 +103,9 @@ In every task one real column is hidden and must be named from the data. There a
 | Real columns named correctly | 350/373 (93.8 %) | 359/373 (96.2 %) | 77–100 % per hold-out¹ |
 | Wrong names on real columns | **5** | 10 | – |
 | Decoys named (should abstain) | **11/95** | 16/95 | 95/95 |
-| Last hold-out (70 columns) | **70/70, 0 wrong, 1 decoy named** | 69/70, 1 wrong, 2 decoys named | 78.6 % |
+| Hold-out 5 (70 columns) | **70/70, 0 wrong, 1 decoy named** | 69/70, 1 wrong, 2 decoys named | 78.6 % |
+
+**Hold-out 6** (2026-10-27, namer only): 57 older EC-Lab files (data module version 0) that 0.1.4 can now read, all with one column set. The namer named 16/20 columns correctly, gave 1 wrong name and named 2/16 decoys. Every miss was the current `<I>` in files with no charge or power column to confirm it. The reader was developed on these files' byte layout; the namer had never run on them. Details are in `results/open_runs.md`.
 
 ¹ There are two code-only baselines. A technique prior names the column that is typical for this technique and missing here. A nearest-neighbour vote compares the column with labelled columns from other files. Both are strong when files have standard column sets, but they name every decoy and cannot name a genuinely new column.
 

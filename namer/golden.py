@@ -20,7 +20,7 @@ from .evaluate import answer, test_keys
 
 ROOT = Path(__file__).resolve().parents[1]
 GOLDEN = ROOT / "tests" / "golden" / "answers.jsonl"
-SPLITS = ["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5"]
+SPLITS = ["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6"]
 KEYS = ("verdict", "name", "confidence", "alternatives", "duplicate_of")
 
 
