@@ -152,7 +152,7 @@ def main() -> int:
     ap.add_argument("--model", default="claude-opus-5-5")
     ap.add_argument("--label", help="arm label (default: model name + effort)")
     ap.add_argument("--effort", choices=["low", "medium", "high", "xhigh", "max"])
-    ap.add_argument("--split", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5"], required=True)
+    ap.add_argument("--split", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6"], required=True)
     ap.add_argument("--buckets")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--limit", type=int)

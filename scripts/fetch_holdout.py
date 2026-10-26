@@ -78,6 +78,12 @@ SETS = {
         "zenodo_15747326": ("CC-BY-4.0", lambda: zenodo("15747326")),
         "zenodo_3676445": ("CC-BY-4.0", lambda: zenodo("3676445")),
     },
+    # sixth hold-out: the version-0 files of hold-out 3's two PEM fuel-cell records, which could not be
+    # decoded then (2026-10-27); the namer has never run on them
+    "holdout6": {
+        "zenodo_3631173": ("CC-BY-4.0", lambda: zenodo("3631173")),
+        "zenodo_3631156": ("CC-BY-4.0", lambda: zenodo("3631156")),
+    },
 }
 
 

@@ -30,8 +30,8 @@ SET = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("-") else 
 DATA = ROOT / "data" / SET
 OUT = DATA / "tasks.jsonl"
 MANIFEST = ROOT / "holdout" / ("manifest.json" if SET == "holdout" else f"manifest_{SET}.json")
-SEED = {"holdout": 20261016, "holdout2": 20261017, "holdout3": 20261018, "holdout4": 20261019, "holdout5": 20261020}[SET]
-PREFIX = {"holdout": "H", "holdout2": "K", "holdout3": "M", "holdout4": "N", "holdout5": "P"}[SET]
+SEED = {"holdout": 20261016, "holdout2": 20261017, "holdout3": 20261018, "holdout4": 20261019, "holdout5": 20261020, "holdout6": 20261027}[SET]
+PREFIX = {"holdout": "H", "holdout2": "K", "holdout3": "M", "holdout4": "N", "holdout5": "P", "holdout6": "Q"}[SET]
 PER_NAME = 4
 DECOYS = ["noise_f4"] * 6 + ["noise_f8"] * 2 + ["randint_u2"] * 3 + ["oov"] * 8 + ["const", "copy"]
 
@@ -57,7 +57,7 @@ def build() -> list[dict]:
         try:
             return tasks.file_data(f).n_points >= tasks.MIN_ROWS
         except Exception:
-            return False  # e.g. data-module version 0 (old EC-Lab), which the reference decoder cannot label
+            return False  # e.g. no data points
 
     readable = [f for f in files if ok(f)]
     V = vocab.names()
@@ -124,7 +124,10 @@ def build() -> list[dict]:
     used_oov = set()
     for kind in DECOYS:
         if kind == "oov":
-            f, c, _ = next(x for x in leftover if vocab.canonical(x[1].name) not in used_oov)
+            pick = next((x for x in leftover if vocab.canonical(x[1].name) not in used_oov), None)
+            if pick is None:  # fewer distinct names than out-of-vocabulary decoys (hold-out 6 has five)
+                continue
+            f, c, _ = pick
             used_oov.add(vocab.canonical(c.name))
             add(f, c, "decoy", decoy={"kind": "oov", "source_position": c.position, "source_name": c.name},
                 exclude=[vocab.canonical(c.name)])

@@ -62,7 +62,9 @@ HIDDEN = "TARGET"
 @lru_cache(maxsize=None)
 def file_data(name: str) -> corpus.FileData:
     # v2 corpus files are bare names in data/external; other sets (e.g. the hold-out) use paths under data/
-    return corpus.decode((ROOT / "data" / name) if "/" in name else (corpus.EXT / name))
+    if "/" in name:
+        return corpus.decode(ROOT / "data" / name, allow_v0=True)
+    return corpus.decode(corpus.EXT / name)
 
 
 def usable_columns(fd: corpus.FileData) -> list[corpus.Column]:
@@ -169,6 +171,8 @@ def sham_hole(f: str, key: str, present: set[str], truth: str | None, tech_names
     pool = sorted(tech_names.get(tech, set()) - present - {truth})
     if not pool:
         pool = sorted(all_names - present - {truth})
+    if not pool:  # a set whose files all share one column set (hold-out 6): any other vocabulary name
+        pool = sorted(set(vocab.names()) - present - {truth})
     return random.Random(f"{SEED}:{f}:{key}").choice(pool)
 
 

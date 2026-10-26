@@ -66,7 +66,9 @@ def _modules(contents: bytes):
         yield header["short_name"].strip(), version, module[mhd.itemsize:]
 
 
-def decode(path: Path) -> FileData:
+def decode(path: Path, allow_v0: bool = False) -> FileData:
+    """allow_v0: also decode data-module version 0 (galvani's offsets; yadg cannot read it). Hold-out sets
+    use it; the development corpus does not, so the statistics table and golden answers are as before."""
     from yadg.extractors.eclab.mpr import parse_columns, process_settings
 
     logging.getLogger("yadg").setLevel(logging.CRITICAL)
@@ -92,6 +94,14 @@ def decode(path: Path) -> FileData:
         ids = np.frombuffer(data, offset=5, dtype="<u2", count=n_columns).tolist()
         full_ids = list(ids)
         offset = 0x195 if data_version == 2 else 0x196
+    elif data_version == 0 and allow_v0:  # same offsets as namer/mprfile.py
+        if data[5]:
+            ids = list(data[5:5 + n_columns])
+            offset = 100
+        else:
+            ids = list(data[6:5 + 2 * n_columns:2])
+            offset = 1007
+        full_ids = list(ids)
     else:
         raise NotImplementedError(f"data module version {data_version}")
     names, dtypes, units, _flags = parse_columns(ids, technique)

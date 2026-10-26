@@ -1,0 +1,879 @@
+{
+ "seed": 20261027,
+ "n_tasks": 44,
+ "counts": {
+  "constant": 6,
+  "decoy:const": 1,
+  "decoy:copy": 1,
+  "decoy:noise_f4": 6,
+  "decoy:noise_f8": 2,
+  "decoy:oov": 5,
+  "decoy:randint_u2": 3,
+  "main": 20
+ },
+ "n_main_names": 5,
+ "tasks_jsonl_sha256": "40674b18e0a3af9956636feb9a252f6fe251a39d0764fcaca23c06947b45f0d3",
+ "files_manifest_sha256": "bb8b6babeecda893cbef384979e74f23c93a930751d523b8b498c4f5a6b64fb0",
+ "label_check": {
+  "tasks_with_export": 0,
+  "name_found_in_export": 0,
+  "not_found": {}
+ },
+ "tasks": [
+  {
+   "task_id": "Q001",
+   "bucket": "constant",
+   "file": "holdout6/zenodo_3631173/LSV 15000_b_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|C|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e4caa4458bb328ec001b85eec1e148462046bec97592afd6a3e73c5d001e5d38"
+  },
+  {
+   "task_id": "Q002",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 17500_a_01.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "befcff0ac0f245ac724086b58f751ca1f212d0f7e96cdbe48680c8b32f20214b"
+  },
+  {
+   "task_id": "Q003",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631156/CV_500_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "167fa19699362ab162045611bb4b23f6d1c9ca2535aef9c69d2351682fb82034"
+  },
+  {
+   "task_id": "Q004",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631156/CV_100_01.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "58c7115c4404276b8910dbbf7ae027f0d1e3bc4cebfc3528495cfd44f683551c"
+  },
+  {
+   "task_id": "Q005",
+   "bucket": "constant",
+   "file": "holdout6/zenodo_3631173/LSV 10000_a_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "12a67f479b39df62b50323d3d700c9a548345b7e85e09838e79ac48e22e93063"
+  },
+  {
+   "task_id": "Q006",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/LSV 7500_01.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5422864fb440cb3d526fb80c425eb1c1386c5442ceb4be83046b56c6d3606b82"
+  },
+  {
+   "task_id": "Q007",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631156/LSV_500_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 420667810,
+    "kind": "const",
+    "value": 0.0
+   },
+   "vocab_exclude": [
+    "Re(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a0f0fdfac7b2cb9fefcd616eb52a462cfd5957f3f75c46e9feacb8361449fe79"
+  },
+  {
+   "task_id": "Q008",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 17500_01.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9c18fb94a91f9f490a1da9a2fe5f20b6cb03764c6cf8363f21eefcd32f7c34fa"
+  },
+  {
+   "task_id": "Q009",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631156/LSV_500_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 1016286551,
+    "kind": "noise_f4",
+    "scale": 0.2872284364238378,
+    "loc": -1.125986821407809
+   },
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "77ab3f74190129d7f137bcefe6180d088d867e9154caff9a499ae1315ab6e9d8"
+  },
+  {
+   "task_id": "Q010",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/LSV 10000_b_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 404526333,
+    "kind": "noise_f4",
+    "scale": 4.44568793024898,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Cp⁻²"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6bcf01de27d4c3789dd05eccf7f01cb4e4281db2e3a95ff90cee5d361ec70a61"
+  },
+  {
+   "task_id": "Q011",
+   "bucket": "constant",
+   "file": "holdout6/zenodo_3631173/LSV 2500_a_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9afeb950bd57846530640b74316d7cd03ef4d7d51a68130ec51070efd83fd643"
+  },
+  {
+   "task_id": "Q012",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 7500_01.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "48c339180f84dd1ae66079a762abbd229567667b2230ca916b020e7e6ad81a6d"
+  },
+  {
+   "task_id": "Q013",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631156/CV_5000 a_01.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "edb94c913e6cfb963b7c34c5e12585ea512f7b078c9ad698c8b8d3ce9e47389c"
+  },
+  {
+   "task_id": "Q014",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631156/CV_300_01.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 2,
+    "source_name": "Ewe"
+   },
+   "vocab_exclude": [
+    "Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0ff5c534ba321677c88e76949580314788032b43e32cb18449bd49077600a502"
+  },
+  {
+   "task_id": "Q015",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/LSV 15000_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 393852271,
+    "kind": "noise_f8",
+    "scale": 0.00027432194501741047,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Phase(C)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "17941b28ed0e31d176583a124e1aea7587fe77c14d57bd0de407b4454475d878"
+  },
+  {
+   "task_id": "Q016",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 12500_01.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "14b1097c0c3801293b866a002fdda8bf69d6d5507038e7683da5bb85a1ff25b6"
+  },
+  {
+   "task_id": "Q017",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631156/LSV_500_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 162618888,
+    "kind": "noise_f4",
+    "scale": 1.2434431515248343,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c4496180c3bfbfa97f8744c9a66e8e79397b237211d51c6e65347e0ca394f402"
+  },
+  {
+   "task_id": "Q018",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/CV 17500_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 634862886,
+    "kind": "randint_u2",
+    "high": 16
+   },
+   "vocab_exclude": [
+    "Re(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ce1cb643c8ace4defcdb64d9e8f636a1ccc3c58dfbedda72d6654467d29ddcaf"
+  },
+  {
+   "task_id": "Q019",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631156/LSV_3000_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 303050212,
+    "kind": "noise_f4",
+    "scale": 0.00011284140095072413,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Rac"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "72bc3d931f8953c7b49a262f4e637f3290bac217c45481a7cd54258cf9c0f7a1"
+  },
+  {
+   "task_id": "Q020",
+   "bucket": "constant",
+   "file": "holdout6/zenodo_3631156/LSV_5000 a_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z1|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e25c7d09622161fc06e94d538c966088000c5307851b97f52ab9698884b1c19b"
+  },
+  {
+   "task_id": "Q021",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/CV 2500_a_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 4,
+    "source_name": "cycle number"
+   },
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f6ca94aefd8c7129cf2032d06f41485ce6f92d6e933980a8dfee4c376ac9a2d8"
+  },
+  {
+   "task_id": "Q022",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 17500_01.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "75fc607783b4587751f8433d0bc5ea4d046950cdca43ac72099d20f7450b487e"
+  },
+  {
+   "task_id": "Q023",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/LSV 15000_a_01.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fc99db51e10a2a3b29a61bb29da254b5b172b30f76cf1fc5f1f0f32bc3141765"
+  },
+  {
+   "task_id": "Q024",
+   "bucket": "constant",
+   "file": "holdout6/zenodo_3631173/LSV 10000_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Acir or Dcir Control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a4d8e99e03c6e524565a5047bd9849adec6502f5246bbe1119559e83e760ad5c"
+  },
+  {
+   "task_id": "Q025",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/LSV 10000_b_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 902662811,
+    "kind": "randint_u2",
+    "high": 4096
+   },
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4817d41f3d862467f966f6b0bf2475c6710224698b44b519f2a001be8beccfd8"
+  },
+  {
+   "task_id": "Q026",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 10000_01.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "counter inc."
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2ec37f9537f6b7a4690d6cd228654399df0cc3518074cc83c6223087510f7732"
+  },
+  {
+   "task_id": "Q027",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/LSV 20000_01.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 1,
+    "source_name": "control_V"
+   },
+   "vocab_exclude": [
+    "control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c34a650727528917adae83db1ff33fb2292ee167a07b97a93b91796c62c6c70f"
+  },
+  {
+   "task_id": "Q028",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/CV 12500_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 478964272,
+    "kind": "randint_u2",
+    "high": 256
+   },
+   "vocab_exclude": [
+    "|I h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "49d286c6cf536bb3e908db97969c402aabea2092fbadb9d4e69703d15bab602e"
+  },
+  {
+   "task_id": "Q029",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/CV 5000_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 481332607,
+    "kind": "noise_f4",
+    "scale": 0.0018309149267057947,
+    "loc": 0.00023544436164658601
+   },
+   "vocab_exclude": [
+    "Rac"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a6d447dfaa9af1075f6675917af24daefb9268c598b84f9812a532db4ede4737"
+  },
+  {
+   "task_id": "Q030",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631156/CV_1000_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 1011437180,
+    "kind": "copy",
+    "source_position": 1,
+    "source_name": "control_V"
+   },
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [
+    "c2"
+   ],
+   "dossier_sha256": "c7adb233c2a5ff482849ffafcc48b012cd72e0fee2c46b136e72b6228e8b29ea"
+  },
+  {
+   "task_id": "Q031",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631156/CV BoL_01.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "07cea792fbbd70e650770d52cdc88bb0296fe5db0e9855219f5c0544b36c898f"
+  },
+  {
+   "task_id": "Q032",
+   "bucket": "constant",
+   "file": "holdout6/zenodo_3631173/LSV 5000_a_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2a084bdd7e822f5f23138aeffd3ff640116d011acfcff59c7cca4631867815be"
+  },
+  {
+   "task_id": "Q033",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631156/CV_500_01.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Im(C)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5c0cc5086b8627d9a825c3e071fcc07597ce9d6dc18d44343700745a05d9c134"
+  },
+  {
+   "task_id": "Q034",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/LSV 10000_a_01.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "z cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5b8abb27236d50bed5b8bf5ca0bebd2744e20b16f3a6461507a8ee121582248f"
+  },
+  {
+   "task_id": "Q035",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/LSV 20000_a_01.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 3,
+    "source_name": "<I>"
+   },
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6de27c92bb997c8fb95b9a68e0c4ea5642bd8393a4e1aa34c89fc9803d16458c"
+  },
+  {
+   "task_id": "Q036",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/LSV 17500_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 669364774,
+    "kind": "noise_f8",
+    "scale": 795.094077193627,
+    "loc": 42.24289088294669
+   },
+   "vocab_exclude": [
+    "Q discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3bfee1ab6e6ee6484168bb4bad01e51bfa982ab5d5a7356b749e2873d5154a1a"
+  },
+  {
+   "task_id": "Q037",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 10000_a_01.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dQ"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2ed437072ee66c28bcd6adcd29f025b41cdda33f28e538cde15d44fa7a8a369f"
+  },
+  {
+   "task_id": "Q038",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 5000_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "THD Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f831c5f11e5ba0e37d7afc49a25124e1762b1d2725e45697a2b1e931fc210132"
+  },
+  {
+   "task_id": "Q039",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631173/CV 10000_a_01.mpr",
+   "technique": null,
+   "position": 0,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 0,
+    "source_name": "time"
+   },
+   "vocab_exclude": [
+    "time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b5bd064964cb7ea3da69324f7f12aaaf5144f62e95c5cab66d6af7dd1cb5a588"
+  },
+  {
+   "task_id": "Q040",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631156/CV_300_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z1|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "566f348404c05628e2b30aa4eaa58a6cbd724de6b0a9ec4aaf5bed180c72a70b"
+  },
+  {
+   "task_id": "Q041",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 2500_01.mpr",
+   "technique": null,
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Energy|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "408b4de2551c0a76fff9f2f15b35d92a8c1f758d764e99cd13c183f9e21b080f"
+  },
+  {
+   "task_id": "Q042",
+   "bucket": "decoy",
+   "file": "holdout6/zenodo_3631156/CV BoL_01.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 393127691,
+    "kind": "noise_f4",
+    "scale": 79.25667279736162,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c4786c5106929e97d90c8653925c8424ee24a748a71115cdcce33fe85ee94c8d"
+  },
+  {
+   "task_id": "Q043",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/LSV BoL_01.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "905c4fe9985f464fbb66903154643881fbdaa39a117f2f7561e4fedaf6e378e6"
+  },
+  {
+   "task_id": "Q044",
+   "bucket": "main",
+   "file": "holdout6/zenodo_3631173/CV 15000_01.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z2|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f8ed542ce7073c6fd3114ba97b69f09913ba6ca86dde96fae1470b31fd3c3ab1"
+  }
+ ]
+}

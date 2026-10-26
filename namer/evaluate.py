@@ -181,7 +181,7 @@ def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
     ap.add_argument("--pool", action="store_true")
-    ap.add_argument("--split", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5"])
+    ap.add_argument("--split", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6"])
     ap.add_argument("--abstain-below", type=float, default=0.6)
     ap.add_argument("-v", "--verbose", action="count", default=0)
     a = ap.parse_args()

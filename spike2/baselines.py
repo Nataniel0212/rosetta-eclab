@@ -142,7 +142,7 @@ def main() -> int:
 
     warnings.filterwarnings("ignore")
     ap = argparse.ArgumentParser()
-    ap.add_argument("--split", default="test", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5"])
+    ap.add_argument("--split", default="test", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6"])
     a = ap.parse_args()
     res = run(a.split)
     print(f"{len(res)} tasks -> runs2/baselines_{a.split}.jsonl")
