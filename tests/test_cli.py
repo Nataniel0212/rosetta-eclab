@@ -45,6 +45,44 @@ def test_reader_matches_reference_decoder():
         assert a == b, name
 
 
+def _mpt(path: Path) -> dict[str, np.ndarray]:
+    lines = path.read_bytes().decode("latin-1").splitlines()
+    n_header = int(lines[1].split(":")[1])
+    head = lines[n_header - 1].rstrip("\t").split("\t")
+    rows = [line.rstrip("\t").split("\t") for line in lines[n_header:] if line.strip()]
+    return {h: np.array([float(r[i].replace(",", ".")) for r in rows]) for i, h in enumerate(head)}
+
+
+def test_version_0_files_match_the_vendor_export():
+    """Data module version 0 (older EC-Lab): yadg cannot read it; the values must match EC-Lab's own .mpt."""
+    m = mprfile.read(EXT / "bio_logic1.mpr", reference="galvani")
+    mpt = _mpt(EXT / "bio_logic1.mpt")
+    cols = {c.name: c.values.astype("f8") for c in m.columns}
+    assert m.n_points == len(mpt["time/s"]) == 3119 and not m.unknown
+    for name, ref in (("time", "time/s"), ("Ewe", "Ewe/V"), ("dq", "dq/mA.h"), ("Pwe", "P/W")):
+        np.testing.assert_allclose(cols[name], mpt[ref], rtol=1e-6, atol=1e-9, err_msg=name)
+
+
+def test_empty_file_is_reported_plainly():
+    with pytest.raises(ValueError, match="no data points"):
+        mprfile.read(EXT / "wait.mpr")
+
+
+def test_power_magnitude_in_version_0_file_is_named(tmp_path):
+    """Version-0 files store |Ewe*I| as the power; hidden, it must come back as Pwe (it was named Ece)."""
+    raw = bytearray((EXT / "bio_logic1.mpr").read_bytes())
+    mdata = next(md for name, _v, md in mprfile._modules(bytes(raw)) if name == "VMP data")
+    start = bytes(raw).index(mdata)
+    ids = list(raw[start + 5: start + 5 + raw[start + 4]])
+    raw[start + 5 + ids.index(70)] = 255  # one-byte column IDs in version 0
+    f = tmp_path / "old_drift.mpr"
+    f.write_bytes(bytes(raw))
+    m = mprfile.read(f, reference="galvani")
+    assert [c.raw_id for c in m.unknown] == [255]
+    res = cli.name_unknown(m)
+    assert res[0]["verdict"] == "NAME" and res[0]["name"] == "Pwe", res[0]
+
+
 def test_real_drift_duplicates_are_reported():
     m = mprfile.read(EXT / "gcpl.issue_230.mpr", reference="galvani")
     assert [c.raw_id for c in m.unknown] == [883, 884]

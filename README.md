@@ -114,7 +114,7 @@ The namer improved between hold-outs, so the total includes earlier versions. Th
 - **Values EC-Lab computes after the fact** cannot be reconstructed reliably. For example, a capacitance is held per segment.
 - **Noise-like DC currents** in impedance records, and **external analog inputs** with no sibling column, usually get ABSTAIN.
 - **Two quantities with the same definition in a file** cannot be told apart from the data. In galvanostatic cycling, for example, `dQ` and `Q charge or discharge` reset at the same points. A prior over how common each name is for the technique decides between them, and the alternative is shown.
-- **Supported formats:** EC-Lab data-module versions 2, 3, 10 and 11. Very old files (version 0) are not supported yet.
+- **Supported formats:** EC-Lab data-module versions 0, 2, 3, 10 and 11. Version 0 (older EC-Lab) is read with galvani's offsets, because yadg does not read it. All 59 public version-0 files decode byte for byte like galvani 0.5.0, and the two with an EC-Lab text export match it. The file technique is not read from version-0 files, so the namer works without it.
 
 ## Reproduce the benchmark
 

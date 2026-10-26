@@ -561,7 +561,11 @@ def build() -> dict[str, Quantity]:
     q("z cycle", shapes=[Shape("integer counter in a sequence with impedance", lambda c: 0.75 * is_counter(c) if c.col("freq") is not None else 0.0)])
     q("Ns", shapes=[Shape("sequence index from 0 that changes with the control", lambda c: ns_shape(c))])
     q("I Range", shapes=[Shape("instrument range code (few values, not starting at 0)", lambda c: irange_shape(c))])
-    q("Pwe", relations=[Relation("Ewe*I", ("Ewe", CURRENT), lambda c: _e(c) * _i(c), [W_PER_V_MA])])
+    q("Pwe", relations=[
+        Relation("Ewe*I", ("Ewe", CURRENT), lambda c: _e(c) * _i(c), [W_PER_V_MA]),
+        # some older EC-Lab files store the power's magnitude (galvani's bio_logic1.mpr and bio_logic3.mpr)
+        Relation("|Ewe*I|", ("Ewe", CURRENT), lambda c: np.abs(_e(c) * _i(c)), [W_PER_V_MA]),
+    ])
     q("Ewe", relations=[
         Relation("Pwe/I", ("Pwe", ("I", "dq", "(Q-Qo)")), lambda c: c.col("Pwe") / _i(c), [1000.0]),
         Relation("follows potential control", ("control",), lambda c: c.col("control"), [1.0]),
