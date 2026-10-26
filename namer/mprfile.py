@@ -151,6 +151,9 @@ def read(path: str | Path, reference: str = "galvani") -> MprData:
     gref = galvani_ref.reference() if reference == "galvani" else None
     gmap = gref.colmap if gref else {}
     notes = _galvani_notes(full, gref, version in (10, 11)) if gref else []
+    if version == 0 and reference == "yadg":
+        notes.append("yadg 7.0.1 cannot read this file at all (data module version 0); "
+                     "'known' here means listed in yadg's column map")
     layout = []  # record layout in file order: (raw_id or None for the flags byte, ...)
     for yid, fid in zip(yids, full):
         if yid in FLAG_IDS:  # all flag IDs share one byte, at the position of the first one

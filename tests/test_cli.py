@@ -61,6 +61,8 @@ def test_version_0_files_match_the_vendor_export():
     assert m.n_points == len(mpt["time/s"]) == 3119 and not m.unknown
     for name, ref in (("time", "time/s"), ("Ewe", "Ewe/V"), ("dq", "dq/mA.h"), ("Pwe", "P/W")):
         np.testing.assert_allclose(cols[name], mpt[ref], rtol=1e-6, atol=1e-9, err_msg=name)
+    assert any("yadg 7.0.1 cannot read" in n for n in mprfile.read(EXT / "bio_logic1.mpr", reference="yadg").notes)
+    assert not any("yadg" in n for n in m.notes)
 
 
 def test_empty_file_is_reported_plainly():
