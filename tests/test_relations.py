@@ -44,3 +44,20 @@ def test_ewe_minus_ece_is_named():
     target = (by["Ewe"] - by["Ece"]).astype("<f4")
     a = answer(target, "<f4", known, m.technique, vocab.names(), exclude_group=corpus.source_group(m.path))
     assert a["verdict"] == "NAME" and a["name"] == "Ewe-Ece", a
+
+
+def test_current_does_not_have_to_follow_a_potential_control():
+    """In CV the control column is a potential (control_V). A current that does not follow it must not be ruled
+    out as I: the relation 'follows current control' is then not testable (hold-out 6, Zenodo 3631173)."""
+    from namer.engine import Context, Known
+    from namer.library import LIBRARY
+
+    t = np.arange(2000) * 0.5
+    sweep = 0.9 - 0.8 * np.abs(((t / 200.0) % 2) - 1)  # V, triangular CV sweep
+    current = 50 * np.gradient(sweep) / 0.5 + 20 * np.exp(-sweep / 0.05)  # mA, follows dE/dt, not E
+    known = {"time": Known("time", "s", t, "<f8"), "control": Known("control", "V", sweep, "<f4"),
+             "Ewe": Known("Ewe", "V", sweep + 1e-3, "<f4")}
+    ctx = Context(None, known, current, "<f8")
+    assert LIBRARY["I"].best_reliable_relation(ctx) is None
+    known["control"] = Known("control", "mA", sweep, "<f4")  # a current control: the relation applies again
+    assert LIBRARY["I"].best_reliable_relation(Context(None, known, current, "<f8")) is not None
