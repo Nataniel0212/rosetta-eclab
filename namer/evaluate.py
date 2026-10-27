@@ -162,6 +162,54 @@ def pool(verbose: int) -> None:
             print(f"  {k:3d}  {t} -> {a}")
 
 
+def sweep(split: str, label: str = "sweep") -> None:
+    """Every usable column of every readable file in data/<split>, hidden in turn with the file's other columns
+    known and the whole vocabulary allowed (constant and duplicated columns are skipped, as in --pool).
+    Writes runs3/<label>_<split>.jsonl and prints correct, wrong and abstained per name. Like an official
+    hold-out run it refuses to overwrite an existing result."""
+    RUNS.mkdir(exist_ok=True)
+    path = RUNS / f"{label}_{split}.jsonl"
+    if path.exists():
+        raise SystemExit(f"{path} exists; pick another --label")
+    V = vocab.names()
+    root = ROOT / "data" / split
+    by_name, rows = defaultdict(Counter), []
+    for p in sorted(root.rglob("*.mpr")):
+        rel = p.relative_to(ROOT / "data").as_posix()
+        try:
+            fd = tasks.file_data(rel)
+        except Exception:
+            continue
+        if fd.n_points < tasks.MIN_ROWS:
+            continue
+        cols = tasks.usable_columns(fd)
+        for c in cols:
+            if features.is_constant(c.values):
+                continue
+            others = [o for o in cols if o is not c]
+            if any(features.identical(c.values, o.values) for o in others):
+                continue
+            truth = vocab.canonical(c.name)
+            a = answer(c.values, c.dtype, others, fd.technique, V, exclude_group=corpus.source_group(p.name))
+            kind = "correct" if a["verdict"] == "NAME" and a["name"] == truth else (
+                "wrong" if a["verdict"] == "NAME" else "abstained")
+            by_name[truth][kind] += 1
+            rows.append({"file": rel, "position": c.position, "truth": truth, "kind": kind, **a})
+    path.write_text("\n".join(json.dumps(r, ensure_ascii=False, default=str) for r in rows) + "\n",
+                    encoding="utf-8", newline="\n")
+    tot = Counter()
+    for c in by_name.values():
+        tot.update(c)
+    n = sum(tot.values())
+    macro = np.mean([c["correct"] / sum(c.values()) for c in by_name.values()]) if by_name else 0.0
+    print(f"{split} sweep: {n} hidden columns in {len({r['file'] for r in rows})} files, {len(by_name)} names; "
+          f"correct {tot['correct']} ({tot['correct'] / max(1, n):.3f}), wrong {tot['wrong']}, "
+          f"abstained {tot['abstained']}; macro {macro:.3f} -> {path}")
+    for name, c in sorted(by_name.items(), key=lambda kv: (-kv[1]["wrong"], kv[0])):
+        if c["wrong"] or c["abstained"]:
+            print(f"  {name:28s} correct {c['correct']:4d}  wrong {c['wrong']:3d}  abstained {c['abstained']:4d}")
+
+
 def bench(split: str, abstain_below: float, label: str = "rules") -> None:
     RUNS.mkdir(exist_ok=True)
     path = RUNS / f"{label}_{split}.jsonl"
@@ -186,15 +234,18 @@ def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
     ap.add_argument("--pool", action="store_true")
-    ap.add_argument("--split", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6"])
+    ap.add_argument("--split", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6", "holdout7"])
     ap.add_argument("--abstain-below", type=float, default=0.6)
     ap.add_argument("--label", default="rules", help="run label (output runs3/<label>_<split>.jsonl)")
+    ap.add_argument("--sweep", metavar="SPLIT", help="hide every usable column of every file in data/SPLIT in turn")
     ap.add_argument("-v", "--verbose", action="count", default=0)
     a = ap.parse_args()
     if a.pool:
         pool(a.verbose)
     if a.split:
         bench(a.split, a.abstain_below, a.label)
+    if a.sweep:
+        sweep(a.sweep, a.label if a.label != "rules" else "sweep")
     return 0
 
 

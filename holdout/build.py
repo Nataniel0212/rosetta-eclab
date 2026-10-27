@@ -30,8 +30,8 @@ SET = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("-") else 
 DATA = ROOT / "data" / SET
 OUT = DATA / "tasks.jsonl"
 MANIFEST = ROOT / "holdout" / ("manifest.json" if SET == "holdout" else f"manifest_{SET}.json")
-SEED = {"holdout": 20261016, "holdout2": 20261017, "holdout3": 20261018, "holdout4": 20261019, "holdout5": 20261020, "holdout6": 20261027}[SET]
-PREFIX = {"holdout": "H", "holdout2": "K", "holdout3": "M", "holdout4": "N", "holdout5": "P", "holdout6": "Q"}[SET]
+SEED = {"holdout": 20261016, "holdout2": 20261017, "holdout3": 20261018, "holdout4": 20261019, "holdout5": 20261020, "holdout6": 20261027, "holdout7": 20261028}[SET]
+PREFIX = {"holdout": "H", "holdout2": "K", "holdout3": "M", "holdout4": "N", "holdout5": "P", "holdout6": "Q", "holdout7": "R"}[SET]
 PER_NAME = 4
 DECOYS = ["noise_f4"] * 6 + ["noise_f8"] * 2 + ["randint_u2"] * 3 + ["oov"] * 8 + ["const", "copy"]
 

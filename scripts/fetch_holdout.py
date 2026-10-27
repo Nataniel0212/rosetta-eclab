@@ -15,27 +15,116 @@ Usage:  python scripts/fetch_holdout.py [holdout|holdout2]
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import sys
 import urllib.parse
 import urllib.request
-from pathlib import Path
+import zipfile
+from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "holdout"
 MAGIC = b"BIO-LOGIC MODULAR FILE"
 
 
+_LAST: dict[str, float] = {}
+
+
+def fetch(url: str, headers: dict | None = None):
+    """One polite request: at least a second between requests to a host, and retries with backoff when the
+    server answers 429 or 503. Returns (status, headers, body)."""
+    import time
+    import urllib.error
+
+    host = urllib.parse.urlparse(url).netloc
+    for attempt in range(8):
+        wait = 1.0 - (time.time() - _LAST.get(host, 0.0))
+        if wait > 0:
+            time.sleep(wait)
+        _LAST[host] = time.time()
+        req = urllib.request.Request(url, headers={"User-Agent": "rosetta-holdout/1", **(headers or {})})
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                return r.status, r.headers, r.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (429, 503) or attempt == 7:
+                raise
+            retry = exc.headers.get("Retry-After") if exc.headers else None
+            time.sleep(min(120.0, float(retry) if retry and retry.isdigit() else 5.0 * 2 ** attempt))
+    raise OSError(f"{url}: gave up")
+
+
 def get(url: str) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": "rosetta-holdout/1"})
-    with urllib.request.urlopen(req, timeout=300) as r:
-        return r.read()
+    return fetch(url)[2]
 
 
 def zenodo(record: str, max_mb: float | None = None) -> list[tuple[str, str]]:
     d = json.loads(get(f"https://zenodo.org/api/records/{record}"))
     return [(f["key"], f["links"]["self"]) for f in d["files"] if f["key"].lower().endswith((".mpr", ".txt", ".mpt"))
             and (max_mb is None or f["size"] <= max_mb * 1e6)]
+
+
+class RangeFile(io.RawIOBase):
+    """A remote file read with HTTP Range requests, so zipfile can read single members of a large archive."""
+
+    def __init__(self, url: str):
+        self.url, self.pos = url, 0
+        status, headers, _ = fetch(url, {"Range": "bytes=0-0"})
+        if status != 206 or not headers.get("Content-Range"):
+            raise OSError(f"{url}: no range support")
+        self.size = int(headers["Content-Range"].split("/")[-1])
+
+    def seekable(self):
+        return True
+
+    def readable(self):
+        return True
+
+    def tell(self):
+        return self.pos
+
+    def seek(self, off, whence=0):
+        self.pos = off if whence == 0 else (self.pos + off if whence == 1 else self.size + off)
+        return self.pos
+
+    def readinto(self, b):
+        if self.pos >= self.size or not len(b):
+            return 0
+        end = min(self.size, self.pos + len(b)) - 1
+        data = fetch(self.url, {"Range": f"bytes={self.pos}-{end}"})[2]
+        b[:len(data)] = data
+        self.pos += len(data)
+        return len(data)
+
+
+def archive_members(url: str, max_mb: float = 30, prefix: str = "") -> list[tuple[str, str, str]]:
+    """EC-Lab files inside a remote .zip: (flat name, archive URL, member path). Keeps .mpr and .mpt members and
+    .txt members whose stem matches an .mpr; the flat name joins the member's folders with '__'."""
+    z = zipfile.ZipFile(io.BufferedReader(RangeFile(url), buffer_size=1 << 16))
+    infos = [i for i in z.infolist() if not i.is_dir() and i.file_size <= max_mb * 1e6]
+    stems = {PurePosixPath(i.filename).with_suffix("").as_posix().lower()
+             for i in infos if i.filename.lower().endswith(".mpr")}
+    out = []
+    for i in infos:
+        low = i.filename.lower()
+        stem = PurePosixPath(i.filename).with_suffix("").as_posix().lower()
+        if low.endswith((".mpr", ".mpt")) or (low.endswith(".txt") and stem in stems):
+            parts = [x for x in PurePosixPath(i.filename.replace("\\", "/")).parts if x not in ("", ".", "..")]
+            while len(parts) > 1 and len(prefix + "__".join(parts)) > 120:
+                parts = parts[1:]  # drop leading folders, never the file name
+            out.append((prefix + "__".join(parts), url, i.filename))
+    return out
+
+
+def zenodo_archives(record: str, max_mb: float = 30) -> list[tuple[str, str, str]]:
+    d = json.loads(get(f"https://zenodo.org/api/records/{record}"))
+    out = []
+    for f in d["files"]:
+        if f["key"].lower().endswith(".zip"):
+            url = f"https://zenodo.org/api/records/{record}/files/{urllib.parse.quote(f['key'])}/content"
+            out += archive_members(url, max_mb)
+    return out
 
 
 def github_dir(repo: str, path: str, ref: str = "HEAD") -> list[tuple[str, str]]:
@@ -87,6 +176,21 @@ SETS = {
 }
 
 
+
+def selection(name: str) -> dict:
+    """A frozen file selection, holdout/<name>_sources.json: {source: (licence, lister of its files)}."""
+    path = ROOT / "holdout" / f"{name}_sources.json"
+    if not path.exists():
+        return {}
+    sel = json.loads(path.read_text(encoding="utf-8"))
+    return {r["src"]: (r["licence"], (lambda r=r: [tuple(e) for e in r["files"]])) for r in sel["records"]}
+
+
+# seventh hold-out: up to three files from each openly licensed record found by a broad search on 2026-10-27
+# (Zenodo archives, figshare, Dataverse, Mendeley Data, institutional repositories, GitHub); the rule and every
+# chosen file are in holdout/holdout7_sources.json
+SETS["holdout7"] = selection("holdout7")
+
 def main() -> int:
     global OUT
     which = sys.argv[1] if len(sys.argv) > 1 else "holdout"
@@ -100,11 +204,21 @@ def main() -> int:
             continue
         d = OUT / src
         d.mkdir(parents=True, exist_ok=True)
-        for name, url in files:
+        archives: dict[str, zipfile.ZipFile] = {}
+        for entry in files:
+            name, url = entry[0], entry[1]
+            member = entry[2] if len(entry) > 2 else None  # a member of a remote .zip
             dest = d / name
+            if any(m["file"] == f"{src}/{name}" for m in manifest):
+                continue  # two entries with the same name (same file name in two folders): the first one is kept
             if not dest.exists():
                 try:
-                    dest.write_bytes(get(url))
+                    if member is None:
+                        dest.write_bytes(get(url))
+                    else:
+                        if url not in archives:
+                            archives[url] = zipfile.ZipFile(io.BufferedReader(RangeFile(url), buffer_size=1 << 16))
+                        dest.write_bytes(archives[url].read(member))
                 except Exception as exc:
                     print(f"  {name}: {exc}", file=sys.stderr)
                     continue
@@ -114,7 +228,8 @@ def main() -> int:
                 dest.unlink()
                 continue
             manifest.append({"source": src, "licence": lic, "file": f"{src}/{name}", "bytes": len(raw),
-                             "sha256": hashlib.sha256(raw).hexdigest(), "url": url})
+                             "sha256": hashlib.sha256(raw).hexdigest(), "url": url,
+                             **({"member": member} if member else {})})
         print(f"{src}: {sum(1 for m in manifest if m['source'] == src)} files")
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=1), encoding="utf-8", newline="\n")
     return 0

@@ -4,11 +4,13 @@ No measurement data is committed to this repository. The scripts download public
 
 ```sh
 python scripts/fetch_testdata.py          # development corpus (yadg + galvani test suites)
-python scripts/fetch_holdout.py holdout   # hold-outs 1-5, one at a time
+python scripts/fetch_holdout.py holdout   # hold-outs 1-7, one at a time
 python scripts/fetch_holdout.py holdout2
 python scripts/fetch_holdout.py holdout3
 python scripts/fetch_holdout.py holdout4
 python scripts/fetch_holdout.py holdout5
+python scripts/fetch_holdout.py holdout6
+python scripts/fetch_holdout.py holdout7   # 629 files from 225 records, read from inside archives where needed
 ```
 
 Each run writes a `manifest.json` with SHA-256 checksums next to the files.
@@ -40,6 +42,7 @@ These files were never used while developing the namer. Each hold-out was frozen
 | holdout5 | [Zenodo 15263065](https://zenodo.org/records/15263065): *Dane* | CC BY 4.0 | Bujewska (2025) |
 | holdout5 | [Zenodo 15747326](https://zenodo.org/records/15747326): *Temperature Influence on the Staging Process in Carbon Materials during Anionic Intercalation* | CC BY 4.0 | Gorbunov, Mikhailova (2025) |
 | holdout5 | [Zenodo 3676445](https://zenodo.org/records/3676445): *Germanium tin alloy nanowires as anode materials for high performance Li-ion batteries* | CC BY 4.0 | Doherty, McNulty et al. (2020) |
+| holdout7 | 225 openly licensed records found by a broad search on 2026-10-27 across Zenodo (including files inside archives), MOST Wiedzy, GitHub, Mendeley Data, the Universität Münster datastore, figshare, Dataverse installations and other institutional repositories. Up to three `.mpr` files per record were chosen by a fixed hash order, with same-run `.mpt`/`.txt` exports. Every record, file, licence and the selection rule are listed in [`holdout/holdout7_sources.json`](https://github.com/Nataniel0212/rosetta-eclab/blob/main/holdout/holdout7_sources.json) | per record, all permitting reuse: mostly CC BY 4.0; also CC0, CC BY-SA, ODC-By, Etalab 2.0, MIT, BSD-3-Clause, Apache-2.0, GPL/LGPL/AGPL, CeCILL-B, Unlicense | the record creators |
 
 ## Derived data in this repository
 

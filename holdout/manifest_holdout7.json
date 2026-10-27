@@ -1,0 +1,6722 @@
+{
+ "seed": 20261028,
+ "n_tasks": 334,
+ "counts": {
+  "constant": 6,
+  "decoy:const": 1,
+  "decoy:copy": 1,
+  "decoy:noise_f4": 6,
+  "decoy:noise_f8": 2,
+  "decoy:oov": 8,
+  "decoy:randint_u2": 3,
+  "duplicate": 6,
+  "elim": 108,
+  "main": 193
+ },
+ "n_main_names": 52,
+ "tasks_jsonl_sha256": "1504d11ec0c043b923e314578095f5f500e39ae28b3533bdc5abcdd9c0cfb6c6",
+ "files_manifest_sha256": "535ffee5481d2ef493e23207bf3bd3913fc4802347f55a45308f9b05f7134520",
+ "label_check": {
+  "tasks_with_export": 62,
+  "name_found_in_export": 43,
+  "not_found": {
+   "dq": 1,
+   "Cp": 1,
+   "|I h4|": 1,
+   "Energy we discharge": 1,
+   "Energy we charge": 1,
+   "I Range": 1,
+   "THD I": 1,
+   "step time": 2,
+   "|Ewe h5|": 1,
+   "Ece": 1,
+   "Capacitance discharge": 1,
+   "|Ewe|": 2,
+   "|Ewe h2|": 1,
+   "|Ewe h6|": 1,
+   "half cycle": 1,
+   "Q charge or discharge": 1,
+   "cycle number": 1
+  }
+ },
+ "tasks": [
+  {
+   "task_id": "R001",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_c7wxa_fby9_1734d2d9/Impedance_Cu7PSe6_0.29cm_with_RbCu4Cl3I2_0.12cm__Cu7PSe6_0.29cm_with_RbCu4Cl3I2_0.12cm_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 26,
+   "truth": {
+    "name": "|Ewe h6|",
+    "canonical": "|Ewe h6|",
+    "unit": "V",
+    "raw_id": 490,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "acd73c8a9c0b9779dcc6d4d927255fb7f5de29f817aacb4566c82faeef120a63"
+  },
+  {
+   "task_id": "R002",
+   "bucket": "main",
+   "file": "holdout7/github_com_mvnayagam_batkit_df452389/test.mpr",
+   "technique": "MB",
+   "position": 12,
+   "truth": {
+    "name": "Rdc",
+    "canonical": "Rdc",
+    "unit": "Ω",
+    "raw_id": 505,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h6|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1bc9bd7a4ee5437b733bda16a3e62d08b1a572b422e791390e5a36bb6ea37051"
+  },
+  {
+   "task_id": "R003",
+   "bucket": "main",
+   "file": "holdout7/doi_10_57745_r9y6ur_b8afee68/0_raw_data__BUGE189__20220801_1055_ECO7_BUGE189_40deg_impedance__010822_1055_BUGE189_40deg_GEIS_05_GEIS_C03.mpr",
+   "technique": "GEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b4e9e66e2ffc0e916653b2816f058a3ac9bc808eeaa956e0fd75084a85020cfd"
+  },
+  {
+   "task_id": "R004",
+   "bucket": "main",
+   "file": "holdout7/zenodo_7612892/Fig 3__20201204_Na_B10B12_NaCrO2_2mg_60C_C20_1_1_2,8to3,6V_13_GCPL_C05.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5ec08feebc51c30edaea3870271cc20912d5ea426bf3b036138a5546d7bd8657"
+  },
+  {
+   "task_id": "R005",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 51,
+   "truth": {
+    "name": "|Ece h7|",
+    "canonical": "|Ece h7|",
+    "unit": "V",
+    "raw_id": 503,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "957f1704f9ad8ad319a55b24fc0b976d16fee358a7bf57ea3b060d7cd0a454bc"
+  },
+  {
+   "task_id": "R006",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_9jt4x_sjy2_671ff79a/Data__Raw data__Electronic_DC_Polarization__x=8__Electronic_DC_Cu8GeS6_2nd_time_02_PEIS_C15.mpr",
+   "technique": "PEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7340ac158539daeaec37881267a3850c234b16f02e8f38b14f8994a726508651"
+  },
+  {
+   "task_id": "R007",
+   "bucket": "constant",
+   "file": "holdout7/doi_10_20350_digitalcsic_12665_39ca67f2/Datos Ca4Fe9O17 Digital CSIC__electrochemical GCPL i-v curve of Ca4Fe9O17 vs Li in LP30 at RT and Cover100rate.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [
+    "c5",
+    "c11"
+   ],
+   "dossier_sha256": "0c3ba35439e59d1fc9398cf10e8cf62a56c3f6a932bb4955f12c4aef19a3c515"
+  },
+  {
+   "task_id": "R008",
+   "bucket": "main",
+   "file": "holdout7/github_com_mvnayagam_batkit_df452389/test.mpr",
+   "technique": "MB",
+   "position": 13,
+   "truth": {
+    "name": "Acir or Dcir Control",
+    "canonical": "Acir or Dcir Control",
+    "unit": null,
+    "raw_id": 509,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f414522da567f945f88261d9c00e9fa7f606316b61be294679fed7f237f4a31e"
+  },
+  {
+   "task_id": "R009",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_rbc1h_x0s7_dfaa4614/Data_strore_Cu6PS5X_for_publication__Data__Raw_data__Impedance_spectroscopy__Cu6PS5Cl0.5I0.5__Cu6PS5Cl05I05_PEIS_C03.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d8b5bb3bc0cfe9c9ad2204eab15dc32225d8c140f83d1f0a8328da1c3c9ceb7e"
+  },
+  {
+   "task_id": "R010",
+   "bucket": "main",
+   "file": "holdout7/zenodo_20871815/Research_Data__Electrochemistry__CMK_3__Cell 1__1MAqLiTFSI_2E_12_8mg_CMK3_E_Cell_1_SlowRetention2_CB4.mpr",
+   "technique": "GCPL",
+   "position": 5,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "344d1804016504687ec19e48a8402f082e8b8b2b7d379a6df301698e9bec0dcb"
+  },
+  {
+   "task_id": "R011",
+   "bucket": "main",
+   "file": "holdout7/github_com_venkkris_battery_cycling_8727acf3/220218-PanasonicBR2032-60-70-30min-rest-C50_C04.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d65df52ce56e499402207a359336806db00206661f76555b6dd4cd833f79fdca"
+  },
+  {
+   "task_id": "R012",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__06_week01 +__01_AlkydS-Blank_A week01.mpr",
+   "technique": "PEIS",
+   "position": 16,
+   "truth": {
+    "name": "|Ece|",
+    "canonical": "|Ece|",
+    "unit": "V",
+    "raw_id": 96,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "78d9672706a0aaa9afbb7c0f93dbe621320ee6566d30923d44eb65b429199b46"
+  },
+  {
+   "task_id": "R013",
+   "bucket": "main",
+   "file": "holdout7/doi_10_57745_zxbsrf_d2c9a493/0_raw_data__M3_L4__20230502_1428_M3_BUGE385_B4_caracini__20230502_1428_M3_BUGE385_B4_caracini_04_MB_CA1.mpr",
+   "technique": "MB",
+   "position": 11,
+   "truth": {
+    "name": "Temperature",
+    "canonical": "Temperature",
+    "unit": "°C",
+    "raw_id": 462,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "82e1ebd4a40264b460513f75ff91a80e27a9a5021cd2859fe535a4f214525895"
+  },
+  {
+   "task_id": "R014",
+   "bucket": "main",
+   "file": "holdout7/zenodo_8319001/Experimental data__EIS__L2NO4-1000nm__179-YSZ-180_1000nmR45_600-400-600C_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f425102d17badf45d8c0a79f0b03344195f830bb2df13f2d89f558cdd01a32d8"
+  },
+  {
+   "task_id": "R015",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_ecc0b5cd/impedance EIS ACE2__III series__Detection__BDDreg_03_HEK1_C02.mpr",
+   "technique": null,
+   "position": 17,
+   "truth": {
+    "name": "THD I",
+    "canonical": "THD I",
+    "unit": "%",
+    "raw_id": 474,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c1a29935885cc1fb9ddbca4931f8cfee06318a84ddca85221048d23409f94a94"
+  },
+  {
+   "task_id": "R016",
+   "bucket": "main",
+   "file": "holdout7/doi_10_6084_m9_figshare_19617936_c201c7dd/Zn-NiOOH__3 eletrodes EIS__NP_Zn_20210316-13-3electrodes_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 18,
+   "truth": {
+    "name": "|Zce|",
+    "canonical": "|Zce|",
+    "unit": "Ω",
+    "raw_id": 99,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rac"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "43e1c75117000fbff6a2a7784fda336030dd60ab97fc24849c862fd7867919f9"
+  },
+  {
+   "task_id": "R017",
+   "bucket": "main",
+   "file": "holdout7/zenodo_6672033/Data access__EIS__Na-NZSPas symmetrical cell__Raw data.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Zce|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "073555b2650a5fcb3c2b802a844b01ed59ddc0c40584e1cd868f47e36835a699"
+  },
+  {
+   "task_id": "R018",
+   "bucket": "main",
+   "file": "holdout7/zenodo_14258549/Niese_Electrochimica Acta__Fig. 4__g__Fig 4_g_bias on_-0.5V_bias off_pre push off.mpr",
+   "technique": "CV",
+   "position": 1,
+   "truth": {
+    "name": "control_V",
+    "canonical": "control",
+    "unit": "V",
+    "raw_id": 19,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0bd9abfe5ff5957c576589da67fa4b7d281a18880ec2a9f3b810adb4e3a8aa7c"
+  },
+  {
+   "task_id": "R019",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__06_week01 +__01_AlkydS-Blank_A week01.mpr",
+   "technique": "PEIS",
+   "position": 37,
+   "truth": {
+    "name": "|I h2|",
+    "canonical": "|I h2|",
+    "unit": "A",
+    "raw_id": 492,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "aa05211de2aa46adf52370ee3db3121158b054dde099ceb7db6e99cc339cce17"
+  },
+  {
+   "task_id": "R020",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_raw_data_nchem_f680187d/2021-02-13-MBH-0p1 DHAQ CLS-0p1ferro0p05ferriNCLS_1M KOH-HGO RE-Deep disch-00_03_GCPL_C01.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ded9b13a00147df3a0ab85200313f98681190e77a78015657a21716402f07bb6"
+  },
+  {
+   "task_id": "R021",
+   "bucket": "main",
+   "file": "holdout7/zenodo_12737119/EIS__1000 nm__575-450-600C_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "af3129500f6763aae88023c2a8ced2879de718683f43bf9789834b6a917d96e3"
+  },
+  {
+   "task_id": "R022",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_electroc_cb9e2e39/ELECTROCHEMISTRY__RuO2_ph=13,54_T=24_MOE_CE-grafit_KOH_LSV_05_MP_C15.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "Rcmp",
+    "canonical": "Rcmp",
+    "unit": "Ω",
+    "raw_id": 168,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "725c52a953dfb95b4a9bca63b8f120a13426f1793da196f52c343e3f5bc04c7f"
+  },
+  {
+   "task_id": "R023",
+   "bucket": "main",
+   "file": "holdout7/zenodo_19352687/EC-lab_files__PanCoin012__PanCoin12_CCCV_C10_CC3.mpr",
+   "technique": "GCPL",
+   "position": 11,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ea88b4094a8270bdd4d39349ca918ce3ccc37feef033a9f972119a30a85e0765"
+  },
+  {
+   "task_id": "R024",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15782592/Figure 3__2021_11_11_spAg_PTFE_32_0.1um_hydrophilic__20211111_05_spAg_PTFE_32_CP_12+6mA_04_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 25,
+   "truth": {
+    "name": "-Im(Zwe-ce)",
+    "canonical": "-Im(Zwe-ce)",
+    "unit": "Ω",
+    "raw_id": 433,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h2|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "80b2e17739f532c938a62807d5c1e6edf45c15c013872f5467549992f20804a7"
+  },
+  {
+   "task_id": "R025",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_3nn8x5hztk_1_3b94dd15/HER_EIS_Triplo_after_reverse_currents_PtRu_C_62C_09_0,05A_cm2_C01.mpr",
+   "technique": "GEIS",
+   "position": 17,
+   "truth": {
+    "name": "|Ece|",
+    "canonical": "|Ece|",
+    "unit": "V",
+    "raw_id": 96,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3cf31c8d62ee73c8be6284e6509cf4a8a530a7282caeaf63b560362a295dbf16"
+  },
+  {
+   "task_id": "R026",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_s2ksd_vd41_f315a656/Impedance__LPSCl1.5__40 vol.-% SE__Cell 2__40 vol.-% LPSCl1.5 Cell 2.mpr",
+   "technique": "PEIS",
+   "position": 31,
+   "truth": {
+    "name": "|I h4|",
+    "canonical": "|I h4|",
+    "unit": "A",
+    "raw_id": 494,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f4cb97bfc93976d229decb1c5b191fd6b8879489908128dd8746d67abf0c301b"
+  },
+  {
+   "task_id": "R027",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__06_week01 +__01_AlkydS-Blank_A week01.mpr",
+   "technique": "PEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3129bba28556298404c24137ca942d21e17fc215bd4c63ca4883359ef80911fb"
+  },
+  {
+   "task_id": "R028",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_borophen_f691bd7c/Electrochemistry__NiF_insitu_NaB2H4 H2 CVD MOE Pt 1M_KOH 12,52 LSV_Tafel HER_OER_06_MP_C08.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "Rcmp",
+    "canonical": "Rcmp",
+    "unit": "Ω",
+    "raw_id": 168,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "22283d70390ce44375f668dde77225466f4a029350df709b0a54408cce7165cd"
+  },
+  {
+   "task_id": "R029",
+   "bucket": "main",
+   "file": "holdout7/github_com_austinluong_fit_extract_a8446dcd/testfile_03_cooling_110C_04_PEIS_C01.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h6|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "769746bfb44e2b5e347a25f713f683bb7e3d66d5c221dd690cfb735068b0345a"
+  },
+  {
+   "task_id": "R030",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 18,
+   "truth": {
+    "name": "|Zce|",
+    "canonical": "|Zce|",
+    "unit": "Ω",
+    "raw_id": 99,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "babb9d7bf54d1a36dea3c8cb85759440d2703c09becb89dc09da4ff8264a3420"
+  },
+  {
+   "task_id": "R031",
+   "bucket": "decoy",
+   "file": "holdout7/datastore_uni_muenster_de_records_rbc1h_x0s7_dfaa4614/Data_strore_Cu6PS5X_for_publication__Data__Raw_data__Impedance_spectroscopy__Cu6PS5Cl0.5I0.5__Cu6PS5Cl05I05_PEIS_C03.mpr",
+   "technique": "PEIS",
+   "position": 15,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 15,
+    "source_name": "(Q-Qo)"
+   },
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "12df3487ad3f89d697a315578fca10a02047f2d3e0cb57e6c0448f1dc23a2057"
+  },
+  {
+   "task_id": "R032",
+   "bucket": "main",
+   "file": "holdout7/zenodo_10866536/Different Cu electrodeposition protocols__3_ED_CA_5th_CuSO4_RHE_02_CA_C01.mpr",
+   "technique": "CA",
+   "position": 10,
+   "truth": {
+    "name": "<Ece>",
+    "canonical": "Ece",
+    "unit": "V",
+    "raw_id": 441,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "248cf8f592b6bd77a3fabe77b9cf29b55fd755f527b444ae76ab472a56df5737"
+  },
+  {
+   "task_id": "R033",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15782592/Figure 3__2021_11_11_spAg_PTFE_32_0.1um_hydrophilic__20211111_05_spAg_PTFE_32_CP_12+6mA_04_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 23,
+   "truth": {
+    "name": "|Zwe-ce|",
+    "canonical": "|Zwe-ce|",
+    "unit": "Ω",
+    "raw_id": 431,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "64f88bb5418fd27a3605f0e6699c6219973c7e7c3104cfe15645fa779a460637"
+  },
+  {
+   "task_id": "R034",
+   "bucket": "main",
+   "file": "holdout7/scidb_cn_en_detail_datasetid_d0bcad236bc24f3_dcfa9bc4/electrochemical_data__30_fresh_cells__10072024_JY_LFP_box_2_26934_slow_C_rate_GEIS_C07.mpr",
+   "technique": "MB",
+   "position": 13,
+   "truth": {
+    "name": "Analog IN 1",
+    "canonical": "Analog IN 1",
+    "unit": "V",
+    "raw_id": 16,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8e635b7b2bae3609943db27815f1c64f7a7a39524dfcbaf442f44320b95eb216"
+  },
+  {
+   "task_id": "R035",
+   "bucket": "duplicate",
+   "file": "holdout7/zenodo_22844904/SI Figures__Transient Voltage Comparisons with different current__JSA-1-197-4_09_CP_C13.mpr",
+   "technique": "CP",
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [
+    "c9"
+   ],
+   "dossier_sha256": "2f4c2bbceb04c3f1ff850bfd994839df2460b1e243b4c13e465667135c01dd08"
+  },
+  {
+   "task_id": "R036",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__03_hour06 +__03_AlkydS-Antikor_AA hour06.mpr",
+   "technique": "PEIS",
+   "position": 46,
+   "truth": {
+    "name": "|Ece h2|",
+    "canonical": "|Ece h2|",
+    "unit": "V",
+    "raw_id": 498,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e3a8996af87e8fab675e79fa1166398a12a326ef09be89648e1d192f852d9a1d"
+  },
+  {
+   "task_id": "R037",
+   "bucket": "main",
+   "file": "holdout7/github_com_mvnayagam_batkit_df452389/test.mpr",
+   "technique": "MB",
+   "position": 11,
+   "truth": {
+    "name": "Rac",
+    "canonical": "Rac",
+    "unit": "Ω",
+    "raw_id": 504,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "06b62e912a83cb9326c474f5071525887c1fc3b984389d5283b173dcf4c53b46"
+  },
+  {
+   "task_id": "R038",
+   "bucket": "main",
+   "file": "holdout7/zenodo_18551922/Battery testing__Three electrode structural battery__Mechine data needs EC-Lab__univie_20250723_3_cycling_C10.mpr",
+   "technique": "MB",
+   "position": 14,
+   "truth": {
+    "name": "Energy we",
+    "canonical": "Energy we",
+    "unit": "W·h",
+    "raw_id": 880,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "THD Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cd7632f31213c5a618ac68ed359626f6257493be02de191ad60a7657a2bc51a5"
+  },
+  {
+   "task_id": "R039",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_g7824s3x5c_1_14f77cd9/RodGrph_Ia=100mA_Na=5_Idc=0-1A_Step100mA_F=1Mhz-1mHz_OneSets_C01.mpr",
+   "technique": null,
+   "position": 11,
+   "truth": {
+    "name": "Cp⁻²",
+    "canonical": "Cp⁻²",
+    "unit": "µF⁻²",
+    "raw_id": 173,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cc79a7a94c74a7c7e218e8ff58e348bec96d82d0ae136ef8294f2a7a806a253b"
+  },
+  {
+   "task_id": "R040",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 19,
+   "truth": {
+    "name": "Re(Zce)",
+    "canonical": "Re(Zce)",
+    "unit": "Ω",
+    "raw_id": 100,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rdc"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b9770cb44973deb6bf3a446c453afb86994b1ac6b822ebe914afdc25722b3a21"
+  },
+  {
+   "task_id": "R041",
+   "bucket": "main",
+   "file": "holdout7/zenodo_6560384/3_RFZ_3_7_Fe2O3_700_1M-NaOH_tefloncell_chopped_4seqCA_02_CA.mpr",
+   "technique": "CA",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "382b7d588858ce96d4900bd1aee962f9f73f04e0aa91c26a358740a120343383"
+  },
+  {
+   "task_id": "R042",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_10990048/Plainpan-Example_electrocatalysis__Raw data__20230126-porosity-study-32p-Cu-200mA_05_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 30,
+   "truth": {
+    "name": "NSD I",
+    "canonical": "NSD I",
+    "unit": "%",
+    "raw_id": 477,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0f61782dcc0dc1256cb6f98edb6d57ec26be26b1027e7aaba22e5f8f8321c256"
+  },
+  {
+   "task_id": "R043",
+   "bucket": "main",
+   "file": "holdout7/github_com_jdhuang_csm_hybrid_drt_ce68dc3f/CP_SSB.mpr",
+   "technique": "CP",
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7f0662b698ac8d5fdab953f6231386f84beff0b885761f96cda5c7ba091f5846"
+  },
+  {
+   "task_id": "R044",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_electroc_71a7135a/2025-03-24-Conductive hydrogel__EIS__PEDOT(1,25ml)-PEGDA(0,75ml)-DMSO(100 microliter)_01_PEIS_C03.mpr",
+   "technique": "PEIS",
+   "position": 27,
+   "truth": {
+    "name": "NSR I",
+    "canonical": "NSR I",
+    "unit": "%",
+    "raw_id": 480,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "43d6eafbca2a84e7adc711f2a72f3382bf2b52146bcbe9bddaedf56f24186ed0"
+  },
+  {
+   "task_id": "R045",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_bioelect_12b06043/CZAPLA_functionalziations__Series_6_stability_problem__2_Sensing__Others__A4044_51_step3_02_PEIS_C02.mpr",
+   "technique": "PEIS",
+   "position": 33,
+   "truth": {
+    "name": "|I h7|",
+    "canonical": "|I h7|",
+    "unit": "A",
+    "raw_id": 497,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "033349c024f04cfa5cc07a8194e02234c6efa1d08892d7249f3116e972d6d455"
+  },
+  {
+   "task_id": "R046",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_bioelect_d30bd5c4/Series_5_detection_without_redox_markers_part2__1_Electrode_preparation__trash__A4044_24_1Xtris_blank_2_C01.mpr",
+   "technique": "PEIS",
+   "position": 29,
+   "truth": {
+    "name": "|I h3|",
+    "canonical": "|I h3|",
+    "unit": "A",
+    "raw_id": 493,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "68dc201e0b55db4566f41656d8f7e2e0d2de9a0dec9fc393d658879259c676f2"
+  },
+  {
+   "task_id": "R047",
+   "bucket": "main",
+   "file": "holdout7/zenodo_21238174/06_ClO4-15mA__empa__fcid000082__251002_viba_1M-KCrPDTA_PDTABuffpH8,5_630K_Bi-ClO4-15mA_Cell4_60kOhm_13_LSV_CE4.mpr",
+   "technique": "LSV",
+   "position": 7,
+   "truth": {
+    "name": "Energy we",
+    "canonical": "Energy we",
+    "unit": "W·h",
+    "raw_id": 880,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c28067b630419c8b335eef8ec05e8a20e6e33643660746430e21fe61e73741bf"
+  },
+  {
+   "task_id": "R048",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_22b880a9/impedance EIS CD147__IV series__Detection__BDDreg_12_HEK4_C02.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2f6bf345cb0e9511df062d634c679bfff4c7f977eb3926818dc1fa1698ca8527"
+  },
+  {
+   "task_id": "R049",
+   "bucket": "decoy",
+   "file": "holdout7/github_com_fsu_schubert_battery_snakemake_ec_9c95df05/20250618_SW-EC17-3_1_PFP-EDMA1_Zn_2MZnClO4_LT_06_CV_CD8.mpr",
+   "technique": "CV",
+   "position": 2,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 2,
+    "source_name": "Ewe"
+   },
+   "vocab_exclude": [
+    "Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "41d7d96ad883ffe6057223ec94bd2c032b1a0b02eaf261dea49d98eefb84737c"
+  },
+  {
+   "task_id": "R050",
+   "bucket": "main",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 20,
+   "truth": {
+    "name": "-Im(Zce)",
+    "canonical": "-Im(Zce)",
+    "unit": "Ω",
+    "raw_id": 101,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rac"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0ded693abca35aed1c7c4b0eaf7dc8b4a705afcc85b6b7552172fe6487aceaba"
+  },
+  {
+   "task_id": "R051",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15782592/Figure 3__2021_11_11_spAg_PTFE_32_0.1um_hydrophilic__20211111_05_spAg_PTFE_32_CP_12+6mA_04_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 24,
+   "truth": {
+    "name": "Re(Zwe-ce)",
+    "canonical": "Re(Zwe-ce)",
+    "unit": "Ω",
+    "raw_id": 432,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "THD I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6d213333f012e7d0cfae77699d352931fedd9a604bd2389f0aaf48ded66c5ba2"
+  },
+  {
+   "task_id": "R052",
+   "bucket": "elim",
+   "file": "holdout7/github_com_garzondiegofeup_nomad_inl_base_723cd696/sample EIS.mpr",
+   "technique": null,
+   "position": 31,
+   "truth": {
+    "name": "|I h4|",
+    "canonical": "|I h4|",
+    "unit": "A",
+    "raw_id": 494,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Energy|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6ab1d3e7aa73e474bbb674c08de7c9e9277b3b132ae6ee25ef470694876a48da"
+  },
+  {
+   "task_id": "R053",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_6672033/Data access__EIS__Na-NZSPpolished symmetrical cell__Raw data .mpr",
+   "technique": "PEIS",
+   "position": 16,
+   "truth": {
+    "name": "THD Ewe",
+    "canonical": "THD Ewe",
+    "unit": "%",
+    "raw_id": 473,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b89f0ef8e7a6a45d265ab7ed9cdbba802606c182929c4805ee2465f80ed542f6"
+  },
+  {
+   "task_id": "R054",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_c7wxa_fby9_1734d2d9/Impedance_Cu7PSe6_0.29cm_with_RbCu4Cl3I2_0.12cm__Cu7PSe6_0.29cm_with_RbCu4Cl3I2_0.12cm_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 17,
+   "truth": {
+    "name": "NSD Ewe",
+    "canonical": "NSD Ewe",
+    "unit": "%",
+    "raw_id": 476,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2ac7f0f5ebed5ae368aad00b9d67cd118884802a9dd1139ba965bfced346660a"
+  },
+  {
+   "task_id": "R055",
+   "bucket": "main",
+   "file": "holdout7/doi_10_6084_m9_figshare_19617936_c201c7dd/Zn-NiOOH__3 eletrodes EIS__NP_Zn_20210316-13-3electrodes_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 25,
+   "truth": {
+    "name": "z cycle",
+    "canonical": "z cycle",
+    "unit": null,
+    "raw_id": 469,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4c939b906479a08545894e33424cd59d20f0b200aec15090794b717937a45856"
+  },
+  {
+   "task_id": "R056",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__06_week01 +__01_AlkydS-Blank_A week01.mpr",
+   "technique": "PEIS",
+   "position": 21,
+   "truth": {
+    "name": "Phase(Zwe-ce)",
+    "canonical": "Phase(Zwe-ce)",
+    "unit": "deg",
+    "raw_id": 430,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "11421a7c0bd087a8cb9ce1f5ac42ca80bde008def92ad9ce2fad4a5aadee94f0"
+  },
+  {
+   "task_id": "R057",
+   "bucket": "main",
+   "file": "holdout7/zenodo_18551922/Battery testing__Three electrode structural battery__Mechine data needs EC-Lab__univie_20250723_3_cycling_C10.mpr",
+   "technique": "MB",
+   "position": 23,
+   "truth": {
+    "name": "|Zwe-ce|",
+    "canonical": "|Zwe-ce|",
+    "unit": "Ω",
+    "raw_id": 431,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a2b407a866ea1c102ea4348b1e19ef03d2167625edf13483f801fb684b07c580"
+  },
+  {
+   "task_id": "R058",
+   "bucket": "elim",
+   "file": "holdout7/github_com_flylan001_eis_correction_f8202e80/2_C03.mpr",
+   "technique": "MB",
+   "position": 24,
+   "truth": {
+    "name": "NSD I",
+    "canonical": "NSD I",
+    "unit": "%",
+    "raw_id": 477,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h6|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e01e1fa821982c6e07bdae5a38c5e187a6b218f2d24a1a5d1bd516b4787674b0"
+  },
+  {
+   "task_id": "R059",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_m1wr6_s736_2fd4e050/Impedance__Second set measured__LiPSiSBr_quenched_ILL_01032024_2p32_2p4_2p4_2p36_pouchcell_04_PEIS_D11_C01.mpr",
+   "technique": "PEIS",
+   "position": 17,
+   "truth": {
+    "name": "Analog IN 1",
+    "canonical": "Analog IN 1",
+    "unit": "V",
+    "raw_id": 16,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h2|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "eed4f47101c3cea50fa5ab287b78ac0fd37627942f2b8c4746a93de31cd55cf1"
+  },
+  {
+   "task_id": "R060",
+   "bucket": "main",
+   "file": "holdout7/doi_10_17863_cam_99832_094741b5/Electrochemistry - pH 14__dh615_20200820_60MFMN_20mL_200cycles_rertry_C05.mpr",
+   "technique": "GCPL",
+   "position": 14,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "90d4376612bf92a360204ea38a00a2e7cd60967b0314c7d639afe37550bf646b"
+  },
+  {
+   "task_id": "R061",
+   "bucket": "main",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260923_C57_SMSP20_1pt22mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 16,
+   "truth": {
+    "name": "|Ece|",
+    "canonical": "|Ece|",
+    "unit": "V",
+    "raw_id": 96,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ef67bd905547a0ef90dcd71fb02e3b086cb002cd673520a1d22c7990d74038ca"
+  },
+  {
+   "task_id": "R062",
+   "bucket": "main",
+   "file": "holdout7/zenodo_6672033/Data access__EIS__Na-NZSPas symmetrical cell__Raw data.mpr",
+   "technique": "PEIS",
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0feb845f41dabed3658abdcc7f80c0ffcb4e8b5c0ad10501f62e265b6e7a8af8"
+  },
+  {
+   "task_id": "R063",
+   "bucket": "main",
+   "file": "holdout7/zenodo_19352687/EC-lab_files__PanCoin025__PanCoin025_CCCV_C10_CC2.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5082740265da214e78d5bf0dae984397b3663daf5ffec0f2a3571ec7c0813370"
+  },
+  {
+   "task_id": "R064",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 50,
+   "truth": {
+    "name": "|Ece h6|",
+    "canonical": "|Ece h6|",
+    "unit": "V",
+    "raw_id": 502,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "463cea13f4e6b36ae4aa17c6ee17baac35d3cceb0f5edf0e2b1af046e634a595"
+  },
+  {
+   "task_id": "R065",
+   "bucket": "main",
+   "file": "holdout7/zenodo_18551922/Battery testing__Three electrode structural battery__Mechine data needs EC-Lab__univie_20250723_3_cycling_C10.mpr",
+   "technique": "MB",
+   "position": 15,
+   "truth": {
+    "name": "Energy ce",
+    "canonical": "Energy ce",
+    "unit": "W·h",
+    "raw_id": 878,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "611177018b586870ec3c1fc641e43642c7b4e8ad4cb2caae9972de3ae2ab1926"
+  },
+  {
+   "task_id": "R066",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 50,
+   "truth": {
+    "name": "|Ece h6|",
+    "canonical": "|Ece h6|",
+    "unit": "V",
+    "raw_id": 502,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a68bf5de98873c316ebff5b5f6ecb02e2f5c961541b634a99467162e735d95c5"
+  },
+  {
+   "task_id": "R067",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_14514654/Data_for_submission__Fig1__Fig1b__20230916-14-S03__20230916-14-S03_08_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 44,
+   "truth": {
+    "name": "THD Ece",
+    "canonical": "THD Ece",
+    "unit": "%",
+    "raw_id": 475,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9c46f9f32905bbb00af477a76c0254f482231f80220e05487610e52a94655882"
+  },
+  {
+   "task_id": "R068",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 44,
+   "truth": {
+    "name": "NSD Ece",
+    "canonical": "NSD Ece",
+    "unit": "%",
+    "raw_id": 478,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ca570a9beafb15e696608b38ad709adf4e0339b92be0af446549d876e3e27d35"
+  },
+  {
+   "task_id": "R069",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_z9ssq_zhb1_c04bc4d3/Data_Repository__RawData__EIS__Potential_Hold_Regime__1.mpr",
+   "technique": "PEIS",
+   "position": 11,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "76529904e5bc13581ca76cf832e4fed3ddb1ad6b95c1adbd562392870374f4ce"
+  },
+  {
+   "task_id": "R070",
+   "bucket": "main",
+   "file": "holdout7/github_com_jepegit_cellpy_3f920ef1/biol.mpr",
+   "technique": null,
+   "position": 23,
+   "truth": {
+    "name": "Re(Zwe-ce)",
+    "canonical": "Re(Zwe-ce)",
+    "unit": "Ω",
+    "raw_id": 432,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "THD Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cfa8a48dbe6ad800557c0709d8f4c0196dec3ce22dfceae9ccd1a80af6d975a0"
+  },
+  {
+   "task_id": "R071",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260923_C57_SMSP20_1pt22mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 37,
+   "truth": {
+    "name": "|I h2|",
+    "canonical": "|I h2|",
+    "unit": "A",
+    "raw_id": 492,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9da87c8c34be3855c01127d7a85b4059ea06a9179287451c9af593b07443f28a"
+  },
+  {
+   "task_id": "R072",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 56,
+   "truth": {
+    "name": "Energy ce charge",
+    "canonical": "Energy ce charge",
+    "unit": "W·h",
+    "raw_id": 883,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rdc"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f1d47092debbf2a26f104d9eeb5849265ff082e54aad4c1088c1500f6451239d"
+  },
+  {
+   "task_id": "R073",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 46,
+   "truth": {
+    "name": "NSR Ece",
+    "canonical": "NSR Ece",
+    "unit": "%",
+    "raw_id": 481,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7b68d052859bf78e6c53e5ad3c911dd54e33b15eb0bb305a0914b16b8dffc05a"
+  },
+  {
+   "task_id": "R074",
+   "bucket": "main",
+   "file": "holdout7/zenodo_23109599/electrochemistry raw data__speek_100 mM DHPS_pH 14_50% SOC whole CELL_02_LSV_C01.mpr",
+   "technique": "LSV",
+   "position": 2,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9168b2bed1fbc7abea5fd126f5fb07bfd2e2f641fff7fc90174b556f501c79f4"
+  },
+  {
+   "task_id": "R075",
+   "bucket": "main",
+   "file": "holdout7/zenodo_19603859/long term cycling__241122_CR8_2,0-4,4V(AH-7,5)vsGraphite(Actilion)_0,5M-KPF6_EC-PC_2%FEC_150ul_C10.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "68eb62f832e29495a84556bced89a4d5dcfea87d3ee23842babac412cd82c160"
+  },
+  {
+   "task_id": "R076",
+   "bucket": "main",
+   "file": "holdout7/zenodo_6560384/3_RFZ_2_6_NiFe2O4_700_1M-NaOH_operandocell_chopped_4seqCA_02_CA.mpr",
+   "technique": "CA",
+   "position": 10,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a9ee24caabaedfc60ad7f3bdc03587766c46927210dfab440bc3da0a68a7fe6a"
+  },
+  {
+   "task_id": "R077",
+   "bucket": "main",
+   "file": "holdout7/zenodo_10985810/20230510_AdRHS_VS4_E003_R002_BM008_HT001_PP005_B003toB007_Kombi_AM_SuperP_PVPEthanol_80to16_5to3_5_100um_6_62mg_3PPseparator_100uL_CB3.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0d653c2b293c612c1dd04b9700e8397c57f159e356d6d457cb76078483dcd0c7"
+  },
+  {
+   "task_id": "R078",
+   "bucket": "main",
+   "file": "holdout7/zenodo_5565584/Connected cell with MRI for vertical-gel-21-09-2020-open at rest-10Kohm to1 Kohm temp -60to-30_C01.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "Rwe",
+    "canonical": "Rwe",
+    "unit": "Ω",
+    "raw_id": 69,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "29123520531c7bd95797b44e34dc4410a027142a4c61e29549dc5903a2fa95a6"
+  },
+  {
+   "task_id": "R079",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_21890823/Dataset_Seidenberg_et_al_Impedance_Gas_Evolution__Raw Data__V1__EC-Lab Data__2026-01-21_BC_SVT_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 51,
+   "truth": {
+    "name": "|Ece h4|",
+    "canonical": "|Ece h4|",
+    "unit": "V",
+    "raw_id": 500,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6a39b0f76e8cbabf4e21e44a0fb7da5e562ba6012bc465bae86fcb1d34141afc"
+  },
+  {
+   "task_id": "R080",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_bioelect_12b06043/CZAPLA_functionalziations__Series_6_stability_problem__2_Sensing__Others__A4044_51_step3_02_PEIS_C02.mpr",
+   "technique": "PEIS",
+   "position": 25,
+   "truth": {
+    "name": "THD I",
+    "canonical": "THD I",
+    "unit": "%",
+    "raw_id": 474,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6cd0744ce4c130069c3aeda34256922d4991ec370f98f856f67f64a6e92b4c3a"
+  },
+  {
+   "task_id": "R081",
+   "bucket": "main",
+   "file": "holdout7/github_com_nomad_hzb_nomad_chemical_energy_7b9e6004/acmd_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "97e18db1b08b2816bba628b676340f6c94892b8cc320ca92c75646f16d1e32d1"
+  },
+  {
+   "task_id": "R082",
+   "bucket": "main",
+   "file": "holdout7/scidb_cn_en_detail_datasetid_d0bcad236bc24f3_dcfa9bc4/electrochemical_data__30_fresh_cells__03072024_JY_LFP_box_1_03706_slow_C_rate_GEIS_C01_C02.mpr",
+   "technique": "MB",
+   "position": 13,
+   "truth": {
+    "name": "Analog IN 1",
+    "canonical": "Analog IN 1",
+    "unit": "V",
+    "raw_id": 16,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9b24d3919bb75b44b9633cd7c5ce0ad49296e0235ec70c5957f414b685269a97"
+  },
+  {
+   "task_id": "R083",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_14c_labe_8581dc26/EIS__CB_EIS.mpr",
+   "technique": "PEIS",
+   "position": 11,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "THD I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c637587e17eb0eee573479aed0e2e1eef3f94a1dba5eeca26cc9799498088ac0"
+  },
+  {
+   "task_id": "R084",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_20532539/Discovery-Benchmark 2__P025-CEL-247__P025-CEL-247-LCO_EC_DEC_02_PEIS_C05.mpr",
+   "technique": "PEIS",
+   "position": 24,
+   "truth": {
+    "name": "|Ewe h7|",
+    "canonical": "|Ewe h7|",
+    "unit": "V",
+    "raw_id": 491,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fc36651ce35bee96e4c083ff420d1277b1cfec8c0b71a41ad08ff852e063011a"
+  },
+  {
+   "task_id": "R085",
+   "bucket": "main",
+   "file": "holdout7/github_com_austinluong_fit_extract_a8446dcd/testfile_13_heating2_60C_04_PEIS_C05.mpr",
+   "technique": null,
+   "position": 6,
+   "truth": {
+    "name": "<Ewe>",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 77,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a2bdaf78829cb18a4cd2783936504755401ca8067d0788b4e562713331405bb5"
+  },
+  {
+   "task_id": "R086",
+   "bucket": "main",
+   "file": "holdout7/doi_10_18710_mxjzmr_35db9086/250416_AB-S229_Si-C_GC_3cyc_C_20_CA_0p05-3V_div_2h_02_CA_C01.mpr",
+   "technique": "CA",
+   "position": 11,
+   "truth": {
+    "name": "Energy we discharge",
+    "canonical": "Energy we discharge",
+    "unit": "W·h",
+    "raw_id": 124,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4218c37fa7ad932e1b48274f28e8bab488461fbc25511c9eb5722c046fea41d7"
+  },
+  {
+   "task_id": "R087",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_10990048/Plainpan-Example_electrocatalysis__Raw data__20230126-porosity-study-32p-Cu-200mA_05_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 33,
+   "truth": {
+    "name": "|Ewe h3|",
+    "canonical": "|Ewe h3|",
+    "unit": "V",
+    "raw_id": 487,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3e613cc4914d9b5a5907443d74ad12cf3d05f47457710ee0543afb8f3ad89aa5"
+  },
+  {
+   "task_id": "R088",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_study_of_bdc704f2/influence of transition metals__Electrochemistry__Maslana__cel_Ni2P_Ni10__LSV__cel_Ni2P_Ni10_pH 13,579_04_CVA_C11.mpr",
+   "technique": "CVA",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "405b17e3049b2e14308b2fc04d7fcbcc8b5ad47e917a9c8b7d0640adf2d3ee57"
+  },
+  {
+   "task_id": "R089",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15782592/Figure 3__2021_11_11_spAg_PTFE_32_0.1um_hydrophilic__20211111_05_spAg_PTFE_32_CP_12+6mA_04_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 21,
+   "truth": {
+    "name": "-Im(Zce)",
+    "canonical": "-Im(Zce)",
+    "unit": "Ω",
+    "raw_id": 101,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f16fb3f54b0ac7831b6b4bbeb845c17a4a7a159edd10140accfd15eeb51a4c9b"
+  },
+  {
+   "task_id": "R090",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_s2ksd_vd41_f315a656/Impedance__LPSCl1.5__100 vol.-% SE__Cell 1__100 vol.-% LPSCl1.5 Cell 1.mpr",
+   "technique": "PEIS",
+   "position": 26,
+   "truth": {
+    "name": "THD I",
+    "canonical": "THD I",
+    "unit": "%",
+    "raw_id": 474,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ca37cb6f71267a4a0bd9a6c666408ad0bbd59ed0eb71d74cf4017afa341d47c2"
+  },
+  {
+   "task_id": "R091",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15262924/CV_GCPL Na2SO4_4 mg - 4,1 mg_02_CV.mpr",
+   "technique": "CV",
+   "position": 9,
+   "truth": {
+    "name": "Analog IN 2",
+    "canonical": "Analog IN 2",
+    "unit": "V",
+    "raw_id": 17,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "63e411cdd9cf07950d767dd1c8d86eafa29feec6cc6530b42234541821d47fa7"
+  },
+  {
+   "task_id": "R092",
+   "bucket": "decoy",
+   "file": "holdout7/doi_10_17617_3_67lfki_a6debd7f/Figures in SI__Figure S9__ED-2-30 CYCLES.mpr",
+   "technique": null,
+   "position": 5,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 5,
+    "source_name": "time"
+   },
+   "vocab_exclude": [
+    "time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "dd9348bf9eca5e3cb5e29193ad17ac7db37e6b9dee996e655d7c6bbdf1168813"
+  },
+  {
+   "task_id": "R093",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 58,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rac"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8144d52db081aa310d594cb6ed980da8f19b13bd8f981669f169f5d4c9094cce"
+  },
+  {
+   "task_id": "R094",
+   "bucket": "decoy",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_14c_labe_8581dc26/EIS__SSAD_EIS.mpr",
+   "technique": "PEIS",
+   "position": 7,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 7,
+    "source_name": "<I>"
+   },
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "742a2d3ac013597f7349183853b9e09dcdc15a2aacc985999b57ec76e75ef4f5"
+  },
+  {
+   "task_id": "R095",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_14c_labe_8581dc26/EIS__SSAW_EIS.mpr",
+   "technique": "PEIS",
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "11f3980bfbf687fbdab0f1ebffea6d907b09f721e7e36384ea7fd7411847fc40"
+  },
+  {
+   "task_id": "R096",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_mv9gt8c2fm_2_b33b67af/h-p+g-10_05_CP_C01.mpr",
+   "technique": "CP",
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c4028ffa09db50346c36ff48af0960119ef404986644df6373568f01d0b6671c"
+  },
+  {
+   "task_id": "R097",
+   "bucket": "main",
+   "file": "holdout7/zenodo_17949323/Electrochemistry__CV__Pr_CV_161025_05_CV_C09.mpr",
+   "technique": "CV",
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "94713235118193e284e2f18624d171e91a0c87bbf5e20ddb2611ac1a34f802f3"
+  },
+  {
+   "task_id": "R098",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__03_hour06 +__03_AlkydS-Antikor_AA hour06.mpr",
+   "technique": "PEIS",
+   "position": 43,
+   "truth": {
+    "name": "THD Ece",
+    "canonical": "THD Ece",
+    "unit": "%",
+    "raw_id": 475,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "37ff69877d2171a6f7840b35bd9c2189bd28d834a2539b8814e3b230f2a8a6b2"
+  },
+  {
+   "task_id": "R099",
+   "bucket": "main",
+   "file": "holdout7/zenodo_5565584/Connected cell with MRI for vertical-gel-13-09-2020-open at rest-10Kohm to1 Kohm temp -60to-30-Test2_C01.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "Rwe",
+    "canonical": "Rwe",
+    "unit": "Ω",
+    "raw_id": 69,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a9176064298c9fbab2f5e440d2fe681e25a54022069bbb51d9bff1fc05b6b96d"
+  },
+  {
+   "task_id": "R100",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_22b880a9/impedance EIS CD147__IV series__Functionalization__BDDreg_12_BSA(1)_C02.mpr",
+   "technique": null,
+   "position": 14,
+   "truth": {
+    "name": "THD Ewe",
+    "canonical": "THD Ewe",
+    "unit": "%",
+    "raw_id": 473,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "(Q-Qo)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6d1a7b4ec7e6193312f46640aa4c81de7a2eba66c59e3b49ed822e7d0a9b28ca"
+  },
+  {
+   "task_id": "R101",
+   "bucket": "main",
+   "file": "holdout7/data_dtu_dk_articles_dataset_monitoring_oxyg_cba51571/S23__01__01_CVA.mpr",
+   "technique": "CVA",
+   "position": 7,
+   "truth": {
+    "name": "<Ece>",
+    "canonical": "Ece",
+    "unit": "V",
+    "raw_id": 441,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "be3ab22e9bef49385f142fcbdd5ecc4524aefdc9ef60ce4e5f7840967da308eb"
+  },
+  {
+   "task_id": "R102",
+   "bucket": "main",
+   "file": "holdout7/zenodo_10637534/Raw Data__Performance Checks__RPT7__NDK - LG M50 deg - exp 2,2 - rig 1 - 10degC - cell A - RPT7_01_MB_CB4.mpr",
+   "technique": "MB",
+   "position": 11,
+   "truth": {
+    "name": "Temperature",
+    "canonical": "Temperature",
+    "unit": "°C",
+    "raw_id": 462,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "THD Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "aea462a450df367572adb6ef7988a4c4b44b415433d076a1972bd96c009f02be"
+  },
+  {
+   "task_id": "R103",
+   "bucket": "decoy",
+   "file": "holdout7/doi_10_57745_zxbsrf_d2c9a493/0_raw_data__M3_L3__20230427_1500_M3_BUGE384_B3_caracini__20230427_1500_M3_BUGE384_B3_caracini_04_MB_CA1.mpr",
+   "technique": "MB",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 821162204,
+    "kind": "const",
+    "value": 3.584
+   },
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "679a1b3b75c84795abc73034d7746672cc700455d00a0b79aa0e1e03026257d3"
+  },
+  {
+   "task_id": "R104",
+   "bucket": "main",
+   "file": "holdout7/doi_10_18419_darus_5358_dddc724b/CV__OLC__Biologic files__548 olc__548 olc cv_07_CV_C02.mpr",
+   "technique": "CV",
+   "position": 9,
+   "truth": {
+    "name": "step time",
+    "canonical": "step time",
+    "unit": "s",
+    "raw_id": 438,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5716743f250cbe6b67df61bcd0ab390f75d9e667bc9cafde36d4e7aa0ec6d14f"
+  },
+  {
+   "task_id": "R105",
+   "bucket": "main",
+   "file": "holdout7/doi_10_25500_edata_bham_00001058_676ef8b7/14,12,2022_Ti2_9_PVDF_Al_asymmetric cycling_5_cycles_per_rate_3_formation_cycles_Cal_full_4.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b52c0add9c6066514bbee89f774e1df67b46277b6db4ee0585a5ab36ae91703e"
+  },
+  {
+   "task_id": "R106",
+   "bucket": "decoy",
+   "file": "holdout7/zenodo_23398727/Zenodo data rep__Coin cell cycling__vsLi__CF11-VS-LI-CRATE(20_10_5_3_2_1_20)_3,65_2,5V_02_GCPL.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 0,
+    "source_name": "Ns"
+   },
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "796aa90ad72a1754c3c74bd5d0aaa0306b4313add239259f0049daa1b295b304"
+  },
+  {
+   "task_id": "R107",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_b_a_bioinspire_1a86612a/SI-Figure S1-S5__Figure 4__mesh-mesh__LSV__100-800 mV s-1-LSV_07_LSV_C03.mpr",
+   "technique": "LSV",
+   "position": 8,
+   "truth": {
+    "name": "Analog IN 2",
+    "canonical": "Analog IN 2",
+    "unit": "V",
+    "raw_id": 17,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a45904b9f8bbe0b3d08a373654e1a1464c565d1729882a6f9ba7fb36f6aec8e8"
+  },
+  {
+   "task_id": "R108",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__06_week01 +__01_AlkydS-Blank_A week01.mpr",
+   "technique": "PEIS",
+   "position": 50,
+   "truth": {
+    "name": "|Ece h6|",
+    "canonical": "|Ece h6|",
+    "unit": "V",
+    "raw_id": 502,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "67004f6afcd6b43f56753271b3f459982b91c90f61ecb74fe74d92539cbcfe12"
+  },
+  {
+   "task_id": "R109",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_s2ksd_vd41_f315a656/Impedance__LPSCl1.5__100 vol.-% SE__Cell 1__100 vol.-% LPSCl1.5 Cell 1.mpr",
+   "technique": "PEIS",
+   "position": 23,
+   "truth": {
+    "name": "|Ewe h5|",
+    "canonical": "|Ewe h5|",
+    "unit": "V",
+    "raw_id": 489,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "THD Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fb97abbe10995d42c8670ac3df96427aa90eb2da1064307de8972498a693306f"
+  },
+  {
+   "task_id": "R110",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_mv9gt8c2fm_2_b33b67af/h-p+g-10_05_CP_C01.mpr",
+   "technique": "CP",
+   "position": 2,
+   "truth": {
+    "name": "control_I",
+    "canonical": "control",
+    "unit": "mA",
+    "raw_id": 20,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "170b7845744f3fd3b9e134374ab6d32f7d4a2030d10028dfecd7e02591445db7"
+  },
+  {
+   "task_id": "R111",
+   "bucket": "main",
+   "file": "holdout7/doi_10_17617_3_67lfki_a6debd7f/Figures in SI__Figure S9__ED-2-200CYCLES.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8ce34c9af82cb80d4b6abc5e452a174d999e339dc8f2fd292325c16a525299d6"
+  },
+  {
+   "task_id": "R112",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_9jt4x_sjy2_671ff79a/Data__Raw data__Electronic_DC_Polarization__x=8__Electronic_DC_Cu8GeS6_2nd_time_02_PEIS_C15.mpr",
+   "technique": "PEIS",
+   "position": 16,
+   "truth": {
+    "name": "Energy we",
+    "canonical": "Energy we",
+    "unit": "W·h",
+    "raw_id": 880,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b058a6e577488faa0b725a27a2dfc6160ddc913ece8bd6ef47cc3ea3ded40ff0"
+  },
+  {
+   "task_id": "R113",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_raw_data_nchem_f680187d/2021-02-13-MBH-0p1 DHAQ CLS-0p1ferro0p05ferriNCLS_1M KOH-HGO RE-Deep disch-00_03_GCPL_C01.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6b3fcac5ea1134458c79d24775cd02742b7e4d7ee26fdad527dd0beda9c7841c"
+  },
+  {
+   "task_id": "R114",
+   "bucket": "main",
+   "file": "holdout7/zenodo_13911290/Figure_03-GITT Measurements__S1-Na23Ni13Mn23O2-GITT-Measurement.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Ece",
+    "canonical": "Ece",
+    "unit": "V",
+    "raw_id": 9,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9aaa048a45504aa0b6b5a8999a695a78ef10125723adf47856b7ecb78306e00e"
+  },
+  {
+   "task_id": "R115",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_solid_state_ba_e08b4466/Cell1_25C_after10c_01_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 7,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 76,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "15fac728c698c358d1793e92115466a655abf5d003579d2cb54b0c8bb774aea6"
+  },
+  {
+   "task_id": "R116",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_20532539/Discovery-Benchmark 2__P025-CEL-243__P025-CEL-243-NMC622_EC_DMC_02_PEIS_C04.mpr",
+   "technique": "PEIS",
+   "position": 28,
+   "truth": {
+    "name": "|I h2|",
+    "canonical": "|I h2|",
+    "unit": "A",
+    "raw_id": 492,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3ba90cae45e71cfd6b339fa8f9dd76547d1b2a8faa0e78454e1539d78deefb12"
+  },
+  {
+   "task_id": "R117",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_nrk1t_cg02_7a430b9f/RawData__EIS__4.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "376668cb7552b8ae46dad0a2f41c02534f99d5b64560c3cc92466d7451064151"
+  },
+  {
+   "task_id": "R118",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 44,
+   "truth": {
+    "name": "NSD Ece",
+    "canonical": "NSD Ece",
+    "unit": "%",
+    "raw_id": 478,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "acbc1fec63760a0b254796535e24ae39876661bb71afed813ef45c3d8c15ba13"
+  },
+  {
+   "task_id": "R119",
+   "bucket": "main",
+   "file": "holdout7/doi_10_57745_zxbsrf_d2c9a493/0_raw_data__M3_L3__20230427_1500_M3_BUGE384_B3_caracini__20230427_1500_M3_BUGE384_B3_caracini_04_MB_CA1.mpr",
+   "technique": "MB",
+   "position": 8,
+   "truth": {
+    "name": "|Energy|",
+    "canonical": "|Energy|",
+    "unit": "W·h",
+    "raw_id": 74,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "z cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "446ef0700d8eba8396bf5f0bb6a88cfc05be42a10edbd4191c366073f0fc834f"
+  },
+  {
+   "task_id": "R120",
+   "bucket": "main",
+   "file": "holdout7/zenodo_18194933/-0,2V Bias__20231023_G-Cap-Ref_std_NaCl_3M_60ul_pot_CE to g 3 port_switching_-0,2V bias_1_03_OCV_C15.mpr",
+   "technique": "OCV",
+   "position": 2,
+   "truth": {
+    "name": "Ece",
+    "canonical": "Ece",
+    "unit": "V",
+    "raw_id": 9,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e239f37ed48b42117b698e842d435ee5cdc0f252c0fc944fbe610246787cc447"
+  },
+  {
+   "task_id": "R121",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_electroc_ed4ec72d/10__GC_FLBP_10_2'5mMFeII_2'5mMFeIII_1MKCl_vsAgAgCl_T8_01_PEIS_C02.mpr",
+   "technique": "PEIS",
+   "position": 32,
+   "truth": {
+    "name": "|I h6|",
+    "canonical": "|I h6|",
+    "unit": "A",
+    "raw_id": 496,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9222d0ced902e09bd633dbe34495f4d98a4b97c27fca5b2f50062131dc312637"
+  },
+  {
+   "task_id": "R122",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__03_hour06 +__03_AlkydS-Antikor_AA hour06.mpr",
+   "technique": "PEIS",
+   "position": 49,
+   "truth": {
+    "name": "|Ece h5|",
+    "canonical": "|Ece h5|",
+    "unit": "V",
+    "raw_id": 501,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "62f9257c0cd996af9e301566a86d301dae28104cf38e63396f28dff3a6784fb8"
+  },
+  {
+   "task_id": "R123",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 21,
+   "truth": {
+    "name": "Phase(Zwe-ce)",
+    "canonical": "Phase(Zwe-ce)",
+    "unit": "deg",
+    "raw_id": 430,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "31f2f30e1beae24749cc32bf6ba31ac4017ffe21040f458d559745fe46284286"
+  },
+  {
+   "task_id": "R124",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_22b880a9/impedance EIS CD147__II series__Detection__BDDreg_11_HEK5_C01.mpr",
+   "technique": null,
+   "position": 13,
+   "truth": {
+    "name": "|I|",
+    "canonical": "|I|",
+    "unit": "A",
+    "raw_id": 34,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5deaf666cce1b1c3f7ad4186a709c61a004fcfec699dd1503e4ee14d486a3d2f"
+  },
+  {
+   "task_id": "R125",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_bioelect_d30bd5c4/Series_5_detection_without_redox_markers_part2__1_Electrode_preparation__trash__A4044_24_1Xtris_blank_2_C01.mpr",
+   "technique": "PEIS",
+   "position": 31,
+   "truth": {
+    "name": "|I h5|",
+    "canonical": "|I h5|",
+    "unit": "A",
+    "raw_id": 495,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d779ebdc4495288c5122477b4c451dd5e21060d6c99f84dd08aad2fb65cc6992"
+  },
+  {
+   "task_id": "R126",
+   "bucket": "main",
+   "file": "holdout7/data_caltech_edu_records_256s2_gde40_442c149f/SI__LSV__WJZ03_040_Mg_Pt-Fc-Fc+_C_THF_LiOTf_0.1M_withMIR_R1_85per_02_LSV_C02.mpr",
+   "technique": "LSV",
+   "position": 7,
+   "truth": {
+    "name": "Rcmp",
+    "canonical": "Rcmp",
+    "unit": "Ω",
+    "raw_id": 168,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "623a57dfa65bce41dece2c6996497e8ac3f7283da2685ace16949c761e11ae93"
+  },
+  {
+   "task_id": "R127",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_b2e090a1/impedance EIS IGg2B__III series__Functionalization__BDDreg_07_BSA(1)_C01.mpr",
+   "technique": null,
+   "position": 15,
+   "truth": {
+    "name": "NSD Ewe",
+    "canonical": "NSD Ewe",
+    "unit": "%",
+    "raw_id": 476,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "bb6a3bc53a07452325c89c30bd0a7b7faa8010b8cda1061f53df7d1b549c1c9a"
+  },
+  {
+   "task_id": "R128",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_electroc_aa3e9376/Parallel Combination__PARALLEL_1, 2, 5__GCD_200 UA_PLASMA DLIG_D 1, 2, 5_C01.mpr",
+   "technique": "MB",
+   "position": 8,
+   "truth": {
+    "name": "|Energy|",
+    "canonical": "|Energy|",
+    "unit": "W·h",
+    "raw_id": 74,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6a6d58ec3bee0cf65f9cb026f32779ca8ea3e95e4223a38ce6633eeb732df9ca"
+  },
+  {
+   "task_id": "R129",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260923_C57_SMSP20_1pt22mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 40,
+   "truth": {
+    "name": "|I h5|",
+    "canonical": "|I h5|",
+    "unit": "A",
+    "raw_id": 495,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fa93652dec5fe0441aca9619f3a6161ad480eba8725f42a6bd9855c9c265386a"
+  },
+  {
+   "task_id": "R130",
+   "bucket": "duplicate",
+   "file": "holdout7/zenodo_14591774/Data for JMCA__Photoelectrochemical and Electrochemical test__Photoresponse and Stability__15F.mpr",
+   "technique": "CA",
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [
+    "c5"
+   ],
+   "dossier_sha256": "34de6e563085b96470ef1dd92ae0496e11e8ff427b7b9606d0eeab1144f1e8cf"
+  },
+  {
+   "task_id": "R131",
+   "bucket": "main",
+   "file": "holdout7/zenodo_10053477/anion-rocking-chair-batteries-with-tuneable-voltag__a_figure-s15__files__Figure S15 c.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a868058f4bf96e97d51b8cf69bb98f6f01938231519a57284d66c4d4095a0582"
+  },
+  {
+   "task_id": "R132",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_10990048/Plainpan-Example_electrocatalysis__Raw data__20230126-porosity-study-32p-Cu-200mA_05_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 27,
+   "truth": {
+    "name": "NSD Ewe",
+    "canonical": "NSD Ewe",
+    "unit": "%",
+    "raw_id": 476,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "bca0c12f40a79fc3cbff156177595b8d1a3edc190b99e758040432d577d3dab3"
+  },
+  {
+   "task_id": "R133",
+   "bucket": "main",
+   "file": "holdout7/github_com_esaundersnano_redoxed_45f92cf4/pol_data_raw.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ab891526734e1e921d7e9479f0b3391306e316f559229123c5339345475c1af6"
+  },
+  {
+   "task_id": "R134",
+   "bucket": "elim",
+   "file": "holdout7/github_com_flylan001_eis_correction_f8202e80/4_C03.mpr",
+   "technique": "GEIS",
+   "position": 21,
+   "truth": {
+    "name": "|Ewe h4|",
+    "canonical": "|Ewe h4|",
+    "unit": "V",
+    "raw_id": 488,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a125d6d79f14a38d56b22c83c385515f1c0e1e460b0b1315793ec24c859bc6da"
+  },
+  {
+   "task_id": "R135",
+   "bucket": "main",
+   "file": "holdout7/zenodo_14591774/Data for JMCA__Photoelectrochemical and Electrochemical test__Photoresponse and Stability__15 30 F-CuO.mpr",
+   "technique": "CA",
+   "position": 3,
+   "truth": {
+    "name": "Ewe",
+    "canonical": "Ewe",
+    "unit": "V",
+    "raw_id": 6,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6fa2bac411c43a2a9a21355f1c2b4fc3e976dbd3c47383b215bcf395d8e8a76d"
+  },
+  {
+   "task_id": "R136",
+   "bucket": "main",
+   "file": "holdout7/zenodo_23100395/Supplementary_Data_JES_v29__01_experimental__Electrochemistry__native__MnO_04_CV-EIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a66007f3929b837a56d887aa212cf1f539aa1c23c6de3ff58e81f32b9a9c31b2"
+  },
+  {
+   "task_id": "R137",
+   "bucket": "elim",
+   "file": "holdout7/data_mendeley_com_datasets_3nn8x5hztk_1_3b94dd15/HER_EIS_Triplo_after_reverse_currents_PtRu_C_62C_09_0,05A_cm2_C01.mpr",
+   "technique": "GEIS",
+   "position": 43,
+   "truth": {
+    "name": "|I h7|",
+    "canonical": "|I h7|",
+    "unit": "A",
+    "raw_id": 497,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0457d19f6a0176984a602eb786a97a31fbc005b7e4b142f07ce84f37f30ce497"
+  },
+  {
+   "task_id": "R138",
+   "bucket": "main",
+   "file": "holdout7/zenodo_14514654/Data_for_submission__Fig1__Fig1b__20230916-14-S03__20230916-14-S03_08_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 18,
+   "truth": {
+    "name": "Phase(Zce)",
+    "canonical": "Phase(Zce)",
+    "unit": "deg",
+    "raw_id": 98,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "456a258fb06cc18ce05e85cf66d9fae8f86fbe87490dbcb2465eec1af7234bb3"
+  },
+  {
+   "task_id": "R139",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15782592/Figure 2__a,b__2021_08_02_spAg_PTFEu_23_1.0um__20210802_01_spAg_PTFEu_23_1MKHCO3_CP_100mA_03_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 18,
+   "truth": {
+    "name": "Phase(Zce)",
+    "canonical": "Phase(Zce)",
+    "unit": "deg",
+    "raw_id": 98,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4880ce58e5d82dd10fb46ad2ee22a1b4a0c4d67f139756d2a97381f206312fe6"
+  },
+  {
+   "task_id": "R140",
+   "bucket": "elim",
+   "file": "holdout7/github_com_flylan001_eis_correction_f8202e80/4_C03.mpr",
+   "technique": "GEIS",
+   "position": 22,
+   "truth": {
+    "name": "|Ewe h5|",
+    "canonical": "|Ewe h5|",
+    "unit": "V",
+    "raw_id": 489,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "afe8718ea9c7b2288a86645d303e898117e19ec299831decaf71ffb6381ea12a"
+  },
+  {
+   "task_id": "R141",
+   "bucket": "main",
+   "file": "holdout7/doi_10_6084_m9_figshare_19617936_c201c7dd/Zn-NiOOH__3 eletrodes EIS__NP_Zn_20210316-13-3electrodes_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 21,
+   "truth": {
+    "name": "Phase(Zwe-ce)",
+    "canonical": "Phase(Zwe-ce)",
+    "unit": "deg",
+    "raw_id": 430,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "48c1a3fee65cd2e0bf9cdf9b280307c5bbcfe7bcbc5918d15d6d6e3c327dfc24"
+  },
+  {
+   "task_id": "R142",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_mrhb67pzp6_1_10edc8fa/ELCHEM__rate__FULLCELL_1MH2SO4__FULLCELL_1MH2SO4_GA48_3mg_RATE3_01_GCPL_CA2.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0a5aa1b6df02ac44c5338a5ed88d626416b45b2eb8c23e742a25a47db0d9d8cd"
+  },
+  {
+   "task_id": "R143",
+   "bucket": "main",
+   "file": "holdout7/data_dtu_dk_articles_dataset_data_for_contin_3f7de401/Data for flow-cell paper__Echem__CP__1% EtOH__2022-4-20-1.mpr",
+   "technique": "CP",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "aab4c3d26d93d6e6ad072b0a0ee4e185ad170e91a440bd514c7d1d798b93d207"
+  },
+  {
+   "task_id": "R144",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 47,
+   "truth": {
+    "name": "|Ece h2|",
+    "canonical": "|Ece h2|",
+    "unit": "V",
+    "raw_id": 498,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "be73a71ca07bfa4b2be193c604132d400ca87a851bbf10bc4370019c91a08ff5"
+  },
+  {
+   "task_id": "R145",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_electroc_71a7135a/2025-03-24-Conductive hydrogel__EIS__PEDOT(1,25ml)-PEGDA(0,75ml)-DMSO(100 microliter)_01_PEIS_C03.mpr",
+   "technique": "PEIS",
+   "position": 31,
+   "truth": {
+    "name": "|I h5|",
+    "canonical": "|I h5|",
+    "unit": "A",
+    "raw_id": 495,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h6|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "acc7b6c261b7dbf8145acbb81c84a2c1b855cb72582056577fe885d1ec7999f9"
+  },
+  {
+   "task_id": "R146",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 15,
+   "truth": {
+    "name": "Energy ce",
+    "canonical": "Energy ce",
+    "unit": "W·h",
+    "raw_id": 878,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Acir or Dcir Control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f96a7c07d11f646250ee3d98a93926db8acb9ec1b19cb797ee9719ad3710532c"
+  },
+  {
+   "task_id": "R147",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_b2e090a1/impedance EIS IGg2B__III series__Detection__BDDreg_07_HEK1_C01.mpr",
+   "technique": null,
+   "position": 16,
+   "truth": {
+    "name": "NSR Ewe",
+    "canonical": "NSR Ewe",
+    "unit": "%",
+    "raw_id": 479,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "81ac603ef7f3f86f81c05bc07c1abc622c47b84cd8879a03ee4b0cfa21a96055"
+  },
+  {
+   "task_id": "R148",
+   "bucket": "constant",
+   "file": "holdout7/doi_10_6084_m9_figshare_19617936_c201c7dd/Zn-NiOOH__3 eletrodes EIS__NP_Zn_20210316-13-3electrodes_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 28,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce"
+   ],
+   "identical_to": [
+    "c11"
+   ],
+   "dossier_sha256": "1a25b79b89b99a1c7cbd5c31aae25752fe96cba8e2604ffa0fb77f1d59b44e80"
+  },
+  {
+   "task_id": "R149",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_bioelect_d30bd5c4/Series_5_detection_without_redox_markers_part2__1_Electrode_preparation__trash__A4044_24_1Xtris_blank_2_C01.mpr",
+   "technique": "PEIS",
+   "position": 19,
+   "truth": {
+    "name": "|Ewe h2|",
+    "canonical": "|Ewe h2|",
+    "unit": "V",
+    "raw_id": 486,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d660ef0bcaead7c11abe71637d7540831943f9a5f1d72b58eaceb28da8584f8b"
+  },
+  {
+   "task_id": "R150",
+   "bucket": "main",
+   "file": "holdout7/zenodo_6560384/7_RFZ_1_6_ZnFe2O4_700_1M-NaOH_tefloncell_chopped_4seqCA_02_CA.mpr",
+   "technique": "CA",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8a33c3b4b8003c29117ff3552b865d8dd4f1d8c10d788ff0ee39282c7b35b4bf"
+  },
+  {
+   "task_id": "R151",
+   "bucket": "duplicate",
+   "file": "holdout7/github_com_liuchzzyy_echemistpy_cli_f9cdc9c7/ZMO_C_C02.mpr",
+   "technique": "GCPL",
+   "position": 14,
+   "truth": {
+    "name": "step time",
+    "canonical": "step time",
+    "unit": "s",
+    "raw_id": 438,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [
+    "c2"
+   ],
+   "dossier_sha256": "130eef3a4af215b6415d6a0b391fd337ac389898889c74798e4d8b5193900889"
+  },
+  {
+   "task_id": "R152",
+   "bucket": "decoy",
+   "file": "holdout7/doi_10_17617_3_67lfki_a6debd7f/Figures in SI__Figure S9__ED-2-200CYCLES.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 69590519,
+    "kind": "noise_f4",
+    "scale": 0.018797376058485082,
+    "loc": -0.04752600028237737
+   },
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "364bdd75ecc95122fda4940adddba47a9aa94b3322c0b7c838e4768df7955bf0"
+  },
+  {
+   "task_id": "R153",
+   "bucket": "main",
+   "file": "holdout7/github_com_cheminfo_biologic_converter_fe3bc51c/test.mpr",
+   "technique": "CA",
+   "position": 11,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "872961a14e45e2e03fefea1f789287a40f87a0a0ecbf213da78be0b25922d929"
+  },
+  {
+   "task_id": "R154",
+   "bucket": "elim",
+   "file": "holdout7/github_com_flylan001_eis_correction_f8202e80/2_C03.mpr",
+   "technique": "MB",
+   "position": 17,
+   "truth": {
+    "name": "|Ewe h2|",
+    "canonical": "|Ewe h2|",
+    "unit": "V",
+    "raw_id": 486,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ad4a197ace254097b61e983d856630f8f2cbfc4529607919a821b6e3ec302b29"
+  },
+  {
+   "task_id": "R155",
+   "bucket": "duplicate",
+   "file": "holdout7/doi_10_7910_dvn_n1kiyj_fe141136/CA_Pure_6h_77 mM_C01_081618_new_C01.mpr",
+   "technique": "CA",
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "C",
+    "raw_id": 435,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [
+    "c0"
+   ],
+   "dossier_sha256": "957f218e23e897511c4f5957353e0a6714467036c5b503aff89306934b4a02e2"
+  },
+  {
+   "task_id": "R156",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_solid_state_ba_e08b4466/Cell1_25C_after10c_01_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h2|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6c330ff0a433b17b232f113b4262f191681397ec8afa7db485a4dedaa1cd72bd"
+  },
+  {
+   "task_id": "R157",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 55,
+   "truth": {
+    "name": "Energy ce charge",
+    "canonical": "Energy ce charge",
+    "unit": "W·h",
+    "raw_id": 883,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rac"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "669eca47b54476f5112aa016eeecbb9e2c8601b4ce027ee18711130bcb19dceb"
+  },
+  {
+   "task_id": "R158",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 35,
+   "truth": {
+    "name": "NSD I",
+    "canonical": "NSD I",
+    "unit": "%",
+    "raw_id": 477,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c0373d3c357c359d2a1e096bfd2db7761a21919406c10f5bc1deaeae69853e34"
+  },
+  {
+   "task_id": "R159",
+   "bucket": "main",
+   "file": "holdout7/github_com_garzondiegofeup_nomad_inl_base_723cd696/sample EIS.mpr",
+   "technique": null,
+   "position": 11,
+   "truth": {
+    "name": "Cp⁻²",
+    "canonical": "Cp⁻²",
+    "unit": "µF⁻²",
+    "raw_id": 173,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Zce|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2b58bb09855da62c36cd351cdc241d8ca852e168d39f02e8ed6e45f944286102"
+  },
+  {
+   "task_id": "R160",
+   "bucket": "main",
+   "file": "holdout7/zenodo_10568273/pillarquinone-based-sodium-batteries-using-a-highl__figure-s-34__files__Figure S33c_composite1-2_5MSN_imp_08_GCPL.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "53804ffdd75bccff138dd57d1267bbc4af3d9afa52b206bfd0b80e0625b2fcac"
+  },
+  {
+   "task_id": "R161",
+   "bucket": "main",
+   "file": "holdout7/github_com_nomad_hzb_nomad_chemical_energy_7b9e6004/acmd_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 26,
+   "truth": {
+    "name": "Analog IN 1",
+    "canonical": "Analog IN 1",
+    "unit": "V",
+    "raw_id": 16,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "94de76cb9ec5cda7ca0e437f8de11d3eb6addbff9d404968a31bb19050e3da58"
+  },
+  {
+   "task_id": "R162",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_ecc0b5cd/impedance EIS ACE2__III series__Detection__BDDreg_03_HEK6_C02.mpr",
+   "technique": null,
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3f360da3af85784051f9f1fcac1950dff861590fed54f5737a7f08defa793f8c"
+  },
+  {
+   "task_id": "R163",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_6672033/Data access__EIS__Na-NZSPas symmetrical cell__Raw data.mpr",
+   "technique": "PEIS",
+   "position": 26,
+   "truth": {
+    "name": "|Ewe h6|",
+    "canonical": "|Ewe h6|",
+    "unit": "V",
+    "raw_id": 490,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h2|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cb89c13a7a13a7efd4c56a8336e1ec20398ef1430f220d1f16b936e203e89b59"
+  },
+  {
+   "task_id": "R164",
+   "bucket": "main",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 21,
+   "truth": {
+    "name": "Phase(Zwe-ce)",
+    "canonical": "Phase(Zwe-ce)",
+    "unit": "deg",
+    "raw_id": 430,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "faebfc5890ebbce9dbb3c6c814a04a0cab17768d25acdfc05882ca0ca5e38e46"
+  },
+  {
+   "task_id": "R165",
+   "bucket": "main",
+   "file": "holdout7/eprints_soton_ac_uk_471393_8d41da7f/Chapter 4__figure 78__r14_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 12,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7c9b61a3a54258762f500030a511d4960798f4fc80a89d580d47340bf0f371c1"
+  },
+  {
+   "task_id": "R166",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_18711549/DELTA__DELTA_Electrochemistry__2022-08-18__0935_P_4K-LiTFSI-3_EIS__0935_P_4K-LiTFSI-3_EIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 22,
+   "truth": {
+    "name": "|Ewe h2|",
+    "canonical": "|Ewe h2|",
+    "unit": "V",
+    "raw_id": 486,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7987556f3f5d30dfb69cd94397d6fccfbb454e61c897430394e177870ec786dd"
+  },
+  {
+   "task_id": "R167",
+   "bucket": "main",
+   "file": "holdout7/doi_10_58032_agh_bkvfel_3fa69292/NiCuM24_11_CVA.mpr",
+   "technique": "CVA",
+   "position": 6,
+   "truth": {
+    "name": "Rcmp",
+    "canonical": "Rcmp",
+    "unit": "Ω",
+    "raw_id": 168,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I Range"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "bea9c1a9be766731e2f2bbae2565b213ce201122ee13305e362c507769d39ada"
+  },
+  {
+   "task_id": "R168",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 46,
+   "truth": {
+    "name": "|Ece h2|",
+    "canonical": "|Ece h2|",
+    "unit": "V",
+    "raw_id": 498,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "440fcf024f4572efbb07fc4fb5890c08954c75564069b9a5be0bdc63120aa8a4"
+  },
+  {
+   "task_id": "R169",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 43,
+   "truth": {
+    "name": "THD Ece",
+    "canonical": "THD Ece",
+    "unit": "%",
+    "raw_id": 475,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6d7e78f9b7eccd9b9c5e16ccebd661faefc51b3bb69cac44dcb673d9c481b36b"
+  },
+  {
+   "task_id": "R170",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_20532539/Discovery-Benchmark 2__P025-CEL-247__P025-CEL-247-LCO_EC_DEC_02_PEIS_C05.mpr",
+   "technique": "PEIS",
+   "position": 28,
+   "truth": {
+    "name": "|I h2|",
+    "canonical": "|I h2|",
+    "unit": "A",
+    "raw_id": 492,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b4dcac4529fbdb14310b660d6bd8a207ae085ff5d60b8c2de425d2208cf4f678"
+  },
+  {
+   "task_id": "R171",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_15797981/Mg2Si3O8 ZIR corr 100 kHz 10 mV ampl Then PEIS 0 V 10 mV ampl Then GEIS 15min 40 mA 4 mA ampl 100 kHz to 10 mHz 2_03_GEIS.mpr",
+   "technique": null,
+   "position": 20,
+   "truth": {
+    "name": "|Ewe h3|",
+    "canonical": "|Ewe h3|",
+    "unit": "V",
+    "raw_id": 487,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1038b5ea434dbc1533b7f5a872c5609f8833fbf7ef2248e1cd35c9dc444ffef6"
+  },
+  {
+   "task_id": "R172",
+   "bucket": "decoy",
+   "file": "holdout7/data_mendeley_com_datasets_3nn8x5hztk_1_3b94dd15/HER_EIS_Triplo_after_reverse_currents_PtRu_C_62C_09_0,05A_cm2_C01.mpr",
+   "technique": "GEIS",
+   "position": 3,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 3,
+    "source_name": "|Z|"
+   },
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2f0224ba84f380bbc992989da9f49fe92e9ab12d6ca51c7101f1e626b3bb2057"
+  },
+  {
+   "task_id": "R173",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_20532539/Discovery-Benchmark 2__P025-CEL-244__P025-CEL-244-LFP_graphite_EC_DEC_02_PEIS_C05.mpr",
+   "technique": "PEIS",
+   "position": 33,
+   "truth": {
+    "name": "|I h7|",
+    "canonical": "|I h7|",
+    "unit": "A",
+    "raw_id": 497,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "18f401550663d736e2cc55b05c47b9349ed4fcb5178fc108c0cc6967db8211ae"
+  },
+  {
+   "task_id": "R174",
+   "bucket": "main",
+   "file": "holdout7/zenodo_14902951/Faraday discussion__Graphite__20230208_pH 5_25mAsqcm_Nacetate_blank surface G1 T 136__01_CV_03_CV_C05.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1f79bbb1c4e1323b246651d0dfa33e528f7c0eca715b80f6386f1cbab6ef54e0"
+  },
+  {
+   "task_id": "R175",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_z9ssq_zhb1_c04bc4d3/Data_Repository__RawData__Electrolyte__EIS__1.mpr",
+   "technique": "PEIS",
+   "position": 16,
+   "truth": {
+    "name": "THD Ewe",
+    "canonical": "THD Ewe",
+    "unit": "%",
+    "raw_id": 473,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "73ff788fa7895f24ef0a35643c9cc244e4849c461bb2ed077c1a64666a12a32c"
+  },
+  {
+   "task_id": "R176",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 20,
+   "truth": {
+    "name": "Re(Zce)",
+    "canonical": "Re(Zce)",
+    "unit": "Ω",
+    "raw_id": 100,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rdc"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "516d987e8f1d5744368e6518570bdee16bd0836befee8636e74c32921ebef8a5"
+  },
+  {
+   "task_id": "R177",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_22b880a9/impedance EIS CD147__IV series__Detection__BDDreg_12_HEK4_C02.mpr",
+   "technique": null,
+   "position": 19,
+   "truth": {
+    "name": "NSR I",
+    "canonical": "NSR I",
+    "unit": "%",
+    "raw_id": 480,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Phase(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0d5c7079e279d019901820c65a264e876f3574607e1b2e4a218b963b484529aa"
+  },
+  {
+   "task_id": "R178",
+   "bucket": "elim",
+   "file": "holdout7/data_mendeley_com_datasets_3nn8x5hztk_1_3b94dd15/HER_EIS_Triplo_after_reverse_currents_PtRu_C_62C_09_0,05A_cm2_C01.mpr",
+   "technique": "GEIS",
+   "position": 50,
+   "truth": {
+    "name": "|Ece h5|",
+    "canonical": "|Ece h5|",
+    "unit": "V",
+    "raw_id": 501,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "feff873bd48a9d1e207639f1038408e26ab76bcc9ad6ca88c4f933838c85099d"
+  },
+  {
+   "task_id": "R179",
+   "bucket": "main",
+   "file": "holdout7/zenodo_14591774/Data for JMCA__Photoelectrochemical and Electrochemical test__Photocharge-discharge__jt8_C01.mpr",
+   "technique": "CA",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "dq"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c5bcedf238664da2b6f820a32aca884b018eaea5881c1cc498894a05637d5b3b"
+  },
+  {
+   "task_id": "R180",
+   "bucket": "main",
+   "file": "holdout7/crc247_mdi_ruhr_uni_bochum_de_public_type_7_bbb0f920/CL20250802_001_Co3O4#48_after_1h_CA_0p8V_CV_5mVpsec_0p1M_KOH2_05_CV_C01.mpr",
+   "technique": "CV",
+   "position": 3,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 11,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "93537a6e5355eba78ae0562107428ac8d19675b8c14df8ca42df57f09353a41d"
+  },
+  {
+   "task_id": "R181",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15262924/ECD_2025_3,9 - 4,0_AC-AC_Na2SO4_04_CV.mpr",
+   "technique": "CV",
+   "position": 9,
+   "truth": {
+    "name": "Analog IN 2",
+    "canonical": "Analog IN 2",
+    "unit": "V",
+    "raw_id": 17,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b8738ec8a50dfc221b327cf1042428f9cff6146c3ae785d5865734c50fc31941"
+  },
+  {
+   "task_id": "R182",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_9jt4x_sjy2_671ff79a/Data__Raw data__Electronic_DC_Polarization__x=3__Electronic_DC_Ag5Cu3GeS6_07012025_03_MB_C09.mpr",
+   "technique": "MB",
+   "position": 15,
+   "truth": {
+    "name": "step time",
+    "canonical": "step time",
+    "unit": "s",
+    "raw_id": 438,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fab7f4364a34e99f50e18eec628a54e387086aeaf2742fa590819b0a1885301d"
+  },
+  {
+   "task_id": "R183",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260923_C57_SMSP20_1pt22mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 28,
+   "truth": {
+    "name": "|Ewe h2|",
+    "canonical": "|Ewe h2|",
+    "unit": "V",
+    "raw_id": 486,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Acir or Dcir Control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a4be66ba2f92ffc80f38cf8fda523ab8505cf739c7e71cd4e5d7439a0fe657fa"
+  },
+  {
+   "task_id": "R184",
+   "bucket": "main",
+   "file": "holdout7/doi_10_57745_zxbsrf_d2c9a493/0_raw_data__M3_L3__20230427_1500_M3_BUGE384_B3_caracini__20230427_1500_M3_BUGE384_B3_caracini_04_MB_CA1.mpr",
+   "technique": "MB",
+   "position": 11,
+   "truth": {
+    "name": "Temperature",
+    "canonical": "Temperature",
+    "unit": "°C",
+    "raw_id": 462,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "54ed0a55faa6a82a366935ceb915e4e2e5c4e1f491ff2faabb145901732fd0b9"
+  },
+  {
+   "task_id": "R185",
+   "bucket": "main",
+   "file": "holdout7/zenodo_13911290/Figure_05-Entropymetry__S3-N06Mn34Ni14O2__S3-Na06Mn34Ni14O2_Entropymetry_316.mpr",
+   "technique": "GCPL",
+   "position": 13,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "091e7a9184114631986ca5feeab727e4872f1133d98ee23358f2df8070ab2b16"
+  },
+  {
+   "task_id": "R186",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__03_hour06 +__03_AlkydS-Antikor_AA hour06.mpr",
+   "technique": "PEIS",
+   "position": 22,
+   "truth": {
+    "name": "|Zwe-ce|",
+    "canonical": "|Zwe-ce|",
+    "unit": "Ω",
+    "raw_id": 431,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "08c6100b1635d2dcf353f770c7df768fe64a9b6179af05b6d8da62ca1d1df579"
+  },
+  {
+   "task_id": "R187",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 41,
+   "truth": {
+    "name": "|I h6|",
+    "canonical": "|I h6|",
+    "unit": "A",
+    "raw_id": 496,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rdc"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "bb9d17872511ddd597cfa02c3265b1978123bf94b112f4be8e82d0e8c33c9e80"
+  },
+  {
+   "task_id": "R188",
+   "bucket": "main",
+   "file": "holdout7/zenodo_14591774/Data for JMCA__Photoelectrochemical and Electrochemical test__Photoresponse and Stability__15F.mpr",
+   "technique": "CA",
+   "position": 7,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d6b7279013f64cb46bd65821dd25afc6d6df7f23fb92685c4d1fdc6329494589"
+  },
+  {
+   "task_id": "R189",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_g7824s3x5c_1_14f77cd9/RodGrph_Ia=100mA_Na=5_Idc=0-1A_Step100mA_F=1Mhz-1mHz_OneSets_C01.mpr",
+   "technique": null,
+   "position": 13,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "515f9588a81984e6c1194935ecb6c4f06b499facb68e727cbda9cfe827b6923e"
+  },
+  {
+   "task_id": "R190",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_photo_el_e23661d4/herpec-mos2b__pec-refmos2_1x4_h2so4_xxx_msenew_nifoam_foto400nmhm2_05_MP_C13.mpr",
+   "technique": null,
+   "position": 5,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "mA·h",
+    "raw_id": 23,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "85f17f2bddd7ecf4d8960e3a7a27385dbbb0a70fea5b40b1a9d7a105ff442528"
+  },
+  {
+   "task_id": "R191",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260923_C57_SMSP20_1pt22mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 45,
+   "truth": {
+    "name": "NSR Ece",
+    "canonical": "NSR Ece",
+    "unit": "%",
+    "raw_id": 481,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cb783507cb914b34c774a4f92890d6e5ee9de3320e57b4c74444b09843b3d6f8"
+  },
+  {
+   "task_id": "R192",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_0493g_zph7_e9675ce4/data__Validation__CellC__05_HybridValidation__PEIS_StdEIS_RepVal_EOD_vac=5mV_#3_C02.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "70b0770be271e6741c03085629b0073d944f2bd2012f5f0fb2db6098d0579ad0"
+  },
+  {
+   "task_id": "R193",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_b2e090a1/impedance EIS IGg2B__III series__Detection__BDDreg_07_HEK1_C01.mpr",
+   "technique": null,
+   "position": 19,
+   "truth": {
+    "name": "NSR I",
+    "canonical": "NSR I",
+    "unit": "%",
+    "raw_id": 480,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Energy|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7f5d0b2852a0cc3df850e6879bce240cb858cd28c67a16c1d616a1486f6c389b"
+  },
+  {
+   "task_id": "R194",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15797981/SI Figure 3 LSV Tafel plots__Raw data__LSV 0 to 1.9 vs Ref 1 mVs 5 min rest OCV Mg2Si3O8 no stir.mpr",
+   "technique": "LSV",
+   "position": 4,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "07fca9c6258102ed22b1c8891d72000d1e1d39c0b2b6c3c9bd1d6b1524a0438e"
+  },
+  {
+   "task_id": "R195",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_highentropyarg_0b3b33f5/HighEntropyArgyrodite_data__eis__LPSX0p6__CB0p9_22C_230611.mpr",
+   "technique": null,
+   "position": 1,
+   "truth": {
+    "name": "Re(Z)",
+    "canonical": "Re(Z)",
+    "unit": "Ω",
+    "raw_id": 37,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Cs⁻²"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8733e8b686490d3c17bd81873cf548ae20631846f07d26fd84a6a42c14d9a1f0"
+  },
+  {
+   "task_id": "R196",
+   "bucket": "decoy",
+   "file": "holdout7/doi_10_7910_dvn_gqwmrb_67e28adc/OCP_pure-Mg_120mM_011520_hydrogen_C01.mpr",
+   "technique": "OCV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 341215087,
+    "kind": "randint_u2",
+    "high": 256
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "c621bfdeb025c3c74578cb5f112a61c8641d138e607fc57684554947a491668d"
+  },
+  {
+   "task_id": "R197",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 39,
+   "truth": {
+    "name": "|I h4|",
+    "canonical": "|I h4|",
+    "unit": "A",
+    "raw_id": 494,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9db5ae4e08e4f6c4062653e16c5f59cfe90571aa2e7f6058ce860758b6c47892"
+  },
+  {
+   "task_id": "R198",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_11103701/Raw data__20231113_Industriellen Bedingungen_1_BC_06_GEIS_C01.mpr",
+   "technique": "GEIS",
+   "position": 31,
+   "truth": {
+    "name": "|I h5|",
+    "canonical": "|I h5|",
+    "unit": "A",
+    "raw_id": 495,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2cead93e5c9bbd9e04652282aba9394dc58dd7a04044f73171b4e3567bcaf7c9"
+  },
+  {
+   "task_id": "R199",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_10990048/Plainpan-Example_electrocatalysis__Raw data__20230126-porosity-study-32p-Cu-200mA_05_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 49,
+   "truth": {
+    "name": "|Ece h4|",
+    "canonical": "|Ece h4|",
+    "unit": "V",
+    "raw_id": 500,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5360b3d0701e1bb84a60b7ddbcab28c7365919de5203c0bac86a6afada55ae0c"
+  },
+  {
+   "task_id": "R200",
+   "bucket": "main",
+   "file": "holdout7/github_com_garzondiegofeup_nomad_inl_base_723cd696/sample EIS.mpr",
+   "technique": null,
+   "position": 9,
+   "truth": {
+    "name": "Cs⁻²",
+    "canonical": "Cs⁻²",
+    "unit": "µF⁻²",
+    "raw_id": 78,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "db60953138ffff833ae5b0cf6fe56f0c16d11b9be1d124dec70b2d1b0e7ea26f"
+  },
+  {
+   "task_id": "R201",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_w9sn6vhkst_2_01c1ad45/Figure 5b - with the stripping pulse.mpr",
+   "technique": null,
+   "position": 16,
+   "truth": {
+    "name": "|Zce|",
+    "canonical": "|Zce|",
+    "unit": "Ω",
+    "raw_id": 99,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Energy|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "41136af0b98eb643ce30e559cd23080bd3ea15277cf5159b44b26fd519689c92"
+  },
+  {
+   "task_id": "R202",
+   "bucket": "main",
+   "file": "holdout7/doi_10_18710_zfadjs_d1c17b47/AB336__211030_AB336_Fennac+Bi2MoO6_full_cell_operando_50uA_C01.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fa27c7b13e6f2457607feb9edf76c251554d3ed18cd321b18a62ae8e3b4fa8bc"
+  },
+  {
+   "task_id": "R203",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_s6zvs_1f06_7f29bdaa/Raw Data__Se–C–Li6PS5Br half-cell__Se–C–Li6PS5Br half-cell_04_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ed1fbbaa8992ecb82997f6f5b68a32417a66f119c1ca0175df0a6c14a021aa4e"
+  },
+  {
+   "task_id": "R204",
+   "bucket": "main",
+   "file": "holdout7/edata_bham_ac_uk_id_eprint_1058_66c4347d/23,03,2023_UTNO_1_Al_PVDF_asymmetric_cycling_80,10,10_01_GCPL.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "feb3ee954456c902ae14fe604e7a4cc53edd51cd5f3cf40844a62325b738458f"
+  },
+  {
+   "task_id": "R205",
+   "bucket": "constant",
+   "file": "holdout7/zenodo_21805277/empa__fcid000039__260318_reda_1M-KCrPDTA-Recycled_PDTABufferpH8,8_630K_no-Bi_80percentSOC_CellQUB_15kOhm_06_GCPL_CE5.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "85bcab227ed82b11d35de6bfad9e4916bc57572fe9a43be292166c60dfbacd8e"
+  },
+  {
+   "task_id": "R206",
+   "bucket": "main",
+   "file": "holdout7/zenodo_10990048/Plainpan-Example_electrocatalysis__Raw data__20230126-porosity-study-32p-Cu-200mA_05_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 21,
+   "truth": {
+    "name": "-Im(Zce)",
+    "canonical": "-Im(Zce)",
+    "unit": "Ω",
+    "raw_id": 101,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "83245fc93d235b116e66ba8152d290f9d141dcdeb73dd5030926749e9f0d9df3"
+  },
+  {
+   "task_id": "R207",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_g7824s3x5c_1_14f77cd9/Xut7_Pt_Iac=10mA_Na=5_Idc=0-2A_20steps_F=1MHz-10mHz_C01.mpr",
+   "technique": null,
+   "position": 11,
+   "truth": {
+    "name": "Cp⁻²",
+    "canonical": "Cp⁻²",
+    "unit": "µF⁻²",
+    "raw_id": 173,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "58ee48eda8a9aac35043a8cfd94bf9af892242084f1dda4c7c713f7eb904a7ef"
+  },
+  {
+   "task_id": "R208",
+   "bucket": "main",
+   "file": "holdout7/doi_10_6084_m9_figshare_19617936_c201c7dd/Zn-NiOOH__3 eletrodes EIS__NP_Zn_20210316-13-3electrodes_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 20,
+   "truth": {
+    "name": "-Im(Zce)",
+    "canonical": "-Im(Zce)",
+    "unit": "Ω",
+    "raw_id": 101,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "16a3cf58307a2220b9137ae280a270b13d8ae0467d9e5542133f293f4fbb5483"
+  },
+  {
+   "task_id": "R209",
+   "bucket": "constant",
+   "file": "holdout7/datastore_uni_muenster_de_records_k82vf_ft77_0dd7490a/Data_Milling_LPSCl__Impedance__LiPS45Cl15_40Hz_10min_5mm_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 14,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4f78d833e6ff0e4833cc2f4ae6c5975bf6513ba80b35d2f716ee69c1f1d5ce21"
+  },
+  {
+   "task_id": "R210",
+   "bucket": "main",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260923_C57_SMSP20_1pt22mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 52,
+   "truth": {
+    "name": "z cycle",
+    "canonical": "z cycle",
+    "unit": null,
+    "raw_id": 469,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3fdd5c76b0719fcaa2ca3bf396afc4aa8af2804772baa72221892889577a1852"
+  },
+  {
+   "task_id": "R211",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 51,
+   "truth": {
+    "name": "|Ece h7|",
+    "canonical": "|Ece h7|",
+    "unit": "V",
+    "raw_id": 503,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Acir or Dcir Control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "65c12b3270811cc328d2fa9210e0fc9d490541bf69700bb30bc029a67210b903"
+  },
+  {
+   "task_id": "R212",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 34,
+   "truth": {
+    "name": "|Ewe h7|",
+    "canonical": "|Ewe h7|",
+    "unit": "V",
+    "raw_id": 491,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5de40115966e80a42f48f57bdfd76ca9f558a77a0bd26c523a4cc89db41e1193"
+  },
+  {
+   "task_id": "R213",
+   "bucket": "main",
+   "file": "holdout7/zenodo_12737119/EIS__500 nm__475-400C_C02.mpr",
+   "technique": "PEIS",
+   "position": 10,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h2|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "53d1a52b01d31d1524a6ff3522e67b8695b5d7c0f9173d22e87fd2c84f1239c7"
+  },
+  {
+   "task_id": "R214",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 47,
+   "truth": {
+    "name": "|Ece h3|",
+    "canonical": "|Ece h3|",
+    "unit": "V",
+    "raw_id": 499,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "354869f38c89c5d83d9a7e0f948ca9161ec547649ebfa1fee50a670e16130cef"
+  },
+  {
+   "task_id": "R215",
+   "bucket": "main",
+   "file": "holdout7/zenodo_5565584/Connected cell with MRI for cold-above-hot-gel-14-08-2020-open at rest-150Kohm to500 ohm temp -60to-30_C01.mpr",
+   "technique": null,
+   "position": 7,
+   "truth": {
+    "name": "Rwe",
+    "canonical": "Rwe",
+    "unit": "Ω",
+    "raw_id": 69,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Zwe-ce|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a7f69ef504e52add32d7be3f968760a6a69bd256cfc36aeb4a15d2b944081f47"
+  },
+  {
+   "task_id": "R216",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_10990048/Plainpan-Example_electrocatalysis__Raw data__20230126-porosity-study-32p-Cu-200mA_05_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 45,
+   "truth": {
+    "name": "NSD Ece",
+    "canonical": "NSD Ece",
+    "unit": "%",
+    "raw_id": 478,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b6e90f57f1b1bae5d4ecd3b9298febbb320e23a59f9c38ff2235bb8b61940f98"
+  },
+  {
+   "task_id": "R217",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_g7824s3x5c_1_14f77cd9/RodGrph_Ia=100mA_Na=5_Idc=0-1A_Step100mA_F=1Mhz-1mHz_OneSets_C01.mpr",
+   "technique": null,
+   "position": 9,
+   "truth": {
+    "name": "Cs⁻²",
+    "canonical": "Cs⁻²",
+    "unit": "µF⁻²",
+    "raw_id": 78,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "75a856e88792b320c1cdccfbadb1902b4d84fb7880e77e303f0b84312ce4db0a"
+  },
+  {
+   "task_id": "R218",
+   "bucket": "main",
+   "file": "holdout7/zenodo_8319001/Experimental data__EIS__L2NO4-1000nm__179-YSZ-180_1000nmR45_600-400-600C_03_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 12,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "2af2859aaf03a48af8344f9bca771d2643715f1369afdc7700aac65547980953"
+  },
+  {
+   "task_id": "R219",
+   "bucket": "main",
+   "file": "holdout7/github_com_cheminfo_biologic_converter_fe3bc51c/jdb11-4.mpr",
+   "technique": "GCPL",
+   "position": 0,
+   "truth": {
+    "name": "Ns",
+    "canonical": "Ns",
+    "unit": null,
+    "raw_id": 131,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3f3e90fe1742b85e58c4778deef7604027ecfab5f163947f0d4dc318da104537"
+  },
+  {
+   "task_id": "R220",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_agha_hemp_2594_52ae8468/real data hemp full cell mutiple sweep_06_CV_C02.mpr",
+   "technique": "CV",
+   "position": 6,
+   "truth": {
+    "name": "I Range",
+    "canonical": "I Range",
+    "unit": null,
+    "raw_id": 39,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "step time"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4dc346f91f42690e16f0de1cb25e2d5ed59f63f85914e6951ca3c27caa267530"
+  },
+  {
+   "task_id": "R221",
+   "bucket": "main",
+   "file": "holdout7/github_com_jepegit_cellpy_3f920ef1/biol.mpr",
+   "technique": null,
+   "position": 17,
+   "truth": {
+    "name": "Phase(Zce)",
+    "canonical": "Phase(Zce)",
+    "unit": "deg",
+    "raw_id": 98,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3b4ac4ffa37b0ef1fb8c1a2edbbbf3e828ae5c7c15db02189bed10c742d371ee"
+  },
+  {
+   "task_id": "R222",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__03_hour06 +__03_AlkydS-Antikor_AA hour06.mpr",
+   "technique": "PEIS",
+   "position": 38,
+   "truth": {
+    "name": "|I h3|",
+    "canonical": "|I h3|",
+    "unit": "A",
+    "raw_id": 493,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a39ca1c23b026ddf6b1dc27048b2dd133a28091bba9cbc1ec859062f53780f45"
+  },
+  {
+   "task_id": "R223",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260923_C57_SMSP20_1pt22mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 51,
+   "truth": {
+    "name": "|Ece h7|",
+    "canonical": "|Ece h7|",
+    "unit": "V",
+    "raw_id": 503,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b4ac3a86676fe275297d5a96f96ebf6b78c8e9ae2f4955cdb66c00d7e9ca59a0"
+  },
+  {
+   "task_id": "R224",
+   "bucket": "decoy",
+   "file": "holdout7/datastore_uni_muenster_de_records_z9ssq_zhb1_c04bc4d3/Data_Repository__RawData__EIS__Potential_Hold_Regime__1.mpr",
+   "technique": "PEIS",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 649989043,
+    "kind": "noise_f4",
+    "scale": 0.009304561468244833,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "|Ewe h6|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f99991a6bb70b975003884ea06cf4889a5d0d75c2b9895c832b8f191f332bde9"
+  },
+  {
+   "task_id": "R225",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__03_hour06 +__03_AlkydS-Antikor_AA hour06.mpr",
+   "technique": "PEIS",
+   "position": 47,
+   "truth": {
+    "name": "|Ece h3|",
+    "canonical": "|Ece h3|",
+    "unit": "V",
+    "raw_id": 499,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7f74d14f6f8e5ce144dae851cd4dd4050285b140792f7befd4d26423d208bf16"
+  },
+  {
+   "task_id": "R226",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_sp98v4nvh7_1_4e2a7333/Cycling test 20 mAg-1_C01.mpr",
+   "technique": "GCPL",
+   "position": 1,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "aded95cc10af29a70e6cfbdf0cda03aea7fdd9d04a0c3e23149f7e0ab20f7c1f"
+  },
+  {
+   "task_id": "R227",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 48,
+   "truth": {
+    "name": "|Ece h4|",
+    "canonical": "|Ece h4|",
+    "unit": "V",
+    "raw_id": 500,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "50b32fd4d3007b99ae1a94dc3de6ce6f8bb13cbc0367bc057e101019801af8f3"
+  },
+  {
+   "task_id": "R228",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_11103701/Raw data__20231113_Industriellen Bedingungen_1_BC_05_MB_C01.mpr",
+   "technique": "MB",
+   "position": 17,
+   "truth": {
+    "name": "THD I",
+    "canonical": "THD I",
+    "unit": "%",
+    "raw_id": 474,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d35f46cf2afdc8acf8e1c92f3d25683ea6bf538647ba3f02f2ae4127c84845fa"
+  },
+  {
+   "task_id": "R229",
+   "bucket": "decoy",
+   "file": "holdout7/zenodo_14359953/Figure. 3a__20230906_BK_GOR_CoNiFeCu_15052023_9_5_mA_e3__20230906_BK_GOR_CoNiFeCu_15052023_9_5_mA_e3_02_GEIS_C01.mpr",
+   "technique": "GEIS",
+   "position": 9,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 9,
+    "source_name": "Cp"
+   },
+   "vocab_exclude": [
+    "Cp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4f63effbb249b3a3e546bbdc65dee680f32935fa0a038d80210d152582b8779e"
+  },
+  {
+   "task_id": "R230",
+   "bucket": "main",
+   "file": "holdout7/doi_10_24435_materialscloud_vx_ew_e05070d1/230511-17_02_GCPL_C12.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "58bf27abd403a3880596cbfbccf41ba68341e03ddecd59a5f93afbacf4c6eed2"
+  },
+  {
+   "task_id": "R231",
+   "bucket": "decoy",
+   "file": "holdout7/data_mendeley_com_datasets_vmczyckhmk_1_2a6f531e/ST19D_17_08_2021_03_GCPL_CA3.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 1069804943,
+    "kind": "noise_f4",
+    "scale": 0.171911490350929,
+    "loc": 0.26566992387323046
+   },
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6543a9b5f07c6774cdced01a70001ff89f5c47409b31d6d83ec1acc93a2143b6"
+  },
+  {
+   "task_id": "R232",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 24,
+   "truth": {
+    "name": "-Im(Zwe-ce)",
+    "canonical": "-Im(Zwe-ce)",
+    "unit": "Ω",
+    "raw_id": 433,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6a2149f3d3eb9d92d6171039cb4d4a02155bd47f12f4d88ea76ada4f3cdc4bd4"
+  },
+  {
+   "task_id": "R233",
+   "bucket": "main",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 52,
+   "truth": {
+    "name": "z cycle",
+    "canonical": "z cycle",
+    "unit": null,
+    "raw_id": 469,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "fd46ad0a3f995be39d35acb6e91ddf5a69ef8b931a673837eb139f9633edd487"
+  },
+  {
+   "task_id": "R234",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_ionic_memory_o_aca813a1/Main_Manuscript__Figure_05__5_(b)__Source_File__t1_0'1vr_-1vwr_0'1vr_rtime2_rest2_wrtime5_0Vresting_1MKCl_PVDF_C02.mpr",
+   "technique": "coV",
+   "position": 4,
+   "truth": {
+    "name": "dQ",
+    "canonical": "dQ",
+    "unit": "mA·h",
+    "raw_id": 23,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Z|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "002aadd5fc39acec281439661df0e6a5b511c12c652821a24ff2faa9a6b94c20"
+  },
+  {
+   "task_id": "R235",
+   "bucket": "decoy",
+   "file": "holdout7/datastore_uni_muenster_de_records_0493g_zph7_e9675ce4/data__Validation__CellC__05_HybridValidation__PEIS_StdEIS_RepVal_EOD_vac=5mV_#3_C02.mpr",
+   "technique": "PEIS",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 135284329,
+    "kind": "noise_f4",
+    "scale": 0.005734071625347536,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a35c4d6007d50713e5d0dde006ee83dc6a4da1877d437d7b366dab7849fed5d6"
+  },
+  {
+   "task_id": "R236",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15319145/thioorthoester-polymers-as-sulfur-rich-materials-i__fig_4__files__Fig_4.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "70f213642ce2c937e9b24279b2dd22de9f173b02516ab8552ec302e518fab30e"
+  },
+  {
+   "task_id": "R237",
+   "bucket": "main",
+   "file": "holdout7/zenodo_6672033/Data access__EIS__Na-NZSPas symmetrical cell__Raw data.mpr",
+   "technique": "PEIS",
+   "position": 2,
+   "truth": {
+    "name": "-Im(Z)",
+    "canonical": "-Im(Z)",
+    "unit": "Ω",
+    "raw_id": 38,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "65c9c3fbf166d84aa1b77827bc2933aec14eef3919f6110b0e8ba65d9d884a15"
+  },
+  {
+   "task_id": "R238",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_g7824s3x5c_1_14f77cd9/Xut7_Pt_Iac=10mA_Na=5_Idc=0-2A_20steps_F=1MHz-10mHz_C01.mpr",
+   "technique": null,
+   "position": 9,
+   "truth": {
+    "name": "Cs⁻²",
+    "canonical": "Cs⁻²",
+    "unit": "µF⁻²",
+    "raw_id": 78,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rcmp"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6ea69cd34ec9160a89785d8958a66c1b98dfeb37f993da8200e49b8e617d046c"
+  },
+  {
+   "task_id": "R239",
+   "bucket": "main",
+   "file": "holdout7/zenodo_21805277/empa__fcid000007__260220_lqir_1M-KCrPDTApH10_PDTABuffpH8,5_630K_no-Bi_Cell3_1000kOhm_50cycles_06_GCPL_CE3.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we",
+    "canonical": "Energy we",
+    "unit": "W·h",
+    "raw_id": 880,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9b790d96bbe9782c5cf85ef39ad233213d68ed8d0554e744c787af9dd5d2aca3"
+  },
+  {
+   "task_id": "R240",
+   "bucket": "decoy",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_bioelect_d30bd5c4/Series_2_alternative_PBS_electrode_annealing__2_Sensing__other__BDD_ugotowane_3_blank_FERRO_TRIS_step3_01_CV_C01.mpr",
+   "technique": "CV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 394550566,
+    "kind": "noise_f4",
+    "scale": 0.06995819039531785,
+    "loc": -0.3467918615782034
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1e1bd095ade53ff0018cb593d5c861622f8a45b2e37c5c385f93d59bc9c3aa63"
+  },
+  {
+   "task_id": "R241",
+   "bucket": "decoy",
+   "file": "holdout7/data_mendeley_com_datasets_9wh7w932v6_1_dc77bd3f/Pure epoxy_12_LP_C07.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 880285008,
+    "kind": "noise_f8",
+    "scale": 0.07436925826567789,
+    "loc": -0.11568768080274737
+   },
+   "vocab_exclude": [
+    "-Im(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f5b865f5530bd17371dcb80966559df373e5ea52eb483b9513c145ec015f0988"
+  },
+  {
+   "task_id": "R242",
+   "bucket": "main",
+   "file": "holdout7/data_dtu_dk_articles_dataset_data_for_enhanc_47e5e839/20210316_Ox40 10bar - 0p45 perc O2 - const 4mA__Ox40 2021-03-13 10bar - 0p45 perc O2 - const 4mA_02_PEIS_C14.mpr",
+   "technique": "PEIS",
+   "position": 23,
+   "truth": {
+    "name": "|Zwe-ce|",
+    "canonical": "|Zwe-ce|",
+    "unit": "Ω",
+    "raw_id": 431,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0cc7db775ea5161f3707959e848814d38d4c2aeae94d037df9ef866b09d17ce6"
+  },
+  {
+   "task_id": "R243",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_14514654/Data_for_submission__Fig1__Fig1b__20230916-14-S03__20230916-14-S03_08_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 50,
+   "truth": {
+    "name": "|Ece h5|",
+    "canonical": "|Ece h5|",
+    "unit": "V",
+    "raw_id": 501,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7ef622642b7f20e944513d597c336df6cbada5df2156203e054bd32d52e04b1d"
+  },
+  {
+   "task_id": "R244",
+   "bucket": "decoy",
+   "file": "holdout7/doi_10_6084_m9_figshare_19617936_c201c7dd/Zn-NiOOH__3 eletrodes EIS__Zn_powder_20210320_2_C01.mpr",
+   "technique": "MB",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 90984725,
+    "kind": "randint_u2",
+    "high": 16
+   },
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b78036ecfac046bce7f7ced5c5869508a197b691e539250a2a5c74da8a6a2fa1"
+  },
+  {
+   "task_id": "R245",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 45,
+   "truth": {
+    "name": "NSR Ece",
+    "canonical": "NSR Ece",
+    "unit": "%",
+    "raw_id": 481,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rdc"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5e5c2637f4ac9a6570a114a479a3098ef4b6012edc64cc687553d7e029eb539b"
+  },
+  {
+   "task_id": "R246",
+   "bucket": "decoy",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_ecc0b5cd/impedance EIS ACE2__III series__Detection__BDDreg_03_HEK4_C02.mpr",
+   "technique": null,
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 362036447,
+    "kind": "noise_f4",
+    "scale": 221.49992788205432,
+    "loc": -218.16724587227364
+   },
+   "vocab_exclude": [
+    "|Ece|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "036c6de4ae1d7260b497727b074f04cc4516be4b4be35b48abe8b8ea1e5d18d8"
+  },
+  {
+   "task_id": "R247",
+   "bucket": "main",
+   "file": "holdout7/zenodo_20532539/Discovery-Benchmark 2__P025-CEL-244__P025-CEL-244-LFP_graphite_EC_DEC_02_PEIS_C05.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Zwe-ce|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ac6d20e584c1bda3db43c7303b8a1d0e8e093f41a087e1b567160c23e8f651e3"
+  },
+  {
+   "task_id": "R248",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15412191/Main Text__Figure 8__8c__regr-d-120d, full cell phenazine 6mm 5mgcm2 and 5mAh mno2 again_03_GCPL6_C06.mpr",
+   "technique": "GCPL",
+   "position": 4,
+   "truth": {
+    "name": "control",
+    "canonical": "control",
+    "unit": "V/mA",
+    "raw_id": 5,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6b316ffecf509ee97d5501580f354ba74e78cd86ca72fccb73089f42892c3bdf"
+  },
+  {
+   "task_id": "R249",
+   "bucket": "main",
+   "file": "holdout7/github_com_empaeconversion_aurora_cycler_man_1647819d/commercial_cell_001__1753280829_C01.mpr",
+   "technique": "MB",
+   "position": 8,
+   "truth": {
+    "name": "|Energy|",
+    "canonical": "|Energy|",
+    "unit": "W·h",
+    "raw_id": 74,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Acir or Dcir Control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5ae5fd53b82939dde65b30a62eff390ea0038adeb63598b181e18af5451bfbd3"
+  },
+  {
+   "task_id": "R250",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15782592/Figure 3__2021_11_11_spAg_PTFE_32_0.1um_hydrophilic__20211111_05_spAg_PTFE_32_CP_12+6mA_04_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b0d930fcb66f2960bd1d4c0e7bd9f6d286b55b555a0d6fc4a38c273d7637151c"
+  },
+  {
+   "task_id": "R251",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_21890823/Dataset_Seidenberg_et_al_Impedance_Gas_Evolution__Raw Data__V1__EC-Lab Data__2026-01-21_BC_SVT_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 32,
+   "truth": {
+    "name": "|Ewe h3|",
+    "canonical": "|Ewe h3|",
+    "unit": "V",
+    "raw_id": 487,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "47e8fb9603591d271ea95d26bc5c30cc447e16db6c3c9197b95c29062b94a899"
+  },
+  {
+   "task_id": "R252",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_11103701/Raw data__20231113_Industriellen Bedingungen_1_BC_05_MB_C01.mpr",
+   "technique": "MB",
+   "position": 22,
+   "truth": {
+    "name": "|Ewe h4|",
+    "canonical": "|Ewe h4|",
+    "unit": "V",
+    "raw_id": 488,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "942ece5a0945636fe7ddff470b4de91646486526454c130720a9146be1bb2b1f"
+  },
+  {
+   "task_id": "R253",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_bioelect_d30bd5c4/Series_5_detection_without_redox_markers_part2__1_Electrode_preparation__trash__A4044_24_1Xtris_blank_2_C01.mpr",
+   "technique": "PEIS",
+   "position": 30,
+   "truth": {
+    "name": "|I h4|",
+    "canonical": "|I h4|",
+    "unit": "A",
+    "raw_id": 494,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cf97c3a07258fa4eaf226f4e0add9317d86b2e38a4e454b5989bfbcc96b695d9"
+  },
+  {
+   "task_id": "R254",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 24,
+   "truth": {
+    "name": "Re(Zwe-ce)",
+    "canonical": "Re(Zwe-ce)",
+    "unit": "Ω",
+    "raw_id": 432,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rac"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "55e10184562ed3f7c73818fe72606a4ecd466d83dd1c69bffccf46c5b32908d0"
+  },
+  {
+   "task_id": "R255",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_rbc1h_x0s7_dfaa4614/Data_strore_Cu6PS5X_for_publication__Data__Raw_data__Electronic_DC__Cu6PS5Br__Cu6PS5Br_electronic_DC_04_PEIS_C16.mpr",
+   "technique": "PEIS",
+   "position": 26,
+   "truth": {
+    "name": "NSD I",
+    "canonical": "NSD I",
+    "unit": "%",
+    "raw_id": 477,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e735e6e7b062d9dfda7a8d0800b02853db706f3896109b936c139cd4696fb635"
+  },
+  {
+   "task_id": "R256",
+   "bucket": "main",
+   "file": "holdout7/zenodo_13911290/Figure_05-Entropymetry__S3-N06Mn34Ni14O2__S3-Na06Mn34Ni14O2_Entropymetry_316.mpr",
+   "technique": "GCPL",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance charge",
+    "canonical": "Capacitance charge",
+    "unit": "µF",
+    "raw_id": 125,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "07870efa1fc12e04df00be53945e8c3cd981c0d3eb24243cf8c3061e0031195f"
+  },
+  {
+   "task_id": "R257",
+   "bucket": "main",
+   "file": "holdout7/zenodo_18089032/Figure 3__PVP NMP__2024-09-10_C6_FC_GN3-kmix_EMIMBF4TTE+TEABF4_PVP_NMP_TC_GFsep_200plg_36-2mg_20_PEIS_CA6.mpr",
+   "technique": "PEIS",
+   "position": 5,
+   "truth": {
+    "name": "time",
+    "canonical": "time",
+    "unit": "s",
+    "raw_id": 4,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cda7a3251adb8e60f22c68b7dcad82f2874fbdcdba815e1e4e58303aff5a990a"
+  },
+  {
+   "task_id": "R258",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_11103701/Raw data__20231113_Industriellen Bedingungen_1_BC_05_MB_C01.mpr",
+   "technique": "MB",
+   "position": 27,
+   "truth": {
+    "name": "|I h3|",
+    "canonical": "|I h3|",
+    "unit": "A",
+    "raw_id": 493,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Zce|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "02a936b295a77b31c9c1f5898b109e4e56740fbb815323e17eac70ebce74e4c5"
+  },
+  {
+   "task_id": "R259",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__03_hour06 +__03_AlkydS-Antikor_AA hour06.mpr",
+   "technique": "PEIS",
+   "position": 50,
+   "truth": {
+    "name": "|Ece h6|",
+    "canonical": "|Ece h6|",
+    "unit": "V",
+    "raw_id": 502,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6aaf18bd232a336abbd9781aa610179afa3310a0e1079df071bfc91b40ae898a"
+  },
+  {
+   "task_id": "R260",
+   "bucket": "main",
+   "file": "holdout7/doi_10_18710_mxjzmr_35db9086/250515_AB-S247_Si-C_GC_3cyc_C_20_CA_0p05-3V_div_2h_01_GCPL_C01.mpr",
+   "technique": "GCPL",
+   "position": 13,
+   "truth": {
+    "name": "step time",
+    "canonical": "step time",
+    "unit": "s",
+    "raw_id": 438,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ff93ea4387d52083cf89611843f8c91126a69adfba1dd433be527d8fb4d20980"
+  },
+  {
+   "task_id": "R261",
+   "bucket": "elim",
+   "file": "holdout7/figshare_com_articles_dataset_solid_state_ba_e08b4466/cell11_4_25C_C06.mpr",
+   "technique": "PEIS",
+   "position": 20,
+   "truth": {
+    "name": "NSR I",
+    "canonical": "NSR I",
+    "unit": "%",
+    "raw_id": 480,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ns"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3ff70e73368666331d3d5c05b79ed7235b06433dcc2eac6d9af35a51ef569658"
+  },
+  {
+   "task_id": "R262",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 45,
+   "truth": {
+    "name": "NSR Ece",
+    "canonical": "NSR Ece",
+    "unit": "%",
+    "raw_id": 481,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rdc"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0868b4f995f3e2cfca770ce062d1a1ec0e59eb7a29c76b0a8ee20bfbd21de047"
+  },
+  {
+   "task_id": "R263",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 48,
+   "truth": {
+    "name": "|Ece h3|",
+    "canonical": "|Ece h3|",
+    "unit": "V",
+    "raw_id": 499,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rdc"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f5b5afadb1e73a78828bf1d817640037baae6affc8057ec327ad20b688e7dc1c"
+  },
+  {
+   "task_id": "R264",
+   "bucket": "main",
+   "file": "holdout7/zenodo_14161007/EIS__PEO-CaTFSI2_30-1_10mm_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR Ewe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "36d8c68c0f3674d7a347e8d61a452fb3804b95d0cb1ca49725a382cbc465ae5d"
+  },
+  {
+   "task_id": "R265",
+   "bucket": "main",
+   "file": "holdout7/zenodo_19352687/EC-lab_files__PanCoin012__PanCoin12_CCCV_C10_CC3.mpr",
+   "technique": "GCPL",
+   "position": 12,
+   "truth": {
+    "name": "Capacitance discharge",
+    "canonical": "Capacitance discharge",
+    "unit": "µF",
+    "raw_id": 126,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "68426a582062894c46a0f7e68fba945f4ca8c7aead9b423b5883190045a54677"
+  },
+  {
+   "task_id": "R266",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_rbc1h_x0s7_dfaa4614/Data_strore_Cu6PS5X_for_publication__Data__Raw_data__Electronic_DC__Cu6PS5Br__Cu6PS5Br_electronic_DC_04_PEIS_C16.mpr",
+   "technique": "PEIS",
+   "position": 7,
+   "truth": {
+    "name": "<I>",
+    "canonical": "I",
+    "unit": "mA",
+    "raw_id": 76,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e32c189d752100b7f5fff82fa2d5b8033aa71c41aebb646f3da3a3cfa4b46bc2"
+  },
+  {
+   "task_id": "R267",
+   "bucket": "elim",
+   "file": "holdout7/github_com_flylan001_eis_correction_f8202e80/1_C03.mpr",
+   "technique": "GEIS",
+   "position": 17,
+   "truth": {
+    "name": "NSD Ewe",
+    "canonical": "NSD Ewe",
+    "unit": "%",
+    "raw_id": 476,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e52f1b940c3736da4347a2b6b9cf4d59773befa7eba469089455f74a5ac5e0ef"
+  },
+  {
+   "task_id": "R268",
+   "bucket": "decoy",
+   "file": "holdout7/zenodo_13911290/Figure_05-Entropymetry__S1-Na23Ni13Mn23O2__S1-Na23Ni13Mn23O2_Entropymetry_353.mpr",
+   "technique": "GCPL",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 558780515,
+    "kind": "randint_u2",
+    "high": 256
+   },
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a6e38499807a96088a705f15da29f65eb40fadfb192b3143beffff461a2ef066"
+  },
+  {
+   "task_id": "R269",
+   "bucket": "main",
+   "file": "holdout7/github_com_avivbryg_mpr_converter_75b98e96/020-formation_CB5.mpr",
+   "technique": null,
+   "position": 6,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "z cycle"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "8176c880ab2b11f6cf74c5200e73558e5a182ab3c3525f41aa56ec1d85c78d4d"
+  },
+  {
+   "task_id": "R270",
+   "bucket": "main",
+   "file": "holdout7/github_com_nomad_hzb_nomad_chemical_energy_7b9e6004/acmd_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 25,
+   "truth": {
+    "name": "-Im(Zwe-ce)",
+    "canonical": "-Im(Zwe-ce)",
+    "unit": "Ω",
+    "raw_id": 433,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3a03be6ac6d382524078f356b0b97688f21c9ff22a46c6946aa64ef7416b9325"
+  },
+  {
+   "task_id": "R271",
+   "bucket": "main",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 59,
+   "truth": {
+    "name": "step time",
+    "canonical": "step time",
+    "unit": "s",
+    "raw_id": 438,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "33c89bdab596e348cb1e8b70b333d30d4cd8f888289bc8797c5eeb7f3d859eb9"
+  },
+  {
+   "task_id": "R272",
+   "bucket": "main",
+   "file": "holdout7/zenodo_19681337/Figure 3__Analysis__Raw data__Cell with real battery solution__Cycles 41-43__Cycle41_discharge_C09.mpr",
+   "technique": "GCPL",
+   "position": 2,
+   "truth": {
+    "name": "dq",
+    "canonical": "dq",
+    "unit": "mA·h",
+    "raw_id": 7,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "ed13eb4cec1c7bca85a7f9b17b437490eff7d2bcef69376f7bfbeabf26347580"
+  },
+  {
+   "task_id": "R273",
+   "bucket": "elim",
+   "file": "holdout7/github_com_flylan001_eis_correction_f8202e80/2_C03.mpr",
+   "technique": "MB",
+   "position": 27,
+   "truth": {
+    "name": "|I h3|",
+    "canonical": "|I h3|",
+    "unit": "A",
+    "raw_id": 493,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "dd586937b5d031e15bc09e4b4566f7c928f33df8a69ded26809141100920f3eb"
+  },
+  {
+   "task_id": "R274",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_k82vf_ft77_0dd7490a/Data_Milling_LPSCl__Effective ionic conductivities__500rpm_240min_5mm_effective_conductivity_02_PEIS_C10.mpr",
+   "technique": "PEIS",
+   "position": 15,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog OUT"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cacf4da6b526d5e18ff42db3c154223283c207d09483c2dca3b45d8507a9c5d4"
+  },
+  {
+   "task_id": "R275",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_w9sn6vhkst_2_01c1ad45/Figure 5b - with the stripping pulse.mpr",
+   "technique": null,
+   "position": 17,
+   "truth": {
+    "name": "Re(Zce)",
+    "canonical": "Re(Zce)",
+    "unit": "Ω",
+    "raw_id": 100,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "678e32ccb065a2c1d426b99d6b0aa192c937763f39f66094bf6a9206efa4e758"
+  },
+  {
+   "task_id": "R276",
+   "bucket": "main",
+   "file": "holdout7/github_com_jdhuang_csm_hybrid_drt_ce68dc3f/PEIS_LPSCl_IonBlocking_-25C.mpr",
+   "technique": "PEIS",
+   "position": 4,
+   "truth": {
+    "name": "Phase(Z)",
+    "canonical": "Phase(Z)",
+    "unit": "deg",
+    "raw_id": 35,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h3|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "da414846ad4ae7d1ead688806240fd01dd54c006aeeb2eb4c3b1c97a4dd3b2f4"
+  },
+  {
+   "task_id": "R277",
+   "bucket": "main",
+   "file": "holdout7/github_com_nomad_hzb_nomad_chemical_energy_7b9e6004/acmd_PEIS.mpr",
+   "technique": "PEIS",
+   "position": 27,
+   "truth": {
+    "name": "Analog IN 2",
+    "canonical": "Analog IN 2",
+    "unit": "V",
+    "raw_id": 17,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0b1a813ad74fb6dac4d2a60ef4e64cfe4af37f18e5595a10c89684013b4b9512"
+  },
+  {
+   "task_id": "R278",
+   "bucket": "main",
+   "file": "holdout7/github_com_imperialcollegelondon_faraday_lii_497fefcd/sample_binary.mpr",
+   "technique": "MB",
+   "position": 8,
+   "truth": {
+    "name": "|Energy|",
+    "canonical": "|Energy|",
+    "unit": "W·h",
+    "raw_id": 74,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "080b2d02cec0f204790af33f2ea772658195d6d4cba71e809c4de8d6868ee292"
+  },
+  {
+   "task_id": "R279",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_18711549/DELTA__DELTA_Electrochemistry__2022-08-18__0935_P_4K-LiTFSI-3_EIS__0935_P_4K-LiTFSI-3_EIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 26,
+   "truth": {
+    "name": "|Ewe h6|",
+    "canonical": "|Ewe h6|",
+    "unit": "V",
+    "raw_id": 490,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f54149c76aaaa6d2388563a05eecf1967715a2f8ed8fc66525259b35f81e82c3"
+  },
+  {
+   "task_id": "R280",
+   "bucket": "main",
+   "file": "holdout7/zenodo_20532539/Discovery-Benchmark 2__P025-CEL-243__P025-CEL-243-NMC622_EC_DMC_02_PEIS_C04.mpr",
+   "technique": "PEIS",
+   "position": 12,
+   "truth": {
+    "name": "|Ewe|",
+    "canonical": "|Ewe|",
+    "unit": "V",
+    "raw_id": 33,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cd56ad69e8946bdde86b89d611254d070dddf6d722ad06261152016f3e7c3aed"
+  },
+  {
+   "task_id": "R281",
+   "bucket": "main",
+   "file": "holdout7/github_com_esaundersnano_redoxed_45f92cf4/pol_data_raw.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4210bbc0f7ef80013802c77fda6b583dadeac53439df3059558b0639f518d8f7"
+  },
+  {
+   "task_id": "R282",
+   "bucket": "main",
+   "file": "holdout7/zenodo_13911290/Figure_05-Entropymetry__S1-Na23Ni13Mn23O2__S1-Na23Ni13Mn23O2_Entropymetry_353.mpr",
+   "technique": "GCPL",
+   "position": 10,
+   "truth": {
+    "name": "Energy we charge",
+    "canonical": "Energy we charge",
+    "unit": "W·h",
+    "raw_id": 123,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d711ce7bc957a22a90249d54ef31dd05a59472f6a2d4237d4ca1d88b19797b4e"
+  },
+  {
+   "task_id": "R283",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_18711549/0957_P_600K-LiTFSI-2_OCV30min_0,5V_OCV1min_EIS_OCV__1001_P_600K-LiTFSI-2_OCV30min_0,5V_OCV1min_EIS_OCV_04_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 27,
+   "truth": {
+    "name": "|Ewe h7|",
+    "canonical": "|Ewe h7|",
+    "unit": "V",
+    "raw_id": 491,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b02144640735b69c0022dac60be6dc9a37fe42c046eb3c89239bb2b428667e68"
+  },
+  {
+   "task_id": "R284",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_14514654/Data_for_submission__Fig1__Fig1b__20230916-14-S03__20230916-14-S03_08_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 48,
+   "truth": {
+    "name": "|Ece h3|",
+    "canonical": "|Ece h3|",
+    "unit": "V",
+    "raw_id": 499,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e964d6d010360f38c24fe7e25f9f06b66837995f344f891123b5e40ad4bd33c1"
+  },
+  {
+   "task_id": "R285",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_14c_labe_8581dc26/EIS__CB_EIS.mpr",
+   "technique": "PEIS",
+   "position": 0,
+   "truth": {
+    "name": "freq",
+    "canonical": "freq",
+    "unit": "Hz",
+    "raw_id": 32,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ewe h2|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a16240602d1cff66bbda3cee65c76949ae4dab7bc52566e82f337e9f8d727e13"
+  },
+  {
+   "task_id": "R286",
+   "bucket": "main",
+   "file": "holdout7/zenodo_21890823/Dataset_Seidenberg_et_al_Impedance_Gas_Evolution__Raw Data__V1__EC-Lab Data__2026-01-21_BC_SVT_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 27,
+   "truth": {
+    "name": "Energy ce",
+    "canonical": "Energy ce",
+    "unit": "W·h",
+    "raw_id": 878,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9b8f2f6dc7a91f238a60e6e5f14bd0a75b00ce987aca88e21b518b98bdf51a6a"
+  },
+  {
+   "task_id": "R287",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_c7wxa_fby9_1734d2d9/Impedance_Cu7PSe6_0.29cm_with_RbCu4Cl3I2_0.12cm__Cu7PSe6_0.29cm_with_RbCu4Cl3I2_0.12cm_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 24,
+   "truth": {
+    "name": "|Ewe h4|",
+    "canonical": "|Ewe h4|",
+    "unit": "V",
+    "raw_id": 488,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h7|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9e49ad201a5c239f654ae7c427c734b2224d28e78644983d26beb3e60c0aa7c9"
+  },
+  {
+   "task_id": "R288",
+   "bucket": "decoy",
+   "file": "holdout7/zenodo_21805277/260309_reda_1M-KCrPDTA-Recycled_PDTABufferpH8,8_630K_no-Bi_80percentSOC_CellPinflow2_7kOhm_13_LSV_CE7.mpr",
+   "technique": "LSV",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 892928617,
+    "kind": "copy",
+    "source_position": 7,
+    "source_name": "Energy we"
+   },
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [
+    "c4"
+   ],
+   "dossier_sha256": "53b6f0805e6148d0ac1cee2179df78673224720421e7f1cfdbeb5ac572e189b6"
+  },
+  {
+   "task_id": "R289",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_solid_state_ba_e08b4466/cell11_4_25C_C06.mpr",
+   "technique": "PEIS",
+   "position": 9,
+   "truth": {
+    "name": "Cp",
+    "canonical": "Cp",
+    "unit": "µF",
+    "raw_id": 172,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Re(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "dffb795ece27e9fb73ea31fe3d4b6bd910ae557b37253fd57ba7b4eab4300783"
+  },
+  {
+   "task_id": "R290",
+   "bucket": "main",
+   "file": "holdout7/datastore_uni_muenster_de_records_0493g_zph7_e9675ce4/data__Validation__CellC__05_HybridValidation__PEIS_StdEIS_RepVal_EOD_vac=5mV_#4_C02.mpr",
+   "technique": "PEIS",
+   "position": 8,
+   "truth": {
+    "name": "Cs",
+    "canonical": "Cs",
+    "unit": "µF",
+    "raw_id": 169,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "098e54daf9f5d243c024364771c53a75bd1974126c291d1a31de5218e8af6bfe"
+  },
+  {
+   "task_id": "R291",
+   "bucket": "main",
+   "file": "holdout7/zenodo_14514654/Data_for_submission__Fig1__Fig1b__20230916-14-S03__20230916-14-S03_08_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 20,
+   "truth": {
+    "name": "Re(Zce)",
+    "canonical": "Re(Zce)",
+    "unit": "Ω",
+    "raw_id": 100,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "30bfddb628ee6a500d6d5e1f6d617b50684d988b4209e16c91cf10fc283c8c9a"
+  },
+  {
+   "task_id": "R292",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 41,
+   "truth": {
+    "name": "|I h6|",
+    "canonical": "|I h6|",
+    "unit": "A",
+    "raw_id": 496,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "083eb3d41c88f40e6c96ee2db5a1fbef80cfe4ebbd743d6eb570b98aa14c1a8b"
+  },
+  {
+   "task_id": "R293",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_21890823/Dataset_Seidenberg_et_al_Impedance_Gas_Evolution__Raw Data__V1__EC-Lab Data__2026-01-21_BC_SVT_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 46,
+   "truth": {
+    "name": "THD Ece",
+    "canonical": "THD Ece",
+    "unit": "%",
+    "raw_id": 475,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "acdec6d17e17b47905a79c910ecc7a2a1f712e1ae4639ae135ff8011a9abecec"
+  },
+  {
+   "task_id": "R294",
+   "bucket": "elim",
+   "file": "holdout7/datastore_uni_muenster_de_records_z9ssq_zhb1_c04bc4d3/Data_Repository__RawData__Electrolyte__EIS__1.mpr",
+   "technique": "PEIS",
+   "position": 22,
+   "truth": {
+    "name": "|Ewe h5|",
+    "canonical": "|Ewe h5|",
+    "unit": "V",
+    "raw_id": 489,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Zwe-ce|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0cd29446db4c0c615b5c79eee1b4aff56812b1296025e741eda8ecbb1adb5405"
+  },
+  {
+   "task_id": "R295",
+   "bucket": "main",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260918_C54_SI10_1pt07mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 24,
+   "truth": {
+    "name": "-Im(Zwe-ce)",
+    "canonical": "-Im(Zwe-ce)",
+    "unit": "Ω",
+    "raw_id": 433,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Temperature"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "cc1645876fb3d7b7bd644b934d19e23b13f0f4f35e530deb632f9aec67228df6"
+  },
+  {
+   "task_id": "R296",
+   "bucket": "main",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 23,
+   "truth": {
+    "name": "Re(Zwe-ce)",
+    "canonical": "Re(Zwe-ce)",
+    "unit": "Ω",
+    "raw_id": 432,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "5056f127747cbd5ed311c5bd6b3ad6e4735c4b921aef7ab24ac9e57b7c1e5649"
+  },
+  {
+   "task_id": "R297",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/4_Ni+10 ppm__2_50h ADT (Fig S13,S16)__V2__RawDataV2__V220_20240108_NM_NM_AST_Relax_10ppm_03_MB_C03.mpr",
+   "technique": "MB",
+   "position": 27,
+   "truth": {
+    "name": "NSR Ewe",
+    "canonical": "NSR Ewe",
+    "unit": "%",
+    "raw_id": 479,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Rdc"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "9238a604799e33fb79bf4860ecdb53c3ea0db51a06ad9b2a78c24f7abd08bf74"
+  },
+  {
+   "task_id": "R298",
+   "bucket": "main",
+   "file": "holdout7/doi_10_24435_materialscloud_vx_ew_e05070d1/230511-10_02_GCPL_C05.mpr",
+   "technique": "GCPL",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "bc1358043a102615b9dadc09270ea05ba028f9cb9a636aaadbd6d51a2eb646ed"
+  },
+  {
+   "task_id": "R299",
+   "bucket": "main",
+   "file": "holdout7/zenodo_21890823/Dataset_Seidenberg_et_al_Impedance_Gas_Evolution__Raw Data__V1__EC-Lab Data__2026-01-21_BC_SVT_02_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 18,
+   "truth": {
+    "name": "Phase(Zce)",
+    "canonical": "Phase(Zce)",
+    "unit": "deg",
+    "raw_id": 98,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "35dfcd47597b224730b7384a72fa6a7b77177dfb9391ceba8d80647ecda93e0d"
+  },
+  {
+   "task_id": "R300",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 46,
+   "truth": {
+    "name": "|Ece h2|",
+    "canonical": "|Ece h2|",
+    "unit": "V",
+    "raw_id": 498,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0d24db861e997c98af1ad3652d40e2e8a2bd54eff0a7a80a5c4eb4bc694c2b8c"
+  },
+  {
+   "task_id": "R301",
+   "bucket": "main",
+   "file": "holdout7/github_com_mvnayagam_batkit_df452389/test.mpr",
+   "technique": "MB",
+   "position": 17,
+   "truth": {
+    "name": "z cycle",
+    "canonical": "z cycle",
+    "unit": null,
+    "raw_id": 469,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Zwe-ce|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "05eb8313c82bee29c50ee040b2f4e49f609c3fe44e4230eb9049fde2bf046b1e"
+  },
+  {
+   "task_id": "R302",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_18711549/0957_P_600K-LiTFSI-2_OCV30min_0,5V_OCV1min_EIS_OCV__1001_P_600K-LiTFSI-2_OCV30min_0,5V_OCV1min_EIS_OCV_04_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 33,
+   "truth": {
+    "name": "|I h7|",
+    "canonical": "|I h7|",
+    "unit": "A",
+    "raw_id": 497,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zwe-ce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "093f269dfafa17f578901bdfbe85a07750a4658edab2da80a17f922059d8632d"
+  },
+  {
+   "task_id": "R303",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 27,
+   "truth": {
+    "name": "NSR Ewe",
+    "canonical": "NSR Ewe",
+    "unit": "%",
+    "raw_id": 479,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance discharge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "718232540d562443bf9682007b762b78fbb85c86053e73b80748d370f8b03daa"
+  },
+  {
+   "task_id": "R304",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260918_C54_SI10_1pt07mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 48,
+   "truth": {
+    "name": "|Ece h4|",
+    "canonical": "|Ece h4|",
+    "unit": "V",
+    "raw_id": 500,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Acir or Dcir Control"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "01fcec6492f454bfb75f6d6253a8cfbeedb4303bb84c565418891e660a9b7ec8"
+  },
+  {
+   "task_id": "R305",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16140857/Datamanagement__3_ECStability(Fig3,S9-S17)__4_Ni+10 ppm__1_100h (Fig3,S9-11)__V1__Raw Data 1__MB2.mpr",
+   "technique": "MB",
+   "position": 33,
+   "truth": {
+    "name": "|Ewe h6|",
+    "canonical": "|Ewe h6|",
+    "unit": "V",
+    "raw_id": 490,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b94542e92bc0cd05605e1d0ea8145cda9a5615575ec899a30c72718ebe681b11"
+  },
+  {
+   "task_id": "R306",
+   "bucket": "decoy",
+   "file": "holdout7/datastore_uni_muenster_de_records_s2ksd_vd41_f315a656/Impedance__LPSCl1.5__40 vol.-% SE__Cell 2__40 vol.-% LPSCl1.5 Cell 2.mpr",
+   "technique": "PEIS",
+   "position": null,
+   "truth": null,
+   "decoy": {
+    "seed": 616994707,
+    "kind": "noise_f8",
+    "scale": 148.60966931729183,
+    "loc": 0.0
+   },
+   "vocab_exclude": [
+    "NSD Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "537ca00ecb703ad30b175759da059f1d2986ebc434c2daf13a678ef47b8c145a"
+  },
+  {
+   "task_id": "R307",
+   "bucket": "main",
+   "file": "holdout7/zenodo_15782592/Figure 2__a,b__2021_08_02_spAg_PTFEu_23_1.0um__20210802_01_spAg_PTFEu_23_1MKHCO3_CP_100mA_03_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 17,
+   "truth": {
+    "name": "|Ece|",
+    "canonical": "|Ece|",
+    "unit": "V",
+    "raw_id": 96,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|Ece h5|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "e4604ca9406f9c3728c826d47cb56e7c5e71ec0d641c5068c1a3b7ef7571ab9a"
+  },
+  {
+   "task_id": "R308",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_10990048/Plainpan-Example_electrocatalysis__Raw data__20230126-porosity-study-32p-Cu-200mA_05_PEIS_C01.mpr",
+   "technique": "PEIS",
+   "position": 52,
+   "truth": {
+    "name": "|Ece h7|",
+    "canonical": "|Ece h7|",
+    "unit": "V",
+    "raw_id": 503,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "45f5423b615e6c99b21df4eebe8efa64d10d4307954c380d3792bd0041a05e12"
+  },
+  {
+   "task_id": "R309",
+   "bucket": "main",
+   "file": "holdout7/data_mendeley_com_datasets_w9sn6vhkst_2_01c1ad45/#3.mpr",
+   "technique": null,
+   "position": 5,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h4|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "17ba768b73373b4026ef55cacb87e06e7829e80c81abbec9f8a052f79d5a82a3"
+  },
+  {
+   "task_id": "R310",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_ionic_memory_o_aca813a1/Main_Manuscript__Figure_05__5_(a)__Source_File__t4_0'1vr_1vwr_0'1vr_rtime2_rest2_wrtime5_0Vresting_1MKCl_PVDF_C02.mpr",
+   "technique": "coV",
+   "position": 6,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "21604d07374c165ebf7a51d32073b24fe9b5885bdc1a88aa0fbe3f2afaed8b78"
+  },
+  {
+   "task_id": "R311",
+   "bucket": "duplicate",
+   "file": "holdout7/eprints_soton_ac_uk_451297_5a05a400/DatasetElectrochemicalDynamicsInvestigatedbySmallAngleScattering__chapter3__3.8__GM22102017AuC5_6constant.mpr",
+   "technique": "CA",
+   "position": 8,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [
+    "c7"
+   ],
+   "dossier_sha256": "1322d1e2c2b14852f81fea799ecc9b2722c2fda7f234b1f6c08d467647f908a4"
+  },
+  {
+   "task_id": "R312",
+   "bucket": "main",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_the_elec_22b880a9/impedance EIS CD147__II series__Detection__BDDreg_11_HEK5_C01.mpr",
+   "technique": null,
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "|I h6|"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "76cd2231e91d4699ccbac0a997054a560d75e9fdad9c4fde6034905860d8443d"
+  },
+  {
+   "task_id": "R313",
+   "bucket": "main",
+   "file": "holdout7/doi_10_17863_cam_99832_094741b5/Electrochemistry - pH 11__20220623_FMN_60mM_15mL_pH_11-4_1MKCl_63mMKOH_C05.mpr",
+   "technique": "GCPL",
+   "position": 8,
+   "truth": {
+    "name": "half cycle",
+    "canonical": "half cycle",
+    "unit": null,
+    "raw_id": 468,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "cycle number"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "efd6b28a5676701b44d4cdce2ec5b2839f7758cd6f95c8a71a15e71d0721437f"
+  },
+  {
+   "task_id": "R314",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_bioelect_12b06043/CZAPLA_functionalziations__Series_6_stability_problem__2_Sensing__Others__A4044_51_step3_02_PEIS_C02.mpr",
+   "technique": "PEIS",
+   "position": 24,
+   "truth": {
+    "name": "|Ewe h7|",
+    "canonical": "|Ewe h7|",
+    "unit": "V",
+    "raw_id": 491,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "81186e4003555c1820e579ebaee31aba83ee1e728ca4c89ffb36043f0b1217e3"
+  },
+  {
+   "task_id": "R315",
+   "bucket": "main",
+   "file": "holdout7/github_com_datalab_org_datalab_app_plugin_in_66088919/Example-TEGDME__LiLiTEGDMEinsitu_02__eChem__jr862_11_08_23_insitu-impedance-LiLi_1MLiTFSI_TEGDME-1mA-prerun_C05.mpr",
+   "technique": "GEIS",
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6deaf4a3f652e50923e7035df8c40061f49d1e21bc4d932595270e743ce46d5b"
+  },
+  {
+   "task_id": "R316",
+   "bucket": "main",
+   "file": "holdout7/zenodo_6560384/3_RFZ_3_7_Fe2O3_700_1M-NaOH_tefloncell_chopped_4seqCA_02_CA.mpr",
+   "technique": "CA",
+   "position": 7,
+   "truth": {
+    "name": "Q charge or discharge",
+    "canonical": "Q charge or discharge",
+    "unit": "C",
+    "raw_id": 467,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "302f359e266832b7c097418e05daa8c0ba408d2b1842de04f7c79a91acda0489"
+  },
+  {
+   "task_id": "R317",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__01_hour02 +__02_AlkydS-ZPA_AZ hour02.mpr",
+   "technique": "PEIS",
+   "position": 33,
+   "truth": {
+    "name": "|Ewe h4|",
+    "canonical": "|Ewe h4|",
+    "unit": "V",
+    "raw_id": 488,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4d367fb452f3eb989b594bf738cc4f2bf247b201bd808aaf7cc8783b33568b2d"
+  },
+  {
+   "task_id": "R318",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_11103701/Raw data__20231113_Industriellen Bedingungen_1_BC_05_MB_C01.mpr",
+   "technique": "MB",
+   "position": 14,
+   "truth": {
+    "name": "THD Ewe",
+    "canonical": "THD Ewe",
+    "unit": "%",
+    "raw_id": 473,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "200c7f6c15af81509080c7123004684cf5b0a0fbcca188315bb8167efa418edc"
+  },
+  {
+   "task_id": "R319",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260923_C57_SMSP20_1pt22mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 44,
+   "truth": {
+    "name": "NSD Ece",
+    "canonical": "NSD Ece",
+    "unit": "%",
+    "raw_id": 478,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "d0dcebe08e232686b3ce19675ff0caa394391190f422c882669e9df35498d355"
+  },
+  {
+   "task_id": "R320",
+   "bucket": "main",
+   "file": "holdout7/figshare_com_articles_dataset_ionic_memory_o_aca813a1/Data__Main_Manuscript__Figure_02__2_(d)__Source_File__-1to1V_PVDF_1MKCl_2mVs_C01.mpr",
+   "technique": "CV",
+   "position": 4,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3f86d36205fdc87711c1e88108d78e4b723f455599c9fdab82c8d7e6a1419c2f"
+  },
+  {
+   "task_id": "R321",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_11103701/Raw data__20231113_Industriellen Bedingungen_1_BC_06_GEIS_C01.mpr",
+   "technique": "GEIS",
+   "position": 32,
+   "truth": {
+    "name": "|I h6|",
+    "canonical": "|I h6|",
+    "unit": "A",
+    "raw_id": 496,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "-Im(Zce)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "3c5c20e7d88db227b9efed0a44c7a80c22519dd09bdeb6c3a85e7af53f62bd00"
+  },
+  {
+   "task_id": "R322",
+   "bucket": "main",
+   "file": "holdout7/github_com_datalab_org_datalab_3ccdf1c5/jdb11-1_e1_s3_squidTest_data_C15.mpr",
+   "technique": "GCPL",
+   "position": 3,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "mA·h",
+    "raw_id": 13,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we charge"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "1301325218ca003750618375a125a5a66b87a2d46439731bf9880e94a67f8389"
+  },
+  {
+   "task_id": "R323",
+   "bucket": "elim",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_electroc_ed4ec72d/10__GC_FLBP_10_2'5mMFeII_2'5mMFeIII_1MKCl_vsAgAgCl_T8_01_PEIS_C02.mpr",
+   "technique": "PEIS",
+   "position": 23,
+   "truth": {
+    "name": "|Ewe h3|",
+    "canonical": "|Ewe h3|",
+    "unit": "V",
+    "raw_id": 487,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a66d3479de13e071a542b7dbdf0df954d79192392173c618781f10aa611474f7"
+  },
+  {
+   "task_id": "R324",
+   "bucket": "decoy",
+   "file": "holdout7/mostwiedzy_pl_en_open_research_data_electroc_ed4ec72d/10__GC_FLBP_10_2'5mMFeII_2'5mMFeIII_1MKCl_vsAgAgCl_T8_01_PEIS_C02.mpr",
+   "technique": "PEIS",
+   "position": 1,
+   "truth": null,
+   "decoy": {
+    "kind": "oov",
+    "source_position": 1,
+    "source_name": "Re(Z)"
+   },
+   "vocab_exclude": [
+    "Re(Z)"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "b3db76cd8c6ea0d87f6d5941f047db18df986a2db62e70f4168d332ba06f6b44"
+  },
+  {
+   "task_id": "R325",
+   "bucket": "main",
+   "file": "holdout7/github_com_esaundersnano_redoxed_45f92cf4/cell_EIS_2.mpr",
+   "technique": "GEIS",
+   "position": 3,
+   "truth": {
+    "name": "|Z|",
+    "canonical": "|Z|",
+    "unit": "Ω",
+    "raw_id": 36,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSD I"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "92a7aa222218494b2ae347cccf2ff463d3dfd7a9aa26eb513486c6aa46fa647d"
+  },
+  {
+   "task_id": "R326",
+   "bucket": "constant",
+   "file": "holdout7/figshare_com_articles_dataset_solid_state_ba_e08b4466/cell11_Pres4_30C_C06.mpr",
+   "technique": "PEIS",
+   "position": 10,
+   "truth": {
+    "name": "cycle number",
+    "canonical": "cycle number",
+    "unit": null,
+    "raw_id": 24,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 2"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "0223a59f17ddbeeee2b84195f9e82b742c06f86acae1c76ef030d9698de9200d"
+  },
+  {
+   "task_id": "R327",
+   "bucket": "duplicate",
+   "file": "holdout7/zenodo_10866536/Different Cu electrodeposition protocols__3_ED_CA_5th_CuSO4_RHE_02_CA_C01.mpr",
+   "technique": "CA",
+   "position": 6,
+   "truth": {
+    "name": "(Q-Qo)",
+    "canonical": "(Q-Qo)",
+    "unit": "C",
+    "raw_id": 434,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Capacitance charge"
+   ],
+   "identical_to": [
+    "c1"
+   ],
+   "dossier_sha256": "24f5c99da914d6b27c014ce92d55b21ff9815daa1ad1907d1b57f1f874a747df"
+  },
+  {
+   "task_id": "R328",
+   "bucket": "main",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260929_C58_SI20_0pt9mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 18,
+   "truth": {
+    "name": "|Zce|",
+    "canonical": "|Zce|",
+    "unit": "Ω",
+    "raw_id": 99,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "a318548eb4791e95f512a2d5f46cbf9241bf679bae6a1d9af7b51f9079732b09"
+  },
+  {
+   "task_id": "R329",
+   "bucket": "elim",
+   "file": "holdout7/data_mendeley_com_datasets_3nn8x5hztk_1_3b94dd15/HER_EIS_Triplo_after_reverse_currents_PtRu_C_62C_09_0,05A_cm2_C01.mpr",
+   "technique": "GEIS",
+   "position": 28,
+   "truth": {
+    "name": "NSR Ewe",
+    "canonical": "NSR Ewe",
+    "unit": "%",
+    "raw_id": 479,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Pwe"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "7d144623eb3b3c2d652c11096bcd873e4db9e4f533f631b89d6dc5f32b13b367"
+  },
+  {
+   "task_id": "R330",
+   "bucket": "main",
+   "file": "holdout7/doi_10_57745_zxbsrf_d2c9a493/0_raw_data__M3_L5__20230505_1607_M3_BUGE387_B5_caracini__20230505_1607_M3_BUGE387_B5_caracini_01_MB_CA1.mpr",
+   "technique": "MB",
+   "position": 11,
+   "truth": {
+    "name": "Temperature",
+    "canonical": "Temperature",
+    "unit": "°C",
+    "raw_id": 462,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "NSR Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "f79d436428cdae0543e68c3e457b95dc90b245e3193af32454bb01c0fb33a3dc"
+  },
+  {
+   "task_id": "R331",
+   "bucket": "constant",
+   "file": "holdout7/github_com_liuchzzyy_echemistpy_cli_f9cdc9c7/ZMO_C_C02.mpr",
+   "technique": "GCPL",
+   "position": 16,
+   "truth": {
+    "name": "Energy ce discharge",
+    "canonical": "Energy ce discharge",
+    "unit": "W·h",
+    "raw_id": 884,
+    "galvani_unknown": true
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy we"
+   ],
+   "identical_to": [
+    "c0",
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "c6",
+    "c7",
+    "c8",
+    "c9",
+    "c10",
+    "c15"
+   ],
+   "dossier_sha256": "0126bd3932e673bd198971839c2f883f685f2165ec471cb5c58a782bbdfad62b"
+  },
+  {
+   "task_id": "R332",
+   "bucket": "main",
+   "file": "holdout7/doi_10_57745_ynycgn_a56a88b3/0_raw_data__cell3__A123_4Ah4_impulsions_1C_80DoD_cellule3_C03.mpr",
+   "technique": "GCPL",
+   "position": 9,
+   "truth": {
+    "name": "Pwe",
+    "canonical": "Pwe",
+    "unit": "W",
+    "raw_id": 70,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Ece"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "91c1c71759cb05f18b141042d3899320cdf757523af71a1a7007526b4a671b8c"
+  },
+  {
+   "task_id": "R333",
+   "bucket": "elim",
+   "file": "holdout7/zenodo_16839417/EIS_Alkyd_sratched__06_week01 +__01_AlkydS-Blank_A week01.mpr",
+   "technique": "PEIS",
+   "position": 49,
+   "truth": {
+    "name": "|Ece h5|",
+    "canonical": "|Ece h5|",
+    "unit": "V",
+    "raw_id": 501,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Energy ce"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "4b4b503f64208719c24563fac59c9abf6c0faa397c007e48d32da2ae62454430"
+  },
+  {
+   "task_id": "R334",
+   "bucket": "elim",
+   "file": "holdout7/github_com_pronoydutta_operando_eis_cea327e7/20260918_C54_SI10_1pt07mg_operandoEIS_EIS_C01.mpr",
+   "technique": "MB",
+   "position": 31,
+   "truth": {
+    "name": "|Ewe h5|",
+    "canonical": "|Ewe h5|",
+    "unit": "V",
+    "raw_id": 489,
+    "galvani_unknown": false
+   },
+   "decoy": null,
+   "vocab_exclude": [
+    "Analog IN 1"
+   ],
+   "identical_to": [],
+   "dossier_sha256": "6c8899a54b85f3f7a86d4b6808390b6bf8a2e856e31ae3eba024de798b821c7d"
+  }
+ ]
+}
