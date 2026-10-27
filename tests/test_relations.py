@@ -61,3 +61,6 @@ def test_current_does_not_have_to_follow_a_potential_control():
     assert LIBRARY["I"].best_reliable_relation(ctx) is None
     known["control"] = Known("control", "mA", sweep, "<f4")  # a current control: the relation applies again
     assert LIBRARY["I"].best_reliable_relation(Context(None, known, current, "<f8")) is not None
+    # and the mirror case: Ewe need not follow a current set point (control_I, galvanostatic)
+    ewe_known = {"time": known["time"], "control": Known("control", "mA", np.sign(np.sin(t / 50.0)), "<f4")}
+    assert LIBRARY["Ewe"].best_reliable_relation(Context(None, ewe_known, sweep + 3.0, "<f4")) is None

@@ -300,11 +300,12 @@ def potential_control(c):
     return c.col("control") if "V" in u else None
 
 
-def current_control(c):
-    """The control column, unless its unit says it holds only potentials (control_V in CV or LSV): a current
-    does not follow a potential set point, so the relation is then not testable rather than failed."""
+def control_holding(c, unit: str):
+    """The control column, unless its unit rules out `unit`: control_V (CV, LSV) holds only potentials and
+    control_I only currents. A current does not follow a potential set point (nor Ewe a current one), so the
+    relation is then not testable rather than failed. An unknown unit keeps it testable."""
     u = c.unit("control")
-    return None if u is not None and "mA" not in u else c.col("control")
+    return None if u is not None and unit not in u else c.col("control")
 
 
 def _near(a: float, expected: list[float], tol: float = 0.15) -> bool:
@@ -575,13 +576,13 @@ def build() -> dict[str, Quantity]:
     ])
     q("Ewe", relations=[
         Relation("Pwe/I", ("Pwe", ("I", "dq", "(Q-Qo)")), lambda c: c.col("Pwe") / _i(c), [1000.0]),
-        Relation("follows potential control", ("control",), lambda c: c.col("control"), [1.0]),
+        Relation("follows potential control", ("control",), lambda c: control_holding(c, "V"), [1.0]),
     ], shapes=[Shape("held at the potential set point", lambda c: 0.9 * held_at(c.target, potential_control(c)), intrinsic=False)])
     q("I", relations=[
         Relation("Pwe/Ewe", ("Pwe", "Ewe"), lambda c: c.col("Pwe") / _e(c), [1000.0]),
         Relation("d(dq)/dt", ("dq", "time"), lambda c: c.col("dq") / d0(_t(c)), [3600.0, 1000.0]),
         Relation("d(Q-Qo)/dt", ("(Q-Qo)", "time"), lambda c: d0(c.col("(Q-Qo)")) / d0(_t(c)), [3600.0, 1000.0]),
-        Relation("follows current control", ("control",), current_control, [1.0]),
+        Relation("follows current control", ("control",), lambda c: control_holding(c, "mA"), [1.0]),
     ])
     L["I"].shapes.append(Shape("measured current held at the current set point",
                                lambda c: (0.95 if current_held(c) > 0.5 else 0.85 * current_held(c))

@@ -131,13 +131,11 @@ def read(path: str | Path, reference: str = "galvani") -> MprData:
     elif version in (2, 3):
         yids = full = np.frombuffer(data, offset=5, dtype="<u2", count=n_columns).tolist()
         offset = 0x195 if version == 2 else 0x196
-    elif version == 0:  # older EC-Lab files; offsets as in galvani (yadg 7.0.1 does not read version 0)
-        if data[5]:  # one byte per column ID; all public version-0 files use this layout
-            yids = full = list(data[5:5 + n_columns])
-            offset = 100
-        else:  # galvani: EC-Lab 11.50+ writes [0 1 0 3 0 174 ...]; no public file to test against
-            yids = full = list(data[6:5 + 2 * n_columns:2])
-            offset = 1007
+    elif version == 0:  # older EC-Lab files (yadg 7.0.1 does not read version 0)
+        from spike2.corpus import v0_layout
+
+        yids, offset = v0_layout(data, n_columns)
+        full = yids
     else:
         raise NotImplementedError(f"data module version {version} is not supported yet")
     if n_points == 0:

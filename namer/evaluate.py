@@ -160,15 +160,18 @@ def pool(verbose: int) -> None:
             print(f"  {k:3d}  {t} -> {a}")
 
 
-def bench(split: str, abstain_below: float) -> None:
+def bench(split: str, abstain_below: float, label: str = "rules") -> None:
     RUNS.mkdir(exist_ok=True)
+    path = RUNS / f"{label}_{split}.jsonl"
+    if split.startswith("holdout") and label == "rules" and path.exists():
+        raise SystemExit(f"{path} holds the official run of {split}; write a rerun under another --label "
+                         "(e.g. rules-dev)")
     out = []
     for t in tasks.load(split):
         x, dtype, kv, kc = tasks.hidden_and_known(t)
         a = answer(x, dtype, list(kc.values()), t["technique"], tasks.task_vocabulary(t), abstain_below,
                    exclude_group=corpus.source_group(t["file"]))
-        out.append({"task_id": t["task_id"], "split": split, "status": "ok", "arm": "rules", **a})
-    path = RUNS / f"rules_{split}.jsonl"
+        out.append({"task_id": t["task_id"], "split": split, "status": "ok", "arm": label, **a})
     path.write_text("\n".join(json.dumps(r, ensure_ascii=False, default=str) for r in out) + "\n",
                     encoding="utf-8", newline="\n")
     print(f"{len(out)} answers -> {path}")
@@ -183,12 +186,13 @@ def main() -> int:
     ap.add_argument("--pool", action="store_true")
     ap.add_argument("--split", choices=["dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6"])
     ap.add_argument("--abstain-below", type=float, default=0.6)
+    ap.add_argument("--label", default="rules", help="run label (output runs3/<label>_<split>.jsonl)")
     ap.add_argument("-v", "--verbose", action="count", default=0)
     a = ap.parse_args()
     if a.pool:
         pool(a.verbose)
     if a.split:
-        bench(a.split, a.abstain_below)
+        bench(a.split, a.abstain_below, a.label)
     return 0
 
 

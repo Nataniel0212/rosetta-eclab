@@ -66,6 +66,15 @@ def _modules(contents: bytes):
         yield header["short_name"].strip(), version, module[mhd.itemsize:]
 
 
+def v0_layout(data: bytes, n_columns: int) -> tuple[list[int], int]:
+    """Column IDs and data offset of a data-module version 0 (older EC-Lab), with galvani's offsets;
+    yadg 7.0.1 does not read this version."""
+    if data[5]:  # one byte per column ID; all public version-0 files use this layout
+        return list(data[5:5 + n_columns]), 100
+    # galvani: EC-Lab 11.50+ writes [0 1 0 3 0 174 ...]; no public file to test against
+    return list(data[6:5 + 2 * n_columns:2]), 1007
+
+
 def decode(path: Path, allow_v0: bool = False) -> FileData:
     """allow_v0: also decode data-module version 0 (galvani's offsets; yadg cannot read it). Hold-out sets
     use it; the development corpus does not, so the statistics table and golden answers are as before."""
@@ -94,13 +103,8 @@ def decode(path: Path, allow_v0: bool = False) -> FileData:
         ids = np.frombuffer(data, offset=5, dtype="<u2", count=n_columns).tolist()
         full_ids = list(ids)
         offset = 0x195 if data_version == 2 else 0x196
-    elif data_version == 0 and allow_v0:  # same offsets as namer/mprfile.py
-        if data[5]:
-            ids = list(data[5:5 + n_columns])
-            offset = 100
-        else:
-            ids = list(data[6:5 + 2 * n_columns:2])
-            offset = 1007
+    elif data_version == 0 and allow_v0:
+        ids, offset = v0_layout(data, n_columns)
         full_ids = list(ids)
     else:
         raise NotImplementedError(f"data module version {data_version}")

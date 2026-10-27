@@ -107,7 +107,7 @@ In every task one real column is hidden and must be named from the data. There a
 
 ¹ There are two code-only baselines. A technique prior names the column that is typical for this technique and missing here. A nearest-neighbour vote compares the column with labelled columns from other files. Both are strong when files have standard column sets, but they name every decoy and cannot name a genuinely new column.
 
-**Hold-out 6** (2026-10-27, namer only): 57 older EC-Lab files (data module version 0) that 0.1.4 can now read, all with one column set. The namer named 16/20 columns correctly, gave 1 wrong name and named 2/16 decoys. Every miss was the current `<I>` in files with no charge or power column to confirm it. The reader was developed on these files' byte layout; the namer had never run on them. Details are in `results/open_runs.md`.
+**Hold-out 6** (2026-10-27, namer only): 57 older EC-Lab files (data module version 0) that 0.1.4 can now read, all with one column set. The namer named 16/20 columns correctly, gave 1 wrong name and named 2/16 decoys. Every miss was the current `<I>` in files with no charge or power column to confirm it. The reader was developed on these files' byte layout; the namer had never run on them. A fix found afterwards on this set brings a rerun to 19/20. A potential set point no longer rules out a current. That rerun is not a blind result. Details are in `results/open_runs.md`.
 
 The namer improved between hold-outs, so the total includes earlier versions. The history, including the language-model experiments that came first, is in [`docs/history.md`](https://github.com/Nataniel0212/rosetta-eclab/blob/main/docs/history.md).
 
