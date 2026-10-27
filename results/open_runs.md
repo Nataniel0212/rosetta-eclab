@@ -200,3 +200,54 @@ Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m
 |---|---|---|---|
 | namer (versions 1→6, as frozen) | 366/393 (93.1 %) | **6** | **13/111** |
 | Claude Opus 5.5 | 379/393 (96.4 %) | 10 | 19/111 |
+
+## 2026-10-27: hold-out 7 (594 files from 222 records in about 30 repositories; frozen at `81d2d1b`), each arm run once
+
+- **Files:** a broad search over Zenodo (including files inside archives), figshare, Dataverse, Mendeley Data, institutional and domain repositories, GitHub, DataCite, the literature and the web found 255 eligible openly licensed records. Up to three `.mpr` files were taken from each record in a fixed hash order. Every record, licence and file is listed in `holdout/holdout7_sources.json`, and the plan was fixed before any run in `holdout/holdout7_plan.md`. No file is byte-identical to any file used before. One record whose files copied hold-out 4 was dropped. The 594 files decoded with at least 10 rows cover 13 techniques, data module versions 2, 3 and 11, 114 column sets and 81 names.
+- **Tasks:** 334, of which 193 main over 52 names (more than twice the names of any earlier hold-out), 108 settled by name elimination (all 108 right), 6 duplicate, 6 constant and 21 decoys, 19 of them scored. The namer was run once on all tasks. Opus was run once on the scored ones, 214 tasks for about $17.30 API-equivalent.
+
+| Arm | Main top-1 macro (52 names) | micro (193) | Wrong names on real columns | Abstained | Decoys named (19) |
+|---|---|---|---|---|---|
+| namer (no LLM) | 0.750 | 0.808 (156) | 14 | 23 | **1** (out-of-vocabulary `<I>` → `control`, confidence 0.19) |
+| **Claude Opus 5.5** | **0.912** | **0.912 (176)** | **13** | 4 | 5 (noise → `Analog IN 1` ×3 and `Ece`; out-of-vocabulary `(Q-Qo)` → `dQ`) |
+| H_knn | 0.524 | 0.565 | – | – | 19 |
+| H_prior | 0.486 | 0.523 | – | – | 19 |
+
+- **Namer, wrong names:**
+  - `Energy we` → `Energy we charge`/`discharge` ×3
+  - `Rcmp` → `Ece` ×2
+  - `Rdc` and `Rac` → `Re(Z)`
+  - `|Ece|` → `-Im(Z)`
+  - `-Im(Zce)` → `-Im(Z)`
+  - `Ece` → `control`
+  - `Energy ce charge` → `Energy we`
+  - `Energy ce` → `dq`
+  - `dQ` → `(Q-Qo)`
+  - `|Energy|` → `Energy we`
+- **Namer, abstentions:**
+  - Temperature ×4
+  - `Cp⁻²`, `Cs⁻²` and `Rwe` ×3 each
+  - `Analog IN 1` ×2
+  - `Energy ce` ×2
+  - and single cases
+- **Opus, wrong names:**
+  - analog inputs → `Temperature` ×4
+  - `Energy we` ↔ `|Energy|` ×3
+  - `Ece` → `Ewe-Ece`
+  - `Cp` → `Re(C)`
+  - `-Im(Zce)` → `-Im(Z)`
+  - `z cycle` → `counter inc.`
+  - `half cycle` → `cycle number`
+  - `Energy ce charge` → `Energy we-ce charge`
+- **Secondary, namer only** (`python -m namer.evaluate --sweep holdout7`, run once): **6,467 hidden columns in 594 files over 79 names. 6,103 correct (94.4 %), 139 wrong (2.1 %), 225 abstained (3.5 %), macro 0.833.**
+  - Top confusions: `I` → `Ece` ×31 (20 of them by the shape "a second smooth potential next to a known Ewe"), `|Z|` → `-Im(Z)` ×9, `|Ece|` → `-Im(Z)` ×7, `(Q-Qo)` → `dq` ×6, `Rcmp` → `Ece` ×6, `dQ` → `(Q-Qo)` ×6.
+  - The wrong names come from 74 of the 222 records, not from a few.
+
+**All seven hold-outs, each arm run once (586 real columns, 130 scored decoys):**
+
+| Arm | Correct | Wrong names on real columns | Decoys named |
+|---|---|---|---|
+| namer (versions 1→7, as frozen) | 522/586 (89.1 %) | **20** | **14/130** |
+| Claude Opus 5.5 | 555/586 (94.7 %) | 23 | 24/130 |
+
+**Verdict:** hold-out 7 is the broadest set so far and the hardest for the namer. Many of its 52 names are rare: Rcmp, harmonics, the counter electrode's impedance, analog inputs. Opus names more columns. Wrong names are now close (20 against 23), and the namer is still fooled by far fewer decoys (14 against 24 of 130). The largest single weakness the sweep shows is a current named `Ece` by the potential shape when nothing in the file confirms a current. Hold-out 7 is now spent, so that is the next development target.

@@ -14,7 +14,7 @@ def main() -> int:
     warnings.filterwarnings("ignore")
     sys.stdout.reconfigure(encoding="utf-8")
     split = sys.argv[1] if len(sys.argv) > 1 else "test"
-    assert split in ("dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6"), "development (spent) splits only"
+    assert split in ("dev", "test", "holdout", "holdout2", "holdout3", "holdout4", "holdout5", "holdout6", "holdout7"), "development (spent) splits only"
     for t in tasks.load(split):
         if t["bucket"] not in ("main", "decoy"):
             continue

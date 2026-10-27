@@ -92,7 +92,7 @@ The fix was released in datalab-org-galvani 0.6.0 ([galvani-mirror#11](https://g
 
 ## How accurate it is
 
-The numbers come from six hold-out sets of public EC-Lab files from Zenodo, Battery Data Format and navani: 393 real columns and 111 decoys. The namer was never developed on any of these files before its run on them. For hold-out 6, the file reader was written against the files' byte layout. Each set was frozen before the namer version that ran on it, and each arm was run once (`results/open_runs.md`).
+The numbers come from seven hold-out sets of public EC-Lab files: 586 real columns and 130 decoys. The last one alone has 594 files from 222 openly licensed records in about 30 repositories. The namer was never developed on any of these files before its run on them. For hold-out 6, the file reader was written against the files' byte layout. Each set was frozen before the namer version that ran on it, and each arm was run once (`results/open_runs.md`).
 
 In every task one real column is hidden and must be named from the data. There are also decoys, where the right answer is not to name the column:
 - noise and random integers
@@ -100,14 +100,16 @@ In every task one real column is hidden and must be named from the data. There a
 
 | | Rosetta (no model) | Claude Opus 5.5 | best code-only baseline |
 |---|---|---|---|
-| Real columns named correctly | 366/393 (93.1 %) | 379/393 (96.4 %) | 77–100 % per hold-out¹ |
-| Wrong names on real columns | **6** | 10 | – |
-| Decoys named (should abstain) | **13/111** | 19/111 | 111/111 |
-| Last hold-out, 6 (20 columns) | 16/20, 1 wrong, **2 decoys named** | **20/20, 0 wrong**, 3 decoys named | 95 % |
+| Real columns named correctly | 522/586 (89.1 %) | 555/586 (94.7 %) | 56.5–100 % per hold-out¹ |
+| Wrong names on real columns | **20** | 23 | – |
+| Decoys named (should abstain) | **14/130** | 24/130 | 130/130 |
+| Last hold-out, 7 (193 columns, 52 names) | 156/193, 14 wrong, **1 decoy named** | **176/193, 13 wrong**, 5 decoys named | 56.5 % |
 
 ¹ There are two code-only baselines. A technique prior names the column that is typical for this technique and missing here. A nearest-neighbour vote compares the column with labelled columns from other files. Both are strong when files have standard column sets, but they name every decoy and cannot name a genuinely new column.
 
-**Hold-out 6** (2026-10-27) is 57 older EC-Lab files (data module version 0) that 0.1.4 can now read. All of them have one column set. Every miss by Rosetta was the current `<I>`, in files with no charge or power column to confirm it. Opus named three noise columns `Ece`. Two fixes found afterwards on this set bring a Rosetta rerun to 19/20, with no wrong names and 1/16 decoys named. First, a potential set point no longer rules out a current. Second, the statistics vote no longer names a charge in a file that holds no current. That rerun is not a blind result.
+**Every column of hold-out 7** (namer only, planned before the run): every usable column of all 594 files was hidden in turn. Of 6,467 columns, Rosetta named 94.4 % correctly, gave a wrong name to 2.1 % and abstained on 3.5 %. The most common mistake is a current named `Ece` when nothing in the file confirms a current, which is the next thing to fix.
+
+**Hold-out 6** is 57 older EC-Lab files (data module version 0). Rosetta named 16/20 and Opus 20/20. Two fixes found afterwards on that set are in 0.1.5 and later, but a rerun with them is not a blind result.
 
 The namer improved between hold-outs, so the total includes earlier versions. The history, including the language-model experiments that came first, is in [`docs/history.md`](https://github.com/Nataniel0212/rosetta-eclab/blob/main/docs/history.md).
 
