@@ -1181,7 +1181,7 @@
 {"id": "holdout6:Q032", "verdict": "ABSTAIN", "name": "NONE", "confidence": 1.0, "alternatives": null, "duplicate_of": null}
 {"id": "holdout6:Q033", "verdict": "NAME", "name": "control", "confidence": 0.78, "alternatives": ["Ece", "freq"], "duplicate_of": null}
 {"id": "holdout6:Q034", "verdict": "NAME", "name": "control", "confidence": 1.0, "alternatives": ["Pwe", "(Q-Qo)"], "duplicate_of": null}
-{"id": "holdout6:Q035", "verdict": "NAME", "name": "(Q-Qo)", "confidence": 0.342, "alternatives": ["Q charge or discharge"], "duplicate_of": null}
+{"id": "holdout6:Q035", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.11789112814761975, "alternatives": ["step time", "Ns"], "duplicate_of": null}
 {"id": "holdout6:Q036", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.02493750000000005, "alternatives": ["Pwe", "dq"], "duplicate_of": null}
 {"id": "holdout6:Q037", "verdict": "NAME", "name": "Ewe", "confidence": 1.0, "alternatives": ["Q charge or discharge", "dq"], "duplicate_of": null}
 {"id": "holdout6:Q038", "verdict": "NAME", "name": "cycle number", "confidence": 0.765, "alternatives": ["Ns", "(Q-Qo)"], "duplicate_of": null}
@@ -1189,5 +1189,5 @@
 {"id": "holdout6:Q040", "verdict": "NAME", "name": "cycle number", "confidence": 0.765, "alternatives": ["Ns", "half cycle"], "duplicate_of": null}
 {"id": "holdout6:Q041", "verdict": "NAME", "name": "cycle number", "confidence": 0.765, "alternatives": ["Ns", "(Q-Qo)"], "duplicate_of": null}
 {"id": "holdout6:Q042", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.02493750000000004, "alternatives": ["Pwe", "dq"], "duplicate_of": null}
-{"id": "holdout6:Q043", "verdict": "NAME", "name": "(Q-Qo)", "confidence": 0.314, "alternatives": ["I"], "duplicate_of": null}
+{"id": "holdout6:Q043", "verdict": "ABSTAIN", "name": "NONE", "confidence": 0.03990103909044599, "alternatives": ["step time", "I"], "duplicate_of": null}
 {"id": "holdout6:Q044", "verdict": "NAME", "name": "I", "confidence": 0.415, "alternatives": ["Q charge or discharge"], "duplicate_of": null}

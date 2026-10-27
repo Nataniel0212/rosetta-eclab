@@ -64,3 +64,18 @@ def test_current_does_not_have_to_follow_a_potential_control():
     # and the mirror case: Ewe need not follow a current set point (control_I, galvanostatic)
     ewe_known = {"time": known["time"], "control": Known("control", "mA", np.sign(np.sin(t / 50.0)), "<f4")}
     assert LIBRARY["Ewe"].best_reliable_relation(Context(None, ewe_known, sweep + 3.0, "<f4")) is None
+
+
+def test_statistics_may_not_name_a_charge_without_a_current():
+    """EC-Lab computes (Q-Qo) from the current; every public file with (Q-Qo) also holds I, dq or Pwe. Where the
+    known columns hold none of them, the statistics vote may not name (Q-Qo) (hold-out 6: it named <I> so)."""
+    from namer.engine import Context, Known
+    from namer.evaluate import consistent
+
+    t = np.arange(1500) * 2.0
+    i = 5.0 + 2.0 * np.sin(t / 300.0)  # mA
+    q = np.cumsum(i * np.r_[0.0, np.diff(t)]) / 3600.0  # mA·h
+    no_current = {"time": Known("time", "s", t, "<f8"), "Ewe": Known("Ewe", "V", 3.0 + 0.1 * np.sin(t / 300.0), "<f4")}
+    assert not consistent("(Q-Qo)", Context(None, no_current, q, "<f8"))
+    with_current = {**no_current, "I": Known("I", "mA", i, "<f4")}
+    assert consistent("(Q-Qo)", Context(None, with_current, q, "<f8"))

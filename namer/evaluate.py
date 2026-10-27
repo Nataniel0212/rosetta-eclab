@@ -51,6 +51,8 @@ def consistent(name: str, ctx: Context) -> bool:
         return False
     if name == "control" and piecewise_constant(ctx) < 0.5:
         return False  # a set point holds still between changes
+    if name == "(Q-Qo)" and not {"I", "dq", "Pwe"} & set(ctx.known):
+        return False  # EC-Lab computes it from the current: all 179 public files with (Q-Qo) also hold I, dq or Pwe
     form = [sh for sh in (spec.shapes if spec is not None else []) if sh.intrinsic]
     if form and max(float(sh.test(ctx)) for sh in form) <= 0:
         return False
@@ -111,7 +113,7 @@ def answer(target, dtype, known_cols: list, technique, vocabulary: list[str], ab
     name, share, alts = stats().predict(target, dtype, known_cols, technique, set(vocabulary), set(known),
                                         exclude_group)
     if name and not consistent(name, ctx):
-        a["evidence"] = f"statistics suggest {name}, but the column does not have its form (shape or storage type)"
+        a["evidence"] = f"statistics suggest {name}, but that contradicts its form, storage type or the file's other columns"
         return a
     if name and share >= fallback_min_share:
         return {"verdict": "NAME", "name": name, "confidence": round(0.5 * share, 3), "alternatives": alts,
