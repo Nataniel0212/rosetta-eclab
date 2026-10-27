@@ -22,7 +22,7 @@ from spike2 import corpus, elim, features, tasks, vocab
 
 from .engine import Context, Known, name_column
 from .fallback import Stats, lag1_autocorr
-from .library import LIBRARY
+from .library import LIBRARY, current_missing, ece_ruled_out, missing_current
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNS = ROOT / "runs3"
@@ -52,7 +52,9 @@ def consistent(name: str, ctx: Context) -> bool:
     if name == "control" and piecewise_constant(ctx) < 0.5:
         return False  # a set point holds still between changes
     if name == "(Q-Qo)" and not {"I", "dq", "Pwe"} & set(ctx.known):
-        return False  # EC-Lab computes it from the current: all 179 public files with (Q-Qo) also hold I, dq or Pwe
+        return False  # EC-Lab computes it from the current: all 695 public files with (Q-Qo) also hold I, dq or Pwe
+    if name == "Ece" and ece_ruled_out(ctx):
+        return False
     form = [sh for sh in (spec.shapes if spec is not None else []) if sh.intrinsic]
     if form and max(float(sh.test(ctx)) for sh in form) <= 0:
         return False
@@ -80,7 +82,10 @@ def stats() -> Stats:
 
 
 def answer(target, dtype, known_cols: list, technique, vocabulary: list[str], abstain_below: float = 0.6,
-           exclude_group: str | None = None, noise_autocorr: float = 0.3, fallback_min_share: float = 0.5) -> dict:
+           exclude_group: str | None = None, noise_autocorr: float = 0.3, fallback_min_share: float = 0.5,
+           alone: bool = True) -> dict:
+    """Name one column from the file's known columns. `alone` is False when other columns of the record are missing
+    from known_cols too (several unknown columns, or --self-check on a file with unknown columns)."""
     if features.is_constant(target):
         return {"verdict": "ABSTAIN", "name": "NONE", "confidence": 1.0, "evidence": "constant column"}
     same = [c.name for c in known_cols if features.identical(target, c.values)]
@@ -93,18 +98,27 @@ def answer(target, dtype, known_cols: list, technique, vocabulary: list[str], ab
     known = {}
     for c in known_cols:
         known.setdefault(vocab.canonical(c.name), Known(vocab.canonical(c.name), c.unit, np.asarray(c.values), c.dtype))
-    ctx = Context(technique, known, np.asarray(target), dtype)
+    ctx = Context(technique, known, np.asarray(target), dtype, alone)
     pr = stats().prior(technique, exclude_group)
     gl = stats().prior(None, exclude_group, all_techniques=True)
     top, gtop = (max(pr.values()) if pr else 0), (max(gl.values()) if gl else 0)
     prior = {k: (pr.get(k, 0) / top if top else 0) + 0.3 * (gl.get(k, 0) / gtop if gtop else 0) for k in set(pr) | set(gl)}
     a = name_column(ctx, LIBRARY, vocabulary, abstain_below, prior,
                     cooccur=lambda cand, sib: stats().cooccur(cand, sib, exclude_group))
+    if current_missing(ctx) and missing_current(ctx) > 0 and not (a["verdict"] == "NAME" and a["name"] == "I"):
+        # The file's measured current is the one missing column and this column can be it (missing_current), so
+        # another name would likely be wrong. Here I was not allowed (an out-of-vocabulary current) or lost.
+        ranking = a.get("ranking") or []
+        return {"verdict": "ABSTAIN", "name": "NONE", "confidence": ranking[0][1] if ranking else 0.0,
+                "alternatives": [r[0] for r in ranking[:2]], "ranking": ranking,
+                "evidence": "files like this one hold a measured current and none is named, so the column is most "
+                            "likely the current, but I does not fit or is not an allowed name"}
     if a["verdict"] == "NAME":
         return a
     # (Tried 2026-10-15: naming "the column that similar files always record and this file lacks". It names
     # decoys whenever a file naturally lacks a common column: 10/19 decoys on hold-out 4, still 6/19 when limited
-    # to structured columns. Trustworthiness wins: not used.)
+    # to structured columns. Trustworthiness wins: not used. The one exception since 2026-10-27 is the measured
+    # current, in the two kinds of record that hold it in all public files but one: library.missing_current.)
     # No formula or shape identifies the column: statistics fallback, unless it looks like noise.
     ac = lag1_autocorr(target)
     if ac < noise_autocorr:

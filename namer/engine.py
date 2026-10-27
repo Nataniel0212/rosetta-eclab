@@ -37,6 +37,8 @@ class Context:
     known: dict[str, Known]  # canonical name -> column
     target: np.ndarray
     target_dtype: str
+    alone: bool = True  # the target is the only column of the record missing from `known`; rules that infer a
+    #                     column from what the record lacks need this (False when other columns are unknown too)
 
     def col(self, *names: str) -> np.ndarray | None:
         for n in names:

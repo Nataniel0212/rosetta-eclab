@@ -41,7 +41,8 @@ def name_unknown(m: mprfile.MprData) -> list[dict]:
     known = [c for c in m.columns if c.known]
     out = []
     for c in m.unknown:
-        a = answer(c.values, c.dtype, known, m.technique, vocab.names(), exclude_group=own_group(m.path))
+        a = answer(c.values, c.dtype, known, m.technique, vocab.names(), exclude_group=own_group(m.path),
+                   alone=len(m.unknown) == 1)
         out.append({"column_id": c.raw_id, "dtype": c.dtype, "verdict": a["verdict"], "name": a.get("name"),
                     "unit": unit_of(a["name"]) if a["verdict"] == "NAME" else "", "confidence": a.get("confidence"),
                     "duplicate_of": a.get("duplicate_of", ""), "alternatives": a.get("alternatives", []),
@@ -54,7 +55,8 @@ def self_check(m: mprfile.MprData) -> dict:
     rows = []
     for c in known:
         others = [o for o in known if o is not c]
-        a = answer(c.values, c.dtype, others, m.technique, vocab.names(), exclude_group=own_group(m.path))
+        a = answer(c.values, c.dtype, others, m.technique, vocab.names(), exclude_group=own_group(m.path),
+                   alone=not m.unknown)
         rows.append({"column": c.name, "verdict": a["verdict"], "answer": a.get("name"),
                      "correct": a["verdict"] == "NAME" and a.get("name") == vocab.canonical(c.name)})
     named = [r for r in rows if r["verdict"] == "NAME"]

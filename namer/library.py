@@ -18,7 +18,7 @@ from typing import Callable
 
 import numpy as np
 
-from .engine import Context, Evidence, fit, scale_match
+from .engine import Context, Evidence, fit, has_ce_channel, scale_match
 
 MAH_PER_MA_S = 1 / 3600.0  # mA * s -> mA·h
 C_PER_MA_S = 1 / 1000.0  # mA * s -> C
@@ -368,9 +368,62 @@ def follows_sweep(ctx) -> bool:
     return bool(np.isfinite(r) and abs(r) > 0.6)
 
 
+def records_current(ctx) -> bool:
+    """True for the two kinds of record that hold a measured current I in the public files: an impedance record
+    (a frequency column; 202 of 202 files) and a record with a potential set point (control in V; 376 of 377,
+    the exception being galvani's bio_logic4.mpr, which stores the current only as the per-point charge dq)."""
+    if ctx.col("freq") is not None:
+        return True
+    u = ctx.unit("control")
+    return u is not None and u.strip() == "V"
+
+
+def current_missing(ctx) -> bool:
+    """The file is a kind that records a measured current (records_current), none is named, and the target is the
+    only column missing. With other columns unknown too, one of them may be the current."""
+    return ctx.alone and ctx.col("I") is None and records_current(ctx)
+
+
+def follows_time_step(ctx) -> bool:
+    """True if the column's size follows the time step (r > 0.8): a per-point quantity such as dq = I*dt, not a
+    rate. Public files: 139 of 290 dq columns, and none of the 127 currents in the records where missing_current
+    uses it (control in V, no charge or power column)."""
+    t = ctx.col("time")
+    if t is None:
+        return False
+    x, dt = np.abs(np.asarray(ctx.target, dtype="f8"))[1:], np.diff(t)
+    m = np.isfinite(x) & np.isfinite(dt)
+    if m.sum() < 10 or np.ptp(x[m]) == 0 or np.ptp(dt[m]) == 0:
+        return False
+    return float(np.corrcoef(x[m], dt[m])[0, 1]) > 0.8
+
+
+def missing_current(ctx) -> float:
+    """The file's measured current is missing and this column can be one: a moving value, not whole numbers
+    (codes, counters) and not a clock."""
+    if not current_missing(ctx):
+        return 0.0
+    y = _fin(ctx)
+    if y.size < 3 or np.ptp(y) == 0 or np.allclose(y, np.round(y)) or is_clock(ctx):
+        return 0.0
+    if ctx.col("freq") is None:
+        if any(ctx.col(n) is not None for n in ("dq", "(Q-Qo)", "Pwe")):
+            return 0.0  # a known charge or power column lets I's own relations decide (DC records only)
+        if follows_time_step(ctx):
+            return 0.0  # the current stored as the per-point charge dq instead (galvani's bio_logic4.mpr)
+    return 1.0 if piecewise_constant(ctx) < 0.9 else 0.2
+
+
+def ece_ruled_out(ctx) -> bool:
+    """Ece is not the column when the file's measured current is missing (the column is then most likely that
+    current), nor in an impedance record without a counter-electrode impedance quantity (all 25 public impedance
+    records with Ece have one). Both need the target to be the only missing column."""
+    return current_missing(ctx) or (ctx.alone and ctx.col("freq") is not None and not has_ce_channel(set(ctx.known)))
+
+
 def second_potential(ctx) -> float:
     """A potential-like column in a file whose working-electrode potential is already known."""
-    if ctx.col("Ewe") is None:
+    if ctx.col("Ewe") is None or ece_ruled_out(ctx):
         return 0.0
     return 0.75 * potential_like(ctx) * (1.0 if piecewise_constant(ctx) < 0.9 else 0.2)
 
@@ -587,6 +640,9 @@ def build() -> dict[str, Quantity]:
     L["I"].shapes.append(Shape("measured current held at the current set point",
                                lambda c: (0.95 if current_held(c) > 0.5 else 0.85 * current_held(c))
                                * (1.0 if piecewise_constant(c) < 0.9 else 0.2), intrinsic=False))
+    L["I"].shapes.append(Shape("the file's measured current is missing (impedance and potential-controlled records "
+                               "hold one) and this column can be one",
+                               lambda c: 0.8 * missing_current(c), intrinsic=False))
     for rel in L["I"].relations:  # a measured current moves; a value held exactly between changes is a set point
         rel.gate = lambda c: 1.0 - 0.8 * min(1.0, max(0.0, piecewise_constant(c) - 0.8) / 0.18)
     q("control", relations=[

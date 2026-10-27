@@ -251,3 +251,32 @@ Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m
 | Claude Opus 5.5 | 555/586 (94.7 %) | 23 | 24/130 |
 
 **Verdict:** hold-out 7 is the broadest set so far and the hardest for the namer. Many of its 52 names are rare: Rcmp, harmonics, the counter electrode's impedance, analog inputs. Opus names more columns. Wrong names are now close (20 against 23), and the namer is still fooled by far fewer decoys (14 against 24 of 130). The largest single weakness the sweep shows is a current named `Ece` by the potential shape when nothing in the file confirms a current. Hold-out 7 is now spent, so that is the next development target.
+
+**Development round on hold-out 7 (after the run, so not blind).** In the sweep, the measured current was the weakest column. Of 414 hidden `<I>` columns, 31 were named `Ece` and 47 got ABSTAIN. Most were in impedance records, where DC relations cannot confirm a current, and in potential-controlled files with no charge column. Facts from all 938 readable public files:
+- Every impedance record holds `I` (202/202).
+- Every record with a potential set point (`control` in V) holds `I` except one (376/377). The exception, galvani's `bio_logic4.mpr`, stores the current only as the per-point charge `dq`.
+- Every impedance record that stores `Ece` also holds a counter-electrode impedance quantity (25/25).
+
+The new rules apply only when the hidden column is the only one missing from the file. That holds in the benchmark, and in the tool when a file has one unknown column. With several unknown columns, another of them may be the current.
+- Where such a file names no current, a moving column is named `I`. Outside impedance records this needs a file without a charge or power column (`dq`, `(Q-Qo)`, `Pwe`); with one, I's own formulas decide. A column whose size follows the time step is treated as a per-point charge, not a current.
+- `Ece` is ruled out there, and in impedance records without a counter-electrode quantity.
+- If the column can be that missing current but `I` does not fit or is not an allowed name, the namer abstains instead of giving another name.
+
+A review (three reviewers, with each finding checked by another agent) showed that the first version broke the tool's cases with more than one missing column. With the current and other columns unknown, or with `--self-check` on a file whose current is unknown, it named other columns `I`. That is why the rules now need the column to be the only one missing. In copies of public files with those column IDs removed from the reader's map, the tool now answers as it did before the change, or better. One known limit remains: in an old potentiostatic file that stores the current only as `dq`, a hidden `dq` whose size does not follow the time step is named `I`.
+
+Hiding every column of all 938 files in turn (9,305 columns):
+- correct: 94.6 % → **96.3 %**
+- wrong names: 151 → **108**
+- abstained: 349 → 237
+
+Every change is an `<I>` column now named correctly (656 `<I>` columns: 496 → 651 correct), and no column got worse. On hold-out 7 alone, 94.4 % → 95.7 % are correct and wrong names fall from 139 to 98.
+
+On the hold-out tasks, a rerun (`--label rules-dev`, not blind) names more `<I>` columns than the code just before this fix and adds no wrong name:
+- hold-out 4: 82/86 (was 78)
+- hold-out 6: 20/20 (was 19)
+- hold-out 7: the out-of-vocabulary `<I>` decoy is no longer named (0/19). The set's own `<I>` tasks were already right, so its main score stays 156/193 (macro 0.750).
+
+Golden changed in 29 of 1527 answers:
+- 8 changed answer, all to the right one: 7 `<I>` columns named, and the decoy now gets ABSTAIN.
+- 18 keep their answer with higher confidence, mostly `|Ewe|` and `|I|` in impedance records, where `Ece` no longer competes.
+- 3 out-of-vocabulary `<I>` decoys get ABSTAIN as before, now from the missing-current rule, with the confidence rounded.

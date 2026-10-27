@@ -107,7 +107,7 @@ In every task one real column is hidden and must be named from the data. There a
 
 ¹ There are two code-only baselines. A technique prior names the column that is typical for this technique and missing here. A nearest-neighbour vote compares the column with labelled columns from other files. Both are strong when files have standard column sets, but they name every decoy and cannot name a genuinely new column.
 
-**Every column of hold-out 7** (namer only, planned before the run): every usable column of all 594 files was hidden in turn. Of 6,467 columns, Rosetta named 94.4 % correctly, gave a wrong name to 2.1 % and abstained on 3.5 %. The most common mistake is a current named `Ece` when nothing in the file confirms a current, which is the next thing to fix.
+**Every column of hold-out 7** (namer only, planned before the run): every usable column of all 594 files was hidden in turn. Of 6,467 columns, Rosetta named 94.4 % correctly, gave a wrong name to 2.1 % and abstained on 3.5 %. The most common mistake was the current named `Ece` when nothing in the file confirmed a current. A fix found afterwards names a missing current from what the file type records. That is not a blind result: with it, 96.3 % of all 9,305 columns in the 938 public files are named correctly and 1.2 % wrongly, against 94.6 % and 1.6 % before.
 
 **Hold-out 6** is 57 older EC-Lab files (data module version 0). Rosetta named 16/20 and Opus 20/20. Two fixes found afterwards on that set are in 0.1.5 and later, but a rerun with them is not a blind result.
 
@@ -116,7 +116,7 @@ The namer improved between hold-outs, so the total includes earlier versions. Th
 ### Limitations
 
 - **Values EC-Lab computes after the fact** cannot be reconstructed reliably. For example, a capacitance is held per segment.
-- **Noise-like DC currents** in impedance records, and **external analog inputs** with no sibling column, usually get ABSTAIN.
+- **External analog inputs** with no sibling column usually get ABSTAIN.
 - **Two quantities with the same definition in a file** cannot be told apart from the data. In galvanostatic cycling, for example, `dQ` and `Q charge or discharge` reset at the same points. A prior over how common each name is for the technique decides between them, and the alternative is shown.
 - **Supported formats:** EC-Lab data-module versions 0, 2, 3, 10 and 11. Version 0 (older EC-Lab) is read with galvani's offsets, because yadg does not read it. All 59 public version-0 files decode byte for byte like galvani 0.5.0, and the two with an EC-Lab text export match it. The file technique is not read from version-0 files, so the namer works without it.
 
