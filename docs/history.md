@@ -56,8 +56,9 @@ It was developed in rounds. Before each round a new hold-out was frozen from pub
 | 3 (18 files) | 50/54 | 0 | 54/54 | 0 | 2 / 2 of 19 |
 | 4 (38 files) | 73/86 | 4 | 75/86 | 8 | 1 / 3 of 19 |
 | 5 (38 files) | **70/70** | **0** | 69/70 | 1 | **1 / 2** of 19 |
-| **total** | 350/373 (93.8 %) | **5** | 359/373 (96.2 %) | 10 | **11 / 16** of 95 |
+| 6 (57 older files, one column set) | 16/20 | 1 | **20/20** | **0** | **2 / 3** of 16 |
+| **total** | 366/393 (93.1 %) | **6** | 379/393 (96.4 %) | 10 | **13 / 19** of 111 |
 
-The namer improved between hold-outs. On the last hold-out it matched or beat Opus on every count. Over all five it named fewer columns, but it gave half as many wrong names and was fooled by fewer decoys.
+The namer improved between hold-outs. On hold-out 5 it matched or beat Opus on every count. Hold-out 6 is the older files that 0.1.4 made readable. There every namer miss was the current, in files with nothing to confirm it, and two fixes found afterwards bring a rerun (not blind) to 19/20 with no wrong names. Over all six hold-outs the namer named fewer columns than Opus, but it gave fewer wrong names and was fooled by fewer decoys.
 
 **Tried and rejected:** naming "the column that similar files always record and this one lacks". That is what an expert, or a model, often does, and it raised accuracy. It also named 10 of 19 decoys on one hold-out, so it is not used.

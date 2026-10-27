@@ -178,11 +178,12 @@ Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m
 - **The files:** Zenodo 3631173 and 3631156 (PEM fuel cells, CV and LSV), the same records as hold-out 3. They were fetched then but could not be decoded, so hold-out 3 used only Zenodo 17244893. rosetta-eclab 0.1.4 reads version 0, and the namer had never run on these files. The reader was developed on their byte layout: column IDs and offsets, checked against galvani 0.5.0.
 - **Answer key:** there are no vendor exports in these records. Names come from yadg's column map, and values from galvani's version-0 offsets (byte-identical to galvani 0.5.0 on all 57 files).
 - **A weak hold-out:** all 57 files share one column set (time, control_V, Ewe, `<I>`, cycle number), likely from one lab, and the technique is not read from version-0 files. The set has 44 tasks: 20 main (4 per name), 6 constant and 18 decoys, of which 16 are scored. Only 5 decoys are out-of-vocabulary, because the set has only five names.
-- **Namer** frozen at `a2a6905` (0.1.4 behaviour) and run once after the task hash was checked. The Claude arm has not been run.
+- **Namer** frozen at `a2a6905` (0.1.4 behaviour) and run once after the task hash was checked. The Claude arm (Opus 5.5, default effort, `bench/claude_cli.py`) was run once later the same night on the same tasks. It cost about $3.35 API-equivalent on the subscription.
 
 | Arm | Main top-1 (20 tasks, 5 names) | Wrong names on real columns | Abstained | Decoys named (16) |
 |---|---|---|---|---|
 | **namer (no LLM)** | **0.800** (16/20) | 1 (`I` → `(Q-Qo)`) | 3 (`I`) | **2** (out-of-vocabulary, both → `(Q-Qo)`) |
+| Claude Opus 5.5 | **1.000** (20/20) | **0** | 0 | 3 (noise → `Ece`, confidence ≤ 0.42) |
 | H_knn | 0.950 | – | – | 16 |
 | H_prior | 0.600 | – | – | 16 |
 
@@ -191,4 +192,11 @@ Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m
 - **Both named decoys came from the same statistics vote:** `<I>` → `(Q-Qo)` with `I` removed from the vocabulary, and `time` → `(Q-Qo)` with `time` removed.
 - H_knn scores higher on main because one standard column set suits a nearest-neighbour vote, but it names every decoy. The set is now spent and may be used for development.
 
-**Development round on hold-out 6 (after the run, so not blind).** Three of the four `<I>` misses came from the relation "follows current control". It was tested against `control_V`, a potential set point in CV and LSV, failed and ruled I out. The relation is now testable only when the control's unit allows a current. The same check applies in the other direction: Ewe is no longer tested against a current-only control (`control_I`). A rerun (`--label rules-dev`) scores 19/20 with 2/16 decoys named. The remaining miss and both decoys are the statistics vote `(Q-Qo)` in files with no current or charge to check against.
+**Development round on hold-out 6 (after the run, so not blind).** Three of the four `<I>` misses came from the relation "follows current control". It was tested against `control_V`, a potential set point in CV and LSV, failed and ruled I out. The relation is now testable only when the control's unit allows a current. The same check applies in the other direction: Ewe is no longer tested against a current-only control (`control_I`). A second fix stops the statistics vote from naming `(Q-Qo)` where the known columns hold no current (I, dq or Pwe). EC-Lab computes `(Q-Qo)` from the current, and all 179 public files with `(Q-Qo)` also hold one of them. A rerun (`--label rules-dev`) then scores **19/20, 0 wrong, 1/16 decoys named**. The one abstention is the LSV `<I>`. The named decoy is `time` → `(Q-Qo)` with `time` removed from the vocabulary. Requiring a charge's steps to share the current's sign would catch it, but on that rule the decoy scores 0.75 against 0.88 for a real LSV file, too close to use. Golden changed only in these hold-out 6 answers.
+
+**All six hold-outs, each arm run once (393 real columns, 111 scored decoys):**
+
+| Arm | Correct | Wrong names on real columns | Decoys named |
+|---|---|---|---|
+| namer (versions 1→6, as frozen) | 366/393 (93.1 %) | **6** | **13/111** |
+| Claude Opus 5.5 | 379/393 (96.4 %) | 10 | 19/111 |
