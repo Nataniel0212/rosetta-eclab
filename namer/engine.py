@@ -173,7 +173,7 @@ def name_column(ctx: Context, library, vocabulary: list[str], abstain_below: flo
             if prior:  # how common the name is for this technique breaks near-ties between equal relations
                 ev.score = ev.score + 0.03 * prior.get(cand, 0.0)  # may exceed 1: only the order matters
             evidences.append(ev)
-    sib = single_sibling(ctx, vocabulary, present, cooccur, library)
+    sib = single_sibling(ctx, vocabulary, present, cooccur, library) if ctx.alone else None  # "the only missing"
     if sib is not None:
         evidences.append(sib)
     for e in evidences:

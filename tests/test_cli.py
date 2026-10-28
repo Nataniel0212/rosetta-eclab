@@ -156,3 +156,19 @@ def test_noise_column_is_not_named(tmp_path):
     c.values = np.random.default_rng(0).normal(5.0, 2.0, c.values.size)
     res = cli.name_unknown(m)
     assert res[0]["verdict"] != "NAME", res[0]
+
+
+def test_rules_from_what_the_file_lacks_need_one_unknown_column(tmp_path):
+    """A lone unknown current in an impedance file is named I because such files always hold one. With a second
+    unknown column that rule is off (the CLI passes alone=False), since the other column could be the current."""
+    one, two = tmp_path / "one.mpr", tmp_path / "two.mpr"
+    recode(EXT / "peis.mpr", one, 76, 950)  # <I>
+    recode(one, two, 96, 951)  # and |Ece|
+    m = mprfile.read(one, reference="galvani")
+    assert [c.raw_id for c in m.unknown] == [950]
+    res = cli.name_unknown(m)[0]
+    assert res["verdict"] == "NAME" and res["name"] == "I" and "current is missing" in res["evidence"], res
+    m = mprfile.read(two, reference="galvani")
+    assert sorted(c.raw_id for c in m.unknown) == [950, 951]
+    res = {r["column_id"]: r for r in cli.name_unknown(m)}
+    assert "current is missing" not in res[950]["evidence"], res[950]

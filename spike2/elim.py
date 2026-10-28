@@ -50,3 +50,18 @@ def eliminate(known_names: list[str], vocabulary: list[str]) -> str | None:
     if best_score >= 2 and not tie:
         return best
     return None
+
+
+def gaps(known_names: list[str], vocabulary: list[str]) -> set[str]:
+    """Every name tied for the best score, if that score is at least 2: the file's sibling gaps (eliminate()
+    returns one only when it is unique). In --self-check no hidden known column can fill any of them."""
+    present = {vocab.canonical(n) for n in known_names}
+    spellings = set(known_names) | present
+    scores = {}
+    for v in vocabulary:
+        if v in present:
+            continue
+        forms = [v] + [a for a, c in vocab.ALIAS.items() if c == v and a != v]
+        scores[v] = max(sum(one_token_apart(f, k) for k in spellings) for f in forms)
+    best = max(scores.values(), default=0)
+    return {v for v, s in scores.items() if s == best} if best >= 2 else set()

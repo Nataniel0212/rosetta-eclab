@@ -5,7 +5,8 @@
   python -m namer.evaluate --split test      # v2 test tasks -> runs3/rules_test.jsonl (run rarely; record in results/open_runs.md)
 
 Pipeline per column: constant -> ABSTAIN; identical to a known column -> DUPLICATE;
-name elimination (spike2/elim.py) -> NAME; otherwise the formula library (namer/library.py).
+name elimination (spike2/elim.py, only when the column is the only one missing; in --self-check never a gap of the
+whole file) -> NAME; otherwise the formula library (namer/library.py).
 """
 
 from __future__ import annotations
@@ -51,8 +52,8 @@ def consistent(name: str, ctx: Context) -> bool:
         return False
     if name == "control" and piecewise_constant(ctx) < 0.5:
         return False  # a set point holds still between changes
-    if name == "(Q-Qo)" and not {"I", "dq", "Pwe"} & set(ctx.known):
-        return False  # EC-Lab computes it from the current: all 695 public files with (Q-Qo) also hold I, dq or Pwe
+    if name == "(Q-Qo)" and ctx.alone and not {"I", "dq", "Pwe"} & set(ctx.known):
+        return False  # EC-Lab computes it from the current: all 694 public files with (Q-Qo) also hold I, dq or Pwe
     if name == "Ece" and ece_ruled_out(ctx):
         return False
     form = [sh for sh in (spec.shapes if spec is not None else []) if sh.intrinsic]
@@ -83,17 +84,21 @@ def stats() -> Stats:
 
 def answer(target, dtype, known_cols: list, technique, vocabulary: list[str], abstain_below: float = 0.6,
            exclude_group: str | None = None, noise_autocorr: float = 0.3, fallback_min_share: float = 0.5,
-           alone: bool = True) -> dict:
+           alone: bool = True, file_gaps: set[str] | None = None) -> dict:
     """Name one column from the file's known columns. `alone` is False when other columns of the record are missing
-    from known_cols too (several unknown columns, or --self-check on a file with unknown columns)."""
+    from known_cols too (several unknown columns, or --self-check on a file with unknown columns). In --self-check,
+    `file_gaps` holds the sibling gaps of the whole file (elim.gaps, empty if none): no hidden known column can fill
+    one, and any other gap is the hidden column's own slot, so name elimination still runs there."""
     if features.is_constant(target):
         return {"verdict": "ABSTAIN", "name": "NONE", "confidence": 1.0, "evidence": "constant column"}
     same = [c.name for c in known_cols if features.identical(target, c.values)]
     if same:
         return {"verdict": "DUPLICATE", "name": "NONE", "duplicate_of": same[0], "confidence": 1.0,
                 "evidence": f"identical to {same[0]}"}
-    e = elim.eliminate([c.name for c in known_cols], vocabulary)
-    if e:
+    # A sibling gap names the column only when it is the column's own slot: with several unknown columns every one
+    # of them would get the gap's name (public files: |Ece h7| for THD/NSD/NSR Ece and the energy columns).
+    e = elim.eliminate([c.name for c in known_cols], vocabulary) if alone or file_gaps is not None else None
+    if e and e not in (file_gaps or ()):
         return {"verdict": "NAME", "name": e, "confidence": 0.9, "evidence": "name elimination (sibling gap)"}
     known = {}
     for c in known_cols:
@@ -227,9 +232,9 @@ def sweep(split: str, label: str = "sweep") -> None:
 def bench(split: str, abstain_below: float, label: str = "rules") -> None:
     RUNS.mkdir(exist_ok=True)
     path = RUNS / f"{label}_{split}.jsonl"
-    if split.startswith("holdout") and label == "rules" and path.exists():
-        raise SystemExit(f"{path} holds the official run of {split}; write a rerun under another --label "
-                         "(e.g. rules-dev)")
+    if split.startswith("holdout") and label in ("rules", "sweep") and path.exists():
+        raise SystemExit(f"{path} holds the official {'run' if label == 'rules' else 'every-column sweep'} of "
+                         f"{split}; write a rerun under another --label (e.g. rules-dev)")
     out = []
     for t in tasks.load(split):
         x, dtype, kv, kc = tasks.hidden_and_known(t)

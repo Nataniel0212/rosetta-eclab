@@ -17,7 +17,7 @@ drift.mpr
   self-check: hid each of 11 known columns in turn; named 11, 11 correctly, 0 wrong, 0 abstained
 ```
 
-*`drift.mpr` is `gcpl.mpr` from the yadg test suite, with one column ID changed to 950, an ID no parser knows (see `tests/test_cli.py`).*
+*`drift.mpr` is `gcpl.mpr` from the yadg test suite, with one column ID changed to 950, an ID galvani does not know (see `tests/test_cli.py`).*
 
 ## Install
 
@@ -73,12 +73,12 @@ peis.issue_225.with_ece.mpr
   every column ID is in galvani's column map; nothing to name
 ```
 
-The fix was released in datalab-org-galvani 0.6.0 ([galvani-mirror#11](https://github.com/datalab-org/galvani-mirror/issues/11)). Rosetta prints the note only when the installed galvani reads the low byte. IDs that are missing from the map altogether, such as 880 or 883 and 884, are what Rosetta names.
+The fix was released in datalab-org-galvani 0.6.0 ([galvani-mirror#11](https://github.com/datalab-org/galvani-mirror/issues/11)). Rosetta prints the note when the installed galvani reads the low byte, or when no galvani is installed (it then assumes galvani 0.5.0). IDs that are missing from the map altogether, such as 880 or 883 and 884, are what Rosetta names.
 
 ## How it works
 
 1. **Read the file** (`namer/mprfile.py`). Columns the reference parser knows are typed from its column map. For unknown IDs the byte width is solved from the record size, and the storage type is chosen by plausibility.
-2. **Code checks first.** Constant columns and exact copies of a known column are reported as such. Names that a family of siblings makes obvious are filled in, for example the missing harmonic `|Ewe h4|`.
+2. **Code checks first.** Constant columns and exact copies of a known column are reported as such. Names that a family of siblings makes obvious are filled in when the column is the only unknown one, for example the missing harmonic `|Ewe h4|`.
 3. **Physics library** (`namer/library.py`). Every candidate quantity is tested against the file's other columns:
    - **charges:** current × time, reset per half cycle, cycle or sequence
    - **energies and power:** E × I and its integrals
@@ -92,7 +92,7 @@ The fix was released in datalab-org-galvani 0.6.0 ([galvani-mirror#11](https://g
 
 ## How accurate it is
 
-The numbers come from seven hold-out sets of public EC-Lab files: 586 real columns and 130 decoys. The last one alone has 594 files from 222 openly licensed records in about 30 repositories. The namer was never developed on any of these files before its run on them. For hold-out 6, the file reader was written against the files' byte layout. Each set was frozen before the namer version that ran on it, and each arm was run once (`results/open_runs.md`).
+The numbers come from seven hold-out sets of public EC-Lab files: 586 real columns and 130 decoys. The last one alone has 594 files from 221 openly licensed records in 24 repositories. The namer was never developed on any of these files before its run on them. For hold-out 6, the file reader was written against the files' byte layout. Each set was frozen before the namer version that ran on it, and each arm was run once (`results/open_runs.md`).
 
 In every task one real column is hidden and must be named from the data. There are also decoys, where the right answer is not to name the column:
 - noise and random integers
@@ -107,9 +107,9 @@ In every task one real column is hidden and must be named from the data. There a
 
 ¹ There are two code-only baselines. A technique prior names the column that is typical for this technique and missing here. A nearest-neighbour vote compares the column with labelled columns from other files. Both are strong when files have standard column sets, but they name every decoy and cannot name a genuinely new column.
 
-**Every column of hold-out 7** (namer only, planned before the run): every usable column of all 594 files was hidden in turn. Of 6,467 columns, Rosetta named 94.4 % correctly, gave a wrong name to 2.1 % and abstained on 3.5 %. The most common mistake was the current named `Ece` when nothing in the file confirmed a current. A fix found afterwards names a missing current from what the file type records. That is not a blind result: with it, 96.3 % of all 9,305 columns in the 938 public files are named correctly and 1.2 % wrongly, against 94.6 % and 1.6 % before.
+**Every column of hold-out 7** (namer only, planned before the run): every usable column of all 594 files that is not constant or a copy of another column was hidden in turn. Of 6,467 columns, Rosetta named 94.4 % correctly, gave a wrong name to 2.1 % and abstained on 3.5 %. The most common mistake was the current named `Ece` when nothing in the file confirmed a current. A fix found afterwards names a missing current from what the file type records, when it is the only column missing. That is not a blind result: with it, 96.2 % of the 9,040 such columns in the 880 distinct public files are named correctly and 1.2 % wrongly, against 94.7 % and 1.7 % before. galvani knows the current in every public file, so outside `--self-check` the fix matters only if a format change hides it.
 
-**Hold-out 6** is 57 older EC-Lab files (data module version 0). Rosetta named 16/20 and Opus 20/20. Two fixes found afterwards on that set are in 0.1.5 and later, but a rerun with them is not a blind result.
+**Hold-out 6** is 57 older EC-Lab files (data module version 0). Rosetta named 16/20 and Opus 20/20. One fix found afterwards on that set is in 0.1.5, the other in 0.1.6. A rerun with them names 19/20, and 20/20 with the hold-out 7 fix, but that is not a blind result.
 
 The namer improved between hold-outs, so the total includes earlier versions. The history, including the language-model experiments that came first, is in [`docs/history.md`](https://github.com/Nataniel0212/rosetta-eclab/blob/main/docs/history.md).
 
@@ -117,6 +117,7 @@ The namer improved between hold-outs, so the total includes earlier versions. Th
 
 - **Values EC-Lab computes after the fact** cannot be reconstructed reliably. For example, a capacitance is held per segment.
 - **External analog inputs** with no sibling column usually get ABSTAIN.
+- **Several unknown columns in one file:** the rules that infer a column from what the file lacks (a missing current, a missing sibling such as `|Ece h7|`) are used only when one column is unknown (`--self-check` still fills the slot that hiding a known column opens, never a gap the file already has). With several, each is named from its relations and the statistics vote alone. More of them get ABSTAIN, and the vote can give a wrong name at low confidence: in 5 public impedance files the real `|Ece h7|` is named `Pwe`.
 - **Two quantities with the same definition in a file** cannot be told apart from the data. In galvanostatic cycling, for example, `dQ` and `Q charge or discharge` reset at the same points. A prior over how common each name is for the technique decides between them, and the alternative is shown.
 - **Supported formats:** EC-Lab data-module versions 0, 2, 3, 10 and 11. Version 0 (older EC-Lab) is read with galvani's offsets, because yadg does not read it. All 59 public version-0 files decode byte for byte like galvani 0.5.0, and the two with an EC-Lab text export match it. The file technique is not read from version-0 files, so the namer works without it.
 

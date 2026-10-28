@@ -48,3 +48,7 @@ rosetta_eclab = "namer"
 [tool.setuptools.package-data]
 rosetta_eclab = ["data/*.json", "data/*.npy"]
 spike2 = ["*.json"]
+
+# The tests import namer and spike2 from the source folder, also when pytest is run as a console script.
+[tool.pytest.ini_options]
+pythonpath = ["."]

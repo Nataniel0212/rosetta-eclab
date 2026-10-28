@@ -36,3 +36,11 @@ The build has 334 tasks: 193 main tasks over 52 names, 108 tasks that name elimi
 - **Secondary**, namer only: `python -m namer.evaluate --sweep holdout7`. Every usable column of every usable file is hidden in turn, with the file's other columns known and the whole vocabulary allowed (constant and duplicated columns are skipped). It reports correct, wrong and abstained per name and in total. This measures the wrong-name rate on thousands of columns instead of a few hundred tasks.
 
 Nothing in `namer/` changes between the freeze and these runs. Results go to `results/open_runs.md` whatever they show.
+
+## Corrections added after the run (2026-10-28)
+The plan above is kept as frozen. A review before release 0.1.6 found these inaccuracies in it:
+- **The set:** the 224 records are entries in `holdout7_sources.json`. The files of two could not be downloaded (an unsupported zip compression method, and a dataset page instead of a file), and one dataset is listed twice, under its DOI and its EPrints address (Birmingham eData 1058), so the 615 files come from 221 records and that one supplied 6. Of the 626 listed `.mpr` files, 6 repeat a file name already listed in the same record and were skipped, and 5 belong to the two records that could not be downloaded. Of the 21 files left out of the 594, 20 have fewer than 10 rows and one cannot be decoded. The tasks are drawn from the 594 files, and 182 of them hold a task.
+- **Decoys:** there are 21. The 19 scored ones are noise, random integers and out-of-vocabulary columns; the constant and the copy are not scored. Opus ran on the main and decoy tasks, 214 of them, of which 212 are scored.
+- **label_check:** of the 19 tasks whose answer-key name is not in the export header, 14 are columns the export does not include (for example harmonics and THD), 4 were matched to another file's export, and one export header could not be read. They are not naming differences.
+
+Later: the `(Q-Qo)` rule ships in 0.1.6, where it applies only when the column is the only unknown one, as every task treats it.

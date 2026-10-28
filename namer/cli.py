@@ -17,7 +17,7 @@ import json
 import sys
 import warnings
 
-from spike2 import vocab
+from spike2 import elim, vocab
 
 from . import mprfile
 from .evaluate import answer
@@ -52,11 +52,12 @@ def name_unknown(m: mprfile.MprData) -> list[dict]:
 
 def self_check(m: mprfile.MprData) -> dict:
     known = [c for c in m.columns if c.known]
+    gaps = elim.gaps([c.name for c in known], vocab.names())  # the file's own sibling gaps, if any
     rows = []
     for c in known:
         others = [o for o in known if o is not c]
         a = answer(c.values, c.dtype, others, m.technique, vocab.names(), exclude_group=own_group(m.path),
-                   alone=not m.unknown)
+                   alone=not m.unknown, file_gaps=gaps)
         rows.append({"column": c.name, "verdict": a["verdict"], "answer": a.get("name"),
                      "correct": a["verdict"] == "NAME" and a.get("name") == vocab.canonical(c.name)})
     named = [r for r in rows if r["verdict"] == "NAME"]

@@ -370,8 +370,8 @@ def follows_sweep(ctx) -> bool:
 
 def records_current(ctx) -> bool:
     """True for the two kinds of record that hold a measured current I in the public files: an impedance record
-    (a frequency column; 202 of 202 files) and a record with a potential set point (control in V; 376 of 377,
-    the exception being galvani's bio_logic4.mpr, which stores the current only as the per-point charge dq)."""
+    (a frequency column; 202 of 202 distinct files) and a record with a potential set point (control in V; 319 of
+    320, the exception being galvani's bio_logic4.mpr, which stores the current only as the per-point charge dq)."""
     if ctx.col("freq") is not None:
         return True
     u = ctx.unit("control")
@@ -386,7 +386,7 @@ def current_missing(ctx) -> bool:
 
 def follows_time_step(ctx) -> bool:
     """True if the column's size follows the time step (r > 0.8): a per-point quantity such as dq = I*dt, not a
-    rate. Public files: 139 of 290 dq columns, and none of the 127 currents in the records where missing_current
+    rate. Public files: 138 of 293 dq columns, and none of the 70 currents in the records where missing_current
     uses it (control in V, no charge or power column)."""
     t = ctx.col("time")
     if t is None:
@@ -404,7 +404,8 @@ def missing_current(ctx) -> float:
     if not current_missing(ctx):
         return 0.0
     y = _fin(ctx)
-    if y.size < 3 or np.ptp(y) == 0 or np.allclose(y, np.round(y)) or is_clock(ctx):
+    # whole numbers exactly: a current of a few pA, in mA, is within allclose's default tolerance of zero
+    if y.size < 3 or np.ptp(y) == 0 or np.array_equal(y, np.round(y)) or is_clock(ctx):
         return 0.0
     if ctx.col("freq") is None:
         if any(ctx.col(n) is not None for n in ("dq", "(Q-Qo)", "Pwe")):
@@ -416,8 +417,9 @@ def missing_current(ctx) -> float:
 
 def ece_ruled_out(ctx) -> bool:
     """Ece is not the column when the file's measured current is missing (the column is then most likely that
-    current), nor in an impedance record without a counter-electrode impedance quantity (all 25 public impedance
-    records with Ece have one). Both need the target to be the only missing column."""
+    current, also where a known charge or power column leaves I to its relations), nor in an impedance record
+    without a counter-electrode impedance quantity (all 25 public impedance records with Ece have one). Both need
+    the target to be the only missing column."""
     return current_missing(ctx) or (ctx.alone and ctx.col("freq") is not None and not has_ce_channel(set(ctx.known)))
 
 

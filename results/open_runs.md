@@ -1,6 +1,6 @@
 # Open project: runs on the locked v2 benchmark
 
-> Commit ids below refer to the private development history, where each hold-out was frozen before the namer version that was run on it. Each hold-out is reproducible: `python -m holdout.build <set>` rebuilds `data/<set>/tasks.jsonl`, whose SHA-256 is recorded in `holdout/manifest*.json`.
+> Commit ids before hold-out 6 refer to the private development history; from hold-out 6 on they are commits in this repository. Each hold-out was frozen before the namer version that was run on it, and each is reproducible: `python -m holdout.build <set>` rebuilds `data/<set>/tasks.jsonl`, whose SHA-256 is recorded in `holdout/manifest*.json`.
 
 The tasks, dossiers, vocabulary, scorer and baselines are those frozen for spike v2 (`prereg2/LOCK.json`, commit `484d375`). The Claude runs go through the Claude Code CLI (`bench/claude_cli.py`):
 - one headless call per task
@@ -151,7 +151,7 @@ The namer was frozen at `7d8e38a`.
 - Phase angles.
 - A clock that resets itself.
 
-**Tried and rejected:** naming "the column that similar files always record" named up to 10/19 decoys.
+**Tried and rejected:** naming "the column that similar files always record" named up to 10/19 decoys. (The one exception since 0.1.6 is the measured current; see the development round on hold-out 7.)
 
 **What remains unnamed:**
 - columns the instrument only processes (capacitance held per segment)
@@ -192,7 +192,7 @@ Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m
 - **Both named decoys came from the same statistics vote:** `<I>` → `(Q-Qo)` with `I` removed from the vocabulary, and `time` → `(Q-Qo)` with `time` removed.
 - H_knn scores higher on main because one standard column set suits a nearest-neighbour vote, but it names every decoy. The set is now spent and may be used for development.
 
-**Development round on hold-out 6 (after the run, so not blind).** Three of the four `<I>` misses came from the relation "follows current control". It was tested against `control_V`, a potential set point in CV and LSV, failed and ruled I out. The relation is now testable only when the control's unit allows a current. The same check applies in the other direction: Ewe is no longer tested against a current-only control (`control_I`). A second fix stops the statistics vote from naming `(Q-Qo)` where the known columns hold no current (I, dq or Pwe). EC-Lab computes `(Q-Qo)` from the current, and all 179 public files with `(Q-Qo)` also hold one of them. A rerun (`--label rules-dev`) then scores **19/20, 0 wrong, 1/16 decoys named**. The one abstention is the LSV `<I>`. The named decoy is `time` → `(Q-Qo)` with `time` removed from the vocabulary. Requiring a charge's steps to share the current's sign would catch it, but on that rule the decoy scores 0.75 against 0.88 for a real LSV file, too close to use. Golden changed only in these hold-out 6 answers.
+**Development round on hold-out 6 (after the run, so not blind).** Three of the four `<I>` misses came from the relation "follows current control". It was tested against `control_V`, a potential set point in CV and LSV, failed and ruled I out. The relation is now testable only when the control's unit allows a current. The same check applies in the other direction: Ewe is no longer tested against a current-only control (`control_I`). A second fix stops the statistics vote from naming `(Q-Qo)` where the known columns hold no current (I, dq or Pwe). EC-Lab computes `(Q-Qo)` from the current, and all 192 distinct public files with `(Q-Qo)` at the time also held one of them (694 of 694 with hold-out 7). A rerun (`--label rules-dev`) then scores **19/20, 0 wrong, 1/16 decoys named**. The one abstention is the LSV `<I>`. The named decoy is `time` → `(Q-Qo)` with `time` removed from the vocabulary. Requiring a charge's steps to share the current's sign would catch it, but on that rule the decoy scores 0.75 against 0.88 for a real LSV file, too close to use. Golden changed only in these hold-out 6 answers.
 
 **All six hold-outs, each arm run once (393 real columns, 111 scored decoys):**
 
@@ -201,10 +201,10 @@ Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m
 | namer (versions 1→6, as frozen) | 366/393 (93.1 %) | **6** | **13/111** |
 | Claude Opus 5.5 | 379/393 (96.4 %) | 10 | 19/111 |
 
-## 2026-10-27: hold-out 7 (594 files from 222 records in about 30 repositories; frozen at `81d2d1b`), each arm run once
+## 2026-10-27: hold-out 7 (594 files from 221 records in 24 repositories; frozen at `81d2d1b`), each arm run once
 
-- **Files:** a broad search over Zenodo (including files inside archives), figshare, Dataverse, Mendeley Data, institutional and domain repositories, GitHub, DataCite, the literature and the web found 255 eligible openly licensed records. Up to three `.mpr` files were taken from each record in a fixed hash order. Every record, licence and file is listed in `holdout/holdout7_sources.json`, and the plan was fixed before any run in `holdout/holdout7_plan.md`. No file is byte-identical to any file used before. One record whose files copied hold-out 4 was dropped. The 594 files decoded with at least 10 rows cover 13 techniques, data module versions 2, 3 and 11, 114 column sets and 81 names.
-- **Tasks:** 334, of which 193 main over 52 names (more than twice the names of any earlier hold-out), 108 settled by name elimination (all 108 right), 6 duplicate, 6 constant and 21 decoys, 19 of them scored. The namer was run once on all tasks. Opus was run once on the scored ones, 214 tasks for about $17.30 API-equivalent.
+- **Files:** a broad search over Zenodo (including files inside archives), figshare, Dataverse, Mendeley Data, institutional and domain repositories, GitHub, DataCite, the literature and the web found 255 openly licensed records that looked eligible. After merging four that were listed under two addresses, 225 had a `.mpr` file that could be read directly or from a zip read in parts, and up to three `.mpr` files were taken from each of them in a fixed hash order. Every chosen record, licence and file is listed in `holdout/holdout7_sources.json`, and the plan was fixed before any run in `holdout/holdout7_plan.md`. No file is byte-identical to any file used before. One record whose files copied hold-out 4 was dropped, and the files of two records could not be downloaded (an unsupported zip compression method, and a dataset page instead of a file), which leaves 222 entries. One dataset is among them twice, under its DOI and its EPrints address (Birmingham eData 1058), so the set has 221 records, and that one supplied 6 files instead of at most 3. The frozen set is kept as it is. The 594 files decoded with at least 10 rows cover 12 techniques (and 66 files whose technique is not read), data module versions 2, 3 and 11, 114 column sets and 81 names.
+- **Tasks:** 334, of which 193 main over 52 names (almost twice the 27 of hold-out 1, the most of any earlier hold-out), 108 settled by name elimination (all 108 right), 6 duplicate, 6 constant and 21 decoys, 19 of them scored. The namer was run once on all tasks. Opus was run once on the main and decoy tasks, 214 of them (212 scored), for about $17.30 API-equivalent.
 
 | Arm | Main top-1 macro (52 names) | micro (193) | Wrong names on real columns | Abstained | Decoys named (19) |
 |---|---|---|---|---|---|
@@ -241,7 +241,7 @@ Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m
   - `Energy ce charge` → `Energy we-ce charge`
 - **Secondary, namer only** (`python -m namer.evaluate --sweep holdout7`, run once): **6,467 hidden columns in 594 files over 79 names. 6,103 correct (94.4 %), 139 wrong (2.1 %), 225 abstained (3.5 %), macro 0.833.**
   - Top confusions: `I` → `Ece` ×31 (20 of them by the shape "a second smooth potential next to a known Ewe"), `|Z|` → `-Im(Z)` ×9, `|Ece|` → `-Im(Z)` ×7, `(Q-Qo)` → `dq` ×6, `Rcmp` → `Ece` ×6, `dQ` → `(Q-Qo)` ×6.
-  - The wrong names come from 74 of the 222 records, not from a few.
+  - The wrong names come from 74 of the 221 records, not from a few.
 
 **All seven hold-outs, each arm run once (586 real columns, 130 scored decoys):**
 
@@ -252,24 +252,24 @@ Every answer on the five hold-outs and the v2 benchmark is unchanged (`python -m
 
 **Verdict:** hold-out 7 is the broadest set so far and the hardest for the namer. Many of its 52 names are rare: Rcmp, harmonics, the counter electrode's impedance, analog inputs. Opus names more columns. Wrong names are now close (20 against 23), and the namer is still fooled by far fewer decoys (14 against 24 of 130). The largest single weakness the sweep shows is a current named `Ece` by the potential shape when nothing in the file confirms a current. Hold-out 7 is now spent, so that is the next development target.
 
-**Development round on hold-out 7 (after the run, so not blind).** In the sweep, the measured current was the weakest column. Of 414 hidden `<I>` columns, 31 were named `Ece` and 47 got ABSTAIN. Most were in impedance records, where DC relations cannot confirm a current, and in potential-controlled files with no charge column. Facts from all 938 readable public files:
+**Development round on hold-out 7 (after the run, so not blind).** In the sweep, the measured current was the weakest column. Of 414 hidden `<I>` columns, 31 were named `Ece` and 47 got ABSTAIN. Most were in impedance records, where DC relations cannot confirm a current, and in potential-controlled files with no charge column. Facts from the 880 distinct readable public files (hold-out 6's 57 files are also stored under `data/holdout3`, and hold-out 3 holds one file twice; each is counted once):
 - Every impedance record holds `I` (202/202).
-- Every record with a potential set point (`control` in V) holds `I` except one (376/377). The exception, galvani's `bio_logic4.mpr`, stores the current only as the per-point charge `dq`.
+- Every record with a potential set point (`control` in V) holds `I` except one (319/320). The exception, galvani's `bio_logic4.mpr`, stores the current only as the per-point charge `dq`.
 - Every impedance record that stores `Ece` also holds a counter-electrode impedance quantity (25/25).
 
-The new rules apply only when the hidden column is the only one missing from the file. That holds in the benchmark, and in the tool when a file has one unknown column. With several unknown columns, another of them may be the current.
-- Where such a file names no current, a moving column is named `I`. Outside impedance records this needs a file without a charge or power column (`dq`, `(Q-Qo)`, `Pwe`); with one, I's own formulas decide. A column whose size follows the time step is treated as a per-point charge, not a current.
+The new rules apply only when the hidden column is the only one missing from the file. The benchmark treats every hidden column so (in 13 hold-out 7 files, 7 of them with a task, columns that yadg does not know are left out as well), and the tool does when a file has one unknown column. With several unknown columns, another of them may be the current.
+- Where such a file names no current, a moving column is named `I`. Outside impedance records this needs a file without a charge or power column (`dq`, `(Q-Qo)`, `Pwe`); with one, I's own formulas decide. A column whose size follows the time step is not named `I`: it may be a per-point charge.
 - `Ece` is ruled out there, and in impedance records without a counter-electrode quantity.
 - If the column can be that missing current but `I` does not fit or is not an allowed name, the namer abstains instead of giving another name.
 
 A review (three reviewers, with each finding checked by another agent) showed that the first version broke the tool's cases with more than one missing column. With the current and other columns unknown, or with `--self-check` on a file whose current is unknown, it named other columns `I`. That is why the rules now need the column to be the only one missing. In copies of public files with those column IDs removed from the reader's map, the tool now answers as it did before the change, or better. One known limit remains: in an old potentiostatic file that stores the current only as `dq`, a hidden `dq` whose size does not follow the time step is named `I`.
 
-Hiding every column of all 938 files in turn (9,305 columns):
-- correct: 94.6 % → **96.3 %**
+Hiding every column of the 880 distinct files in turn (9,040 columns that are not constant or copies):
+- correct: 94.7 % → **96.2 %**
 - wrong names: 151 → **108**
-- abstained: 349 → 237
+- abstained: 329 → 237
 
-Every change is an `<I>` column now named correctly (656 `<I>` columns: 496 → 651 correct), and no column got worse. On hold-out 7 alone, 94.4 % → 95.7 % are correct and wrong names fall from 139 to 98.
+Every change is an `<I>` column now named correctly (599 `<I>` columns: 459 → 594 correct), and no answer got worse. One wrong name (`|Z|` → `Pwe` in one file) now comes with confidence 0.94 instead of 0.43, because `Ece` no longer competes. On hold-out 7 alone, 94.4 % → 95.7 % are correct and wrong names fall from 139 to 98.
 
 On the hold-out tasks, a rerun (`--label rules-dev`, not blind) names more `<I>` columns than the code just before this fix and adds no wrong name:
 - hold-out 4: 82/86 (was 78)
@@ -280,3 +280,9 @@ Golden changed in 29 of 1527 answers:
 - 8 changed answer, all to the right one: 7 `<I>` columns named, and the decoy now gets ABSTAIN.
 - 18 keep their answer with higher confidence, mostly `|Ewe|` and `|I|` in impedance records, where `Ece` no longer competes.
 - 3 out-of-vocabulary `<I>` decoys get ABSTAIN as before, now from the missing-current rule, with the confidence rounded.
+
+**Review before release 0.1.6 (2026-10-28).** Five reviewers checked everything since 0.1.5: code, packaging, scripts and every number in the documents. Each medium or high finding was checked again by another agent that tried to refute it. Fixed before the release:
+- **Name elimination with several unknown columns.** It is the oldest rule that infers a column from what the file lacks, and it ignored whether other columns were unknown too. In 12 hold-out 7 impedance and MB files, galvani knows `|Ece h2|` … `|Ece h6|` but not `|Ece h7|`, THD/NSD/NSR `Ece` or some energy columns, and every one of their unknown columns that is not constant or a copy (47 of 56) was named `|Ece h7|` at confidence 0.9. `--self-check` on those files answered `|Ece h7|` for 361 of 594 hidden columns. 0.1.5 does the same. Name elimination, the single-missing-sibling rule, the missing-current rules and the `(Q-Qo)` veto now apply only when one column is unknown. In `--self-check`, elimination still names the slot that hiding a column opens, but never a gap the whole file already has. On the 95 galvani-unknown columns of the 36 public files that have any: names that differ from the answer key 43 → 17 (5 more named columns are unknown to yadg too and keep their names), ABSTAIN 27 → 65, right 17 → 5. Of the 12 right `|Ece h7|` answers, 7 now get ABSTAIN and 5 are named `Pwe` by the statistics vote (confidence 0.30–0.42). `--self-check` on those files: 325 → 603 hidden columns named correctly, wrong names 502 → 90, and no column that was right is now wrong (4 now get ABSTAIN). Golden and the benchmark treat the hidden column as the only one withheld, so their answers do not change.
+- **Counts.** The 938 readable files counted hold-out 6's 57 files twice, and hold-out 3 holds one file twice; the corpus figures above are now over the 880 distinct files. Hold-out 7 lists one dataset under two addresses, so it has 221 records, and its files come from 24 repositories, not about 30.
+- **Smaller fixes.** A current of a few pA is no longer taken for whole numbers by the missing-current rule. `pytest tests` works in a fresh clone. The hold-out fetch script writes each file under a temporary name first, skips names that would leave the target folder and `.mpr` archive members over 30 MB, and checks that a server really answers range requests. The publish workflow checks that the release tag matches the version.
+- Four tests were added: for the time-step exception, for elimination with several unknown columns, for the CLI passing on whether the column is the only unknown one, and for `--self-check` and the file's own gap.

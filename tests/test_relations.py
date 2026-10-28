@@ -82,7 +82,7 @@ def test_statistics_may_not_name_a_charge_without_a_current():
 
 
 def test_missing_current_is_named_and_not_called_ece():
-    """Every public impedance record (202/202) and all but one record with control in V (376/377; galvani's
+    """Every public impedance record (202/202) and all but one record with control in V (319/320; galvani's
     bio_logic4.mpr stores dq) hold the measured current. Where such a file names no current, a smooth column next
     to Ewe is that current, not a second potential (hold-out 7: <I> was named Ece 31 times). In an impedance record
     Ece also needs a counter-electrode impedance quantity beside it, as in all 25 public impedance records with Ece.
@@ -122,3 +122,79 @@ def test_missing_current_is_named_and_not_called_ece():
     assert not consistent("Ece", Context("PEIS", known, dc - 0.5, "<f4"))  # no counter-electrode quantity
     known["|Ece|"] = Known("|Ece|", "V", np.full(61, 0.004), "<f4")
     assert consistent("Ece", Context("PEIS", known, dc - 0.5, "<f4"))
+
+
+def test_a_column_that_follows_the_time_step_is_not_the_missing_current():
+    """galvani's bio_logic4.mpr (control in V, Ewe, dq, no I) stores the current only as the per-point charge
+    dq = I*dt, whose size follows the time step. Hidden there, dq must not be named the missing current, while the
+    current itself still is."""
+    from namer.engine import Context, Known
+    from namer.library import follows_time_step, missing_current
+
+    dt = np.where(np.arange(600) % 2, 2.0, 0.2)  # s, two alternating time steps
+    t = np.cumsum(dt)
+    sweep = 0.2 + 0.6 * np.abs(((t / 300.0) % 2) - 1)  # V
+    current = (1.5 + 0.8 * np.exp(-(sweep - 0.5) ** 2 / 0.01)).astype("<f4")  # mA
+    dq = (current * dt / 3600.0).astype("<f8")  # mA·h per point
+    cv = [col(0, "time", "s", "<f8", t), col(1, "control", "V", "<f4", sweep),
+          col(2, "Ewe", "V", "<f4", sweep + 0.002 * np.sin(t))]
+    known = {c.name: Known(c.name, c.unit, c.values, c.dtype) for c in cv}
+    assert follows_time_step(Context(None, known, dq, "<f8"))
+    assert missing_current(Context(None, known, dq, "<f8")) == 0.0
+    a = answer(dq, "<f8", cv, None, vocab.names())
+    assert not (a["verdict"] == "NAME" and a["name"] == "I"), a
+    assert not follows_time_step(Context(None, known, current, "<f4"))
+    a = answer(current, "<f4", cv, None, vocab.names())
+    assert a["verdict"] == "NAME" and a["name"] == "I", a
+
+
+def test_name_elimination_needs_the_column_to_be_the_only_one_missing():
+    """With |Ewe h2| ... |Ewe h7| known except h4, a hidden column is |Ewe h4| by elimination, but only when it is
+    the only column missing. With several unknown columns each of them got the gap's name (public impedance files
+    with THD Ece, NSD Ece, NSR Ece and |Ece h7| unknown: all named |Ece h7|)."""
+    f = np.logspace(5, -1, 61)
+    known = [col(0, "freq", "Hz", "<f4", f), col(1, "time", "s", "<f8", np.cumsum(1 / f + 1)),
+             col(2, "Ewe", "V", "<f4", 0.31 + 0.001 * np.linspace(0, 1, 61))]
+    for k, h in enumerate((2, 3, 5, 6, 7)):
+        known.append(col(3 + k, f"|Ewe h{h}|", "V", "<f4", 1e-4 / h * (1 + 0.1 * np.sin(f / (h * 1e3)))))
+    target = (1e-4 / 4 * (1 + 0.1 * np.cos(np.arange(61)))).astype("<f4")
+    a = answer(target, "<f4", known, "PEIS", vocab.names())
+    assert a["verdict"] == "NAME" and a["name"] == "|Ewe h4|" and "elimination" in a["evidence"], a
+    a = answer(target, "<f4", known, "PEIS", vocab.names(), alone=False)  # another column is unknown too
+    assert "elimination" not in a["evidence"], a
+
+
+def test_self_check_never_gives_the_files_own_gap():
+    """--self-check hides one known column at a time. A sibling gap that the whole file already has (here |Ewe h7|,
+    stored under a column ID the parser does not know) belongs to none of the known columns, so it is never their
+    answer. A gap that hiding a column opens is that column's own slot and is still named by elimination, also when
+    the file has an unrelated unknown column."""
+    from namer import cli
+
+    f = np.logspace(5, -1, 61)
+    base = [col(0, "freq", "Hz", "<f4", f), col(1, "time", "s", "<f8", np.cumsum(1 / f + 1)),
+            col(2, "Ewe", "V", "<f4", 0.31 + 0.001 * np.linspace(0, 1, 61))]
+
+    def harmonic(h, position):
+        return col(position, f"|Ewe h{h}|", "V", "<f4", 1e-4 / h * (1 + 0.1 * np.sin(f / (h * 1e3))))
+
+    def unknown(position, raw_id, dtype, values):
+        return mprfile.Col(position, raw_id, f"unknown {raw_id}", None, dtype, False, np.asarray(values, dtype=dtype))
+
+    own_gap = base + [harmonic(h, 3 + k) for k, h in enumerate((2, 3, 4, 5, 6))]
+    own_gap.append(unknown(8, 503, "<f4", 1e-4 / 7 * (1 + 0.1 * np.sin(f / 7e3))))
+    rows = cli.self_check(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0, own_gap, []))["rows"]
+    assert not any(r["answer"] == "|Ewe h7|" for r in rows), rows
+    no_gap = base + [harmonic(h, 3 + k) for k, h in enumerate((2, 3, 4, 5, 6, 7))]
+    no_gap.append(unknown(9, 506, "<u2", np.arange(61) % 3))
+    rows = cli.self_check(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0, no_gap, []))["rows"]
+    assert all(r["correct"] for r in rows if r["column"].startswith("|Ewe h")), rows
+    # Two gaps tie (|Ewe h4| and |I h7|), so elimination names neither; hiding an |I h| column breaks the tie, and
+    # the other gap must still not become its answer.
+    tied = base + [harmonic(h, 3 + k) for k, h in enumerate((2, 3, 5, 6, 7))]
+    tied.append(col(8, "I", "mA", "<f4", 0.02 + 0.001 * np.linspace(0, 1, 61)))
+    tied += [col(9 + k, f"|I h{h}|", "mA", "<f4", 1e-5 / h * (1 + 0.1 * np.cos(f / (h * 1e3))))
+             for k, h in enumerate((2, 3, 5, 6))]
+    tied.append(unknown(13, 506, "<u2", np.arange(61) % 3))
+    rows = cli.self_check(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0, tied, []))["rows"]
+    assert not any(r["answer"] in ("|Ewe h4|", "|I h7|") for r in rows), rows
