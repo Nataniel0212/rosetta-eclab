@@ -20,7 +20,7 @@ import warnings
 from spike2 import elim, vocab
 
 from . import mprfile
-from .evaluate import answer
+from .evaluate import answer, gap_column
 
 
 def unit_of(name: str) -> str:
@@ -39,10 +39,12 @@ def own_group(path: str) -> str | None:
 
 def name_unknown(m: mprfile.MprData) -> list[dict]:
     known = [c for c in m.columns if c.known]
+    several = len(m.unknown) > 1
+    g = gap_column(known, m.unknown, vocab.names(), m.alternatives, m.doubtful) if several else None  # sibling gap
     out = []
-    for c in m.unknown:
+    for i, c in enumerate(m.unknown):
         a = answer(c.values, c.dtype, known, m.technique, vocab.names(), exclude_group=own_group(m.path),
-                   alone=len(m.unknown) == 1)
+                   alone=not several, gap=g[1:] if g and g[0] == i else None)
         out.append({"column_id": c.raw_id, "dtype": c.dtype, "verdict": a["verdict"], "name": a.get("name"),
                     "unit": unit_of(a["name"]) if a["verdict"] == "NAME" else "", "confidence": a.get("confidence"),
                     "duplicate_of": a.get("duplicate_of", ""), "alternatives": a.get("alternatives", []),

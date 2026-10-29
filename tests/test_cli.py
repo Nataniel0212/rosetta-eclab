@@ -36,6 +36,85 @@ def recode(src: Path, dst: Path, old_id: int, new_id: int) -> None:
     dst.write_bytes(bytes(raw))
 
 
+def recode_low_byte(src: Path, dst: Path, mapping: dict[int, int]) -> None:
+    """recode() for the EC-Lab 11.50 layout (data module version 10 or 11), where the full column IDs are stored
+    little-endian from byte 6: only the low byte changes, so yadg, which reads the ID bytes from byte 5, sees the
+    same change."""
+    raw = bytearray(src.read_bytes())
+    start = next(bytes(raw).index(md) for name, _v, md in mprfile._modules(bytes(raw)) if name == "VMP data")
+    ids = np.frombuffer(bytes(raw[start + 6: start + 6 + 2 * raw[start + 4]]), dtype="<u2").tolist()
+    for old, new in mapping.items():
+        assert old >> 8 == new >> 8
+        k = ids.index(old)
+        raw[start + 6 + 2 * k: start + 8 + 2 * k] = int(new).to_bytes(2, "little")
+    dst.write_bytes(bytes(raw))
+
+
+def test_reader_split_keeps_the_known_columns_readable(tmp_path):
+    """An integer-valued f8 column such as cycle number can also be read as a zero u4 followed by an f4, which moves
+    every later column by four bytes. Here, with cycle number, NSR I and |I h6| under IDs no parser knows, that split
+    scores 0.2 higher on the unknown columns but leaves three known columns unreadable as their own type. Among the
+    splits within 0.5 of the best, the reader takes the one that leaves the most known columns readable, so every
+    column decodes as in the original, and |I h6| is named from its numbered siblings."""
+    f = tmp_path / "three.mpr"
+    recode_low_byte(EXT / "peis.issue_149.mpr", f, {24: 40, 480: 297, 496: 298})
+    m = mprfile.read(f, reference="yadg")
+    ref = mprfile.read(EXT / "peis.issue_149.mpr", reference="yadg")
+    assert sorted(c.raw_id for c in m.unknown) == [40, 297, 298]
+    assert [c.values.tobytes() for c in m.columns] == [c.values.tobytes() for c in ref.columns]
+    res = {r["column_id"]: r for r in cli.name_unknown(m)}
+    assert res[298]["name"] == "|I h6|" and "elimination" in res[298]["evidence"], res[298]
+    assert [i for i, r in res.items() if r["name"] == "|I h6|"] == [298], res
+
+
+def test_reader_keeps_nearly_as_plausible_splits_beyond_the_first_200(tmp_path):
+    """With eight column IDs unknown there are 1,498 ways to split the record. The true split here is number 1,198 in
+    the search order, and two integer columns side by side (cycle number and I Range) can swap widths at almost no
+    cost. The reader must have tried it: it is either the chosen split or one of the alternatives that a conclusion
+    has to hold in as well."""
+    f = tmp_path / "eight.mpr"
+    recode_low_byte(EXT / "peis.issue_149.mpr", f, {4: 40, 77: 41, 24: 42, 39: 43, 131: 44, 13: 47, 70: 48, 473: 305})
+    m = mprfile.read(f, reference="yadg")
+    want = [c.values.tobytes() for c in mprfile.read(EXT / "peis.issue_149.mpr", reference="yadg").columns]
+    assert len(m.unknown) == 8
+    assert any([c.values.tobytes() for c in cols] == want for cols in [m.columns] + m.alternatives)
+
+
+def _with_corrupt_column(src: Path, dst: Path, name: str) -> None:
+    """Copy an EC-Lab 11.50-layout file with the f4 column `name` overwritten by 1e20, a value no measurement has, on
+    every third row."""
+    raw = bytearray(src.read_bytes())
+    start = next(bytes(raw).index(md) for n, _v, md in mprfile._modules(bytes(raw)) if n == "VMP data")
+    ref = mprfile.read(src, reference="yadg")
+    pos, flags = 0, False
+    for i in np.frombuffer(bytes(raw[start + 6: start + 6 + 2 * raw[start + 4]]), dtype="<u2").tolist():
+        if i in mprfile.FLAG_IDS:  # one shared flags byte
+            pos, flags = pos + (not flags), True
+            continue
+        c = next(c for c in ref.columns if c.raw_id == i)
+        if c.name == name:
+            break
+        pos += c.values.dtype.itemsize
+    for r in range(0, ref.n_points, 3):
+        o = start + 0x3EF + r * ref.record_size + pos
+        raw[o:o + 4] = np.array([1e20], "<f4").tobytes()
+    dst.write_bytes(bytes(raw))
+
+
+def test_reader_doubts_a_split_when_another_reads_more_known_columns(tmp_path):
+    """A known column with values no storage type explains (here <Ewe>, overwritten with 1e20 on every third row) can
+    be read out of the way by another split of the record. The reader keeps the most plausible split, says that it may
+    be wrong, and the several-unknown rule names nothing from such a split."""
+    bad, f = tmp_path / "bad.mpr", tmp_path / "doubt.mpr"
+    _with_corrupt_column(EXT / "peis.issue_149.mpr", bad, "<Ewe>")
+    recode_low_byte(bad, f, {4: 40, 76: 41})  # time and <I>
+    m = mprfile.read(f, reference="yadg")
+    assert sorted(c.raw_id for c in m.unknown) == [40, 41]
+    assert m.doubtful and any("may be wrong" in n for n in m.notes), m.notes
+    clean = mprfile.read(EXT / "peis.issue_149.mpr", reference="yadg")
+    assert not clean.doubtful
+
+
 def test_reader_matches_reference_decoder():
     for name in ("gcpl.mpr", "bcd.issue_241.mpr", "peis.mpr", "cv.mpr"):
         ref = corpus.decode(EXT / name)

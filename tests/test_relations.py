@@ -198,3 +198,132 @@ def test_self_check_never_gives_the_files_own_gap():
     tied.append(unknown(13, 506, "<u2", np.arange(61) % 3))
     rows = cli.self_check(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0, tied, []))["rows"]
     assert not any(r["answer"] in ("|Ewe h4|", "|I h7|") for r in rows), rows
+
+
+def _unknown(position, raw_id, dtype, values):
+    return mprfile.Col(position, raw_id, f"unknown {raw_id}", None, dtype, False, np.asarray(values, dtype=dtype))
+
+
+def _ece_file():
+    """freq, time, Ewe and |Ece h2| ... |Ece h6| of an impedance file. Like the harmonics of real files, they are
+    nonzero only on some rows (here one in four)."""
+    f = np.logspace(5, -1, 61)
+    on = np.arange(61) % 4 == 0
+    known = [col(0, "freq", "Hz", "<f4", f), col(1, "time", "s", "<f8", np.cumsum(1 / f + 1)),
+             col(2, "Ewe", "V", "<f4", 0.31 + 0.001 * np.linspace(0, 1, 61))]
+    known += [col(3 + k, f"|Ece h{h}|", "V", "<f4", on * 1e-5 * (1 + 0.1 * np.sin(f / (h * 1e3))))
+              for k, h in enumerate((2, 3, 4, 5, 6))]
+    return known, on
+
+
+def test_with_several_unknown_columns_the_gap_goes_to_the_one_on_its_siblings_scale():
+    """Twelve public impedance files store |Ece h7| under an ID galvani does not know, next to THD, NSD and NSR Ece
+    (percent) and energy columns (f8). With |Ece h2| ... |Ece h6| known, |Ece h7| is the sibling gap: it goes to the
+    one unknown column with their storage type, sign and scale, and to none when a second column fits too, even a
+    constant one. The other rivals here are on the right scale but f8, f4 but signed, or 20 times too large."""
+    from namer import cli
+
+    known, on = _ece_file()
+    n = np.arange(61)
+    h7 = _unknown(8, 503, "<f4", on * 1e-5 * (1 + 0.1 * np.cos(n)))
+    rivals = [_unknown(9, 475, "<f4", 5 + np.sin(n)),  # percent
+              _unknown(10, 878, "<f8", 1e-5 * (1 + 0.5 * np.sin(n / 5))),
+              _unknown(11, 478, "<f4", 1e-5 * np.sin(n / 5)),
+              _unknown(12, 481, "<f4", 2.2e-4 * (1 + 0.1 * np.sin(n)))]
+    res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0, known + [h7] + rivals, []))
+    by_id = {r["column_id"]: r for r in res}
+    assert by_id[503]["name"] == "|Ece h7|" and "elimination" in by_id[503]["evidence"], by_id[503]
+    assert [r["column_id"] for r in res if r["name"] == "|Ece h7|"] == [503], res
+    for second in (_unknown(13, 504, "<f4", 1.5e-5 * (1 + 0.1 * np.sin(n))), _unknown(13, 504, "<f4", np.full(61, 1.2e-5))):
+        res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0, known + [h7, second, rivals[0]], []))
+        assert not any(r["name"] == "|Ece h7|" for r in res), res
+
+
+def test_a_gap_needs_two_numbered_siblings_with_data_when_several_columns_are_unknown():
+    """THD Ece is the sibling gap of THD Ewe, THD I, NSD Ece and NSR Ece, but those are other quantities (THD, NSD
+    and NSR of one channel differ up to 94-fold in public files), so their scale cannot pick THD Ece among several
+    unknown columns. Neither can one numbered sibling (|Ece h6| alone for |Ece h7|), nor one with data among siblings
+    that are all zeros. A lone unknown column still gets the gap."""
+    from namer.evaluate import gap_column
+
+    f = np.logspace(5, -1, 61)
+    n = np.arange(61)
+    base = [col(0, "freq", "Hz", "<f4", f), col(1, "time", "s", "<f8", np.cumsum(1 / f + 1))]
+    thd = base + [col(2 + k, name, "%", "<f4", (1 + k) * (1 + 0.1 * np.sin(f / ((k + 1) * 1e3)))) for k, name in
+                  enumerate(("THD Ewe", "THD I", "NSD Ewe", "NSD I", "NSD Ece", "NSR Ewe", "NSR I", "NSR Ece"))]
+    one = base + [col(2 + k, name, unit, "<f4", 1e-5 * (1 + 0.1 * np.sin(f / ((k + 1) * 1e3)))) for k, (name, unit) in
+                  enumerate((("|Ece h6|", "V"), ("|Ewe h7|", "V"), ("|I h7|", "mA")))]
+    zeros, _ = _ece_file()
+    for c in zeros[3:7]:  # |Ece h2| ... |Ece h5| hold only zeros; |Ece h6| has data
+        c.values = np.zeros(61, dtype="<f4")
+    h7 = 1e-5 * (1 + 0.1 * np.cos(n))
+    cases = ((thd, "THD Ece", 2 + 0.2 * np.cos(n), 1e-5),  # the rival is off the siblings' scale in all cases
+             (one, "|Ece h7|", h7, 7.0), (zeros, "|Ece h7|", h7, 7.0))
+    for known, gap, target, rival in cases:
+        target = target.astype("<f4")
+        a = answer(target, "<f4", known, "PEIS", vocab.names())
+        assert a["name"] == gap and "elimination" in a["evidence"], a
+        unknown = [_unknown(20, 900, "<f4", target), _unknown(21, 901, "<f4", np.full(61, rival))]
+        assert gap_column(known, unknown, vocab.names()) is None, gap
+
+
+def test_with_several_unknown_columns_the_gap_must_be_the_only_hole_in_a_numbered_family():
+    """When |I h4| and |I h5| are missing as well, some unknown columns may be harmonics. A harmonic whose own column
+    is off its siblings' scale would then pass its name to a sibling's column (public files with three or more
+    harmonics hidden: 137 wrong names), so |Ece h7| is named only once it is the file's one numbered gap."""
+    from namer.evaluate import gap_column
+
+    known, on = _ece_file()
+    n = np.arange(61)
+    i_harm = {h: col(8 + k, f"|I h{h}|", "mA", "<f4", on * 1e-3 * (1 + 0.1 * np.cos(n / h)))
+              for k, h in enumerate((2, 3, 4, 5, 6, 7))}
+    h7 = _unknown(20, 503, "<f4", on * 1e-5 * (1 + 0.1 * np.cos(n)))
+    holes = known + [i_harm[h] for h in (2, 3, 6, 7)]
+    unknown = [h7] + [_unknown(21 + k, 495 + k, "<f4", i_harm[h].values) for k, h in enumerate((4, 5))]
+    assert gap_column(holes, unknown, vocab.names()) is None
+    whole = known + list(i_harm.values())
+    g = gap_column(whole, [h7, _unknown(21, 475, "<f4", 5 + np.sin(n))], vocab.names())
+    assert g is not None and g[:2] == (0, "|Ece h7|"), g
+    # Five of the six |I hN| unknown: with |I h2| the only one known, the other five are holes too, so |Ece h7| is not
+    # the only one even though no |I hN| has two known siblings.
+    few = known + [i_harm[2]]
+    unknown = [h7] + [_unknown(21 + k, 493 + k, "<f4", i_harm[h].values) for k, h in enumerate((3, 4, 5, 6, 7))]
+    assert gap_column(few, unknown, vocab.names()) is None
+
+
+def test_the_gap_is_not_named_when_a_nearly_as_plausible_split_lets_another_column_fit():
+    """The reader keeps the splits of the record into columns that are nearly as plausible as the best one
+    (mprfile.NEAR). If another unknown column fits the gap in one of them, which column is the gap's depends on where
+    a column ends, so none is named. A split in which no other column fits does not stand in the way."""
+    from namer.evaluate import gap_column
+
+    known, on = _ece_file()
+    n = np.arange(61)
+    h7 = _unknown(8, 503, "<f4", on * 1e-5 * (1 + 0.1 * np.cos(n)))
+    other = _unknown(9, 475, "<f4", 5 + np.sin(n))
+    g = gap_column(known, [h7, other], vocab.names())
+    assert g is not None and g[:2] == (0, "|Ece h7|"), g
+    shifted = known + [_unknown(8, 503, "<u4", n % 7), _unknown(9, 475, "<f4", 1.1e-5 * (1 + 0.1 * np.sin(n)))]
+    assert gap_column(known, [h7, other], vocab.names(), [shifted]) is None
+    harmless = known + [_unknown(8, 503, "<u4", n % 7), _unknown(9, 475, "<f4", 5 + np.cos(n))]
+    g = gap_column(known, [h7, other], vocab.names(), [harmless])
+    assert g is not None and g[:2] == (0, "|Ece h7|"), g
+    assert gap_column(known, [h7, other], vocab.names(), doubtful=True) is None  # the reader doubts its split
+
+
+def test_siblings_that_disagree_by_more_than_a_hundredfold_set_no_scale():
+    """The members of one harmonic family agree within a factor 48.5 in public files. When a misread split moves
+    another column in among the siblings, their scales spread far wider, and no column is matched to them."""
+    from namer.evaluate import gap_column
+
+    known, on = _ece_file()
+    n = np.arange(61)
+    h7 = _unknown(8, 503, "<f4", on * 1e-5 * (1 + 0.1 * np.cos(n)))
+    other = _unknown(9, 475, "<f4", 500 + np.sin(n))
+    g = gap_column(known, [h7, other], vocab.names())
+    assert g is not None and g[:2] == (0, "|Ece h7|"), g
+    known[7].values = np.zeros(61, dtype="<f4")  # an all-zero |Ece h6| is left out; four siblings with data remain
+    g = gap_column(known, [h7, other], vocab.names())
+    assert g is not None and g[:2] == (0, "|Ece h7|"), g
+    known[3].values = (on * 2.6 * (1 + 0.1 * np.sin(n))).astype("<f4")  # |Ece h2| now holds another column's values
+    assert gap_column(known, [h7, other], vocab.names()) is None

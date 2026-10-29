@@ -5,8 +5,9 @@
   python -m namer.evaluate --split test      # v2 test tasks -> runs3/rules_test.jsonl (run rarely; record in results/open_runs.md)
 
 Pipeline per column: constant -> ABSTAIN; identical to a known column -> DUPLICATE;
-name elimination (spike2/elim.py, only when the column is the only one missing; in --self-check never a gap of the
-whole file) -> NAME; otherwise the formula library (namer/library.py).
+name elimination (spike2/elim.py, only when the column is the only one missing; with several unknown columns only for
+the one that fits a numbered gap's siblings, gap_column; in --self-check never a gap of the whole file) -> NAME;
+otherwise the formula library (namer/library.py).
 """
 
 from __future__ import annotations
@@ -75,6 +76,73 @@ def consistent(name: str, ctx: Context) -> bool:
     return True
 
 
+def _scale(values) -> tuple[float, float]:
+    """Median magnitude and share of negative values, over the finite nonzero entries."""
+    x = np.asarray(values, dtype=float)
+    x = x[np.isfinite(x) & (x != 0)]
+    return (float(np.median(np.abs(x))), float(np.mean(x < 0))) if x.size else (0.0, 0.0)
+
+
+# The members of one harmonic family agree within a factor 48.5 in public files (median 1.9). Siblings further apart
+# than this are not one family's scale: in recoded files a misread split had moved another column among them.
+SIBLING_SPREAD = 100
+
+
+def fits_gap(gap: str, values, dtype: str, siblings: list) -> bool:
+    """Could this column be the gap's own column? `siblings` are the known columns that differ from the gap only in a
+    number (elim.numbered_siblings); at least two differently named ones with data, whose median magnitudes agree
+    within SIBLING_SPREAD, set the scale. The column must have the storage type EC-Lab uses for the gap's quantity, a
+    median magnitude within a factor 10 of the siblings' range, and at most 1 percentage point more negative values
+    than the sibling with the most (a harmonic is a magnitude, so normally none)."""
+    from .library import DTYPES
+
+    sib = [(vocab.canonical(c.name), _scale(c.values)) for c in siblings]
+    sib = [(n, s) for n, s in sib if s[0] > 0]  # the siblings with data
+    if len({n for n, _ in sib}) < 2 or (DTYPES.get(gap) and dtype not in DTYPES[gap]):
+        return False
+    med, neg = _scale(values)
+    lo, hi = min(s[0] for _, s in sib), max(s[0] for _, s in sib)
+    if hi > SIBLING_SPREAD * lo:
+        return False
+    return med > 0 and lo / 10 <= med <= hi * 10 and neg <= max(s[1] for _, s in sib) + 0.01
+
+
+def gap_column(known_cols: list, unknown_cols: list, vocabulary: list[str], alternatives: list = (),
+               doubtful: bool = False) -> tuple[int, str, str] | None:
+    """With several unknown columns: which of them fills the file's sibling gap, as (index, name, evidence), or None.
+
+    The gap is the name that elimination finds (elim.eliminate). It must be the only hole in the file's numbered
+    families (elim.numbered_gaps), so none of the other unknown columns is one of its siblings. Exactly one unknown
+    column may then fit the gap's numbered siblings (fits_gap), and it must not be constant or a copy of a known
+    column; constant columns and copies still count as rivals. The check trusts the reader's split of the record into
+    columns, so it is repeated on every split the reader found nearly as plausible (mprfile.MprData.alternatives): if
+    another column fits in any of them, the data do not say which column is the gap's. A split the reader marks as
+    doubtful (another split reads more known columns as their own type) gives no name at all."""
+    names = [c.name for c in known_cols]
+    gap = elim.eliminate(names, vocabulary)
+    if doubtful or not gap or elim.numbered_gaps(names, vocabulary) != {gap}:
+        return None
+
+    def fitting(known: list, unknown: list) -> tuple[list[int], list]:
+        sib_names = elim.numbered_siblings(gap, [c.name for c in known])
+        sibs = [c for c in known if c.name in sib_names]
+        return [i for i, u in enumerate(unknown) if fits_gap(gap, u.values, u.dtype, sibs)], sibs
+
+    fit, sibs = fitting(known_cols, unknown_cols)
+    if len(fit) != 1:
+        return None
+    col = unknown_cols[fit[0]]
+    if features.is_constant(col.values) or any(features.identical(col.values, c.values) for c in known_cols):
+        return None
+    for cols in alternatives:
+        unknown = [c for c in cols if not c.known]
+        if any(unknown[i].position != col.position for i in fitting([c for c in cols if c.known], unknown)[0]):
+            return None
+    shown = list(dict.fromkeys(c.name for c in sibs if _scale(c.values)[0] > 0))
+    return fit[0], gap, (f"name elimination (sibling gap): the only one of the {len(unknown_cols)} unknown columns "
+                         f"with the storage type, sign and scale of {', '.join(shown)}")
+
+
 def stats() -> Stats:
     global _STATS
     if _STATS is None:
@@ -84,19 +152,24 @@ def stats() -> Stats:
 
 def answer(target, dtype, known_cols: list, technique, vocabulary: list[str], abstain_below: float = 0.6,
            exclude_group: str | None = None, noise_autocorr: float = 0.3, fallback_min_share: float = 0.5,
-           alone: bool = True, file_gaps: set[str] | None = None) -> dict:
+           alone: bool = True, file_gaps: set[str] | None = None, gap: tuple[str, str] | None = None) -> dict:
     """Name one column from the file's known columns. `alone` is False when other columns of the record are missing
     from known_cols too (several unknown columns, or --self-check on a file with unknown columns). In --self-check,
     `file_gaps` holds the sibling gaps of the whole file (elim.gaps, empty if none): no hidden known column can fill
-    one, and any other gap is the hidden column's own slot, so name elimination still runs there."""
+    one, and any other gap is the hidden column's own slot, so name elimination still runs there. With several
+    unknown columns the file-level check gap_column decides which one fills the sibling gap, and `gap` = (name,
+    evidence) is passed for that column."""
     if features.is_constant(target):
         return {"verdict": "ABSTAIN", "name": "NONE", "confidence": 1.0, "evidence": "constant column"}
     same = [c.name for c in known_cols if features.identical(target, c.values)]
     if same:
         return {"verdict": "DUPLICATE", "name": "NONE", "duplicate_of": same[0], "confidence": 1.0,
                 "evidence": f"identical to {same[0]}"}
+    if gap:
+        return {"verdict": "NAME", "name": gap[0], "confidence": 0.9, "evidence": gap[1]}
     # A sibling gap names the column only when it is the column's own slot: with several unknown columns every one
-    # of them would get the gap's name (public files: |Ece h7| for THD/NSD/NSR Ece and the energy columns).
+    # of them would get the gap's name (public files: |Ece h7| for THD/NSD/NSR Ece and the energy columns). There
+    # gap_column picks the one that fits, at file level.
     e = elim.eliminate([c.name for c in known_cols], vocabulary) if alone or file_gaps is not None else None
     if e and e not in (file_gaps or ()):
         return {"verdict": "NAME", "name": e, "confidence": 0.9, "evidence": "name elimination (sibling gap)"}
