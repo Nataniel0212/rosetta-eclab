@@ -52,10 +52,11 @@ def recode_low_byte(src: Path, dst: Path, mapping: dict[int, int]) -> None:
 
 def test_reader_split_keeps_the_known_columns_readable(tmp_path):
     """An integer-valued f8 column such as cycle number can also be read as a zero u4 followed by an f4, which moves
-    every later column by four bytes. Here, with cycle number, NSR I and |I h6| under IDs no parser knows, that split
-    scores 0.2 higher on the unknown columns but leaves three known columns unreadable as their own type. Among the
-    splits within 0.5 of the best, the reader takes the one that leaves the most known columns readable, so every
-    column decodes as in the original, and |I h6| is named from its numbered siblings."""
+    the following columns by four bytes until another unknown column takes up the difference. Here, with cycle number,
+    NSR I and |I h6| under IDs no parser knows, that split scores 0.2 higher on the unknown columns but leaves three
+    known columns unreadable as their own type. Among the splits within 0.5 of the best, the reader takes the one that
+    leaves the most known columns readable, so every column decodes as in the original, and |I h6| is named from its
+    numbered siblings."""
     f = tmp_path / "three.mpr"
     recode_low_byte(EXT / "peis.issue_149.mpr", f, {24: 40, 480: 297, 496: 298})
     m = mprfile.read(f, reference="yadg")

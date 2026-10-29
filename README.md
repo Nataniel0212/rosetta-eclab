@@ -79,7 +79,8 @@ The fix was released in datalab-org-galvani 0.6.0 ([galvani-mirror#11](https://g
 
 1. **Read the file** (`namer/mprfile.py`). Columns the reference parser knows are typed from its column map. For unknown IDs the byte width is solved from the record size, and the storage type is chosen by plausibility. Every split of the record into widths is tried. Among the splits nearly as plausible as the best, the reader takes the one that leaves the most known columns readable as their own type, and it says so when another split would read more of them.
 2. **Code checks first.** Constant columns and exact copies of a known column are reported as such. Names that a family of siblings makes obvious are filled in when the column is the only unknown one, for example the missing harmonic `|Ewe h4|`. With several unknown columns, a missing harmonic goes to the one column with the storage type EC-Lab uses for it and the sign and scale of its numbered siblings (`|Ewe h2|`, `|Ewe h3|`, …). It goes to none in these cases:
-   - more than one column fits;
+   - fewer than two of its numbered siblings have data;
+   - more than one column fits, or the only one that fits is constant or a copy of a known column;
    - the siblings disagree on a scale;
    - another harmonic of a family the file holds is missing too;
    - the reader is not sure where the columns end.
@@ -129,7 +130,8 @@ The namer improved between hold-outs, so the total includes earlier versions. Th
   - In 21,067 of the replayed cases, the other columns got 1,772 wrong names, 793 of them at confidence 0.9 or more. That is about as many as in 0.1.6 (1,812 and 784). Most of the confident ones are a THD, NSD or NSR column called `Ece`. When the rule gave no name, the harmonic's own column got 362 wrong names (0.1.6: 9,175).
   - `--self-check` still fills the slot that hiding a known column opens, never a gap the file already has.
 - **Many unknown columns:** with six or more unknown columns, a record can be split in hundreds of ways. The reader tries them all, which fixes far more decodes than it breaks, but a wrong split can still look more plausible than the right one.
-  - In reviewers' recodings with 5 to 10 unknown columns, 17 decoded worse than in 0.1.6 and about 7,000 better.
+  - In one reviewer's search of 14,289 recodings of public files with 6 to 8 unknown columns, 4,991 decoded better than in 0.1.6 and 20 worse, comparing every column's values. Across all their runs, reviewers found 45 distinct recodings that 0.1.6 decoded right and the reader now decodes wrong, all with 6 to 8 unknown columns.
+  - Corrupt columns can mislead the reader too. In copies of the one public file with corrupt harmonic columns, reviewers found 10 recodings, with 3 to 7 unknown columns, that 0.1.6 split right and the reader now splits wrong.
   - The misread columns can get confident wrong names.
   - No public file decodes differently.
 - **Two quantities with the same definition in a file** cannot be told apart from the data. In galvanostatic cycling, for example, `dQ` and `Q charge or discharge` reset at the same points. A prior over how common each name is for the technique decides between them, and the alternative is shown.

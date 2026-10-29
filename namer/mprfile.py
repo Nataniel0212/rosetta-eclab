@@ -116,9 +116,11 @@ def _galvani_notes(full_ids: list[int], ref: galvani_ref.Reference, layout_11_50
 def _layouts(data: bytes, offset: int, n_points: int, rec: int, filled: list, unknown_idx: list[int], rest: int):
     """Every way to give the unknown columns byte widths that fill the record: [(score, garbled, widths, types)], in
     itertools.product order. Each unknown column gets its most plausible storage type, and the score adds up their
-    plausibility. `garbled` counts the known columns that the split moves onto bytes that do not read as their storage
-    type (plausibility below 0.5); the flags byte counts too, but it comes first in EC-Lab records, so no split moves
-    it. A column's plausibility depends only on its own bytes, so each (byte offset, type) is scored once."""
+    plausibility. `garbled` counts the known columns whose bytes at the offset this split gives them do not read as
+    their storage type (plausibility below 0.5). Usually that is because the split moved them, but a column that is
+    corrupt in the file counts in every split that leaves it in place. The flags byte counts too; it comes first in
+    EC-Lab records, so no split moves it. A column's plausibility depends only on its own bytes, so each (byte offset,
+    type) is scored once."""
     cache = {}
 
     def plaus(off: int, t: str) -> float:
