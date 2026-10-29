@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rosetta-eclab"
-version = "0.1.6"
+version = "0.1.7"
 description = "Name the columns of BioLogic EC-Lab .mpr files that your parser does not know - no language model, evidence for every answer"
 readme = "README.md"
 license = "GPL-3.0-or-later"
