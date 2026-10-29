@@ -44,7 +44,8 @@ def name_unknown(m: mprfile.MprData) -> list[dict]:
     out = []
     for i, c in enumerate(m.unknown):
         a = answer(c.values, c.dtype, known, m.technique, vocab.names(), exclude_group=own_group(m.path),
-                   alone=not several, gap=g[1:] if g and g[0] == i else None)
+                   alone=not several, gap=g[1:] if g and g[0] == i else None,
+                   others=[u for j, u in enumerate(m.unknown) if j != i])
         out.append({"column_id": c.raw_id, "dtype": c.dtype, "verdict": a["verdict"], "name": a.get("name"),
                     "unit": unit_of(a["name"]) if a["verdict"] == "NAME" else "", "confidence": a.get("confidence"),
                     "duplicate_of": a.get("duplicate_of", ""), "alternatives": a.get("alternatives", []),
@@ -57,9 +58,9 @@ def self_check(m: mprfile.MprData) -> dict:
     gaps = elim.gaps([c.name for c in known], vocab.names())  # the file's own sibling gaps, if any
     rows = []
     for c in known:
-        others = [o for o in known if o is not c]
-        a = answer(c.values, c.dtype, others, m.technique, vocab.names(), exclude_group=own_group(m.path),
-                   alone=not m.unknown, file_gaps=gaps)
+        rest = [o for o in known if o is not c]
+        a = answer(c.values, c.dtype, rest, m.technique, vocab.names(), exclude_group=own_group(m.path),
+                   alone=not m.unknown, file_gaps=gaps, others=m.unknown)
         rows.append({"column": c.name, "verdict": a["verdict"], "answer": a.get("name"),
                      "correct": a["verdict"] == "NAME" and a.get("name") == vocab.canonical(c.name)})
     named = [r for r in rows if r["verdict"] == "NAME"]

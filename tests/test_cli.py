@@ -252,3 +252,18 @@ def test_rules_from_what_the_file_lacks_need_one_unknown_column(tmp_path):
     assert sorted(c.raw_id for c in m.unknown) == [950, 951]
     res = {r["column_id"]: r for r in cli.name_unknown(m)}
     assert "current is missing" not in res[950]["evidence"], res[950]
+
+
+def test_an_unknown_nsd_column_is_not_called_ece(tmp_path):
+    """mb.issue_149.mpr has THD, NSD and NSR of Ewe and I but no counter-electrode channel. With half cycle, |Ewe h2|
+    and NSD I recoded, 0.1.7 named NSD I Ece at 0.93: a smooth column next to a known Ewe. Ece now needs its channel,
+    which keeps the name out; without that rule the statistics vote still says Ece. NSD also holds still through the
+    record's DC rows, which takes away 0.1.7's confident shape answer. The copy keeps the file's name, so the
+    statistics leave the file's own group out, as for the original."""
+    f = tmp_path / "mb.issue_149.mpr"
+    recode_low_byte(EXT / "mb.issue_149.mpr", f, {468: 299, 486: 300, 477: 303})
+    m = mprfile.read(f, reference="yadg")
+    assert sorted(c.raw_id for c in m.unknown) == [299, 300, 303]
+    res = {r["column_id"]: r for r in cli.name_unknown(m)}
+    assert res[303]["name"] != "Ece", res[303]
+    assert res[300]["name"] == "|Ewe h2|", res[300]  # the harmonic gap is still named

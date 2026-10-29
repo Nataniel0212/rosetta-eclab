@@ -40,8 +40,8 @@ def compute() -> list[dict]:
         for c in cols:
             if (p.name, c.position) in excluded or features.is_constant(c.values):
                 continue
-            others = [o for o in cols if o is not c]
-            a = answer(c.values, c.dtype, others, fd.technique, V, exclude_group=corpus.source_group(p.name))
+            rest = [o for o in cols if o is not c]
+            a = answer(c.values, c.dtype, rest, fd.technique, V, exclude_group=corpus.source_group(p.name))
             out.append({"id": f"pool:{p.name}:{c.position}", **{k: a.get(k) for k in KEYS}})
     for split in SPLITS:
         for t in tasks.load(split):

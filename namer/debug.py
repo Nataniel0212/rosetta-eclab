@@ -40,17 +40,17 @@ def main() -> int:
         for c in cols:
             if vocab.canonical(c.name) != a.name or (p.name, c.position) in excluded or features.is_constant(c.values):
                 continue
-            others = [o for o in cols if o is not c]
-            if any(features.identical(c.values, o.values) for o in others):
+            rest = [o for o in cols if o is not c]
+            if any(features.identical(c.values, o.values) for o in rest):
                 continue  # duplicates are not part of the pool
             if a.fails:
                 from .evaluate import answer
-                ans = answer(c.values, c.dtype, others, fd.technique, vocab.names(), exclude_group=corpus.source_group(p.name))
+                ans = answer(c.values, c.dtype, rest, fd.technique, vocab.names(), exclude_group=corpus.source_group(p.name))
                 if ans["verdict"] == "NAME" and ans["name"] == a.name:
                     continue
                 print(f"\n>> pipeline answer: {ans['verdict']} {ans.get('name')} | {ans.get('evidence', '')[:160]}")
             known = {}
-            for o in others:
+            for o in rest:
                 known.setdefault(vocab.canonical(o.name), Known(vocab.canonical(o.name), o.unit, np.asarray(o.values)))
             ctx = Context(fd.technique, known, np.asarray(c.values), c.dtype)
             y = np.asarray(c.values, dtype="f8")

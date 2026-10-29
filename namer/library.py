@@ -335,9 +335,25 @@ def unit_explained(ctx) -> bool:
     return False
 
 
+def held_between_sweeps(ctx) -> bool:
+    """True if the column holds still through the rows outside the impedance sweep (at least 10 of them). EC-Lab keeps
+    THD, NSD and NSR at their last value there, while a measured potential moves. Public impedance records with such
+    rows (36): all 81 THD, NSD and NSR columns leave at least 94.6 % of the steps there unchanged, Ewe at most 9.5 %
+    (36 columns) and Ece at most 7.3 % (19)."""
+    f = ctx.col("freq")
+    if f is None:
+        return False
+    y = np.asarray(ctx.target, dtype="f8")
+    off = ~(f > 0) & np.isfinite(y)
+    return int(off.sum()) >= 10 and float(np.mean(np.diff(y[off]) == 0)) >= 0.9
+
+
 def potential_like(ctx) -> float:
-    """f4 values in the volts range that are either smooth or held nearly flat (not integer codes, not noise)."""
+    """f4 values in the volts range that are either smooth or held nearly flat (not integer codes, not noise), and
+    measured in every row rather than held between impedance sweeps."""
     if ctx.target_dtype != "<f4" or follows_sweep(ctx) or current_held(ctx) > 0.5 or unit_explained(ctx):
+        return 0.0
+    if held_between_sweeps(ctx):
         return 0.0
     y = _fin(ctx)
     if y.size < 4 or np.abs(y).max() > 10 or np.ptp(y) == 0 or np.allclose(y, np.round(y)):
@@ -415,12 +431,85 @@ def missing_current(ctx) -> float:
     return 1.0 if piecewise_constant(ctx) < 0.9 else 0.2
 
 
+IMPEDANCE = ("freq", "|Z|", "Re(Z)", "-Im(Z)", "Phase(Z)")
+# Every public impedance record with Ece (25 of the 880 distinct files, and a 26th with 4 rows) holds all five of
+# |Ece|, |Zce|, Re(Zce), -Im(Zce) and Phase(Zce), and wherever |Zce| is stored (26 of the 880) it equals
+# sqrt(Re(Zce)^2 + Im(Zce)^2) to 0.1 % in every row.
+CE_COMPANIONS = 5
+
+
+def _fits_magnitude(a, b, c, tol) -> bool:
+    """a = sqrt(b^2 + c^2) to 0.1 % in 99 % of the rows where b and c are not both zero; 3 such rows at least."""
+    with np.errstate(all="ignore"):
+        h = np.hypot(b, c)
+    m = np.isfinite(a) & np.isfinite(h) & (h > 0)
+    return int(m.sum()) >= 3 and float(np.mean(np.isclose(a[m], h[m], rtol=1e-3, atol=tol))) >= 0.99
+
+
+def could_hold_ce_channel(others) -> bool:
+    """Could the counter-electrode channel be among the record's other unknown columns ((values, dtype) pairs)? That
+    takes CE_COMPANIONS of them, three of which, stored as f4 and not constant, fit |Zce| = sqrt(Re(Zce)^2 + Im(Zce)^2)
+    (_fits_magnitude; |Zce| has no negative values). THD, NSD and NSR do not, so a parser that lacks them, leaving
+    six or nine of them unknown at once, does not switch the rule off. A copy of a column next to a negligible one
+    passes too, and so do an unknown |Z|, Re(Z) and -Im(Z): Ece then stays possible, as in 0.1.7."""
+    if len(others) < CE_COMPANIONS:
+        return False
+    cols = []
+    for v, d in others:
+        x = np.asarray(v, dtype="f8")
+        fin = x[np.isfinite(x)]
+        if d == "<f4" and fin.size and np.ptp(fin) > 0:
+            cols.append(x)
+    for i, a in enumerate(cols):
+        fin = a[np.isfinite(a)]
+        if fin.min() < 0:
+            continue  # negative values: not a magnitude
+        nonzero = np.abs(fin[fin != 0])
+        tol = 1e-6 * float(np.median(nonzero))  # a robust scale: one misread huge value must not widen the match
+        rows = np.flatnonzero(np.isfinite(a))
+        sample = rows[np.linspace(0, rows.size - 1, min(rows.size, 256)).astype(int)]
+        parts = [x for j, x in enumerate(cols) if j != i and not np.array_equal(x, a, equal_nan=True)]
+        for j in range(len(parts)):
+            for k in range(j + 1, len(parts)):
+                if rows.size > 1024 and not _could_fit_sample(a, parts[j], parts[k], tol, sample):
+                    continue  # a cheap first look at 256 rows; a full fit fails it only if its misfits cluster there
+                if _fits_magnitude(a, parts[j], parts[k], tol):
+                    return True
+    return False
+
+
+def _could_fit_sample(a, b, c, tol, sample) -> bool:
+    """False only when the sample alone rules the fit out: at least 20 usable rows there, and under 90 % of them fit."""
+    with np.errstate(all="ignore"):
+        h = np.hypot(b[sample], c[sample])
+    m = np.isfinite(a[sample]) & np.isfinite(h) & (h > 0)
+    if int(m.sum()) < 20:
+        return True
+    return float(np.mean(np.isclose(a[sample][m], h[m], rtol=1e-3, atol=tol))) >= 0.9
+
+
+def impedance_record(ctx) -> bool:
+    """The record holds an impedance sweep: a frequency column, or an impedance quantity (the frequency itself may be
+    one of the unknown columns). In public files Re(Z) and -Im(Z) occur only in impedance records; three of them
+    store no frequency column."""
+    return any(ctx.col(n) is not None for n in IMPEDANCE)
+
+
 def ece_ruled_out(ctx) -> bool:
     """Ece is not the column when the file's measured current is missing (the column is then most likely that
-    current, also where a known charge or power column leaves I to its relations), nor in an impedance record
-    without a counter-electrode impedance quantity (all 25 public impedance records with Ece have one). Both need
-    the target to be the only missing column."""
-    return current_missing(ctx) or (ctx.alone and ctx.col("freq") is not None and not has_ce_channel(set(ctx.known)))
+    current, also where a known charge or power column leaves I to its relations; this needs the target to be the
+    only missing column), nor in an impedance record without a counter-electrode impedance quantity. Ece comes with
+    those quantities there (CE_COMPANIONS), so with none of them known it is ruled out unless the record's other
+    unknown columns could hold them (could_hold_ce_channel). Otherwise the column is more likely THD, NSD or NSR, a
+    harmonic, a current or another impedance quantity, which all look like a smooth potential. If the other unknown
+    columns are not given (ctx.others None), only a lone column is ruled out."""
+    if current_missing(ctx):
+        return True
+    if not impedance_record(ctx) or has_ce_channel(set(ctx.known)):
+        return False
+    if ctx.alone:
+        return True
+    return ctx.others is not None and not could_hold_ce_channel(ctx.others)
 
 
 def second_potential(ctx) -> float:
@@ -451,6 +540,8 @@ def piecewise_constant(ctx) -> float:
 def phase_shape(ctx) -> float:
     if ctx.target_dtype != "<f4" or ctx.col("|Z|") is None or ctx.col("freq") is None:
         return 0.0
+    if ctx.col("Re(Z)") is not None and ctx.col("-Im(Z)") is not None:
+        return 0.0  # the exact relation atan2(Im, Re) decides; THD, NSD and NSR (in %) also pass the shape below
     y = np.asarray(ctx.target, dtype="f8")
     f = ctx.col("freq")
     sweep = np.isfinite(f) & (f > 0) & np.isfinite(y)

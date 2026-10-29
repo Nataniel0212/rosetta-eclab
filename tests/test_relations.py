@@ -327,3 +327,155 @@ def test_siblings_that_disagree_by_more_than_a_hundredfold_set_no_scale():
     assert g is not None and g[:2] == (0, "|Ece h7|"), g
     known[3].values = (on * 2.6 * (1 + 0.1 * np.sin(n))).astype("<f4")  # |Ece h2| now holds another column's values
     assert gap_column(known, [h7, other], vocab.names()) is None
+
+
+def _peis(n=61):
+    """freq, Re(Z), -Im(Z), |Z|, time and Ewe of a PEIS record (an RC element) without a counter-electrode channel."""
+    f = np.logspace(5, -1, n)
+    w = 2 * np.pi * f
+    re, im = 20 + 100 / (1 + (w * 1e-3) ** 2), 100 * w * 1e-3 / (1 + (w * 1e-3) ** 2)
+    return re, im, [col(0, "freq", "Hz", "<f4", f), col(1, "Re(Z)", "Ohm", "<f4", re), col(2, "-Im(Z)", "Ohm", "<f4", im),
+                    col(3, "|Z|", "Ohm", "<f4", np.hypot(re, im)), col(4, "time", "s", "<f8", np.cumsum(1 / f + 1)),
+                    col(5, "Ewe", "V", "<f4", 0.31 + 0.001 * np.linspace(0, 1, n))]
+
+
+def test_ece_needs_a_counter_electrode_channel_in_impedance_records_also_with_several_unknown_columns():
+    """THD, NSD and NSR (in %), harmonics and currents look like a smooth potential next to a known Ewe. In impedance
+    records Ece comes with the counter-electrode impedance quantities (every public impedance record with Ece holds
+    |Ece|, |Zce|, Re(Zce), -Im(Zce) and Phase(Zce)), so with none of them known Ece is ruled out unless the other
+    unknown columns could hold them: five or more, three of which fit |Zce| = sqrt(Re(Zce)^2 + Im(Zce)^2) where the
+    parts are not both zero. A whole family of six THD, NSD and NSR columns does not, nor do harmonics that are zero
+    in nearly every row, nor a column with one huge misread value. An unknown frequency does not hide the sweep: |Z|,
+    Phase(Z), Re(Z) and -Im(Z) mark an impedance record too."""
+    from namer import cli
+    from namer.engine import Context, Known
+    from namer.library import ece_ruled_out
+
+    re_, im, peis = _peis()
+    n = np.arange(61)
+    pct = [(((k + 1) * 0.4 + 0.3 * np.sin(n / (6 + k))).astype("<f4"), "<f4") for k in range(6)]  # %, smooth
+    nsd = pct[0][0]
+    res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0,
+                                           peis + [_unknown(6, 300, "<f4", nsd), _unknown(7, 303, "<u2", n % 5)], []))
+    assert not any(r["name"] == "Ece" for r in res), res
+    six = peis + [_unknown(6 + k, 300 + k, "<f4", v) for k, (v, _) in enumerate(pct)]
+    res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0, six, []))
+    assert not any(r["name"] == "Ece" for r in res), res
+    known = {c.name: Known(c.name, c.unit, c.values, c.dtype) for c in peis}
+
+    def ctx(kn, others):
+        return Context("PEIS", kn, nsd, "<f4", alone=False, others=others)
+
+    zce = (0.1 * np.hypot(re_, im)).astype("<f4")
+    channel = ((zce, "<f4"), ((0.1 * re_).astype("<f4"), "<f4"), ((0.1 * im).astype("<f4"), "<f4"))
+    assert ece_ruled_out(ctx(known, tuple(pct[1:])))  # five others, no counter-electrode impedance among them
+    assert not ece_ruled_out(ctx(known, channel + tuple(pct[1:3])))  # five others, three of them fit |Zce|
+    assert ece_ruled_out(ctx(known, channel))  # too few for the whole channel
+    assert ece_ruled_out(ctx(known, channel + tuple(pct[1:2])))  # four others: still too few for the five
+    assert not ece_ruled_out(ctx(known, None))  # the other unknown columns not given: only a lone column
+    no_freq = {k: v for k, v in known.items() if k != "freq"}
+    assert ece_ruled_out(ctx(no_freq, tuple(pct[1:3])))
+    re_im = {k: v for k, v in known.items() if k in ("Re(Z)", "-Im(Z)", "time", "Ewe")}
+    assert ece_ruled_out(ctx(re_im, tuple(pct[1:3])))  # Re(Z) and -Im(Z) also mark an impedance record
+    z_phase = {"|Z|": known["|Z|"], "Phase(Z)": Known("Phase(Z)", "deg", np.degrees(np.arctan2(-im, re_)), "<f4"),
+               "time": known["time"], "Ewe": known["Ewe"]}
+    assert ece_ruled_out(ctx(z_phase, tuple(pct[1:3])))  # and so do |Z| and Phase(Z) alone
+    ce = [col(6, "|Zce|", "Ohm", "<f4", zce), col(7, "Re(Zce)", "Ohm", "<f4", 0.1 * re_)]
+    ece = (-0.21 + 0.004 * np.linspace(0, 1, 61) ** 2).astype("<f4")  # V, slow drift
+    res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0,
+                                           peis + ce + [_unknown(8, 299, "<f4", ece), _unknown(9, 303, "<u2", n % 5)], []))
+    assert res[0]["verdict"] == "NAME" and res[0]["name"] == "Ece", res[0]  # the channel is known: Ece is named
+
+
+def test_the_channel_check_needs_a_real_magnitude_triple():
+    """Among unknown columns the counter-electrode channel shows itself as three f4 columns with |Zce| =
+    sqrt(Re(Zce)^2 + Im(Zce)^2). Rows where all three are zero do not count (in one public file the harmonics are zero
+    in 99 % of the rows), and one misread huge value must not widen the match."""
+    from namer.library import could_hold_ce_channel
+
+    n = 300
+    k = np.arange(n)
+    pct = [(((j + 1) * 0.4 + 0.3 * np.sin(k / (6 + j))).astype("<f4"), "<f4") for j in range(5)]
+    re_, im = 20 + 5 * np.cos(k / 30), 3 + np.sin(k / 30)
+    channel = [(np.hypot(re_, im).astype("<f4"), "<f4"), (re_.astype("<f4"), "<f4"), (im.astype("<f4"), "<f4")]
+    assert could_hold_ce_channel(channel + pct[:2])
+    assert not could_hold_ce_channel(pct)
+    mostly_zero = []
+    for h in range(3):
+        x = np.zeros(n)
+        x[[10, 200]] = [1e-4 * (h + 1), 3e-4 / (h + 1)]
+        mostly_zero.append((x.astype("<f4"), "<f4"))
+    assert not could_hold_ce_channel(mostly_zero + pct[:2])
+    huge = pct[0][0].copy()
+    huge[7] = 3e30
+    assert not could_hold_ce_channel([(huge, "<f4")] + pct[1:])
+
+
+def test_the_phase_shape_gives_way_to_the_exact_relation():
+    """A phase angle swings within ±90 degrees over a sweep, and so do NSD and NSR (in %). With Re(Z) and -Im(Z)
+    known the relation atan2(Im, Re) decides, so the shape names nothing: an unknown NSR column is not Phase(Z),
+    while the real phase still is."""
+    from namer import cli
+
+    re_, im, peis = _peis()
+    peis = [c for c in peis if c.name != "Ewe"]  # no potential, so that only the phase shape could name the NSR
+    phase = np.degrees(np.arctan2(-im, re_)).astype("<f4")
+    nsr = (20 + 15 * np.sin(np.arange(61) / 6)).astype("<f4")  # %
+    res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0,
+                                           peis + [_unknown(5, 300, "<f4", nsr), _unknown(6, 299, "<f4", phase)], []))
+    by_id = {r["column_id"]: r for r in res}
+    assert by_id[300]["name"] != "Phase(Z)", by_id[300]
+    assert by_id[299]["name"] == "Phase(Z)" and by_id[299]["evidence"].startswith("relation"), by_id[299]
+    # With only one part known, atan2 cannot be tested, so the shape still names the real phase.
+    one_part = [c for c in peis if c.name != "-Im(Z)"]
+    res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "PEIS", 61, 0,
+                                           one_part + [_unknown(5, 299, "<f4", phase), _unknown(6, 298, "<f4", im)], []))
+    by_id = {r["column_id"]: r for r in res}
+    assert by_id[299]["name"] == "Phase(Z)" and by_id[299]["evidence"].startswith("shape"), by_id[299]
+
+
+def test_self_check_passes_the_files_unknown_columns_to_the_ece_check():
+    """--self-check hides one known column at a time while the file's unknown columns stay missing. In an impedance
+    record without a counter-electrode channel and with one unknown column, a hidden smooth NSD column next to a known
+    Ewe must not come back as Ece (0.1.7 named it so)."""
+    from namer import cli
+
+    _, _, peis = _peis()
+    n = np.arange(61)
+    nsd = col(6, "NSD Ewe", "%", "<f4", 0.8 + 0.3 * np.sin(n / 8))
+    record = mprfile.MprData("synthetic.mpr", "PEIS", 61, 0, peis + [nsd, _unknown(7, 303, "<u2", n % 5)], [])
+    row = next(r for r in cli.self_check(record)["rows"] if r["column"] == "NSD Ewe")
+    assert row["answer"] != "Ece", row
+
+
+def test_a_column_held_between_sweeps_is_not_a_potential():
+    """In records with rows outside the impedance sweep, EC-Lab keeps THD, NSD and NSR at their last value there,
+    while a measured potential moves. Such a column is not named Ece or Ewe; the potentials still are."""
+    from namer import cli
+
+    n = 120
+    dc = np.arange(n) % 40 < 20  # 20 DC rows, then 20 sweep rows, three times
+    f = np.where(dc, 0.0, np.tile(np.logspace(5, 0, 20), 6)[:n])
+    t = np.cumsum(np.where(dc, 10.0, 1 / np.maximum(f, 1e-9) + 1))
+    sweep_values = 0.3 + 0.1 * np.sin(np.arange(n) / 3)
+    nsd = np.empty(n)
+    for i in range(n):  # held at the last sweep value through each DC block
+        nsd[i] = sweep_values[i] if not dc[i] else (nsd[i - 1] if i else 0.25)
+    ewe = 3.4 + 0.02 * np.sin(t / 50) + 0.001 * np.cos(np.arange(n))
+    ece = -0.1 + 0.01 * np.sin(t / 70)
+    zre = np.where(dc, 0.0, 20 + 5 * np.cos(np.arange(n) / 4))
+    zim = np.where(dc, 0.0, 3 + np.sin(np.arange(n) / 4))
+    base = [col(0, "freq", "Hz", "<f4", f), col(1, "time", "s", "<f8", t), col(2, "Re(Z)", "Ohm", "<f4", zre),
+            col(3, "-Im(Z)", "Ohm", "<f4", zim), col(4, "|Z|", "Ohm", "<f4", np.hypot(zre, zim)),
+            col(5, "|Zce|", "Ohm", "<f4", 0.1 * np.hypot(zre, zim))]  # a counter-electrode channel: Ece is possible
+    held = _unknown(10, 300, "<f4", nsd)
+    res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "MB", n, 0,
+                                           base + [col(6, "Ewe", "V", "<f4", ewe), held, _unknown(11, 299, "<f4", ece)], []))
+    by_id = {r["column_id"]: r for r in res}
+    assert by_id[300]["name"] not in ("Ece", "Ewe"), by_id[300]
+    assert by_id[299]["name"] == "Ece", by_id[299]
+    res = cli.name_unknown(mprfile.MprData("synthetic.mpr", "MB", n, 0,
+                                           base + [held, _unknown(11, 299, "<f4", ewe)], []))
+    by_id = {r["column_id"]: r for r in res}
+    assert by_id[300]["name"] not in ("Ece", "Ewe"), by_id[300]
+    assert by_id[299]["name"] == "Ewe", by_id[299]

@@ -152,9 +152,11 @@ def stats() -> Stats:
 
 def answer(target, dtype, known_cols: list, technique, vocabulary: list[str], abstain_below: float = 0.6,
            exclude_group: str | None = None, noise_autocorr: float = 0.3, fallback_min_share: float = 0.5,
-           alone: bool = True, file_gaps: set[str] | None = None, gap: tuple[str, str] | None = None) -> dict:
+           alone: bool = True, file_gaps: set[str] | None = None, gap: tuple[str, str] | None = None,
+           others: list | None = None) -> dict:
     """Name one column from the file's known columns. `alone` is False when other columns of the record are missing
-    from known_cols too (several unknown columns, or --self-check on a file with unknown columns). In --self-check,
+    from known_cols too (several unknown columns, or --self-check on a file with unknown columns), and `others` then
+    lists them (None if not given; Ece in impedance records uses them, library.ece_ruled_out). In --self-check,
     `file_gaps` holds the sibling gaps of the whole file (elim.gaps, empty if none): no hidden known column can fill
     one, and any other gap is the hidden column's own slot, so name elimination still runs there. With several
     unknown columns the file-level check gap_column decides which one fills the sibling gap, and `gap` = (name,
@@ -176,7 +178,8 @@ def answer(target, dtype, known_cols: list, technique, vocabulary: list[str], ab
     known = {}
     for c in known_cols:
         known.setdefault(vocab.canonical(c.name), Known(vocab.canonical(c.name), c.unit, np.asarray(c.values), c.dtype))
-    ctx = Context(technique, known, np.asarray(target), dtype, alone)
+    ctx = Context(technique, known, np.asarray(target), dtype, alone,
+                  None if others is None else tuple((np.asarray(c.values), c.dtype) for c in others))
     pr = stats().prior(technique, exclude_group)
     gl = stats().prior(None, exclude_group, all_techniques=True)
     top, gtop = (max(pr.values()) if pr else 0), (max(gl.values()) if gl else 0)
@@ -233,11 +236,11 @@ def pool(verbose: int) -> None:
         for c in cols:
             if (p.name, c.position) in excluded or features.is_constant(c.values):
                 continue
-            others = [o for o in cols if o is not c]
-            if any(features.identical(c.values, o.values) for o in others):
+            rest = [o for o in cols if o is not c]
+            if any(features.identical(c.values, o.values) for o in rest):
                 continue
             truth = vocab.canonical(c.name)
-            a = answer(c.values, c.dtype, others, fd.technique, V, exclude_group=corpus.source_group(p.name))
+            a = answer(c.values, c.dtype, rest, fd.technique, V, exclude_group=corpus.source_group(p.name))
             ok = a["verdict"] == "NAME" and a["name"] == truth
             by_name[truth].append(ok)
             if not ok:
@@ -278,11 +281,11 @@ def sweep(split: str, label: str = "sweep") -> None:
         for c in cols:
             if features.is_constant(c.values):
                 continue
-            others = [o for o in cols if o is not c]
-            if any(features.identical(c.values, o.values) for o in others):
+            rest = [o for o in cols if o is not c]
+            if any(features.identical(c.values, o.values) for o in rest):
                 continue
             truth = vocab.canonical(c.name)
-            a = answer(c.values, c.dtype, others, fd.technique, V, exclude_group=corpus.source_group(p.name))
+            a = answer(c.values, c.dtype, rest, fd.technique, V, exclude_group=corpus.source_group(p.name))
             kind = "correct" if a["verdict"] == "NAME" and a["name"] == truth else (
                 "wrong" if a["verdict"] == "NAME" else "abstained")
             by_name[truth][kind] += 1
